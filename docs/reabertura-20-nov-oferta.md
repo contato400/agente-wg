@@ -67,10 +67,10 @@ Vertical, 3 a 5 minutos, camisa Caveira, olhando para a câmera.
 (Se o Wesley preferir outro tema, vale o que ele domina melhor. Tem que ser prático e mostrado, não só falado.)
 
 3. **Virada (2:00 a 2:30)**
-"O que eu te mostrei agora é uma parte de uma aula. Dentro do Método Caveira são 23 treinamentos, quase 2 mil aulas, do zero até defesa contra faca, luta no chão e primeiros socorros. E foi por causa dessas mensagens todas que eu resolvi abrir mais uma vez."
+"Agora me responde: e se a pessoa não quiser só o celular e partir pra cima de você? Isso aqui eu não consigo te ensinar em 2 minutos. Dentro do Método Caveira são 23 treinamentos, quase 2 mil aulas, do zero até defesa contra faca, luta no chão e primeiros socorros. E foi por causa dessas mensagens todas que eu resolvi abrir mais uma vez."
 
-4. **Oferta (2:30 a 3:30)**
-"Hoje eu reabri a Black, na mesma condição: os 23 treinamentos com 1 ano de acesso, certificado em cada curso e 7 dias de garantia. Se não gostar, devolve. Pensa quanto custa por mês uma academia de luta perto da sua casa e compara com a parcela que está na página. E se você já é meu aluno na Academia, tem preço de aluno."
+4. **Pitch (2:30 a 3:30)** · pedido do Victor: o vídeo faz o papel da live, então o pitch é completo
+"Então presta atenção, porque isso é pra você que ainda não aproveitou. Essa é a sua última oportunidade de ter todos os meus treinamentos, com 1 ano de acesso e certificado em cada curso, por um valor que, dividindo tudo, não dá uma pizza por mês. Pensa: quanto você paga numa academia de luta perto da sua casa? E aqui você treina na sua sala, no seu horário, quantas vezes quiser. E o risco é meu: você tem 7 dias de garantia. Se não gostar, devolve e pronto. Se você já é meu aluno na Academia, tem preço de aluno."
 
 5. **Prêmios (3:30 a 4:10)**
 "E eu separei um presente. Os 3 primeiros ganham a camisa Caveira. Os 20 primeiros entram num encontro ao vivo comigo, pra tirar as dúvidas. E todo mundo que garantir até a meia-noite de hoje leva os meus 6 livros digitais."
@@ -78,7 +78,8 @@ Vertical, 3 a 5 minutos, camisa Caveira, olhando para a câmera.
 6. **Chamada (4:10 a 4:30)**
 "O link está aqui embaixo. Entra, garante seu acesso e começa hoje mesmo, no seu ritmo. Tamo junto, Caveira!"
 
-**Não falar no vídeo:** valor em reais (a página mostra), quando a oferta fecha, "última chance" (fica para os textos da régua, que já usam).
+**Não falar no vídeo:** valor em reais (a página mostra) nem quando a oferta fecha. "Última oportunidade" pode, porque é a mesma narrativa da régua.
+**Sobre a pizza:** a parcela de 12x R$ 40,82 fica perto do preço de uma pizza, por isso a comparação é honesta. Se o Wesley preferir, pode trocar por "menos do que um lanche por semana".
 
 ## 3. E-mail aos alunos da Academia · quinta 19/11
 Mesmo jeito dos disparos de 12/11 e 14/11 (modelo "Boas-vindas de compra", remetente "Mestre Wesley", sem quem já tem a Black, volta ao texto padrão no fim).
