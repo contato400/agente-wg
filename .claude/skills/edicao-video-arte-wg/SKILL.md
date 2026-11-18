@@ -12,6 +12,15 @@ Fontes: kit do grupo (Guias 01, 03 e 04, nov/2026) e o padrão usado nos vídeos
 |---|---|---|
 | Reels, Stories, criativos verticais | 1080x1920 (9:16) | 1080x1350 centralizada: Y de 285 a 1635; X de 110 a 970 (860 px úteis); centro em X 540, Y 960 |
 | Carrossel e post de feed | 1080x1350 (4:5) | ~110 px de margem em volta |
+### Medidas oficiais do Reels (referência do Victor, 18/11 · `docs/referencias/reels-safe-zone-9x16.jpg`)
+- Tamanho 1080x1920, até 3 minutos.
+- **Topo:** 220 px livres (nome do perfil, áudio, botão de voltar).
+- **Base:** 450 px livres (foto do perfil, nome, legenda do post, música). Nada importante abaixo de **Y 1470**.
+- **Laterais:** 35 px de margem.
+- **Coluna dos botões** (curtir, comentar, enviar): faixa de 100 px na direita, além da margem, da altura de Y ~1150 até a base. Nessa altura, nada importante depois de **X 945**.
+- **Regra prática do WG daqui em diante (soma a nossa margem com a do Instagram):** texto, rosto, número e botão entre **Y 285 e 1470** e entre **X 110 e 945**. Pedido de ação (ex.: "Comente CAVEIRA") fica acima de Y 1400.
+- As peças já prontas (Partes 1 a 5 da série) ficam como estão; a regra vale para as próximas.
+
 - Texto, números, logo, rosto, botão e legenda ficam **dentro** da área segura. Fundo e textura podem ocupar o quadro todo.
 - Mesmo posicionamento em todas as cenas (nada "pula").
 - Não coube? Reduz a escala ou reorganiza; nunca passa da margem.

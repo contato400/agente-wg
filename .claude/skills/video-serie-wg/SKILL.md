@@ -37,7 +37,7 @@ Cada trecho tem `fala` (o que o narrador diz) e o que acontece na tela quando el
 Mais `capa: {selo, titulo, faixa, quadro}` para a capa. Limites atuais: um `voz_porta` por vídeo (o último vence); até 3 bolhas por ligação; conferir tempos específicos com `--quadros --em=t1,t2`.
 
 ## 3. Produza e confira (nada vai ao Victor sem isso)
-1. `python3 gerar_serie.py parte.json --quadros` e **olhe a folha de conferência** (Read): legenda inteira, nada fora da área segura, nada sobreposto, português certo. Corrija o JSON e repita.
+1. `python3 gerar_serie.py parte.json --quadros` e **olhe a folha de conferência** (Read): legenda inteira, nada fora da área segura (Y 285 a 1470, X 110 a 945, medidas do Reels em `edicao-video-arte-wg`), nada sobreposto, português certo. Corrija o JSON e repita.
 2. `python3 gerar_serie.py parte.json --capa` e olhe a capa (título de 2 a 4 palavras enormes, faixa amarela com o tema).
 3. `python3 gerar_serie.py parte.json` para o MP4. Confira duração (25 a 40 s) e volume (`ffmpeg -af volumedetect`, pico perto de -1 dB).
 4. Entregue: MP4, capa, legenda pronta (sem travessão, com "Comente CAVEIRA para ver a parte X"), horário sugerido.
