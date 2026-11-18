@@ -57,3 +57,4 @@ CAVEIRA, MULHER, SEGURA, PROTEGER e KIDS. Notícia com criança puxa para Kids c
 - 2026-11-18 · Victor reprovou o 1º vídeo de teste (só placas, sem som de verdade, CTA "Comente SEGURA" sem sentido). Entrou o nível de entrega, a regra do autoexplicativo e o formato história em partes.
 - 2026-11-18 · Ficha reescrita para autonomia (mede, fontes, sinal de alerta, backlog) e regras dos livros da Mestres Play (`docs/livros-mestres/`). Correção futura: mudar só as linhas da causa e anotar aqui com data e motivo.
 - 18/11 19h40: Victor mandou as medidas oficiais do Reels (topo 220 px, base 450 px, laterais 35 px, coluna de botões 100 px). Regra nova nas próximas peças: conteúdo entre Y 285 e 1470 e X 110 e 945 (skill edicao-video-arte-wg). As peças prontas não mudam.
+- 18/11 19h55: Instagram passa a ser lido pelo Metricool (plano grátis, conta do Wesley). Windsor fica só com a Meta Ads. Mapa em `docs/mapa-de-fontes.md`.

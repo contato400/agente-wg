@@ -22,12 +22,13 @@ Pedido do Victor (18/11): o agente de social é **responsável** pelo Instagram 
 ## 2. Radar diário (todo dia, antes das 8h)
 Faça as três buscas e guarde as fontes:
 1. **Notícias das últimas 24 h** (WebSearch, mais de uma busca): golpes novos, assaltos, casos de rua, transporte, violência contra a mulher, bullying, acidentes com lição de prevenção. Fonte original com data absoluta. Nada de nome ou imagem de vítima.
-2. **Formatos em alta** no Instagram e no TikTok: Centro Criativo do TikTok (tendências e músicas), matérias recentes sobre tendências de Reels, e os perfis de referência do nicho (segurança, defesa pessoal, polícia, golpes) pelo conector `instagram_public` do Windsor quando estiver ligado. Anote o **formato**, não a fala: série com "parte 2", história narrada, POV, "não ignore", mito ou verdade, reação a notícia, tela dividida erro e acerto, câmera de segurança recriada, carrossel de "X sinais de...", 3D ou cinematográfico.
+2. **Formatos em alta** no Instagram e no TikTok: Centro Criativo do TikTok (tendências e músicas), matérias recentes sobre tendências de Reels, e os perfis de referência do nicho (segurança, defesa pessoal, polícia, golpes) pelo conector `competitors` do Metricool (veja `docs/mapa-de-fontes.md`). Anote o **formato**, não a fala: série com "parte 2", história narrada, POV, "não ignore", mito ou verdade, reação a notícia, tela dividida erro e acerto, câmera de segurança recriada, carrossel de "X sinais de...", 3D ou cinematográfico.
 3. **Os posts do próprio Wesley** (seção 3).
 Sem fonte, não entra. Tendência que não se aplica ao público do Wesley não entra.
 
 ## 3. Leitura dos posts do Wesley (ele posta 4 a 5 vídeos por dia)
-- Fonte: conector `instagram` do Windsor (alcance, plays, curtidas, comentários, salvamentos, envios, seguidores ganhos por post). Enquanto não estiver ligado, diga isso em uma linha e use o que tiver.
+- Fonte: **Metricool** (decisão do Victor, 18/11), `getAnalyticsDataByMetrics` na rede `instagram`, conector `reels` (views, alcance, curtidas, comentários, salvos, envios, retenção, tempo médio, taxa de pulo nos 3 s) e `evolution` (seguidores). O Windsor fica só com os anúncios; não ligue o Instagram nele. Enquanto o Metricool não tiver o Instagram conectado, diga isso em uma linha e use o que tiver.
+- **Retenção e pulo nos 3 s** dizem se o gancho funcionou: pulo alto = trocar o gancho; retenção baixa no meio = cortar o meio.
 - Para cada post das últimas 72 h, compare com a **mediana dos últimos 30 dias do mesmo formato**: alcance, envios por alcance, salvamentos por alcance, comentários. **Acima de 2x a mediana = vencedor**; abaixo de 0,5x = perdedor.
 - Para cada vencedor, decida e diga por quê: (a) **pedir ao Wesley para regravar ou fazer a continuação** (com roteiro pronto), (b) **transformar em história narrada ou carrossel** pelo motor, (c) **turbinar** (proposta para o tráfego, só depois da Black). Vídeos que trouxeram muito seguidor no passado entram numa lista de "clássicos" para repostar ou refazer a cada 2 ou 3 meses.
 - Reels de teste: o Instagram mostra os números no app; se a API não trouxer, peça ao Victor um print em 72 h e registre.

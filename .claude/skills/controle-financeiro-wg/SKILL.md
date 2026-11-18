@@ -7,6 +7,8 @@ description: Mantém o Painel Financeiro WG (planilha do agente financeiro) em d
 
 Pedido do Victor (18/11): o financeiro no mesmo nível do social. Ele mantém a planilha sozinho, mede tudo e chega de manhã com o número e a consequência. Só lê e calcula; dinheiro nunca é movido por agente.
 
+Mapa completo de fontes: `docs/mapa-de-fontes.md`.
+
 ## 1. A planilha
 - **Painel Financeiro WG (agente financeiro)** · id `1U9r-qlRlk7Ge1ZhZv131WWLWlfIk-K8r6za8i3K5Z1k` (drive compartilhado Digital Wisdom). Acesso pelo conector Google Sheets da rotina.
 - Abas:
