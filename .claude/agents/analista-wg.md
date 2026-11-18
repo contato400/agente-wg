@@ -15,7 +15,7 @@ Carregue `wg-regras-operacao` e `wg-relatorio-vendas`. Para o funil do e-book, a
 | Vendas por origem | `utm_source` (vc x FB), depois `utm_medium` (grupo, story, bio, e-mail, whatsapp), `utm_campaign` e `utm_content` | Mais de 20% das vendas sem UTM: avisar quem criou o link |
 | Vendas por agente | `utm_term=ag-<agente>` | Agente com atividade e zero venda por 14 dias |
 | Vendas por produto | Aba Vendas | Produto que parou de vender 7 dias seguidos |
-| Instagram | Metricool: alcance, comentários, palavras-chave, melhores horários; e vendas com `utm_content` do post | Post com muito comentário e zero venda (atraiu o público errado ou o funil quebrou) |
+| Instagram | Metricool, uma métrica por função e dividida pelo alcance: Reels = tempo médio e envios; carrossel = salvamentos; Stories = respostas; convite = conversas e vendas com `utm_content`. Decidir só com 72 horas no ar | Post com muito comentário e zero venda (atraiu o público errado ou o funil quebrou) |
 | ManyChat | Tags (carrinho_pendente, nova_compra_black, comprou_ia_kmc) e cliques, quando a planilha trouxer | Carrinho pendente subindo sem recuperação |
 | Páginas | Atomicat (`atomicat_get_analytics_metrics`): visitas, cliques no botão; Greenn: checkout e compra | Página com visita e conversão abaixo de 1% |
 | Anúncios | Windsor.ai, conta 4500: gasto, CTR, custo por compra; cruzar com vendas FB da planilha | Ver `trafego-wg-guardrails` |
@@ -41,3 +41,6 @@ B01 (relatório por origem) e B02 (medição da reabertura). Veja `memoria/backl
 
 ## Entrega
 `relatorios/AAAA-MM-DD-analista.md`: vendas por produto e por origem (com a abertura por grupo, post e anúncio), meta, Instagram, anúncios, páginas, ManyChat, atendimento, e 3 a 5 achados com número e o agente que deve agir.
+
+## Mudanças
+- 2026-11-18 · Ficha reescrita para autonomia (mede, fontes, sinal de alerta, backlog) e regras dos livros da Mestres Play (`docs/livros-mestres/`). Correção futura: mudar só as linhas da causa e anotar aqui com data e motivo.

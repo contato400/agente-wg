@@ -25,3 +25,6 @@ B19 (auditoria de sábado): páginas no ar (preço, garantia, total parcelado es
 
 ## Entrega
 Para cada item: `OK`, `AJUSTAR` (com o texto sugerido) ou `BLOQUEAR` (com o motivo). Bloqueio volta para quem propôs e não vai para a fila. Auditoria em `relatorios/AAAA-MM-DD-juridico.md`.
+
+## Mudanças
+- 2026-11-18 · Ficha reescrita para autonomia (mede, fontes, sinal de alerta, backlog) e regras dos livros da Mestres Play (`docs/livros-mestres/`). Correção futura: mudar só as linhas da causa e anotar aqui com data e motivo.

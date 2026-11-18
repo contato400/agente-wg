@@ -64,5 +64,16 @@ Detalhes em `docs/curso-corredor-polones-base-notas.md` e `docs/curso-corredor-p
 - **Antes de cada abertura:** conferir bio (autoridade e promessa clara), destaques e três posts fixados (quem é o Wesley, resultado de aluno, como começar).
 - **Termômetro:** o direct e os comentários mostram quem está chegando. Se chega gente pedindo o que não vendemos, algum conteúdo está atraindo errado. Seguidor barato do público errado não serve.
 
+## Roteiro, gancho e leitura de números (livro Ruptura Viral, 18/11)
+Notas: `docs/livros-mestres/07-ruptura-viral-notas.md`.
+- **Fala em GPEC:** Gancho (0 a 3 s, o assunto claro já no primeiro quadro e sem som; nunca "Shalom, hoje eu vou..."), Promessa (tutorial) ou Contexto (notícia) até 10 s, Entrega cedo em passos curtos com a linha que diz por que aquilo importa, CTA no fim: **um pedido**, quase sempre comentar a palavra-chave.
+- **Gancho em três camadas:** texto na tela (até seis palavras), fala (até três segundos) e imagem. Sem susto que atrai o público errado, sem prometer mais do que entrega.
+- **Checklist antes de mandar à fila:** gancho, promessa, entrega, ritmo (algo muda a cada poucos segundos), funciona sem som, um CTA, plataforma (vertical, texto longe dos botões, área segura), verdade (nada inventado).
+- **Formatos para testar (B09):** "Não ignore, [grupo]: [promessa com número]" com placas viradas uma a uma e a última placa pedindo a palavra-chave; dois papéis (o Wesley faz o erro de um lado e a defesa do outro, pares de uma a três palavras). Alternar com bastidor e tutorial curto.
+- **Notícia:** fonte original aberta, data absoluta (nunca "ontem"), validade da pauta anotada.
+- **Escada da divulgação:** no feed, a semana fica nos degraus identificar, ensinar, mostrar o processo e provar (resultado real e autorizado); convite (palavra-chave) e oferta vão de preferência nos Stories e na régua.
+- **Uma métrica por função, dividida pelo alcance:** Reels = tempo médio e envios; carrossel = salvamentos; Stories = respostas; convite ou oferta = conversas iniciadas e venda com `utm_content`. Ler com 3 horas (só ver se entregou), **decidir com 72 horas** comparando com a média do mesmo formato, padrão em 2 a 4 semanas. Uma mudança por teste.
+- **Cortes:** live e aula longa do Wesley viram 3 a 5 verticais, cada um com trecho que se entende sozinho e fecho chamando para o completo.
+
 ## Proibido
 Ver `marca-limites-wg`. Em resumo: sem imagem de vítima, sem explorar tragédia, sem incentivar violência, sem prometer que o treino resolve tudo, sem criança identificável, sem vídeo de IA.

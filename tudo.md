@@ -29,6 +29,7 @@ Cada ficha diz o que o agente mede, de onde lê, as skills, a rotina, o sinal qu
 - Atendimento 24h: `atendimento-whatsapp.md`, `atendente-whatsapp-status-18-nov.md` (bloqueio da Meta, passos de 19/11).
 - Reabertura de 20/11: `reabertura-20-nov-oferta.md` (oferta, ajustes na régua do Gui, roteiro do vídeo, e-mail, stories, arrastão).
 - Cursos estudados (notas próprias): `curso-black-debriefing-3-4mi-notas.md`, `curso-lancamento-pago-750k-notas.md`, `curso-lancamento-pago-ia-420k-notas.md`, `curso-masterclass-lancamento-pago-notas.md`, `curso-front-9-90-ecossistema-notas.md`, `curso-low-ticket-ia-notas.md`, `curso-corredor-polones-notas.md`, `curso-corredor-polones-vendas-notas.md`, `curso-corredor-polones-copy-notas.md`, `curso-corredor-polones-trafego-notas.md`, `curso-corredor-polones-base-notas.md`, `curso-trafego-pago-automatizado-18-nov.md`, `kit-ia-grupo-notas.md`.
+- Livros da Mestres Play (Tiago Lemos, 20 e-books): `livros-mestres/` com uma nota por livro e o que muda no WG (05 skills e squads, 06 agente de código, 07 Ruptura Viral, 09, 10, 12, 13, 17 a 20, e `demais-livros-notas.md` para 01, 02, 03, 04, 08, 11, 14, 15 e 16).
 - `cursos/corredor-polones-aulas.md`: lista das 118 aulas com códigos de vídeo.
 
 ## Outras pastas

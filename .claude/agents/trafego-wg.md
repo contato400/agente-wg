@@ -30,3 +30,6 @@ B18 (conteúdo para seguidores e venda depois da Black). Enquanto estiver PARADO
 - Nunca aumente orçamento por conta própria, nem com aprovação acima do teto.
 - Tema de crime, arma ou violência: revisão do `juridico-wg` antes.
 - Página de anúncio é a duplicada do tráfego, separada da orgânica.
+
+## Mudanças
+- 2026-11-18 · Ficha reescrita para autonomia (mede, fontes, sinal de alerta, backlog) e regras dos livros da Mestres Play (`docs/livros-mestres/`). Correção futura: mudar só as linhas da causa e anotar aqui com data e motivo.

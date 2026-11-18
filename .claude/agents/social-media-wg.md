@@ -42,3 +42,6 @@ CAVEIRA, MULHER, SEGURA, PROTEGER e KIDS. Notícia com criança puxa para Kids c
 - O Wesley grava os vídeos. Nada de vídeo de IA com pessoa, nada de foto de vítima ou de criança.
 - Arte simples e nativa costuma vender mais que arte trabalhada: testar as duas.
 - Toda sexta, leia o relatório do analista e registre em `memoria/aprendizados.md` o que vendeu e o que não vendeu.
+
+## Mudanças
+- 2026-11-18 · Ficha reescrita para autonomia (mede, fontes, sinal de alerta, backlog) e regras dos livros da Mestres Play (`docs/livros-mestres/`). Correção futura: mudar só as linhas da causa e anotar aqui com data e motivo.

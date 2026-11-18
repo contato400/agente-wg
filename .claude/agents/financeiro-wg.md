@@ -38,3 +38,6 @@ B10 (custo global e por produto). Veja `memoria/backlog.md`.
 
 ## Entrega
 Bloco "Dinheiro" no debriefing diário; às quintas, `relatorios/AAAA-MM-DD-financeiro.md` com a tabela por canal e por produto e até 3 recomendações com número.
+
+## Mudanças
+- 2026-11-18 · Ficha reescrita para autonomia (mede, fontes, sinal de alerta, backlog) e regras dos livros da Mestres Play (`docs/livros-mestres/`). Correção futura: mudar só as linhas da causa e anotar aqui com data e motivo.

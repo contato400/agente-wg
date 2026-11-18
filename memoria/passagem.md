@@ -12,6 +12,14 @@ Modelo:
 - Verificado? sim/não, como
 ```
 
+## 2026-11-18 17h40 · livros da Mestres Play (20 e-books)
+- Pedido: ler os 20 e-books da Biblioteca dos Mestres e aplicar nos agentes, automações e operação.
+- Feito: texto extraído dos 20 PDFs; notas em `docs/livros-mestres/` (índice + 12 notas); aplicado em CLAUDE.md, chefe, analista, todas as fichas (seção Mudanças), pauta, edição, atendimento e settings.json; backlog B21 a B28.
+- Profundidade: lidos por inteiro os trechos de método dos livros 05, 07, 18; os outros pela estrutura completa (objetivos, comandos, listas de conferência, erros comuns) e trechos-chave. Os PDFs ficam na conversa, não no repositório (licença pessoal).
+- Achado: `.claude/settings.json` bloqueia ferramentas com nomes que não batem com os conectores desta conta, então a trava de publicar não está valendo (B21).
+- Pendente: decisões do Victor (clone, contas no nome do Wesley, chaves fora do texto da tarefa).
+- Verificado? sim, arquivos commitados na main.
+
 ## 2026-11-18 17h · agentes autônomos
 - Pedido: deixar os agentes capazes de trabalhar sozinhos (medir, achar o que vende, propor estratégia), só pedindo aprovação; não pedir públicos ao Diogo.
 - Feito: fichas dos 8 agentes reescritas (mede, fontes, rotina, sinal de alerta, itens do backlog); `memoria/backlog.md` (B01 a B20) e `memoria/voz-do-cliente.md`; agente do dia em `rotinas/agenda.md`; ciclo de autonomia no `chefe-wg`; CLAUDE.md, README da memória, decisões e `tudo.md`. Rotina diária ganhou a rodada do agente do dia.

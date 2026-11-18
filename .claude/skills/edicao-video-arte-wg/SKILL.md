@@ -52,6 +52,19 @@ Detalhes em `docs/curso-corredor-polones-base-notas.md`.
 - **Luz:** principal de lado a 45 graus (janela serve), uma fraca do outro lado, uma por trás para soltar do fundo.
 - **Edição:** trechos na ordem, cortar só o que usa, zoom lento em cena de câmera parada, áudio da próxima cena entrando um instante antes da imagem, música bem baixa (2 a 5 de 100 no CapCut) e efeito sonoro perto de 10, só no momento forte. A voz do Wesley sempre acima de tudo.
 
+## Regras dos livros da Mestres Play (18/11)
+Notas: `docs/livros-mestres/` (10 Máquina de Edição, 13 Publicidade em Vídeo, 09 Direção de Vídeo, 08 Imagens Criativas).
+- **Original nunca é alterado.** Pastas: originais, assets, projeto, entregas.
+- **Amostra de 8 s aprovada pelo Victor** antes de editar o vídeo inteiro. V01 simples: vertical, rosto na área segura, sem erros nem pausas longas, legenda revisada; nada cortado que mude o sentido.
+- **Motion e arte não acrescentam promessa:** nenhum número, prazo ou resultado que o Wesley não falou.
+- **Texto nunca gerado dentro da imagem pela IA;** entra no editor, na área segura.
+- **Cara de IA:** trocar "bonito, profissional, cinematográfico" por decisões que se veem (luz, lente, cor, lugar); revisar a arte procurando pele de plástico, mãos e textos estranhos, simetria perfeita demais.
+- **Prompt de imagem ou vídeo afirmativo,** uma camada nova por geração, um movimento de câmera por plano; custo lido antes de gerar; uma linha por tentativa na planilha da pasta do projeto.
+- **Pessoa:** nunca Wesley, aluno ou "cliente" gerados por IA (decisão de 14/10). IA só para b-roll e animação sem rosto.
+- **Anúncio curto em cinco batidas** (gancho, problema ou desejo, virada com o produto, prova, chamada única) e roteiro em colunas: tempo, imagem, texto na tela, som.
+- **Variações:** base aprovada + uma mudança por versão. Nome: `wg_peça_formato_vN-variavel_AAAA-MM-DD`, nunca "final".
+- **Trilha só com licença comercial** (biblioteca do CapCut para uso comercial ou da Meta) ou sem trilha.
+
 ## Ferramentas (começar pelo que já temos)
 O Victor tem o **Google AI Pro** assinado (até 2027). Não há conector do Gemini aqui: o Claude usa pelo Chrome do Victor (gemini.google.com e Flow), com a conta dele já logada, e baixa o resultado para editar. Gerar com IA nunca substitui o Wesley real em vídeo de venda; serve para cena de apoio, fundo, capa e ilustração.
 

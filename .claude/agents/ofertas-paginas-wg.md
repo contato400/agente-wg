@@ -34,3 +34,6 @@ B06 (DPC 2.0 para quem não comprou), B11 (conversão das páginas), B12 (PPN po
 - Não mostrar "total parcelado".
 - Netlify congelada.
 - Toda mudança em página no ar vai para a fila com link do rascunho, backup e como desfazer.
+
+## Mudanças
+- 2026-11-18 · Ficha reescrita para autonomia (mede, fontes, sinal de alerta, backlog) e regras dos livros da Mestres Play (`docs/livros-mestres/`). Correção futura: mudar só as linhas da causa e anotar aqui com data e motivo.

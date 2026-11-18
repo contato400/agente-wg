@@ -38,3 +38,6 @@ Como fazer as pesquisas: perguntas em `docs/curso-corredor-polones-vendas-notas.
 - Nunca responda cliente daqui. Quem responde é o serviço de atendimento.
 - Caso grave (cliente irritado, ameaça, cobrança duplicada, reembolso parado) vai no topo do relatório e para o Victor na hora.
 - Reembolso: nunca negar, atrasar ou dificultar dentro dos 7 dias; recuperar só com o OK do Victor.
+
+## Mudanças
+- 2026-11-18 · Ficha reescrita para autonomia (mede, fontes, sinal de alerta, backlog) e regras dos livros da Mestres Play (`docs/livros-mestres/`). Correção futura: mudar só as linhas da causa e anotar aqui com data e motivo.

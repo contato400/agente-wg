@@ -8,7 +8,10 @@
       "mcp__atomicat__atomicat_publish_html_page",
       "mcp__atomicat__atomicat_unpublish_page",
       "mcp__atomicat__atomicat_delete_nodes",
-      "mcp__atomicat__atomicat_connect_custom_domain"
+      "mcp__atomicat__atomicat_connect_custom_domain",
+      "Read(./**/.env)",
+      "Read(./**/.env.*)",
+      "Read(./**/.dev.vars)"
     ]
   }
 }
