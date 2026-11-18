@@ -1,10 +1,13 @@
 // Agente WG · atendimento 24h do WhatsApp oficial (31) 97334-6056
 // Cloudflare Worker. Recebe o webhook da Meta, responde com o Claude e envia pela API do WhatsApp.
 // Variáveis (Settings > Variables): PHONE_ID, WABA_ID, MODO ("teste" ou "ativo"), TESTE_FONES (lista com vírgula), ADMIN_FONE, MODELO, MODELO_CHEFE
-// Segredos (Settings > Variables > Encrypt): WA_TOKEN, APP_SECRET, ANTHROPIC_API_KEY, VERIFY_TOKEN
+// Segredos (Settings > Variables > Encrypt): WA_TOKEN, APP_SECRET, ANTHROPIC_API_KEY, VERIFY_TOKEN, MC_TOKEN
+// Envio: o número está em coexistência e registrado no app do ManyChat. A Meta só deixa enviar pelo app que registrou
+// (erro 10/2593181). Por isso, com MC_TOKEN, a resposta sai pela API do ManyChat; a leitura continua pelo webhook da Meta.
 // KV (binding): WG
 
 const GRAPH = 'https://graph.facebook.com/v23.0';
+const MC = 'https://api.manychat.com';
 const ESPERA_MS = 7000;             // junta mensagens seguidas antes de responder
 const HUMANO_TTL = 2 * 3600;        // humano respondeu pelo celular: agente fica quieto 2 h
 const HIST_MAX = 24;
@@ -15,7 +18,10 @@ const SISTEMA = `Você é o assistente virtual da equipe do Mestre Wesley Gimene
 
 Você ainda NÃO consegue consultar compras nas plataformas. Para problema de acesso: peça o e-mail da compra, oriente olhar spam e promoções, mande o link da Academia https://kravmagacaveira.cademi.com.br/ e o "esqueci minha senha". Se mesmo assim não resolver, use passar_para_humano com o produto e o resumo (sem o e-mail no resumo).
 
+ESCOPO: este número também é o WhatsApp profissional do Victor e recebe conversas de outros projetos (Kairós, SalesMed, mentorias, assuntos pessoais). Você só atende assuntos do Mestre Wesley Gimenez, Krav Magá Caveira, defesa pessoal, cursos, Academia, compras e acesso. Se a conversa claramente for de outro projeto ou pessoal, NÃO responda: use a ferramenta nao_responder. Na dúvida (ex.: só "oi", "bom dia"), responda normalmente como suporte do Krav Magá Caveira.
+
 Use as ferramentas:
+- nao_responder: a mensagem é de outro projeto ou assunto pessoal do Victor. Você fica em silêncio e a equipe vê depois.
 - passar_para_humano: reembolso, cancelamento, cobrança em duplicidade, cliente irritado, desconto fora da tabela, parceria/imprensa, compra não encontrada depois de 2 tentativas, qualquer coisa que você não consiga resolver. Depois de chamar, diga à pessoa que a equipe vai assumir a conversa e responde em horário comercial.
 - Em situação de risco real agora (ameaça, violência acontecendo): mande ligar 190 imediatamente e chame passar_para_humano.
 
@@ -30,6 +36,10 @@ const FERRAMENTAS = [{
     resumo: { type: 'string', description: 'Uma ou duas frases do que a pessoa precisa. Sem telefone, e-mail ou CPF.' },
     produto: { type: 'string' }
   }, required: ['motivo', 'resumo'] }
+}, {
+  name: 'nao_responder',
+  description: 'A conversa não é do Krav Magá Caveira (outro projeto ou assunto pessoal). Não envia nada.',
+  input_schema: { type: 'object', properties: { assunto: { type: 'string', description: 'Ex.: Kairós, SalesMed, pessoal. Sem dados pessoais.' } }, required: ['assunto'] }
 }];
 
 export default {
@@ -59,7 +69,9 @@ export default {
         numero: await g(`${env.PHONE_ID}?fields=id,display_phone_number,verified_name,status,platform_type,code_verification_status,quality_rating,name_status,account_mode,is_on_biz_app,throughput`),
         waba: await g(`${env.WABA_ID}?fields=id,name,owner_business_info,on_behalf_of_business_info,account_review_status,business_verification_status,ownership_type`),
         waba_numeros: await g(`${env.WABA_ID}/phone_numbers?fields=id,display_phone_number,verified_name,status,platform_type,is_on_biz_app`),
-        waba_apps: await g(`${env.WABA_ID}/subscribed_apps`)
+        waba_apps: await g(`${env.WABA_ID}/subscribed_apps`),
+        manychat: env.MC_TOKEN ? await (async () => { try { const r = await fetch(`${MC}/fb/page/getInfo`, { headers: H_MC(env) }); const j = await r.json(); return { status: r.status, conta: j.data && j.data.name, ok: j.status }; } catch (e) { return { erro: String(e) }; } })() : 'sem MC_TOKEN',
+        manychat_admin: env.MC_TOKEN && env.ADMIN_FONE ? await idManychat(env.ADMIN_FONE, env) : null
       };
       const txt = JSON.stringify(out, null, 1).split(env.WA_TOKEN || '@@nada@@').join('[token]');
       return new Response(txt, { headers: { 'content-type': 'application/json' } });
@@ -179,6 +191,8 @@ async function pensar(hist, nome, fone, admin, env) {
     const usos = (d.content || []).filter(c => c.type === 'tool_use');
     const textos = (d.content || []).filter(c => c.type === 'text').map(c => c.text.trim()).filter(Boolean);
     if (!usos.length) return dividir(textos.join('\n\n'));
+    const fora = usos.find(u => u.name === 'nao_responder');
+    if (fora) { await env.WG.put('fora:' + Date.now(), JSON.stringify({ final: String(fone).slice(-4), assunto: (fora.input || {}).assunto || '' }), { expirationTtl: 7 * 86400 }); return []; }
     msgs.push({ role: 'assistant', content: d.content });
     const resultados = [];
     for (const u of usos) resultados.push({ type: 'tool_result', tool_use_id: u.id, content: await executar(u, fone, nome, env) });
@@ -228,12 +242,47 @@ async function addHist(env, fone, item) {
 }
 
 async function marcarLido(id, env) {
+  if (env.MC_TOKEN) return;  // a Meta não deixa nosso app marcar lido neste número
   await fetch(`${GRAPH}/${env.PHONE_ID}/messages`, { method: 'POST', headers: { Authorization: `Bearer ${env.WA_TOKEN}`, 'content-type': 'application/json' },
     body: JSON.stringify({ messaging_product: 'whatsapp', status: 'read', message_id: id, typing_indicator: { type: 'text' } }) }).catch(() => {});
 }
 
 async function enviar(para, texto, env) {
+  if (env.MC_TOKEN) return enviarMC(para, texto, env);
   const r = await fetch(`${GRAPH}/${env.PHONE_ID}/messages`, { method: 'POST', headers: { Authorization: `Bearer ${env.WA_TOKEN}`, 'content-type': 'application/json' },
     body: JSON.stringify({ messaging_product: 'whatsapp', to: para, type: 'text', text: { body: texto, preview_url: true } }) });
   if (!r.ok) console.log('envio', r.status, await r.text());
+}
+
+// ---- Envio pelo ManyChat ----
+const H_MC = env => ({ Authorization: `Bearer ${env.MC_TOKEN}`, 'content-type': 'application/json', accept: 'application/json' });
+
+async function idManychat(para, env) {
+  const d = String(para).replace(/\D/g, '');
+  const cache = await env.WG.get('mc:' + fone(d));
+  if (cache) return cache;
+  const com9 = (d.length === 12 && d.startsWith('55')) ? d.slice(0, 4) + '9' + d.slice(4) : d;
+  const sem9 = fone(d);
+  const tentativas = [];
+  for (const n of [...new Set([com9, sem9, d])]) for (const campo of ['whatsapp_phone', 'phone']) for (const v of ['+' + n, n]) tentativas.push(`${campo}=${encodeURIComponent(v)}`);
+  for (const q of tentativas) {
+    try {
+      const r = await fetch(`${MC}/fb/subscriber/findBySystemField?${q}`, { headers: H_MC(env) });
+      const j = await r.json().catch(() => ({}));
+      const id = j && j.data && (j.data.id || (Array.isArray(j.data) && j.data[0] && j.data[0].id));
+      if (r.ok && id) { await env.WG.put('mc:' + fone(d), String(id), { expirationTtl: 30 * 86400 }); return String(id); }
+    } catch (e) { console.log('mc busca erro', String(e)); }
+  }
+  console.log('mc contato nao encontrado final', sem9.slice(-4));
+  return null;
+}
+
+async function enviarMC(para, texto, env) {
+  const id = await idManychat(para, env);
+  if (!id) return false;
+  const corpo = { subscriber_id: id, data: { version: 'v2', content: { type: 'whatsapp', messages: [{ type: 'text', text: texto }] } } };
+  const r = await fetch(`${MC}/fb/sending/sendContent`, { method: 'POST', headers: H_MC(env), body: JSON.stringify(corpo) });
+  const t = await r.text();
+  if (!r.ok || /"status"\s*:\s*"error"/.test(t)) { console.log('envio mc', r.status, t.slice(0, 500)); return false; }
+  return true;
 }
