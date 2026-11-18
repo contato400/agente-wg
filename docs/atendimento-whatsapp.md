@@ -42,3 +42,9 @@ O número já está na API oficial em coexistência: portfólio "Krav Maga Cavei
 2. Criar o app da Meta do atendimento dentro do portfólio do Wesley, inscrever na conta do WhatsApp "Victor - Suporte" e gerar o token de sistema (feito pelo Victor, com a verificação em duas etapas do Facebook).
 3. Subir o serviço com a chave da API do Claude e o token do WhatsApp (variáveis de ambiente).
 4. Modo supervisionado por 2 semanas; testar primeiro com o número do Victor.
+
+## Conversa do Victor com o Agente WG (mesmo serviço)
+- O Victor conversa com o Agente WG pelo WhatsApp pessoal dele. O número fica só na variável de ambiente `WG_ADMIN_FONE` do serviço, nunca no repositório.
+- Mensagem vinda desse número vai para o modo **chefe** (não para o atendimento de cliente): responde com os dados da ponte, explica números, mostra itens da fila de aprovação e aceita "aprova", "ajusta: ..." ou "recusa" para cada item (marca na aba "Fila de aprovação" com Decidido por = Victor).
+- De manhã, o debriefing sai por mensagem para esse número. Fora da janela de 24h, a primeira mensagem do dia é um modelo aprovado pela Meta ("Bom dia, Victor! Seu debriefing está pronto. Quer ver?"); quando ele responde, o resto da conversa é grátis.
+- Qualquer outro número que pedir coisa de chefe é tratado como cliente comum.
