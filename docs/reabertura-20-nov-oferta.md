@@ -76,7 +76,7 @@ Vertical, 3 a 5 minutos, camisa Caveira, olhando para a câmera.
 "E eu separei um presente. Os 3 primeiros ganham a camisa Caveira. Os 20 primeiros entram num encontro ao vivo comigo, pra tirar as dúvidas. E todo mundo que garantir até a meia-noite de hoje leva os meus 6 livros digitais."
 
 6. **Chamada (4:10 a 4:30)**
-"O link está aqui embaixo. Entra, garante seu acesso e começa hoje mesmo, no seu ritmo. Tamo junto, Caveira!"
+"É simples: clica no link aqui embaixo, escolhe se vai pagar no cartão ou no Pix, e o seu acesso chega na hora no seu e-mail. Se tiver qualquer dificuldade, chama a minha equipe no WhatsApp que a gente te ajuda. Entra hoje e começa no seu ritmo. Tamo junto, Caveira!"
 
 **Não falar no vídeo:** valor em reais (a página mostra) nem quando a oferta fecha. "Última oportunidade" pode, porque é a mesma narrativa da régua.
 **Sobre a pizza:** a parcela de 12x R$ 40,82 fica perto do preço de uma pizza, por isso a comparação é honesta. Se o Wesley preferir, pode trocar por "menos do que um lanche por semana".
