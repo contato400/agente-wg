@@ -76,6 +76,19 @@ export default {
       const txt = JSON.stringify(out, null, 1).split(env.WA_TOKEN || '@@nada@@').join('[token]');
       return new Response(txt, { headers: { 'content-type': 'application/json' } });
     }
+    if (req.method === 'POST' && url.pathname === '/mc') {
+      // Chamado pela resposta padrão do WhatsApp no ManyChat (só dispara quando nenhum fluxo pegou a mensagem).
+      // Guarda o ID do contato no ManyChat e libera o agente a responder esta mensagem.
+      if (url.searchParams.get('k') !== env.VERIFY_TOKEN) return new Response('negado', { status: 403 });
+      let b = {}; try { b = await req.json(); } catch {}
+      const id = String(b.id || b.user_id || b.subscriber_id || '').replace(/\D/g, '');
+      const tel = String(b.fone || b.whatsapp_phone || b.phone || '').replace(/\D/g, '');
+      if (id && tel) {
+        await env.WG.put('mc:' + fone(tel), id, { expirationTtl: 60 * 86400 });
+        await env.WG.put('mcok:' + fone(tel), '1', { expirationTtl: 120 });
+      } else console.log('mc sem id/fone', JSON.stringify(Object.keys(b)));
+      return new Response(JSON.stringify({ ok: !!(id && tel) }), { headers: { 'content-type': 'application/json' } });
+    }
     if (req.method === 'GET' && url.pathname === '/') return new Response('Agente WG no ar. Modo: ' + (env.MODO || 'teste'));
     if (req.method !== 'POST' || url.pathname !== '/webhook') return new Response('ok');
 
@@ -140,6 +153,11 @@ async function receber(m, nome, env) {
   await env.WG.put('ultima:' + de, m.id, { expirationTtl: 600 });
   await new Promise(r => setTimeout(r, ESPERA_MS));
   if ((await env.WG.get('ultima:' + de)) !== m.id) return;  // chegou mensagem mais nova: ela responde por todas
+  if (env.MC_TOKEN && !(await env.WG.get('mcok:' + fone(de)))) {
+    // Nenhum aviso da resposta padrão do ManyChat: um fluxo dele (palavra-chave, carrinho) está cuidando. Agente fica quieto.
+    console.log('sem sinal do manychat, final', String(de).slice(-4)); return;
+  }
+  if (env.MC_TOKEN) await env.WG.delete('mcok:' + fone(de));
 
   const hist = await getHist(env, de);
   const resposta = await pensar(hist, nome, de, admin, env);
@@ -261,6 +279,7 @@ async function idManychat(para, env) {
   const d = String(para).replace(/\D/g, '');
   const cache = await env.WG.get('mc:' + fone(d));
   if (cache) return cache;
+  // A API do ManyChat não acha contato de WhatsApp pelo número; o ID chega pela rota /mc. Tentativa extra abaixo.
   const com9 = (d.length === 12 && d.startsWith('55')) ? d.slice(0, 4) + '9' + d.slice(4) : d;
   const sem9 = fone(d);
   const tentativas = [];

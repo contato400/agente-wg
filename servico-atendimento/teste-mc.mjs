@@ -14,9 +14,11 @@ const st=globalThis.setTimeout; globalThis.setTimeout=f=>st(f,1);
 async function sig(b){const k=await crypto.subtle.importKey('raw',new TextEncoder().encode('s'),{name:'HMAC',hash:'SHA-256'},false,['sign']);return 'sha256='+[...new Uint8Array(await crypto.subtle.sign('HMAC',k,new TextEncoder().encode(b)))].map(x=>x.toString(16).padStart(2,'0')).join('');}
 async function msg(from,txt,id){const body=JSON.stringify({entry:[{changes:[{field:'messages',value:{metadata:{phone_number_id:'1'},contacts:[{wa_id:from,profile:{name:'Joao'}}],messages:[{from,id,type:'text',text:{body:txt}}]}}]}]});
  const p=[]; await w.fetch(new Request('https://x/webhook',{method:'POST',body,headers:{'x-hub-signature-256':await sig(body)}}),env,{waitUntil:x=>p.push(x)}); await Promise.all(p);}
-await msg('553190000000','oi quero o curso','a1');                 // chega sem o 9, ManyChat tem com o 9
-await msg('553190000000','sobre a mentoria kairos de amanha','a2'); // fora do escopo
-const ok = mc.length===1 && mc[0].subscriber_id==='777' && mc[0].data.content.type==='whatsapp' && mc[0].data.content.messages[0].text==='Shalom, tudo bem?'
+const mcSinal=async()=>{const r=await w.fetch(new Request('https://x/mc?k=v',{method:'POST',body:JSON.stringify({id:'777',fone:'+5531990000000'})}),env,{}); return (await r.json()).ok;};
+await msg('553190000000','mensagem que um fluxo do manychat pegou','a0'); // sem sinal: agente quieto
+const s1=await mcSinal(); await msg('553190000000','oi quero o curso','a1');                 // chega sem o 9, ManyChat manda com o 9
+await mcSinal(); await msg('553190000000','sobre a mentoria kairos de amanha','a2');         // fora do escopo
+const ok = s1 && mc.length===1 && mc[0].subscriber_id==='777' && mc[0].data.content.type==='whatsapp' && mc[0].data.content.messages[0].text==='Shalom, tudo bem?'
   && !meta.some(u=>u.includes('/messages')) && kv.get('mc:553190000000')==='777' && [...kv.keys()].some(k=>k.startsWith('fora:'));
 console.log(ok?'OK':'FALHOU', JSON.stringify({mc, buscas:buscas.length, meta}));
 process.exit(ok?0:1);
