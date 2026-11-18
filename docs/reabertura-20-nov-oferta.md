@@ -95,7 +95,7 @@ Mesmo jeito dos disparos de 12/11 e 14/11 (modelo "Boas-vindas de compra", remet
 |---|---|---|
 | Qua 18/11, noite | Caixinha de perguntas | Pergunta plantada: "Mestre, vai ter outra chance da Black?" Resposta: "Muita gente me perguntou isso. Não compra nada agora. Sexta eu tenho novidade pra quem ficou de fora." Fixar nos destaques |
 | Qui 19/11, manhã | Spoiler | Foto ou vídeo do Wesley de camisa Caveira, sem explicar. Texto: "Sexta. 👀" |
-| Qui 19/11, 20h | Aviso | "Amanhã, sexta, às 19h: reabertura relâmpago da Black Caveira. O link sai primeiro no grupo." Figurinha de link para o grupo de espera |
+| Sex 20/11, 9h | **Arrastão** (aula 103 do Corredor Polonês) | Imagem simples, fonte do próprio Instagram, sem link: "Sexta, 19h. Reabertura relâmpago da Black. Comente CAVEIRA que eu te mando primeiro." A palavra CAVEIRA já leva ao grupo de espera pelo ManyChat. Só funciona se não houver nenhum story no ar: o spoiler de quinta tem que sair até as 8h |
 | Sex 20/11, 19h | Abertura | Corte do vídeo com a figurinha de link para a página (utm_content=story-19h) |
 
 ## 5. O que fica para depois da Black (não mexer agora)

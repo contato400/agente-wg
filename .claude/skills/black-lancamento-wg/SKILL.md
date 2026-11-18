@@ -43,6 +43,13 @@ Fonte: `docs/curso-black-debriefing-3-4mi-notas.md`. Tudo passa pela fila de apr
 - **Reembolso cai com boas-vindas:** nos primeiros dias depois da compra, mensagens dizendo por onde começar na Academia e lembrando a garantia.
 - **Gravação de live:** não vender. Vira bônus de quem compra e downsell para quem não compra.
 
+## Picos de venda e arrastão (Corredor Polonês, 18/11)
+- Seis picos: abertura (bônus dos primeiros), fim do bônus de 24 h, fechamento, reabertura em **grupo novo** (rende 5% a 10% do total), boleto parcelado, downsell de cerca de 1/4 do preço ("eu não vou te deixar para trás").
+- Reabertura com número de vagas só se for real (ex.: pagamentos que não foram concluídos).
+- **Arrastão:** story feio, sem link, pedindo para comentar a palavra do ManyChat (CAVEIRA). Só com todos os stories anteriores expirados, de preferência às 9h, no máximo 2 vezes por campanha.
+- Depois de fechar: pesquisa de não compradores com presente (replays e lista VIP), que desenha o downsell e as objeções da próxima vez.
+- Notas completas: `docs/curso-corredor-polones-vendas-notas.md`.
+
 ## Entre uma Black e outra
 - **Grupo de conteúdos no WhatsApp:** conteúdo exclusivo, um dia sim e dois não, formato variando (vídeo, PDF com áudio, áudio com texto).
 - **Front barato rodando** (e-book Vida Segura) para comprar alunos. O lucro vem na ascensão.
