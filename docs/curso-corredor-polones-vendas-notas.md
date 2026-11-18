@@ -60,5 +60,6 @@ Estudado em 18/11/2026 pelo Claude (legendas). Complementa `kairos/curso-corredo
 - Fase 2 com as objeções universais do público do Wesley: "sou velho demais", "nunca treinei", "online funciona?", "não tenho tempo", "já comprei curso e não usei".
 - Sorteio ao vivo em live (ligado ao produto) para segurar audiência.
 
-## Ainda por resumir (legendas já coletadas no navegador do Victor)
-Estrutura de lançamento, perpétuo e eventos (11 a 13), produtos e preço (14 a 18), dados, posicionamento e temperatura (23 a 25), atração (30 a 34), copywriting (64 a 91), gravação (58 a 63) e tráfego (104 a 118). O módulo de conteúdo (47 a 57) não tem legenda no player.
+## Ainda por resumir
+Feitos em 18/11 à tarde: copywriting (64 a 91) em `curso-corredor-polones-copy-notas.md` e tráfego (104 a 118) em `curso-corredor-polones-trafego-notas.md`.
+Faltam: panorama e gatilhos (2 e 9), estrutura de lançamento, perpétuo e eventos (11 a 13), produtos e preço (14 a 18), dados, posicionamento e temperatura (23 a 25), atração (30 a 34) e gravação (58 a 63). O módulo de conteúdo (47 a 57) não tem legenda no player.

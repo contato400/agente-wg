@@ -12,6 +12,15 @@ Modelo:
 - Verificado? sim/não, como
 ```
 
+## 2026-11-18 15h · Corredor Polonês: copy e tráfego estudados
+- Pedido: continuar o curso do Ferrari, copy e tráfego primeiro, depois o resto e os cursos menores; notas com aplicação no WG e skills.
+- Feito: notas em `docs/curso-corredor-polones-copy-notas.md` (aulas 64 a 91) e `docs/curso-corredor-polones-trafego-notas.md` (104 a 118). Skill nova `copy-lancamento-wg`; skill `trafego-wg-guardrails` ampliada (fases, públicos, funil, rastreio). `tudo.md` atualizado. Cópias em `kairos/` no projeto.
+- Legendas: o Chrome usado nesta sessão (Browser 1, Windows) não tinha as chaves salvas, então foram baixadas de novo e estão no localStorage de player.scaleup.com.br desse Chrome, chaves `cp_<nº>`, para as 67 aulas pendentes. Como baixar: iframe `/embed/<código>` na própria aba, 5 por vez, pegar a faixa de legenda `PORTUGUESE` ou, se não houver, `TRANSCRIPTION`, modo `hidden`, e juntar os textos. A aula 112 precisou de espera maior (9 s).
+- Como ler: montar o texto em um <pre> e usar get_page_text em fatias de até 45 mil caracteres (a ferramenta corta em 50 mil).
+- Pendente, nesta ordem: aulas 2, 9, 11 a 13, 14 a 18, 23 a 25, 30 a 34, 58 a 63 (cerca de 270 mil caracteres, dá duas sessões de leitura); depois os cursos menores do portal (lives semanais, CP IA, Swipe File, ClickUp).
+- Suposição a confirmar com o Victor: premissa de campanha sugerida nas notas de copy e a divisão de verba do dia a dia (R$ 10 a R$ 15 em conteúdo para seguidores) são propostas, não decisões.
+- Verificado? sim: todas as aulas de copy e de tráfego lidas inteiras; arquivos commitados na branch `diag-envio-whatsapp`.
+
 ## 2026-11-18 14h10 · continuar o curso do Ferrari em sessão nova
 - Pedido: terminar o Corredor Polonês e os cursos menores numa conversa nova do projeto VICTOR. A.
 - Onde estão as legendas: no Chrome do Victor, aba player.scaleup.com.br, localStorage. Chaves `cp_<nº da aula>` (texto já sem repetição) e `cp_list` (lista nº|código|título). Códigos e títulos também em `docs/cursos/corredor-polones-aulas.md`.

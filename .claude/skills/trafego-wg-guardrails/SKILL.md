@@ -47,6 +47,35 @@ Com R$ 30 por dia, uma decisão leva dias. Não mude tudo de uma vez: uma variá
 - Teste isolado: cada criativo com pouco gasto. Se o custo por checkout já passa do custo por venda aceitável, pausar.
 - Público quente primeiro (engajados 180 dias, alunos, compradores, semelhantes de compradores); frio só com os criativos que já venderam.
 
+## Uma campanha para cada degrau (módulo de tráfego do Corredor Polonês, 18/11)
+Detalhes em `docs/curso-corredor-polones-trafego-notas.md`. Com teto de R$ 50 por dia não cabem todas as fases juntas. Escolha pelo momento:
+- **Dia a dia:** R$ 10 a R$ 15 em conteúdo do Wesley para seguidores e envolvimento de 90 dias (engajamento, sem botão, só feed e Reels, expansão automática desligada). Um conjunto por vídeo, excluindo de cada conjunto quem já viu 25% daquele vídeo, para a pessoa receber o próximo. O resto em uma campanha de venda.
+- **Semana de abertura (Black, reabertura):** só público quente. Antes: lembrete para a lista (campanha de cliques, um conjunto por dia com orçamento total e hora de fim). Carrinho aberto: campanha de vendas com três conjuntos: lista (grupos, formulários), envolvimento de 30 dias e superengajados (interagiu em cada um dos últimos 4 dias: filtros de 4, 3, 2 e 1 dia somados).
+- **Atração paga** (turbinar post para ganhar seguidor) só para produto com público diferente do perfil (Kids, Feminino). Turbinar pelo computador ou Android, "até eu pausar", e medir custo por seguidor por post.
+- **Público frio** só com criativo que já vendeu no quente.
+
+## Públicos e exclusões
+- Manter criados: envolvimento com o Instagram de 3, 7, 14, 30, 60, 90, 180 e 365 dias, seguidores, superengajados 4-3-2-1, lista de alunos, compradores, lista de grupos e formulários. Nome com janela e data de criação.
+- Excluir sempre quem já fez a ação, por mais de um caminho (evento, página de obrigado e lista). Aluno fora da venda do curso que já tem.
+- Em campanha com orçamento na campanha, os conjuntos precisam ter públicos de tamanho parecido, senão a verba vai toda para o maior. Teste de público ou de criativo: orçamento por conjunto.
+
+## Leitura em funil e onde mexer
+Antes de propor, olhar na ordem: custo por mil, taxa de clique, taxa de carregamento (visitas à página divididas por cliques), conversão da página, custo por resultado.
+| Número ruim | Onde está o problema |
+|---|---|
+| Custo por mil alto | Público pequeno demais ou texto que a Meta encarece |
+| Taxa de clique abaixo de 1% | O anúncio |
+| Carregamento abaixo de 70% | Página pesada ou hospedagem |
+| Conversão da página baixa | Anúncio promete uma coisa e a página fala outra |
+| Vídeo: menos de 40% param nos 3 segundos | O começo do vídeo |
+| Vídeo: menos de 30% vão de 25% a 75% | O meio do vídeo |
+São referências de fora. Registrar os números do WG por 30 dias e passar a usar os nossos.
+
+## Rastreio
+- Conferir pixel e evento de compra em cada página e checkout (Greenn e Hotmart têm campo próprio) e o domínio na lista de permissão do pixel. Sem compra rastreada, campanha de vendas otimiza no escuro.
+- UTM nos parâmetros do anúncio, não coladas no link. `utm_source=FB` sempre; `utm_medium` = nome do público; `utm_campaign` = sigla da campanha; `utm_content` = nome do anúncio com o posicionamento; `utm_term=ag-trafego` quando o agente criou. Nome trocado depois de publicar não muda a UTM: duplicar.
+- Padrão de nome de campanha: sigla, fase, objetivo, quente ou frio, posicionamento, tipo de conteúdo.
+
 ## Estrutura recomendada para começar
 1. Uma campanha de vendas, 1 conjunto aberto (Brasil, 25 a 55 anos), 2 a 3 anúncios.
 2. Anúncios com vídeos do Wesley que já performaram no orgânico (o `analista-wg` aponta quais).

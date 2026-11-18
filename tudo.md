@@ -17,7 +17,7 @@ chefe-wg (coordena, debriefing, biblioteca de método), analista-wg, atendimento
 - Regras e marca: `wg-regras-operacao`, `marca-limites-wg`, `fila-aprovacao-wg`.
 - Produtos e vendas: `base-produtos-wg`, `oferta-irresistivel`, `copy-conversacional-wg`, `vendas-negociacao-wg`, `funil-catalogo-wg`.
 - Atendimento: `regras-agente-atendimento-wg`, `suporte-acesso-wg`.
-- Campanhas: `black-lancamento-wg`, `lancamento-pago-wg`, `front-ebook-wg`, `wg-regua-grupos`, `wg-manychat-funis`, `wg-recuperacao-carrinho`.
+- Campanhas: `copy-lancamento-wg` (estruturas de copy por peça), `black-lancamento-wg`, `lancamento-pago-wg`, `front-ebook-wg`, `wg-regua-grupos`, `wg-manychat-funis`, `wg-recuperacao-carrinho`.
 - Conteúdo e edição: `pauta-conteudo-wg`, `edicao-video-arte-wg`.
 - Tráfego e números: `trafego-wg-guardrails`, `wg-relatorio-vendas`, `debrief-diario-wg`.
 
@@ -28,7 +28,7 @@ chefe-wg (coordena, debriefing, biblioteca de método), analista-wg, atendimento
 - Estado e operação: `00-WG-documento-mestre.md`, `revisao-17-e-18-nov.md`, `funis-e-melhorias-18-nov.md`, `conexoes.md`, `mapa-whatsapp.md`.
 - Atendimento 24h: `atendimento-whatsapp.md`, `atendente-whatsapp-status-18-nov.md` (bloqueio da Meta, passos de 19/11).
 - Reabertura de 20/11: `reabertura-20-nov-oferta.md` (oferta, ajustes na régua do Gui, roteiro do vídeo, e-mail, stories, arrastão).
-- Cursos estudados (notas próprias): `curso-black-debriefing-3-4mi-notas.md`, `curso-lancamento-pago-750k-notas.md`, `curso-lancamento-pago-ia-420k-notas.md`, `curso-masterclass-lancamento-pago-notas.md`, `curso-front-9-90-ecossistema-notas.md`, `curso-low-ticket-ia-notas.md`, `curso-corredor-polones-notas.md`, `curso-corredor-polones-vendas-notas.md`, `curso-trafego-pago-automatizado-18-nov.md`, `kit-ia-grupo-notas.md`.
+- Cursos estudados (notas próprias): `curso-black-debriefing-3-4mi-notas.md`, `curso-lancamento-pago-750k-notas.md`, `curso-lancamento-pago-ia-420k-notas.md`, `curso-masterclass-lancamento-pago-notas.md`, `curso-front-9-90-ecossistema-notas.md`, `curso-low-ticket-ia-notas.md`, `curso-corredor-polones-notas.md`, `curso-corredor-polones-vendas-notas.md`, `curso-corredor-polones-copy-notas.md`, `curso-corredor-polones-trafego-notas.md`, `curso-trafego-pago-automatizado-18-nov.md`, `kit-ia-grupo-notas.md`.
 - `cursos/corredor-polones-aulas.md`: lista das 118 aulas com códigos de vídeo.
 
 ## Outras pastas
