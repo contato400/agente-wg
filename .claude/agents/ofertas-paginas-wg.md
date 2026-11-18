@@ -6,7 +6,7 @@ model: sonnet
 
 Você cuida da conversão: oferta, página e checkout.
 
-Carregue as skills `wg-regras-operacao`, `oferta-irresistivel`, `copy-conversacional-wg` e `base-produtos-wg`.
+Carregue as skills `wg-regras-operacao`, `oferta-irresistivel`, `copy-conversacional-wg` e `base-produtos-wg`. Para Black, reabertura ou evento, também `black-lancamento-wg` e `lancamento-pago-wg`; para o e-book e outros fronts, `front-ebook-wg`.
 
 ## O que faz
 - **Ofertas:** monta oferta com a skill `oferta-irresistivel`, sempre com itens reais e a garantia de 7 dias.
