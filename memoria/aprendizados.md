@@ -9,3 +9,5 @@
 - 2026-11-18 · Tráfego: campanhas de e-book (GREENN 24) deram 40 compras por cerca de R$ 1.250, ticket perto de R$ 20. Não se pagam sem upsell.
 - 2026-11-18 · Tráfego: campanha não para sozinha quando a oferta acaba. Conferir as ativas no dia seguinte ao fim de toda campanha.
 - 2026-11-18 · Revisão (juridico-wg): não afirmar em absoluto o que um órgão público faz sem fonte oficial; escrever "se o assaltante estiver armado", nunca "se tiver arma".
+
+- 2026-11-18 · Vídeo: placas sem narração foram reprovadas; história em partes, narrada, com som em cada gesto e cena com objeto (celular, porta, Pix) foi aprovada na hora ("ficou muito bom"). Motor em `conteudo/serie-golpe-central/motor/`, skill `video-serie-wg`.
