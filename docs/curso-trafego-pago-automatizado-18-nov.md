@@ -73,3 +73,12 @@ Liga a conta de anúncios da Meta ao Claude Code e transforma o trabalho de trá
 2. Campanha de conversa no WhatsApp oficial (o agente atende), criada pausada pela fila.
 3. Briefings de criativo no formato do curso (3 ganchos de copy, 3 visuais, formato por posicionamento) para o Canva ou ChatGPT.
 4. Análise semanal com escalar, manter ou pausar e uma mudança de verba por dia, sempre com aprovação.
+
+## 9. Complemento (18/11, 9h): vídeos e detalhes finos
+- **Legendas:** os vídeos ficam na Bunny e a aula principal (63 min) **não tem legenda nem transcrição**. Como o roteiro escrito que o vídeo segue está completo no repositório, o conteúdo foi coberto por ele. Baixar o áudio para transcrever não foi feito (conteúdo do autor, só uso pelo player).
+- **Detalhes do relatório diário deles** que vamos copiar no nosso debriefing pelo WhatsApp:
+  - cada número com selo de status: BOM, ATENÇÃO, RUIM ou SEM DADOS;
+  - mensagem de WhatsApp com no máximo ~1.200 caracteres (o detalhe vai no e-mail);
+  - se os dados tiverem mais de 26 h, o relatório avisa que estão velhos em vez de mostrar como se fossem de hoje;
+  - o relatório nunca recalcula nada: só lê o que a coleta gravou (evita número diferente em cada lugar).
+- **Arquitetura** (PLAN.md deles): perfil com metas → coleta grava um arquivo por janela (4/7/14/30 dias) → painel, análise, plano de verba e relatórios só leem esse arquivo. É o mesmo desenho da nossa ponte (planilha como fonte única).
