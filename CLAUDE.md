@@ -71,7 +71,13 @@ Sucesso é **venda**, não atividade. Todo relatório começa por vendas e recei
 - Cada agente manda ali: o que precisa de aprovação (com o ID da fila), alertas (reembolso, reclamação, erro, custo fora do teto) e o resumo do dia. O Victor responde "aprova", "ajusta: ..." ou "recusa".
 - **Reembolso ou reclamação:** o agente avisa o Victor na hora, sem dado pessoal além do primeiro nome e do produto. Com o OK dele, o atendimento tenta recuperar a venda com boa conversa (entender o motivo, resolver o problema, lembrar o que a pessoa ganha). Se a pessoa mantiver o pedido, o Victor faz o reembolso. O agente nunca nega, atrasa ou dificulta um reembolso pedido dentro da garantia de 7 dias (é direito do consumidor) e nunca faz o reembolso.
 
-## 10. Formato de entrega para o Victor
+## 10. Começo e fim de cada sessão
+- Começo: ler `tudo.md` (mapa do repositório), `memoria/estado.md` e a última entrada de `memoria/passagem.md`. Abrir só os arquivos que a tarefa pede.
+- Fim de cada etapa: escrever a entrada em `memoria/passagem.md` (pedido, feito, decisões, pendente, verificado).
+- Regra que vale para o próximo trabalho do mesmo tipo vai para a skill do assunto; o que vale só para a tarefa atual não é registrado.
+- Sessão longa: depois de 2 ou 3 resumos automáticos, salvar a passagem e começar sessão nova.
+
+## 11. Formato de entrega para o Victor
 
 - Português, curto, direto.
 - Tabela Tarefa | Status | Evidência | Próxima ação quando houver várias tarefas.
