@@ -1,0 +1,15 @@
+{
+  "_comentario": "Usado SOMENTE pelo comando /executar-aprovados: claude --settings rotinas/settings-executor.json -p \"/executar-aprovados\". Libera as ferramentas de publicar e alterar, que ficam bloqueadas em .claude/settings.json para todos os outros agentes.",
+  "permissions": {
+    "allow": [
+      "mcp__metricool__createScheduledPostForReview",
+      "mcp__windsor__execute_action",
+      "mcp__atomicat__atomicat_publish_page"
+    ],
+    "deny": [
+      "mcp__metricool__createScheduledPost",
+      "mcp__atomicat__atomicat_delete_nodes",
+      "mcp__atomicat__atomicat_connect_custom_domain"
+    ]
+  }
+}

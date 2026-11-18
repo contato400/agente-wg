@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "deny": [
+      "mcp__metricool__createScheduledPost",
+      "mcp__metricool__updateScheduledPost",
+      "mcp__windsor__execute_action",
+      "mcp__atomicat__atomicat_publish_page",
+      "mcp__atomicat__atomicat_publish_html_page",
+      "mcp__atomicat__atomicat_unpublish_page",
+      "mcp__atomicat__atomicat_delete_nodes",
+      "mcp__atomicat__atomicat_connect_custom_domain"
+    ]
+  }
+}
