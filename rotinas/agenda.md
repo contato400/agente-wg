@@ -28,7 +28,9 @@ Além do debriefing, do tráfego e da pauta, a rotina diária faz uma **rodada d
 | Quarta | atendimento-wg | Voz do cliente (B05) |
 | Quinta | financeiro-wg | Custo global, por produto e recompra (B10) |
 | Sexta | analista-wg | Balanço da semana por origem; em 20/11, medição da reabertura (B02) |
-| Sábado | juridico-wg | Auditoria do que está no ar (B19); o chefe fecha a semana e reordena o backlog |
+| Sábado | juridico-wg + auditor-wg | Auditoria do que está no ar (B19) e auditoria completa da operação (auditor-wg); o chefe fecha a semana e reordena o backlog |
+
+**Todo dia:** o auditor-wg roda o checklist rápido (8 itens da ficha) antes do debriefing.
 
 Datas de campanha passam na frente: em dia de abertura ou reabertura, a rodada é do analista (medição) e do chefe (ajuste da régua).
 

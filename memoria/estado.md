@@ -1,4 +1,4 @@
-# Estado atual (atualizado em 2026-11-18 pela rotina diária)
+# Estado atual (atualizado em 2026-11-18 20h30 pela auditoria)
 
 ## Meta de novembro
 - 150 vendas orgânicas e R$ 30 mil líquidos. Em 17/11: 115 vendas e R$ 25.361,74 (Greenn + Hotmart).
@@ -20,7 +20,8 @@
 - Ponte Greenn/Hotmart → ManyChat + planilha (Apps Script v2): todos os 74 produtos da Greenn e todos da Hotmart.
 - ManyChat: recuperação de carrinho automática (tag carrinho_pendente, cupom BLACK10) e upsell da IA KMC pós-compra (R$ 197).
 - Tráfego pago: em 17/11 ainda havia 3 campanhas da Black ATIVAS (GREENN 01, 04 e 05), gasto de R$ 845,62 no dia com 1 compra. Proposta de corte 20261118-trafego-1 na fila. Gasto desde 04/11: R$ 5.089,52.
-- Aba Vendas automática vazia desde 17/11 (Log só com teste e 1 carrinho abandonado). Conferir se a ponte grava as compras.
+- Ponte gravando vendas desde 18/11 (4 vendas de tráfego no dia). Erro ao criar contato no ManyChat quando ele já existe (ver auditoria 18/11).
+- Instagram do Wesley ligado ao Metricool em 18/11 20h (importando). Windsor só com Meta Ads. Painel Financeiro WG criado.
 
 ## Agentes
 - Fase 1 ligada: atendimento (em construção) e debriefing diário.
