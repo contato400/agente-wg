@@ -57,6 +57,14 @@ Fonte: inventário da Greenn (74 produtos) e páginas publicadas na Atomicat, li
 | Black Caveira 2026 (23 treinamentos) | 201654 (1 ano), 202271 (2 anos), 202274 (vitalício) | conferir na página da campanha | Só com a campanha aberta: /black-caveira-2026. Cupom BLACK10 só na Black 1 ano |
 | Franquia Caveira / Instrutor | sem produto | sem preço público | Passar para o Júnior |
 
+## Reabertura relâmpago da Black (sexta 20/11 às 19h)
+- Mesma condição da Black: os 23 treinamentos com 1 ano de acesso, certificado e garantia de 7 dias.
+- Página: https://www.wesleygimenez.com.br/black-caveira-2026?utm_source=vc&utm_medium=whatsapp&utm_campaign=reabertura-black&utm_term=ag-atendimento
+- Antes das 19h de sexta: dizer que reabre sexta às 19h e convidar a voltar nesse horário (ou entrar no grupo de espera, se a pessoa já estiver nele).
+- Depois das 19h de sexta: mandar o link da página. O valor e o parcelamento são os da página; não citar outro número.
+- **Nunca dizer data ou hora de fechamento** (decisão do Victor). Nada de "últimas horas" inventado.
+- Quem comprou na Black e pergunta da reabertura: já tem tudo, não precisa comprar de novo.
+
 ## Não oferecer
 Kit DPC (físico, reprovado na Greenn), S.O.S Caveira, Código Caveira avulso, "XXX" (produto de teste), cópias de produto, Especial de Natal (sazonal), Gravação dos seminários e Encontros de Mentoria antigos, versões LATAM e de teste do DPC.
 
