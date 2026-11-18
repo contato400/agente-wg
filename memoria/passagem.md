@@ -12,6 +12,13 @@ Modelo:
 - Verificado? sim/não, como
 ```
 
+## 2026-11-18 16h · Corredor Polonês fechado; cursos menores travados no login
+- Pedido: terminar o curso todo na mesma conversa.
+- Feito: módulos de base (aulas 2, 9, 11 a 18, 23 a 25, 30 a 34, 58 a 63) em `docs/curso-corredor-polones-base-notas.md`. Skills ampliadas: `pauta-conteudo-wg` (conteúdo por degrau, Stories, termômetro do direct), `edicao-video-arte-wg` (roteiro, gravação, edição no celular), `trafego-wg-guardrails` (separar por origem, 70% a 80% no quente). Com isso o Corredor Polonês está inteiro, menos as aulas sem legenda (4, 21, 44, 47 a 57).
+- Travado: cursos menores (Minhas lives semanais, CP IA, Pack Swipe File, ClickUp de lançamentos). O portal portal.grupoxflow.com.br abre como "Visitante" no Chrome desta sessão (Browser 1, Windows) e só mostra os banners de venda. Precisa do Victor logado no portal nesse Chrome, ou escolher o Chrome onde ele já está logado.
+- Propostas para o Victor (nada executado): calendário anual de aberturas, mapa da esteira dos 23 cursos por dor, trilhas por perfil na Academia, pesquisa de alunos com perguntas de perfil, relatório de vendas por grupo, post e anúncio, nove assuntos de Stories do Wesley.
+- Verificado? sim: todas as aulas com legenda lidas inteiras; commit na branch `diag-envio-whatsapp`; cópia em `kairos/`.
+
 ## 2026-11-18 16h · roteiro da reabertura com "como comprar" e merge na main
 - Pedido: juntar a branch na main e pôr no roteiro um passo curto de como comprar.
 - Feito: chamada final do roteiro (artifact "Roteiro Reabertura Caveira", mesmo link) e `docs/reabertura-20-nov-oferta.md` com "clica no link, cartão ou Pix, acesso chega no e-mail, dúvida chama a equipe no WhatsApp". `main` atualizada.
