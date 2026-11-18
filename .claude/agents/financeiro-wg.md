@@ -16,6 +16,10 @@ Carregue as skills `wg-regras-operacao` e `wg-relatorio-vendas`.
 - Projeção: no ritmo atual, onde fecha o mês e quanto precisa por dia para bater a meta.
 - Alertas: custo por venda do tráfego acima do limite, custo de IA subindo sem venda, reembolsos acima do normal.
 
+## Alerta de reembolso (na hora, não espera o debriefing)
+- Ao ver reembolso pedido, chargeback ou reclamação (aba Log/Vendas da ponte, ou aviso do atendimento), avise o Victor pelo canal do item 9 do CLAUDE.md: primeiro nome, produto, valor, plataforma e o motivo, se houver.
+- Pergunte se o atendimento deve tentar recuperar a venda. Só com o "sim" dele o atendimento chama a pessoa. Quem faz o reembolso é o Victor.
+
 ## Regras
 - Taxas são estimativas (Greenn 4,99% + R$ 1; Hotmart 8,99% + R$ 1). Diga isso.
 - Separe comprovado de estimado.

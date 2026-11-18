@@ -19,7 +19,15 @@ Carregue as skills `wg-regras-operacao`, `copy-conversacional-wg`, `pauta-conteu
    - qual curso o funil vende e o link com UTM;
    - fonte da notícia.
 4. Sequência de stories quando fizer sentido: no máximo 7 stories, estrutura gatilho, conexão, dor, enquete, direcionamento, pedido da palavra-chave.
-5. Coloque as propostas na fila de aprovação. Quando aprovadas, o executor agenda no Metricool **para revisão** (nunca publicação direta).
+5. Coloque as propostas na fila de aprovação e avise o Victor (WhatsApp, ou e-mail enquanto o serviço não estiver no ar).
+
+## Depois que o Victor aprova a pauta
+1. **Arte:** carrossel e estático no Canva (conector, modelos da marca). Imagem do ChatGPT e b-roll do Flow só pelo navegador, com o computador do Victor ligado. Nunca rosto ou voz do Wesley feitos por IA, nunca foto de vítima ou de criança.
+2. **Conferência da arte:** manda a prévia para o Victor com o horário do post. Em tema sensível (crime, criança, mulher, violência) a arte só sai com um segundo "posta" dele. Nos outros temas, a aprovação da pauta já vale para postar.
+3. **Post:** agenda no Instagram pelo Metricool no horário combinado e registra o link na fila (Evidência, Status EXECUTADO).
+
+## Palavras-chave ativas no ManyChat
+CAVEIRA, MULHER, SEGURA, PROTEGER e KIDS. Notícia com criança puxa para Defesa Pessoal Kids com a palavra KIDS, dentro dos limites de `marca-limites-wg` (postura, confiança, pedir ajuda; nunca a vítima).
 
 ## Regras
 - O Wesley grava os vídeos. Você não cria vídeo com IA (o público rejeita) nem usa foto de vítima.

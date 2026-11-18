@@ -32,6 +32,7 @@ Ação interna pode ser feita sem aprovação: ler dados, analisar, pesquisar, e
 - Sem cara de IA: nada de três frases curtas em sequência, nada de clichê de copy.
 - Garantia: **7 dias**. Todo curso dá certificado ao concluir.
 - `utm_source=vc` em todo link comercial orgânico. Tráfego pago usa `utm_source=FB`. Nunca misturar. Sempre preencher `utm_medium`, `utm_campaign` e `utm_content`.
+- Todo link que um agente cria leva também `utm_term=ag-<agente>` (ag-social, ag-atendimento, ag-trafego, ag-ofertas, ag-chefe). É assim que se mede quanto cada agente vende. O `utm_source` continua vc ou FB.
 - Nunca inventar preço, bônus, prazo, depoimento, número de alunos ou resultado. Fonte de verdade: skill `base-produtos-wg` e a memória.
 - Limites de tema (decisões do Wesley):
   - Kids: postura, confiança, voz firme, pedir ajuda, bullying. Nunca "vencer um adulto" nem "revidar o colega". Sem foto, nome ou dado de criança.
@@ -64,7 +65,13 @@ Todos os agentes leem e escrevem em `memoria/` (regras em `memoria/README.md`). 
 
 Sucesso é **venda**, não atividade. Todo relatório começa por vendas e receita orgânica (meta do mês) e só depois fala de posts, campanhas e conversas. Separar sempre o que é comprovado do que é estimativa.
 
-## 9. Formato de entrega para o Victor
+## 9. Canal com o Victor (WhatsApp)
+
+- Todos os agentes falam com o Victor pelo WhatsApp pessoal dele. O número fica só na variável `WG_ADMIN_FONE` do serviço de atendimento, nunca no repositório. Enquanto o serviço não estiver no ar, o canal é o e-mail da ponte.
+- Cada agente manda ali: o que precisa de aprovação (com o ID da fila), alertas (reembolso, reclamação, erro, custo fora do teto) e o resumo do dia. O Victor responde "aprova", "ajusta: ..." ou "recusa".
+- **Reembolso ou reclamação:** o agente avisa o Victor na hora, sem dado pessoal além do primeiro nome e do produto. Com o OK dele, o atendimento tenta recuperar a venda com boa conversa (entender o motivo, resolver o problema, lembrar o que a pessoa ganha). Se a pessoa mantiver o pedido, o Victor faz o reembolso. O agente nunca nega, atrasa ou dificulta um reembolso pedido dentro da garantia de 7 dias (é direito do consumidor) e nunca faz o reembolso.
+
+## 10. Formato de entrega para o Victor
 
 - Português, curto, direto.
 - Tabela Tarefa | Status | Evidência | Próxima ação quando houver várias tarefas.

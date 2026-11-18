@@ -6,7 +6,15 @@
 ## Campanha
 - Black Caveira 2026 encerrou em 16/11 às 19h. Página segue aberta a R$ 397.
 - Reabertura relâmpago sexta 20/11 às 19h (sem data de fechamento).
-- Depois da Black, o catálogo volta a rodar e vira o foco do atendimento.
+- Foco até 30/11: Black (as vendas se arrastam depois da reabertura). Depois, o catálogo volta a ser o foco do atendimento.
+- Catálogo do WhatsApp: 23 cursos, sem e-book, está certo e vendendo. Não mexer.
+
+## Prioridades combinadas em 18/11 (madrugada)
+1. Atendimento 24h no número oficial (falta o código do Samuel e a chave da API).
+2. Mensagem de acesso logo depois da compra (link da Academia, e-mail da compra, spam). Cerca de um quarto das conversas do suporte é gente que não consegue entrar.
+3. Anúncio direto para conversa no WhatsApp, R$ 20 a R$ 30 por dia, quando o atendimento estiver no ar.
+4. UTM por agente (utm_term=ag-<agente>).
+5. Canal único com o Victor pelo WhatsApp dele.
 
 ## O que está no ar
 - Ponte Greenn/Hotmart → ManyChat + planilha (Apps Script v2): todos os 74 produtos da Greenn e todos da Hotmart.
