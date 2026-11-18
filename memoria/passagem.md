@@ -12,6 +12,12 @@ Modelo:
 - Verificado? sim/não, como
 ```
 
+## 2026-11-18 16h · roteiro da reabertura com "como comprar" e merge na main
+- Pedido: juntar a branch na main e pôr no roteiro um passo curto de como comprar.
+- Feito: chamada final do roteiro (artifact "Roteiro Reabertura Caveira", mesmo link) e `docs/reabertura-20-nov-oferta.md` com "clica no link, cartão ou Pix, acesso chega no e-mail, dúvida chama a equipe no WhatsApp". `main` atualizada.
+- Pendente: WhatsApp 24h (YCloud) em 19/11; resto do Corredor Polonês na outra conversa.
+- Verificado? sim, push feito e cópia no projeto.
+
 ## 2026-11-18 15h · Corredor Polonês: copy e tráfego estudados
 - Pedido: continuar o curso do Ferrari, copy e tráfego primeiro, depois o resto e os cursos menores; notas com aplicação no WG e skills.
 - Feito: notas em `docs/curso-corredor-polones-copy-notas.md` (aulas 64 a 91) e `docs/curso-corredor-polones-trafego-notas.md` (104 a 118). Skill nova `copy-lancamento-wg`; skill `trafego-wg-guardrails` ampliada (fases, públicos, funil, rastreio). `tudo.md` atualizado. Cópias em `kairos/` no projeto.
