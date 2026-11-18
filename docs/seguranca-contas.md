@@ -6,7 +6,7 @@ Pedido do Victor: proteger o máximo possível. Nenhum agente mexe em configura�
 |---|---|---|---|
 | Gmail do Luis corinthiano (Windsor, ponte da planilha, Chrome do trabalho) | Victor | Aplicativo autenticador + códigos de reserva | **Fazer primeiro** |
 | E-mail da empresa contato@digitalwisdom.com.br (login do Metricool) | Victor | Já tem, segundo o Victor | Conferir se o Metricool também pede |
-| Instagram do Wesley (1,8 mi) | Wesley | Aplicativo autenticador + códigos de reserva fora do computador | Pedir ao Wesley |
+| Instagram do Wesley (1,8 mi) | Wesley | Já tem (o Wesley manda o código para cada login novo) | Ok. Melhoria opcional: app autenticador e códigos de reserva no papel |
 | Facebook de quem administra a página e o Instagram | Cada administrador | Aplicativo autenticador | Pedir aos administradores |
 | Metricool e Windsor | Victor | Se a ferramenta oferecer, ligar | Conferir |
 
