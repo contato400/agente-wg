@@ -47,3 +47,4 @@
 - 2026-11-18 · Victor · Chaves da ponte saem do texto da tarefa agendada para variáveis de ambiente (o Victor cola os valores; pode ser já).
 - 2026-11-18 · Victor · Contas do negócio no nome do Wesley: o financeiro levanta em dezembro (B25).
 - 2026-11-18 · Victor · Quer testar a edição de vídeo pelo agente (B27) e um piloto de vídeo com o clone a partir de tema em alta (B29).
+- 2026-11-18 · Victor · Parte 1 (golpe da falsa central) aprovada e postada por ele como Reels de teste. CAVEIRA continua levando ao grupo de espera da reabertura ("vamos encher o grupo").
