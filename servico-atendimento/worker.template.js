@@ -88,13 +88,17 @@ async function ecoHumano(m, env) {
   await addHist(env, cliente, { role: 'assistant', content: '[equipe pelo celular] ' + (m.text && m.text.body || '[mídia]') });
 }
 
+// Celular BR pode chegar com ou sem o 9 (55 31 9xxxx-xxxx vs 55 31 xxxx-xxxx). Compara sem o 9.
+const fone = s => { const d = String(s || '').replace(/\D/g, ''); return (d.length === 13 && d.startsWith('55') && d[4] === '9') ? d.slice(0, 4) + d.slice(5) : d; };
+const mesmoFone = (a, b) => !!a && !!b && fone(a) === fone(b);
+
 async function receber(m, nome, env) {
   const de = m.from;
   if (await env.WG.get('visto:' + m.id)) return;            // a Meta pode reenviar o mesmo evento
   await env.WG.put('visto:' + m.id, '1', { expirationTtl: 86400 });
 
-  const admin = env.ADMIN_FONE && de === env.ADMIN_FONE;
-  if ((env.MODO || 'teste') !== 'ativo' && !admin && !(env.TESTE_FONES || '').split(',').map(s => s.trim()).includes(de)) return;
+  const admin = mesmoFone(de, env.ADMIN_FONE);
+  if ((env.MODO || 'teste') !== 'ativo' && !admin && !(env.TESTE_FONES || '').split(',').some(t => mesmoFone(t, de))) return;
   if (!admin && (await env.WG.get('pausa:' + de) || await env.WG.get('humano:' + de))) return;
 
   const conteudo = await paraConteudo(m, env);
