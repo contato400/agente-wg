@@ -12,6 +12,12 @@ Modelo:
 - Verificado? sim/não, como
 ```
 
+## 2026-11-18 18h40 · vídeo de teste v2 e régua de qualidade do social
+- Pedido: o Victor reprovou o 1º teste (simples, feio, "Comente SEGURA" sem sentido); quer vídeo dinâmico, autoexplicativo para o povão, formato história com "comente CAVEIRA para ver a parte 2", e o social media em nível profissional.
+- Feito: `conteudo/teste-2026-11-18/wg_reel-golpe-central-parte1_9x16_v2_2026-11-18.mp4` (26,5 s, celular tocando, conversa digitada, SMS, tensão, suspense, som em cada gesto e trilha sintetizada) com o código em `v2/`; regra "tudo autoexplicativo" no CLAUDE.md; padrão de produção e formato história em partes na `edicao-video-arte-wg`; ficha do social com nível de entrega.
+- Pendente: aprovação do estilo; Parte 2; conferir o que a palavra CAVEIRA manda no direct hoje (grupo de espera da reabertura).
+- Verificado? sim, quadros conferidos e volume medido (pico -1,1 dB).
+
 ## 2026-11-18 18h20 · clone aprovado e Operação WG 2.0
 - Pedido: decisões do Victor (clone liberado para Reels de teste, chaves em variáveis, contas em dezembro, testar edição) e uma nova base para toda a operação.
 - Feito: decisões em `memoria/decisoes.md`; B27 e B28 atualizados e B29 (piloto do clone) no backlog; regra do clone na `edicao-video-arte-wg`; `docs/estrutura-operacao-wg-v2.md`.

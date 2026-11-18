@@ -28,6 +28,7 @@ Ação interna pode ser feita sem aprovação: ler dados, analisar, pesquisar, e
 
 - Saudação no um a um: "Shalom, tudo bem?". Fechamento: "Tamo junto, Caveira!".
 - Linguagem simples, para a massa (inclusive gente mais velha). Sem termo técnico, sem teoria.
+- **Tudo autoexplicativo** (regra do Victor, 18/11): qualquer peça (vídeo, post, mensagem, página) tem de ser entendida sozinha por quem nunca viu o Wesley e não entende de internet. Teste antes de entregar: "minha avó entenderia sem eu explicar?". Pedido de ação sempre diz o que a pessoa faz **e o que ela ganha** ("Comente CAVEIRA para ver a parte 2", nunca só "Comente SEGURA").
 - **Sem travessão (—)** em nenhum texto.
 - Sem cara de IA: nada de três frases curtas em sequência, nada de clichê de copy.
 - Garantia: **7 dias**. Todo curso dá certificado ao concluir.

@@ -52,6 +52,22 @@ Detalhes em `docs/curso-corredor-polones-base-notas.md`.
 - **Luz:** principal de lado a 45 graus (janela serve), uma fraca do outro lado, uma por trás para soltar do fundo.
 - **Edição:** trechos na ordem, cortar só o que usa, zoom lento em cena de câmera parada, áudio da próxima cena entrando um instante antes da imagem, música bem baixa (2 a 5 de 100 no CapCut) e efeito sonoro perto de 10, só no momento forte. A voz do Wesley sempre acima de tudo.
 
+## Padrão de produção do WG (nível mínimo de entrega, 18/11)
+O Victor reprovou o primeiro teste ("simples e feio"). A régua a partir de agora é o v2 em `conteudo/teste-2026-11-18/v2/` (código reaproveitável: `reel.html` + `gerar.py`). Nada abaixo disso vai para o Victor.
+- **Cena, não slide:** cada vídeo tem um objeto que conta a história (celular tocando, conversa sendo digitada, notificação chegando, carimbo, mapa, porta). Texto solto em fundo liso só como apoio.
+- **Algo muda a cada 1 a 3 segundos:** palavra entrando uma a uma, digitação, virada de página, zoom lento, tremor na tensão, flash no impacto.
+- **Som em cada gesto** ("o som dá o ritmo"): tecla em cada letra digitada, toque no celular, plim na notificação, sopro na troca de legenda, batida no impacto, coração na tensão, subida antes da virada, pop no botão final. Trilha de fundo feita por nós (sintetizada no `gerar.py`) ou com licença comercial; volume baixo, cai na tensão.
+- **Legenda grande no alto da área segura,** 60 a 70 px, até 3 linhas, palavra-chave em vermelho ou amarelo. Letra mínima de 34 px dentro de qualquer elemento.
+- **Autoexplicativo:** quem assiste sem som e sem conhecer o Wesley entende tudo. Pedido final diz o que fazer e o que ganha.
+- **Fecho com marca:** "MESTRE WESLEY GIMENEZ · KRAV MAGÁ CAVEIRA" discreto no fim.
+- **Conferência obrigatória:** gerar 6 a 8 quadros de conferência, montar uma folha de contato, olhar e corrigir antes de renderizar o vídeo todo; conferir o volume (pico abaixo de -1 dB).
+
+## Formato "história em partes" (o que está viralizando, pedido do Victor em 18/11)
+- **Parte 1:** história curta de um caso comum (golpe, assalto, briga, acidente) com personagem e situação que o público reconhece, montada em tensão crescente e **cortada no pior momento**. Fecho: "FIM DA PARTE 1 · O que ela fez em seguida... · Comente CAVEIRA para ver a PARTE 2".
+- **Parte 2:** postada 24 a 48 h depois, abre com "PARTE 2" e um resumo de 2 s, mostra o que a pessoa fez e **a lição do Mestre** (prevenção, sair, pedir ajuda), e termina chamando para seguir ou para o curso da dor.
+- **Honestidade:** personagem inventado leva sempre o selo "HISTÓRIA BASEADA EM GOLPES REAIS" (ou "SITUAÇÃO ILUSTRATIVA"); nunca apresentar como caso verdadeiro, nunca nome ou imagem de vítima real, nunca resultado inventado ("salvou R$ 8 mil").
+- **Temas por dor** (um por produto): golpe e Pix (Vida Segura), assalto na rua ou no carro (Vida Segura, DPC), mulher sozinha à noite (Contra Ataque Feminino), filho e bullying (Kids, dentro dos limites), briga no trânsito (Prevenção de Confrontos).
+
 ## Regras dos livros da Mestres Play (18/11)
 Notas: `docs/livros-mestres/` (10 Máquina de Edição, 13 Publicidade em Vídeo, 09 Direção de Vídeo, 08 Imagens Criativas).
 - **Original nunca é alterado.** Pastas: originais, assets, projeto, entregas.
