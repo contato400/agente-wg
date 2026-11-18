@@ -46,6 +46,24 @@ export default {
       const l = await fetch(`${GRAPH}/${env.WABA_ID}/subscribed_apps`, { headers: { Authorization: `Bearer ${env.WA_TOKEN}` } });
       return new Response(JSON.stringify({ inscrever: await r.json(), apps: await l.json() }, null, 1), { headers: { 'content-type': 'application/json' } });
     }
+    if (req.method === 'GET' && url.pathname === '/diag') {
+      // Diagnóstico do envio: pergunta à Meta o que o token enxerga. Nunca devolve o token.
+      if (url.searchParams.get('k') !== env.VERIFY_TOKEN) return new Response('negado', { status: 403 });
+      const H = { Authorization: `Bearer ${env.WA_TOKEN}` };
+      const g = async p => { try { const r = await fetch(`${GRAPH}/${p}`, { headers: H }); return { status: r.status, body: await r.json() }; } catch (e) { return { erro: String(e) }; } };
+      const out = {
+        vars: { PHONE_ID: env.PHONE_ID, WABA_ID: env.WABA_ID, MODO: env.MODO, token_presente: !!env.WA_TOKEN, token_tam: (env.WA_TOKEN || '').length },
+        ultimo_webhook: JSON.parse((await env.WG.get('diag:meta')) || 'null'),
+        token: await g(`debug_token?input_token=${encodeURIComponent(env.WA_TOKEN || '')}`),
+        eu: await g('me?fields=id,name'),
+        numero: await g(`${env.PHONE_ID}?fields=id,display_phone_number,verified_name,status,platform_type,code_verification_status,quality_rating,name_status,account_mode,is_on_biz_app,throughput`),
+        waba: await g(`${env.WABA_ID}?fields=id,name,owner_business_info,on_behalf_of_business_info,account_review_status,business_verification_status,ownership_type`),
+        waba_numeros: await g(`${env.WABA_ID}/phone_numbers?fields=id,display_phone_number,verified_name,status,platform_type,is_on_biz_app`),
+        waba_apps: await g(`${env.WABA_ID}/subscribed_apps`)
+      };
+      const txt = JSON.stringify(out, null, 1).split(env.WA_TOKEN || '@@nada@@').join('[token]');
+      return new Response(txt, { headers: { 'content-type': 'application/json' } });
+    }
     if (req.method === 'GET' && url.pathname === '/') return new Response('Agente WG no ar. Modo: ' + (env.MODO || 'teste'));
     if (req.method !== 'POST' || url.pathname !== '/webhook') return new Response('ok');
 
@@ -68,6 +86,7 @@ async function assinaturaOk(corpo, cab, segredo) {
 async function processar(dados, env) {
   for (const e of dados.entry || []) for (const ch of e.changes || []) {
     const v = ch.value || {};
+    if (v.metadata) await env.WG.put('diag:meta', JSON.stringify({ quando: new Date().toISOString(), waba_do_evento: e.id, phone_number_id: v.metadata.phone_number_id, numero: v.metadata.display_phone_number, campo: ch.field }), { expirationTtl: 7 * 86400 });
     // Mensagem que um humano mandou pelo app do celular (coexistência)
     if (ch.field === 'smb_message_echoes') {
       for (const m of v.message_echoes || []) await ecoHumano(m, env);
