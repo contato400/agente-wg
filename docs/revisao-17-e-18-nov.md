@@ -54,3 +54,9 @@ Pedido do Victor (3h50): ver se erramos algo, se ficou algo sem fazer e o que po
 2. Downsell da IA a R$ 147 automático no funil da Greenn: fica ou sai?
 3. Posso conferir Netlify e o evento de compra na Meta (só leitura)?
 4. Apagar a cópia duplicada da régua do Gui?
+
+## Adendo (18/11, 4h15): compra chegando na Meta e gasto do tráfego
+Leitura do Windsor, conta 4500, de 04 a 17/11 (só leitura, valores da Meta):
+- **A compra chega na Meta:** 66 compras do Pixel no período (R$ 5.403,97 em valor). A medição está funcionando.
+- **Gasto alto depois da Black:** R$ 5.089,40 no período. Nos últimos 3 dias (15 a 17/11): R$ 1.473,48 para 5 compras (R$ 757,12). Só em 17/11: R$ 845,50 para 1 compra de R$ 397.
+- As campanhas são do Diogo (fora do teto de R$ 50 por dia, que vale para o que os agentes propõem). Nada foi mexido. Vale o Victor e o Diogo olharem hoje se essas campanhas devem seguir rodando até a reabertura de 20/11.
