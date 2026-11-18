@@ -12,6 +12,12 @@ Modelo:
 - Verificado? sim/não, como
 ```
 
+## 2026-11-18 19h35 · social responsável pelo Instagram
+- Pedido: o social decide sozinho (radar de notícias e de formatos virais, leitura dos 4 a 5 posts diários do Wesley, escolha do público, peça pronta, roteiro para o Wesley, proposta de ferramenta com custo) e entrega tudo na rotina da manhã.
+- Feito: skill `estrategia-instagram-wg`; ficha do social reescrita; rotina das 7h35 com a "entrega da manhã" e produção pelo motor; B30 (conectar Instagram no Windsor) e B31 no backlog.
+- Pendente: Victor conectar o Instagram no Windsor (sem isso, não há métrica por post).
+- Verificado? sim, tarefa agendada atualizada e commit na main.
+
 ## 2026-11-18 19h20 · série "Golpe da falsa central" partes 2 a 5
 - Pedido: Victor aprovou a Parte 1 (postada como Reels de teste) e pediu as partes 2 a 5 para programar (qui 7h, 12h, 18h; sex 7h) e cobrou o social por não ter feito sozinho.
 - Feito: motor de Reels narrados (`conteudo/serie-golpe-central/motor/`), skill `video-serie-wg`, cobrança na ficha do social; o social produziu as partes 2 a 5 com capas, legendas e fontes (`serie.md`, `legendas.md`); revisado pelo Claude.
