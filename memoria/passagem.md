@@ -87,3 +87,11 @@ Modelo:
 - Decisões: reabertura a R$ 397 (aluno R$ 347); prêmios 3 camisas, 20 no encontro, livros até 23h59; vídeo gravado no lugar da live; DPC 2.0 depois para quem não comprou.
 - Pendente: resumir os módulos restantes do Corredor Polonês (legendas no navegador do Victor); WhatsApp 24h (YCloud) em 19/11.
 - Verificado? sim, arquivos commitados e copiados para o projeto.
+
+## 18/11 19h55 · Financeiro no nível do social + área segura do Reels
+- Pedido: financeiro com skill, planilha e teste; medidas do Reels para o social (sem mexer no que está pronto).
+- Feito: planilha "Painel Financeiro WG (agente financeiro)" com 6 abas e fórmulas (Resumo, Diário, Vendas, Produtos, Custos, Reembolsos); skill `controle-financeiro-wg`; ficha do financeiro aponta para ela; área segura do Reels em `edicao-video-arte-wg` (Y 285 a 1470, X 110 a 945) e imagem em `docs/referencias/`.
+- Teste: 3 vendas de 18/11 entraram; Resumo leu orgânico 115 / R$ 25.361,74 (77% e 85% da meta), faltam 35 vendas, ritmo 2,7 por dia; tráfego 67 vendas, R$ 4.379,13, gasto Meta R$ 5.432,56 (Windsor), ROAS 0,81, custo por venda R$ 81,08 (estimativa).
+- Decisões: planilha pt_BR usa `;` e vírgula decimal dentro da fórmula.
+- Pendente: custo do ManyChat; credenciais Hotmart e Cademi (Victor cola na variável de ambiente); passo diário do financeiro na tarefa agendada (prompt não foi alterado hoje); macro `{{ad.name}}` num anúncio do Diogo.
+- Verificado: valores lidos de volta da planilha, sem #ERROR!.

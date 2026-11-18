@@ -11,3 +11,5 @@
 - 2026-11-18 · Revisão (juridico-wg): não afirmar em absoluto o que um órgão público faz sem fonte oficial; escrever "se o assaltante estiver armado", nunca "se tiver arma".
 
 - 2026-11-18 · Vídeo: placas sem narração foram reprovadas; história em partes, narrada, com som em cada gesto e cena com objeto (celular, porta, Pix) foi aprovada na hora ("ficou muito bom"). Motor em `conteudo/serie-golpe-central/motor/`, skill `video-serie-wg`.
+- 18/11 · Planilha Google em pt_BR via API: função em inglês, separador `;`, decimal com vírgula dentro da fórmula; vírgula como separador dá #ERROR!. Ler de volta sempre.
+- 18/11 · Tráfego em novembro (até 18/11): gasto Meta R$ 5.432,56 contra R$ 4.379,13 de receita atribuída por UTM (ROAS 0,81, estimativa). Conferir com o relatório do Diogo antes de concluir.
