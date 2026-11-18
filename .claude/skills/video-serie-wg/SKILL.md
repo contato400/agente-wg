@@ -34,7 +34,7 @@ Cada trecho tem `fala` (o que o narrador diz) e o que acontece na tela quando el
 | `lista` + `item` | Lista de regras com check, um item por trecho |
 | `final` + `mostrar_chamada` | Cartão final: selo, pergunta e botão "Comente CAVEIRA para ver a parte X" |
 | `antes`, `pausa`, `ritmo` | Ajuste fino de tempo (segundos) e velocidade da fala |
-Mais `capa: {selo, titulo, faixa, quadro}` para a capa.
+Mais `capa: {selo, titulo, faixa, quadro}` para a capa. Limites atuais: um `voz_porta` por vídeo (o último vence); até 3 bolhas por ligação; conferir tempos específicos com `--quadros --em=t1,t2`.
 
 ## 3. Produza e confira (nada vai ao Victor sem isso)
 1. `python3 gerar_serie.py parte.json --quadros` e **olhe a folha de conferência** (Read): legenda inteira, nada fora da área segura, nada sobreposto, português certo. Corrija o JSON e repita.

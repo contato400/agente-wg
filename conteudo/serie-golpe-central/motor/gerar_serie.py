@@ -64,7 +64,7 @@ for i, seg in enumerate(S['trechos']):
         for b in bub_open: b['end'] = a - 0.2
         bub_open = []
     if 'bolha' in seg:
-        b = {'t': a, 'txt': seg['bolha'], 'cps': len(seg['bolha']) / max(0.5, d), 'top': 250 + 300 * len(bub_open), 'lb': seg.get('rotulo', 'ELE DISSE:')}
+        b = {'t': a, 'txt': seg['bolha'], 'cps': len(seg['bolha']) / max(0.5, d), 'top': 250 + 190 * len(bub_open), 'lb': seg.get('rotulo', 'ELE DISSE:')}
         TL['bubbles'].append(b); bub_open.append(b)
     if seg.get('encerrar'): TL['ended'] = [a, a + 1.8]
     if seg.get('pix') == 'on': pix_on = a - 0.2
@@ -175,6 +175,8 @@ with sync_playwright() as pw:
     if '--quadros' in sys.argv:
         from PIL import Image
         ts = [round(TOTAL * k / 8 + 0.6, 2) for k in range(8)]; ims = []
+        for a in sys.argv:
+            if a.startswith('--em='): ts = [float(v) for v in a[5:].split(',')][:8]  # tempos escolhidos (s)
         for x in ts:
             pg.evaluate(f'render({x})'); f = f'{TMP}/q_{x}.png'; pg.screenshot(path=f); ims.append(Image.open(f).resize((270, 480)))
         W = Image.new('RGB', (270 * 4, 480 * 2)); [W.paste(im, ((i % 4) * 270, (i // 4) * 480)) for i, im in enumerate(ims)]

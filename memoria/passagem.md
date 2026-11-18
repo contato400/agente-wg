@@ -12,6 +12,12 @@ Modelo:
 - Verificado? sim/não, como
 ```
 
+## 2026-11-18 19h20 · série "Golpe da falsa central" partes 2 a 5
+- Pedido: Victor aprovou a Parte 1 (postada como Reels de teste) e pediu as partes 2 a 5 para programar (qui 7h, 12h, 18h; sex 7h) e cobrou o social por não ter feito sozinho.
+- Feito: motor de Reels narrados (`conteudo/serie-golpe-central/motor/`), skill `video-serie-wg`, cobrança na ficha do social; o social produziu as partes 2 a 5 com capas, legendas e fontes (`serie.md`, `legendas.md`); revisado pelo Claude.
+- Pendente: Victor programar; medir em 72 h; trocar a voz pela do DaVinci se o Victor baixar o áudio.
+- Verificado? sim, folhas de conferência e capas revisadas.
+
 ## 2026-11-18 18h40 · vídeo de teste v2 e régua de qualidade do social
 - Pedido: o Victor reprovou o 1º teste (simples, feio, "Comente SEGURA" sem sentido); quer vídeo dinâmico, autoexplicativo para o povão, formato história com "comente CAVEIRA para ver a parte 2", e o social media em nível profissional.
 - Feito: `conteudo/teste-2026-11-18/wg_reel-golpe-central-parte1_9x16_v2_2026-11-18.mp4` (26,5 s, celular tocando, conversa digitada, SMS, tensão, suspense, som em cada gesto e trilha sintetizada) com o código em `v2/`; regra "tudo autoexplicativo" no CLAUDE.md; padrão de produção e formato história em partes na `edicao-video-arte-wg`; ficha do social com nível de entrega.
