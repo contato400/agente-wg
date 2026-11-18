@@ -4,15 +4,19 @@ Cada linha vira uma tarefa agendada. Liga-se aos poucos: a coluna "Fase" diz qua
 
 Expediente dos agentes: **8h às 18h, segunda a sábado** (domingo só o atendimento). O único que trabalha fora desse horário é o atendimento do WhatsApp, que responde todo dia, inclusive à noite.
 
-| Horário (Brasília) | Comando | Agente | Fase | O que entrega |
-|---|---|---|---|---|
-| 08h00 seg a sáb | `/debrief` | chefe-wg (+ analista, financeiro) | 1 | Debriefing no seu e-mail e em `relatorios/` |
-| 09h00 seg a sáb | `/pauta` | social-media-wg | 2 | 3 pautas na fila de aprovação |
-| 10h00 seg a sáb | `/trafego` | trafego-wg | 3 | Análise e propostas (assistente do Diogo) |
-| 11h00 seg a sáb | `/atendimento` | atendimento-wg | 1 | Revisão das conversas de ontem |
-| 12h00 e 17h30 seg a sáb | `/executar-aprovados` | executor | 2 | Executa o que você aprovou |
-| Segunda 08h30 | `/semana` | chefe-wg | 1 | Revisão da semana e plano |
-| Todo dia, 24h | (serviço) | atendimento WhatsApp | 1 | Responde quem chama no número oficial |
+**Desde 18/11 roda UMA tarefa agendada só** (decisão do Victor): "Agente WG - Rotina diaria completa", 7h35 de segunda a sábado, horário de Brasília. Ela faz, em ordem: debriefing (vendas, meta, fila), tráfego (Windsor, só leitura, até 2 propostas para o Diogo), 3 pautas do Instagram na fila, um e-mail único para o Luis corinthiano e commit no repositório.
+
+Os comandos abaixo continuam existindo para rodar na mão quando precisar:
+
+| Comando | Agente | O que entrega |
+|---|---|---|
+| `/debrief` | chefe-wg (+ analista, financeiro) | Debriefing |
+| `/pauta` | social-media-wg | 3 pautas na fila de aprovação |
+| `/trafego` | trafego-wg | Análise e propostas (assistente do Diogo) |
+| `/atendimento` | atendimento-wg | Revisão das conversas de ontem (quando o atendimento 24h estiver no ar) |
+| `/executar-aprovados` | executor | Executa o que foi aprovado |
+| `/semana` | chefe-wg | Revisão da semana |
+| (serviço, 24h) | atendimento WhatsApp | Responde no número oficial (em construção) |
 
 ## Como agendar (escolher um)
 1. **Tarefas agendadas do Claude Code na nuvem** (claude.ai/code): criar uma tarefa por linha, com o comando como instrução e este projeto como repositório. Roda sem o seu computador.
