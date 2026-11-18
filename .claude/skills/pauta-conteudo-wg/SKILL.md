@@ -54,5 +54,15 @@ Horário sugerido:
 Risco (marca-limites-wg): nenhum / qual
 ```
 
+## Conteúdo por degrau e sinais de que está certo (Corredor Polonês, 18/11)
+Detalhes em `docs/curso-corredor-polones-base-notas.md` e `docs/curso-corredor-polones-copy-notas.md`.
+- **Etiqueta em toda pauta:** problema (mostra o que existe, aberto e curto, para quem ainda não segue), solução (ensina como se faz, para quem já segue) ou prova (aluno respondendo uma objeção). A semana precisa ter os três.
+- **Tema vem do público:** respostas de alunos e leads, direct, comentários e caixinha, com as palavras que a pessoa usou. Três perguntas para toda pesquisa: por que quer aprender, o que fez decidir comprar, qual era a maior dificuldade antes.
+- **Vídeo de até 1 minuto e meio:** frase forte ou gesto nos 3 primeiros segundos, uma linha de quem é o Wesley, história curta, o conteúdo, uma prova rápida, um pedido só (no WG, comentar a palavra-chave).
+- **Formato:** celular e sem produção vence arte trabalhada. Imagem com a letra do Instagram, carrossel com a promessa na primeira tela, "o que aprendi depois de tantos anos de tatame", caixinha respondida em vídeo no feed. Repostar o que deu certo a cada dois ou três meses.
+- **Stories do Wesley:** todo dia, passando por três de nove assuntos: resultado de aluno, bastidor de treino, pergunta respondida, notícia do dia com ângulo de proteção, família e valores, história dele, a Academia por dentro, aviso de campanha, prova de autoridade.
+- **Antes de cada abertura:** conferir bio (autoridade e promessa clara), destaques e três posts fixados (quem é o Wesley, resultado de aluno, como começar).
+- **Termômetro:** o direct e os comentários mostram quem está chegando. Se chega gente pedindo o que não vendemos, algum conteúdo está atraindo errado. Seguidor barato do público errado não serve.
+
 ## Proibido
 Ver `marca-limites-wg`. Em resumo: sem imagem de vítima, sem explorar tragédia, sem incentivar violência, sem prometer que o treino resolve tudo, sem criança identificável, sem vídeo de IA.

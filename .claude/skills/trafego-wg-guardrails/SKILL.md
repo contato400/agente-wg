@@ -71,6 +71,11 @@ Antes de propor, olhar na ordem: custo por mil, taxa de clique, taxa de carregam
 | Vídeo: menos de 30% vão de 25% a 75% | O meio do vídeo |
 São referências de fora. Registrar os números do WG por 30 dias e passar a usar os nossos.
 
+## Separar para decidir (módulo de dados do Corredor Polonês, 18/11)
+- Custo baixo por clique, seguidor ou cadastro não decide nada. Decide a **venda por origem**.
+- Abrir o resultado sempre em quatro cortes: plataforma, público (quente ou frio e qual conjunto), anúncio e formato (Stories, feed, Reels). A média esconde o conjunto bom e o ruim.
+- Ponto de partida: 70% a 80% da verba em quem já segue ou já comprou; no máximo 10% a 20% em frio, e só para aprender. Quando um conjunto sozinho rende muito mais que os outros, concentrar nele na rodada seguinte.
+
 ## Rastreio
 - Conferir pixel e evento de compra em cada página e checkout (Greenn e Hotmart têm campo próprio) e o domínio na lista de permissão do pixel. Sem compra rastreada, campanha de vendas otimiza no escuro.
 - UTM nos parâmetros do anúncio, não coladas no link. `utm_source=FB` sempre; `utm_medium` = nome do público; `utm_campaign` = sigla da campanha; `utm_content` = nome do anúncio com o posicionamento; `utm_term=ag-trafego` quando o agente criou. Nome trocado depois de publicar não muda a UTM: duplicar.

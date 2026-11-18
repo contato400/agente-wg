@@ -44,6 +44,14 @@ Fontes: kit do grupo (Guias 01, 03 e 04, nov/2026) e o padrão usado nos vídeos
 3. Caminho preferido: montar em HTML e exportar PNG 1080x1350 (texto sai certo) ou usar o Canva conectado (criação em massa para muitas variações). Imagem gerada só quando precisar de foto que não existe.
 4. Ajustar por página. Conferir no celular.
 
+## Roteiro, gravação e edição no celular (módulo de gravação do Corredor Polonês, 18/11)
+Detalhes em `docs/curso-corredor-polones-base-notas.md`.
+- **Roteiro:** um vídeo, uma mensagem. Início com a promessa dita com todas as letras (desejo, identificação ou quebra de objeção), meio em três blocos curtos (contexto, o como, conclusão), fim com um pedido só.
+- **Pedido para o Wesley antes de gravar:** olhar na lente, variar o tom, pausa antes da frase importante, mãos apoiando a fala. Se travar, segurar um objeto (luva, aparador).
+- **Enquadramento:** fechado no rosto para a frase de impacto; detalhe na mão ou na pegada; médio até o joelho para mostrar a técnica; de baixo para dar força. Trocar de ângulo no mesmo lugar em vez de trocar de cenário.
+- **Luz:** principal de lado a 45 graus (janela serve), uma fraca do outro lado, uma por trás para soltar do fundo.
+- **Edição:** trechos na ordem, cortar só o que usa, zoom lento em cena de câmera parada, áudio da próxima cena entrando um instante antes da imagem, música bem baixa (2 a 5 de 100 no CapCut) e efeito sonoro perto de 10, só no momento forte. A voz do Wesley sempre acima de tudo.
+
 ## Ferramentas (começar pelo que já temos)
 O Victor tem o **Google AI Pro** assinado (até 2027). Não há conector do Gemini aqui: o Claude usa pelo Chrome do Victor (gemini.google.com e Flow), com a conta dele já logada, e baixa o resultado para editar. Gerar com IA nunca substitui o Wesley real em vídeo de venda; serve para cena de apoio, fundo, capa e ilustração.
 
