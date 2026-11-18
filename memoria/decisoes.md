@@ -38,3 +38,4 @@
 - 2026-10-31 · Wesley · [FIXA] Páginas novas na Atomicat (www.wesleygimenez.com.br). Netlify congelada.
 - 2026-10-21 · Victor · [FIXA] Roteiro para o Wesley gravar: só título, objetivo e a fala.
 - 2026-10-14 · Victor · [FIXA] Vídeos de IA para stories descartados (cara de artificial). Usar vídeos e fotos reais do Wesley.
+- 2026-11-18 · Victor · Reabertura 20/11: preço igual ao 2º lote (R$ 397, aluno R$ 347), nunca voltar para 297/247 (risco de reembolso de quem pagou 397). Sem kit completo. Prêmios: 3 primeiros camisa, 20 primeiros encontro ao vivo, livros digitais para quem comprar até 23h59 de sexta. Sem live: vídeo gravado de 3 a 5 min. Quem não comprar recebe o DPC 2.0. Falta OK do Wesley.

@@ -1,86 +1,90 @@
-# Reabertura relâmpago · sexta 20/11 às 19h · oferta e plano (rascunho para aprovação)
+# Reabertura relâmpago · sexta 20/11 às 19h · oferta e plano (v2, com as decisões do Victor)
 
-Feito em 18/11, 13h, cruzando a skill `oferta-irresistivel` (lógica Hormozi) com o que tiramos dos cursos do Leandro Ferrari (Black de R$ 3,7 mi, lançamento pago de R$ 750 mil, front de R$ 9,90). Tudo aqui é real e já existe na Greenn ou na Academia. O que ainda não existe está marcado como **decisão**.
+v1 em 18/11 13h. **v2 em 18/11 13h05** com as decisões do Victor. Base: skill `oferta-irresistivel` cruzada com os cursos do Leandro Ferrari (Black de R$ 3,7 mi, lançamento pago de R$ 750 mil, front de R$ 9,90).
 
-Regras que valem: nunca dizer data ou hora de fechamento; garantia de 7 dias; preço é o da página; sem travessão; tudo pela fila de aprovação.
+Regras que valem: nunca dizer data ou hora de fechamento da oferta; garantia de 7 dias; preço é o da página; sem travessão; tudo pela fila de aprovação.
+
+## Decisões do Victor (18/11, 12h56)
+- **Preço igual ao 2º lote: R$ 397 (aluno R$ 347).** Não volta para R$ 297 / R$ 247: quem comprou a R$ 397 pediria reembolso para comprar de novo mais barato.
+- **Sem kit completo.** Estoque: 4 camisas.
+- **Prêmios:** 3 primeiros ganham camisa; 20 primeiros entram no encontro ao vivo com o Wesley; todo mundo que comprar até 23h59 de sexta ganha os 6 livros digitais. (O prazo é só do bônus dos livros. A oferta continua sem data de fechamento.)
+- **Sem live na sexta** (feriado, e o Wesley está com um problema pessoal). No lugar: **vídeo gravado de 3 a 5 minutos**, que ele consegue gravar até quinta.
+- **Quem não comprar:** oferecer o DPC 2.0 depois (é o curso mais completo).
+- Falta o Wesley aprovar (o Victor vai falar com ele).
 
 ## 1. A oferta
-
 **Nome:** Reabertura Caveira · Os 23 treinamentos do Mestre Wesley para você proteger quem você ama, treinando em casa
 
-**Promessa:** "Eu ajudo gente comum, até quem nunca treinou, a saber exatamente o que fazer numa abordagem na rua, em casa ou no carro, treinando em casa no seu ritmo, mesmo sem academia perto."
+**Promessa:** "Eu ajudo gente comum, até quem nunca treinou, a saber o que fazer numa abordagem na rua, em casa ou no carro, treinando em casa no seu ritmo, mesmo sem academia perto."
 
-**O que está incluído (tudo já existe):**
-| Item | O que resolve | Valor |
+**Incluído:** 23 treinamentos (cerca de 2 mil aulas), 1 ano de acesso, certificado em cada curso, garantia de 7 dias. Opcionais no checkout que já existem: Guia de Treino 12 semanas (R$ 97), 2 anos (R$ 97) e vitalício (R$ 197).
+
+**Bônus e prêmios:**
+| Quem | Ganha | Objeção que derruba |
 |---|---|---|
-| 23 treinamentos do Método Caveira (cerca de 2 mil aulas), 1 ano de acesso | Do zero ao avançado: socos, quedas, faca, chão, rua, casa, carro | O ofertas-wg soma o preço real de cada um na Greenn (ex.: DPC 2.0 R$ 197, Vida Segura R$ 197, Lâminas R$ 297, APH R$ 297...) |
-| Certificado em cada curso concluído | Prova do que a pessoa aprendeu | incluso |
-| Garantia de 7 dias | Tira o medo de errar na compra | incluso |
-| Opcionais no checkout (bumps que já existem): Guia de Treino 12 semanas R$ 97 · 2 anos R$ 97 · vitalício R$ 197 | "Não sei por onde começar" e "e se eu não der conta em 1 ano?" | preço da Greenn |
+| 3 primeiros pagamentos aprovados | Camisa Caveira | Pressa sem prazo |
+| 20 primeiros | Encontro ao vivo com o Wesley (cerca de 1 h, Meet) | "Vou ficar sozinho, sem tirar dúvida" |
+| Todos que comprarem até 23h59 de sexta 20/11 | Os 6 livros digitais | "Prefiro ler antes de treinar" |
+Regra da Black: conta a aprovação do pagamento, boleto só quando compensa, afiliado não conta, frete por nossa conta. Sempre "ainda dá para ganhar X", nunca "você perdeu".
 
-**Bônus (cada um derruba uma objeção):**
-| Bônus | Objeção que derruba | Existe? |
-|---|---|---|
-| Os 6 livros digitais do Wesley (Manual Caveira, Mentalidade Caveira, Filho contra o Bullying, Proteção Urbana, Código Caveira, Briga de Rua) | "Prefiro ler antes de treinar" / "é muita coisa em vídeo" | Sim, já foram bônus na Black |
-| Encontro ao vivo com o Mestre Wesley (cerca de 1 h, Meet) para os primeiros | "Vou ficar sozinho, sem tirar dúvida" | Sim, foi dos 50 primeiros. **Decisão:** repetir para os 30 primeiros da reabertura e qual data |
-| Gravação da live da reabertura | "Não consigo assistir sexta às 19h" (e reforça o comparecimento) | **Decisão** (custo zero) |
-| Bônus família: acesso de quem compra vale para ensinar a esposa e os filhos (Contra Ataque Feminino e e-book do bullying já estão dentro?) | "Eu quero proteger minha família, não só eu" | **Decisão:** conferir se Feminino e Kids estão nos 23 e usar isso como argumento, sem criar produto novo |
+**Para quem é:** quem tem medo de travar num assalto ou numa abordagem; quem quer proteger a esposa, os filhos e os pais; quem nunca treinou, inclusive gente de mais idade.
+**Para quem não é:** quem quer aprender a brigar ou "dar lição" em alguém; quem quer resultado sem treinar.
 
-**Tsunami em degraus (só ordem de chegada, sem prazo):**
-| Quem | Prêmio |
-|---|---|
-| 1º pagamento aprovado | Kit Caveira (camisa, calça e spray) |
-| 2º ao 5º | Camisa Caveira |
-| 30 primeiros | Encontro ao vivo com o Wesley |
-| Todos | Os 6 livros digitais |
-Regra igual à da Black: conta a aprovação do pagamento, boleto só quando compensa, afiliado não conta, frete por nossa conta. Mensagem sempre "ainda dá para ganhar X", nunca "você perdeu".
+**Por que funciona:** 23 cursos por um preço que cabe numa mensalidade de academia, cada bônus tira uma desculpa, e os prêmios por ordem de chegada dão pressa sem mentir sobre prazo.
 
-**Para quem é:** quem tem medo de passar por um assalto ou uma abordagem e travar; quem quer proteger a esposa, os filhos e os pais; quem nunca treinou, inclusive gente de mais idade.
-**Para quem não é:** quem quer aprender a brigar ou "dar lição" em alguém; quem procura atalho sem treinar nada.
+## 2. O vídeo no lugar da live (recomendação)
+Os cursos mostram que a venda acontece no pico de emoção e que o conteúdo forte vem antes da oferta. Sem live, o vídeo faz o mesmo papel em miniatura: **primeiro entrega uma coisa útil de verdade, depois faz a oferta.** E ele sai às 19h em todos os canais ao mesmo tempo (grupo de espera, grupos antigos, stories, e-mail dos alunos), como a "abertura ao vivo" faria.
 
-**CTA:** "Clica no link, garante seu acesso e já começa hoje na Academia."
+**Formato:** vertical, de 3 a 5 minutos, Wesley falando direto para a câmera, de camisa Caveira. Uma versão só serve para todos; o que muda entre aluno e não aluno é a mensagem que acompanha o vídeo.
 
-**Conta de padaria no pitch:** Wesley pergunta na live "quanto custa por mês uma academia de luta perto da sua casa?" e compara com a parcela da página (12x), destacando a parcela e nunca o total parcelado.
+**Roteiro (para o Wesley falar do jeito dele, não precisa decorar):**
+1. **Gancho (0:00 a 0:20):** "Shalom! Se você ficou de fora da Black, esse vídeo é para você. Antes de qualquer coisa, eu quero te ensinar uma coisa que pode salvar a sua vida ainda hoje."
+2. **Conteúdo útil (0:20 a 2:00):** um erro que quase todo mundo comete numa abordagem na rua (por exemplo, reagir para proteger o celular ou ficar de costas para a rua no ponto de ônibus) e o que fazer no lugar. Ele escolhe o tema que domina melhor. Tem que ser prático, para a pessoa pensar "se isso é de graça, imagina o curso".
+3. **Virada (2:00 a 2:30):** "Isso é uma aula. Dentro do Método Caveira são 23 treinamentos, quase 2 mil aulas, do zero até defesa contra faca, chão e primeiros socorros. E muita gente me pediu outra chance depois que a Black fechou."
+4. **Oferta (2:30 a 3:30):** "Então eu reabri. É a mesma condição da Black: os 23 treinamentos com 1 ano de acesso, certificado e 7 dias de garantia. Pensa quanto custa por mês uma academia de luta perto da sua casa e compara com a parcela que está na página."
+5. **Prêmios (3:30 a 4:10):** "Os 3 primeiros ganham a camisa Caveira. Os 20 primeiros entram num encontro ao vivo comigo, para tirar dúvida. E todo mundo que garantir até a meia-noite de hoje ganha os meus 6 livros digitais."
+6. **Chamada (4:10 a 4:30):** "O link está aqui embaixo. Entra, garante seu acesso e já começa hoje na Academia. Tamo junto, Caveira!"
 
-**Por que funciona:** o preço fica pequeno perto de 23 cursos com valor real somado, cada bônus tira uma desculpa específica, e os degraus por ordem de chegada criam pressa sem mentir sobre prazo.
+Não citar o valor em reais no vídeo (a página mostra), não dizer quando a oferta fecha.
 
-## 2. Aluno e não aluno (separado, como no curso)
-- **Aluno** (tem conta na Academia e não comprou a Black): mensagem de reconhecimento ("você que já treina comigo") e o preço de aluno que já existe na Greenn (R$ 347 ou R$ 247, **decisão**).
-- **Não aluno** (grupo de espera, carrinho abandonado da Black e do e-book, compradores do e-book Vida Segura): narrativa da família e de "nunca mais ficar sem saber o que fazer".
-- Disparos separados, em horários diferentes.
+**Cortes extras do mesmo vídeo (para stories e grupos no dia):** o trecho do conteúdo útil (passo 2) sozinho, com "o resto está no link", e o trecho dos prêmios (passo 5).
 
 ## 3. Calendário até sexta
 | Quando | O quê | Quem | Canal |
 |---|---|---|---|
-| Qua 18/11, fim da tarde | Story caixinha plantada: "Wesley, vai ter outra chance da Black?" Resposta: "Fica de olho sexta. Não compra nada antes." Fixar nos destaques | Wesley / social | Instagram |
-| Qua 18/11, noite | Caixinhas com dúvidas reais do WhatsApp: "serve para quem nunca treinou?", "tem certificado?", "dá para treinar com 60 anos?" | Wesley / social | Stories |
-| Qui 19/11, manhã | Spoiler: Wesley aparece com a camisa ou o kit Caveira, sem explicar | Wesley | Stories |
-| Qui 19/11 | E-mail aos alunos da Academia chamando para o grupo de espera (já estava na pauta) | Victor | E-mail |
-| Qui 19/11 e sex 20/11, manhã | 2 vídeos curtos de preparação no grupo de espera (ideia do curso de R$ 750 mil): cada um mostra um erro comum numa abordagem e termina com "sexta às 19h eu te mostro o resto, põe no despertador" | Wesley grava, Gui programa | Grupo |
-| Sex 20/11, 12h e 17h | Lembretes no grupo: "hoje 19h, ao vivo" | Gui | Grupo |
-| Sex 20/11, 19h | Live do Wesley: conteúdo forte primeiro, depois a oferta. Link revelado na live e disparado nos grupos no mesmo minuto | Wesley / Gui | Instagram + grupos |
-| Sex 20/11, 19h | Virar os funis do ManyChat para a página (skill wg-manychat-funis) | Victor | ManyChat |
-| Sex, durante a live | Atualizar "restam X camisas / X vagas no encontro", só com números reais | Gui | Grupo |
-| Sáb 21/11, 19h | Segundo pico: "ainda dá para ganhar os livros e o encontro ao vivo" | Gui | Grupo |
-| Dom 22/11 em diante | Quem não comprou: oferta de entrada (DPC 2.0 ou E-book Vida Segura), **decisão** | Atendimento | WhatsApp |
+| Qua 18/11, noite | Story com caixinha plantada ("vai ter outra chance da Black?"). Resposta: "fica de olho sexta, não compra nada antes". Fixar nos destaques | Wesley ou social | Instagram |
+| Qua 18/11, noite | Caixinhas respondendo dúvidas reais do WhatsApp ("serve para quem nunca treinou?", "tem certificado?", "dá para treinar com 60 anos?") | Wesley ou social | Stories |
+| Qui 19/11, manhã | Spoiler: Wesley de camisa Caveira, sem explicar | Wesley | Stories |
+| Qui 19/11 | E-mail aos alunos da Academia chamando para o grupo de espera | Victor | E-mail |
+| **Qui 19/11, até a noite** | **Wesley grava o vídeo de 3 a 5 min** (seção 2) e manda ao Victor | Wesley | |
+| Sex 20/11, 12h e 17h | Lembretes no grupo: "hoje às 19h tem novidade para quem ficou de fora" | Gui | Grupo |
+| **Sex 20/11, 19h** | **Vídeo + link** no grupo de espera e nos grupos antigos; e-mail com o link aos alunos (preço de aluno); story com link; funis do ManyChat virados para a página | Gui, Victor | Todos |
+| Sex, noite | "Restam X camisas / X vagas no encontro", só com números reais da Greenn | Gui | Grupo |
+| Sex 20/11, 22h | "Faltam 2 horas para ganhar os 6 livros digitais" (prazo do bônus, não da oferta) | Gui | Grupo |
+| Sáb 21/11, 19h | Segundo pico: "ainda dá para entrar no encontro ao vivo" (se houver vaga) | Gui | Grupo |
+| Seg 23/11 em diante | Quem não comprou: DPC 2.0, página /dpc, preço da página | Atendimento e Gui | WhatsApp e grupo |
 
 ## 4. Textos prontos (voz do Wesley)
 
-**Caixinha (resposta no story):**
-"Shalom! Muita gente me perguntou isso essa semana. Vou te pedir uma coisa: não compra nenhum curso agora. Sexta eu tenho novidade para quem ficou de fora da Black. Fica de olho aqui. Tamo junto, Caveira!"
+**Resposta na caixinha:**
+"Shalom! Muita gente me perguntou isso essa semana. Vou te pedir uma coisa: não compra nenhum curso agora. Sexta eu tenho novidade para quem ficou de fora da Black, então fica de olho aqui. Tamo junto, Caveira!"
 
-**Grupo de espera, sexta às 19h (não aluno):**
-"Shalom, tudo bem? Estou ao vivo agora no Instagram e acabei de reabrir a Black Caveira para quem ficou de fora. São os 23 treinamentos, com certificado e garantia de 7 dias. Quem garantir primeiro ainda ganha camisa Caveira e um encontro ao vivo comigo. Entra pelo link e já começa hoje: https://www.wesleygimenez.com.br/black-caveira-2026?utm_source=vc&utm_medium=whatsapp&utm_campaign=reabertura-black&utm_content=grupo-espera&utm_term=ag-chefe
+**Grupo de espera, sexta às 19h (junto com o vídeo):**
+"Shalom, tudo bem? Reabri a Black Caveira para quem ficou de fora. Assiste o vídeo acima, que tem uma aula rápida que pode te salvar na rua. São os 23 treinamentos, com certificado e garantia de 7 dias. Os 3 primeiros ganham a camisa Caveira, os 20 primeiros entram no encontro ao vivo comigo, e quem garantir até meia-noite de hoje leva os meus 6 livros digitais.
+https://www.wesleygimenez.com.br/black-caveira-2026?utm_source=vc&utm_medium=whatsapp&utm_campaign=reabertura-black&utm_content=grupo-espera&utm_term=ag-chefe
 Tamo junto, Caveira!"
 
-**Aluno da Academia, sexta às 19h:**
-"Shalom, tudo bem? Você que já treina comigo na Academia tem condição especial nessa reabertura da Black. É o acesso aos 23 treinamentos, com o preço de aluno, e quem entrar primeiro ainda ganha o encontro ao vivo comigo. O link é este: [link de aluno da Greenn com utm_source=vc, utm_campaign=reabertura-black, utm_content=alunos, utm_term=ag-chefe]
+**Alunos da Academia, sexta às 19h (e-mail ou mensagem):**
+"Shalom, tudo bem? Você que já treina comigo na Academia tem preço de aluno nessa reabertura da Black: os 23 treinamentos com 1 ano de acesso. Os 20 primeiros ainda entram no encontro ao vivo comigo, e quem garantir até meia-noite de hoje leva os 6 livros digitais. O link de aluno é este: [link de aluno da Greenn, oferta de R$ 347, com utm_source=vc, utm_campaign=reabertura-black, utm_content=alunos, utm_term=ag-chefe]
 Tamo junto, Caveira!"
 
-## 5. Decisões para o Victor e o Wesley
-1. Preço da reabertura: R$ 397 (como está a página hoje) ou volta para R$ 297 do 1º lote?
-2. Preço de aluno: R$ 347 ou R$ 247?
-3. Prêmios: kit para o 1º e camisas do 2º ao 5º (temos estoque?) e encontro ao vivo para os 30 primeiros (qual data?).
-4. Gravação da live como bônus: sim ou não?
-5. Wesley topa a live de sexta às 19h e gravar os 2 vídeos curtos de preparação até quinta?
-6. Depois da reabertura, quem não comprou recebe DPC 2.0 ou o e-book Vida Segura?
+**Quem não comprou, segunda 23/11 (DPC 2.0):**
+"Shalom, tudo bem? Vi que você se interessou pela Black e não entrou, e está tudo bem. Se você quer começar por um curso só, o meu conselho é o Defesa Pessoal Caveira 2.0, que é o mais completo para quem está começando do zero. Tem certificado e 7 dias de garantia.
+https://www.wesleygimenez.com.br/dpc?utm_source=vc&utm_medium=whatsapp&utm_campaign=pos-reabertura&utm_content=dpc&utm_term=ag-chefe
+Tamo junto, Caveira!"
+
+## 5. Decisões que faltam
+1. Wesley aprova o pacote (preço R$ 397 / R$ 347, prêmios, vídeo no lugar da live)?
+2. Data do encontro ao vivo dos 20 primeiros. Sugestão: uma noite da semana de 30/11, com aviso já no vídeo de que "a data vai para o seu e-mail", para não prender o Wesley agora.
+3. Quem posta os stories de quarta e quinta (o Wesley ou a equipe com acesso ao Instagram)?
+4. O e-mail aos alunos sai pela Academia na sexta às 19h ou só pela mensagem do grupo?
