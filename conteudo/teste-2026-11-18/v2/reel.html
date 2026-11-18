@@ -86,7 +86,7 @@ function setCap(i){const c=TL.caps[i];const el=$('#cap');el.innerHTML=c.h.split(
 // grão
 const g=$('#grain').getContext('2d');
 function grain(seed){const im=g.createImageData(540,960);let s=seed*9301+49297;for(let i=0;i<im.data.length;i+=4){s=(s*9301+49297)%233280;const v=s/233280*255;im.data[i]=im.data[i+1]=im.data[i+2]=v;im.data[i+3]=255}g.putImageData(im,0,0)}
-function typed(el,txt,t0,t){const n=Math.floor(cl((t-t0)*TL.cps,0,txt.length));el.innerHTML=txt.slice(0,n)+((n<txt.length&&t>=t0)?'<span class="cursor"></span>':'')}
+function typed(el,txt,t0,t){const n=Math.floor(cl((t-t0)*(TL._cps||TL.cps),0,txt.length));el.innerHTML=txt.slice(0,n)+((n<txt.length&&t>=t0)?'<span class="cursor"></span>':'')}
 function render(t){
  const T=TL;
  grain(Math.floor(t*24));
@@ -118,7 +118,7 @@ function render(t){
  // chamada ativa
  $('#act').style.opacity=p(t,T.answer,0.3);
  const sec=Math.max(0,Math.floor(t-T.answer));$('#tm').textContent='00:'+String(sec).padStart(2,'0');
- [['#b1',T.b1],['#b2',T.b2]].forEach(([s,b])=>{const el=$(s);const q=eb(p(t,b.t-0.25,0.35));el.style.opacity=cl(p(t,b.t-0.25,0.2));el.style.transform=`translateY(${(1-q)*30}px)`;typed(el.querySelector('.tx'),b.txt,b.t,t)});
+ [['#b1',T.b1],['#b2',T.b2]].forEach(([s,b])=>{const el=$(s);const q=eb(p(t,b.t-0.25,0.35));el.style.opacity=cl(p(t,b.t-0.25,0.2));el.style.transform=`translateY(${(1-q)*30}px)`;TL._cps=b.cps||TL.cps;typed(el.querySelector('.tx'),b.txt,b.t,t)});
  // sms
  const sp=eb(p(t,T.sms,0.45));const sm=$('#sms');sm.style.opacity=cl(p(t,T.sms,0.15));sm.style.transform=`translateY(${(sp-1)*160}px)`;
  const hc=p(t,T.sms+0.8,0.4);$('#code').style.background=`rgba(255,210,63,${hc*0.9})`;
@@ -126,9 +126,9 @@ function render(t){
  const wt=$('#warnTxt');wt.style.opacity=(t>T.tense+0.4&&t<T.fin)?(Math.floor(t*3)%2?1:0.25):0;
  // final
  const fp=eo(p(t,T.fin+0.3,0.6));const fi=$('#fin');fi.style.opacity=fp;fi.style.transform=`translateY(${(1-fp)*60}px)`;
- const cp=eb(p(t,T.fin+1.3,0.5));fi.querySelector('.cta').style.transform=`scale(${0.6+0.4*cp})`;fi.querySelector('.cta').style.opacity=cl(p(t,T.fin+1.3,0.2));
+ const CT=(T.cta||T.fin+1.3);const cp=eb(p(t,CT,0.5));fi.querySelector('.cta').style.transform=`scale(${0.6+0.4*cp})`;fi.querySelector('.cta').style.opacity=cl(p(t,CT,0.2));
  fi.querySelector('.p1').style.transform=`scale(${0.5+0.5*eb(p(t,T.fin+0.2,0.4))})`;
- const ar=$('#arrow');ar.style.opacity=cl(p(t,T.fin+1.9,0.3));ar.style.transform=`translateY(${Math.sin(t*6)*14}px)`;
+ const ar=$('#arrow');ar.style.opacity=cl(p(t,CT+0.6,0.3));ar.style.transform=`translateY(${Math.sin(t*6)*14}px)`;
  $('#brand').style.opacity=cl(p(t,T.fin+0.8,0.5));
  $('#tag').style.opacity=t<T.fin?1:1-p(t,T.fin,0.4)*0.5;
 }
