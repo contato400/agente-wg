@@ -1,6 +1,6 @@
 // Agente WG · atendimento 24h do WhatsApp oficial (31) 97334-6056
 // Cloudflare Worker. Recebe o webhook da Meta, responde com o Claude e envia pela API do WhatsApp.
-// Variáveis (Settings > Variables): PHONE_ID, WABA_ID, MODO ("teste" ou "ativo"), TESTE_FONES (lista com vírgula), ADMIN_FONE, MODELO
+// Variáveis (Settings > Variables): PHONE_ID, WABA_ID, MODO ("teste" ou "ativo"), TESTE_FONES (lista com vírgula), ADMIN_FONE, MODELO, MODELO_CHEFE
 // Segredos (Settings > Variables > Encrypt): WA_TOKEN, APP_SECRET, ANTHROPIC_API_KEY, VERIFY_TOKEN
 // KV (binding): WG
 
@@ -146,7 +146,7 @@ async function pensar(hist, nome, fone, admin, env) {
       method: 'POST',
       headers: { 'x-api-key': env.ANTHROPIC_API_KEY, 'anthropic-version': '2023-06-01', 'content-type': 'application/json' },
       body: JSON.stringify({
-        model: env.MODELO || 'claude-sonnet-5-5', max_tokens: 700,
+        model: admin ? (env.MODELO_CHEFE || 'claude-fable-5-2') : (env.MODELO || 'claude-sonnet-5-5'), max_tokens: 700,
         system: [{ type: 'text', text: SISTEMA, cache_control: { type: 'ephemeral' } }, { type: 'text', text: extra }],
         tools: admin ? [] : FERRAMENTAS, messages: msgs,
       })

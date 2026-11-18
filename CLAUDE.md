@@ -45,7 +45,7 @@ Ação interna pode ser feita sem aprovação: ler dados, analisar, pesquisar, e
 - Teto do tráfego pago: **R$ 50 por dia somando todas as campanhas**. Padrão para começar: R$ 20 a R$ 30 por dia. Campanha nova nasce **pausada** e só liga com aprovação.
 - O agente de tráfego trabalha como **assistente do Diogo** (gestor de tráfego), liberado em 18/11. Toda mudança na conta passa pela fila de aprovação.
 - Expediente dos agentes: 8h às 18h. Só o atendimento do WhatsApp responde fora desse horário.
-- Custos de IA: usar o modelo mais barato que entrega a qualidade. Rotina em `sonnet`, classificação simples em `haiku`, estratégia e debriefing em `opus`.
+- Custos de IA: usar o modelo mais barato que entrega a qualidade. Chefe (estratégia, debriefing e conversa com o Victor no WhatsApp) em `fable`. Demais agentes em `sonnet`; se a qualidade cair, sobem para `opus`. Classificação simples em `haiku`.
 
 ## 5. Privacidade
 

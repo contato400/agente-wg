@@ -139,7 +139,7 @@ async function pensar(hist, nome, fone, admin, env) {
       method: 'POST',
       headers: { 'x-api-key': env.ANTHROPIC_API_KEY, 'anthropic-version': '2023-06-01', 'content-type': 'application/json' },
       body: JSON.stringify({
-        model: env.MODELO || 'claude-sonnet-5-5', max_tokens: 700,
+        model: admin ? (env.MODELO_CHEFE || 'claude-fable-5-2') : (env.MODELO || 'claude-sonnet-5-5'), max_tokens: 700,
         system: [{ type: 'text', text: await sistema(env), cache_control: { type: 'ephemeral' } }, { type: 'text', text: extra }],
         tools: admin ? [] : FERRAMENTAS, messages: msgs,
       })

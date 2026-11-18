@@ -1,5 +1,6 @@
 # Decisões
 
+- 2026-11-18 · Victor · Chefe roda no Fable (mais forte, pensa a estratégia, inclusive na conversa com ele no WhatsApp). Outros agentes no Sonnet; se a produtividade cair, sobem para Opus, desde que o custo não pese.
 - 2026-11-18 · Victor · [FIXA até o fim da Black] Tráfego pago é 100% do Diogo enquanto a Black estiver rodando. Agentes não propõem corte, pausa nem orçamento. Depois da Black, o Agente WG começa o tráfego do zero (criativos, estáticos) com o teto de R$ 50/dia.
 - 2026-11-18 · Victor · Debriefing pode ser mais detalhado. Também quer receber no WhatsApp pessoal (quando o atendimento estiver no ar).
 - 2026-11-18 · Victor · Aprovou consertar a mensagem de recuperação de carrinho (20261118-ofertas-1).
