@@ -1,13 +1,15 @@
 // Agente WG · atendimento 24h do WhatsApp oficial (31) 97334-6056
 // Cloudflare Worker. Recebe o webhook da Meta, responde com o Claude e envia pela API do WhatsApp.
 // Variáveis (Settings > Variables): PHONE_ID, WABA_ID, MODO ("teste" ou "ativo"), TESTE_FONES (lista com vírgula), ADMIN_FONE, MODELO, MODELO_CHEFE
-// Segredos (Settings > Variables > Encrypt): WA_TOKEN, APP_SECRET, ANTHROPIC_API_KEY, VERIFY_TOKEN, MC_TOKEN
+// Segredos (Settings > Variables > Encrypt): WA_TOKEN, APP_SECRET, ANTHROPIC_API_KEY, VERIFY_TOKEN, YC_KEY (ou MC_TOKEN)
+// Variável: YC_FROM = número que envia pela YCloud, ex. +5531973346056
 // Envio: o número está em coexistência e registrado no app do ManyChat. A Meta só deixa enviar pelo app que registrou
 // (erro 10/2593181). Por isso, com MC_TOKEN, a resposta sai pela API do ManyChat; a leitura continua pelo webhook da Meta.
 // KV (binding): WG
 
 const GRAPH = 'https://graph.facebook.com/v23.0';
 const MC = 'https://api.manychat.com';
+const YC = 'https://api.ycloud.com/v2';
 const ESPERA_MS = 7000;             // junta mensagens seguidas antes de responder
 const HUMANO_TTL = 2 * 3600;        // humano respondeu pelo celular: agente fica quieto 2 h
 const HIST_MAX = 24;
@@ -70,6 +72,7 @@ export default {
         waba: await g(`${env.WABA_ID}?fields=id,name,owner_business_info,on_behalf_of_business_info,account_review_status,business_verification_status,ownership_type`),
         waba_numeros: await g(`${env.WABA_ID}/phone_numbers?fields=id,display_phone_number,verified_name,status,platform_type,is_on_biz_app`),
         waba_apps: await g(`${env.WABA_ID}/subscribed_apps`),
+        ycloud: env.YC_KEY ? await (async () => { try { const r = await fetch(`${YC}/whatsapp/phoneNumbers?limit=10`, { headers: { 'X-API-Key': env.YC_KEY } }); const j = await r.json(); return { status: r.status, numeros: (j.items || []).map(n => ({ numero: n.phoneNumber, waba: n.wabaId, status: n.status, nome: n.verifiedName })) }; } catch (e) { return { erro: String(e) }; } })() : 'sem YC_KEY',
         manychat: env.MC_TOKEN ? await (async () => { try { const r = await fetch(`${MC}/fb/page/getInfo`, { headers: H_MC(env) }); const j = await r.json(); return { status: r.status, conta: j.data && j.data.name, ok: j.status }; } catch (e) { return { erro: String(e) }; } })() : 'sem MC_TOKEN',
         manychat_admin: env.MC_TOKEN && env.ADMIN_FONE ? await idManychat(env.ADMIN_FONE, env) : null
       };
@@ -153,11 +156,11 @@ async function receber(m, nome, env) {
   await env.WG.put('ultima:' + de, m.id, { expirationTtl: 600 });
   await new Promise(r => setTimeout(r, ESPERA_MS));
   if ((await env.WG.get('ultima:' + de)) !== m.id) return;  // chegou mensagem mais nova: ela responde por todas
-  if (env.MC_TOKEN && !(await env.WG.get('mcok:' + fone(de)))) {
+  if (env.MC_TOKEN && !env.YC_KEY && !(await env.WG.get('mcok:' + fone(de)))) {
     // Nenhum aviso da resposta padrão do ManyChat: um fluxo dele (palavra-chave, carrinho) está cuidando. Agente fica quieto.
     console.log('sem sinal do manychat, final', String(de).slice(-4)); return;
   }
-  if (env.MC_TOKEN) await env.WG.delete('mcok:' + fone(de));
+  if (env.MC_TOKEN && !env.YC_KEY) await env.WG.delete('mcok:' + fone(de));
 
   const hist = await getHist(env, de);
   const resposta = await pensar(hist, nome, de, admin, env);
@@ -260,12 +263,13 @@ async function addHist(env, fone, item) {
 }
 
 async function marcarLido(id, env) {
-  if (env.MC_TOKEN) return;  // a Meta não deixa nosso app marcar lido neste número
+  if (env.MC_TOKEN || env.YC_KEY) return;  // a Meta não deixa nosso app marcar lido neste número
   await fetch(`${GRAPH}/${env.PHONE_ID}/messages`, { method: 'POST', headers: { Authorization: `Bearer ${env.WA_TOKEN}`, 'content-type': 'application/json' },
     body: JSON.stringify({ messaging_product: 'whatsapp', status: 'read', message_id: id, typing_indicator: { type: 'text' } }) }).catch(() => {});
 }
 
 async function enviar(para, texto, env) {
+  if (env.YC_KEY) return enviarYC(para, texto, env);
   if (env.MC_TOKEN) return enviarMC(para, texto, env);
   const r = await fetch(`${GRAPH}/${env.PHONE_ID}/messages`, { method: 'POST', headers: { Authorization: `Bearer ${env.WA_TOKEN}`, 'content-type': 'application/json' },
     body: JSON.stringify({ messaging_product: 'whatsapp', to: para, type: 'text', text: { body: texto, preview_url: true } }) });
@@ -303,5 +307,16 @@ async function enviarMC(para, texto, env) {
   const r = await fetch(`${MC}/fb/sending/sendContent`, { method: 'POST', headers: H_MC(env), body: JSON.stringify(corpo) });
   const t = await r.text();
   if (!r.ok || /"status"\s*:\s*"error"/.test(t)) { console.log('envio mc', r.status, t.slice(0, 500)); return false; }
+  return true;
+}
+
+// ---- Envio pela YCloud (parceira oficial da Meta; o número fica em coexistência com o app do celular) ----
+async function enviarYC(para, texto, env) {
+  const to = '+' + String(para).replace(/\D/g, '');
+  const corpo = { from: env.YC_FROM || '+5531973346056', to, type: 'text', text: { body: texto, previewUrl: true } };
+  const r = await fetch(`${YC}/whatsapp/messages/sendDirectly`, { method: 'POST', headers: { 'X-API-Key': env.YC_KEY, 'content-type': 'application/json' }, body: JSON.stringify(corpo) });
+  const t = await r.text();
+  let j = {}; try { j = JSON.parse(t); } catch {}
+  if (!r.ok || j.status === 'failed') { console.log('envio yc', r.status, t.slice(0, 500)); return false; }
   return true;
 }
