@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<style>
+:root{--bg:#0a0a0b;--fg:#fff;--mut:#b9b9bd;--red:#e0161d;--card:#151517}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;background:var(--bg);overflow:hidden;font-family:'Inter',sans-serif;color:var(--fg)}
+#bgglow{position:absolute;inset:0;background:radial-gradient(900px 700px at 50% 55%,rgba(224,22,29,.16),transparent 70%)}
+#brand{position:absolute;left:110px;width:860px;top:300px;text-align:center;font-size:27px;font-weight:700;letter-spacing:1px;white-space:nowrap;color:var(--mut)}
+#brand b{color:var(--red)}
+.scene{position:absolute;left:110px;width:860px;top:420px;height:1080px;display:flex;flex-direction:column;justify-content:center;opacity:0}
+.big{font-weight:900;line-height:1.05}
+#hook .l1{font-size:150px;color:var(--red);text-align:center}
+#hook .l2{font-size:76px;text-align:center;margin-top:40px;font-weight:800}
+#hook .l3{font-size:70px;text-align:center;margin-top:48px;font-weight:900;border-top:6px solid var(--red);padding-top:40px}
+#ctx .src{font-size:38px;color:var(--mut);text-align:center;font-weight:600;margin-bottom:60px}
+#ctx .row{text-align:center;margin-bottom:60px}
+#ctx .num{font-size:230px;font-weight:900;color:var(--red);line-height:1}
+#ctx .lab{font-size:58px;font-weight:800;margin-top:6px}
+#tip .card{position:absolute;inset:0;background:var(--card);border:6px solid #fff;border-radius:36px;padding:70px 56px;display:flex;flex-direction:column;justify-content:center;transform-origin:50% 50%}
+#tip .chip{position:absolute;left:56px;top:50px;font-size:44px;font-weight:900;color:var(--red)}
+#tip .t{font-size:96px;font-weight:900;line-height:1.08;margin-top:40px}
+#tip .s{font-size:50px;font-weight:600;line-height:1.25;color:#e6e6e8;margin-top:56px;opacity:0}
+#dots{position:absolute;left:110px;width:860px;top:1540px;display:flex;justify-content:center;gap:22px;opacity:0}
+#dots i{width:60px;height:14px;border-radius:7px;background:#3a3a3e}
+#dots i.on{background:var(--red)}
+#cta .a{font-size:92px;font-weight:900;text-align:center}
+#cta .box{width:780px;margin:50px auto 0;background:var(--red);border-radius:30px;padding:30px 50px;font-size:128px;font-weight:900;text-align:center;line-height:1.1}
+#cta .b{font-size:46px;font-weight:700;text-align:center;margin-top:60px;color:var(--mut)}
+#bar{position:absolute;left:110px;top:1600px;height:10px;background:var(--red);width:0}
+#bart{position:absolute;left:110px;top:1600px;height:10px;width:860px;background:#2a2a2d;z-index:-1}
+</style></head><body>
+<div id="bgglow"></div>
+<div id="brand">MESTRE WESLEY GIMENEZ <b>·</b> KRAV MAGÁ CAVEIRA</div>
+
+<div class="scene" id="hook"><div class="big l1" id="h1">NÃO IGNORE,</div><div class="big l2" id="h2">quem vai comprar na Black Friday:</div><div class="big l3" id="h3">5 cuidados para não cair em golpe</div></div>
+
+<div class="scene" id="ctx"><div class="src" id="c0">Serasa, outubro de 2026</div>
+<div class="row" id="c1"><div class="num">53%</div><div class="lab">citam site falso</div></div>
+<div class="row" id="c2"><div class="num">42%</div><div class="lab">citam golpe com Pix</div></div></div>
+
+<div class="scene" id="tip"><div class="card" id="card"><div class="chip" id="chip">1 de 5</div><div class="t" id="tt"></div><div class="s" id="ts"></div></div></div>
+<div id="dots"><i></i><i></i><i></i><i></i><i></i></div>
+
+<div class="scene" id="cta"><div class="a" id="a1">Quer se proteger mais?</div><div class="box" id="a2">Comente SEGURA</div><div class="b" id="a3">Mestre Wesley Gimenez</div></div>
+
+<div id="bart"></div><div id="bar"></div>
+<script>
+const TOTAL=29;
+const tips=[
+["Desconto bom demais? Desconfie.","Desconto de 80% ou 90% é raro no Brasil. Pesquise o preço antes."],
+["Não clique em link de mensagem.","Nem de conhecido. Digite você mesmo o endereço da loja."],
+["Antes do Pix, confira o nome.","Veja o nome, o CPF ou CNPJ e o valor de quem vai receber."],
+["Nunca passe senha ou código.","Nem token, nem código que chegou no celular. Se pedirem, desconfie."],
+["Na loja, olhe a maquininha.","Confira o valor na tela antes de pagar e não perca o cartão de vista."]
+];
+const T0=7,TD=3.4;
+function ease(x){x=Math.max(0,Math.min(1,x));return 1-Math.pow(1-x,3)}
+function fade(t,a,b){return ease((t-a)/0.25)*(1-ease((t-b)/0.25)) }
+function show(id,o){document.getElementById(id).style.opacity=o}
+function pop(id,t,a){const e=document.getElementById(id);const p=ease((t-a)/0.35);e.style.opacity=p;e.style.transform=`translateY(${(1-p)*40}px)`}
+window.render=function(t){
+ // hook 0-3
+ show('hook',(t<3.25)?1:0);
+ if(t<3.25){document.getElementById('h1').style.opacity=1;pop('h2',t,0.7);pop('h3',t,1.5);}
+ show('ctx',(t>=3&&t<7.25)?1:0);
+ if(t>=3&&t<7.25){pop('c0',t,3.0);pop('c1',t,3.5);pop('c2',t,5.2);}
+ // tips
+ const ti=Math.floor((t-T0)/TD);
+ const inTip=t>=T0&&t<T0+5*TD;
+ show('tip',inTip?1:0); show('dots',(t>=T0&&t<T0+5*TD+0.2)?1:0);
+ if(inTip){
+  const k=Math.min(4,ti), lt=t-T0-k*TD;
+  document.getElementById('chip').textContent=(k+1)+' de 5';
+  document.getElementById('tt').textContent=tips[k][0];
+  document.getElementById('ts').textContent=tips[k][1];
+  const f=ease(lt/0.4);
+  document.getElementById('card').style.transform=`perspective(1600px) rotateY(${(1-f)*-90}deg)`;
+  document.getElementById('card').style.opacity=f>0.02?1:0;
+  const s=document.getElementById('ts');const sp=ease((lt-1.3)/0.35);s.style.opacity=sp;s.style.transform=`translateY(${(1-sp)*30}px)`;
+  document.querySelectorAll('#dots i').forEach((d,i)=>d.className=(i<=k)?'on':'');
+ }
+ // cta
+ const c0=T0+5*TD; // 24
+ show('cta',t>=c0?1:0);
+ if(t>=c0){pop('a1',t,c0);pop('a2',t,c0+0.6);pop('a3',t,c0+1.6);
+  const pl=1+0.015*Math.sin((t-c0-0.6)*6);document.getElementById('a2').style.transform=`scale(${pl})`;}
+ document.getElementById('bar').style.width=(860*Math.min(1,t/TOTAL))+'px';
+};
+render(0);
+</script></body></html>
