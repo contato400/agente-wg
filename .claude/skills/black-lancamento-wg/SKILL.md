@@ -33,6 +33,16 @@ Fonte: `docs/curso-black-debriefing-3-4mi-notas.md`. Tudo passa pela fila de apr
 - Compare essa resposta com o valor da oferta à vista ou em 12x (a parcela em destaque, nunca o total parcelado).
 - Não afirmar números de mercado que não temos fonte.
 
+## Sem live: vídeo gravado (reabertura de 20/11)
+- O vídeo faz o papel da live: aula rápida e útil primeiro, depois a ponte ("isso eu não consigo te ensinar em 2 minutos"), o pitch completo, os prêmios e a chamada.
+- Sai no mesmo minuto em todos os canais (grupos, stories, e-mail).
+
+## Outras regras dos cursos (18/11)
+- **Na Black não se vende ingresso.** Black é pacote para a base; lançamento pago com ingresso fica para outra época (skill `lancamento-pago-wg`).
+- **Canal reserva:** nunca depender de um disparo só (a API do WhatsApp pode entregar pouco). Grupo, e-mail da Academia e stories juntos.
+- **Reembolso cai com boas-vindas:** nos primeiros dias depois da compra, mensagens dizendo por onde começar na Academia e lembrando a garantia.
+- **Gravação de live:** não vender. Vira bônus de quem compra e downsell para quem não compra.
+
 ## Entre uma Black e outra
 - **Grupo de conteúdos no WhatsApp:** conteúdo exclusivo, um dia sim e dois não, formato variando (vídeo, PDF com áudio, áudio com texto).
 - **Front barato rodando** (e-book Vida Segura) para comprar alunos. O lucro vem na ascensão.

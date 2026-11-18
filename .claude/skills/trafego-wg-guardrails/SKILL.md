@@ -36,6 +36,17 @@ Com R$ 30 por dia, uma decisão leva dias. Não mude tudo de uma vez: uma variá
 - Toda proposta mostra o número e o motivo ("custo por venda R$ 140, 75% acima da meta, gasto R$ 210").
 - Janelas de leitura: 4, 7, 14 e 30 dias. Decidir pela de 7 dias.
 
+## Atribuição (aula de tráfego da Masterclass Lançamento Pago, 18/11)
+- O gerenciador e o último clique (UTM) contam vendas diferentes. Muita gente vê o anúncio e compra depois pelo link da bio ou do grupo, e a venda aparece como orgânica (vc).
+- Antes de propor pausa, olhar também o **custo global**: investimento total do período dividido pelo total de vendas (orgânico + tráfego). Se as vendas totais sobem junto com o investimento, o tráfego está ajudando mesmo sem venda de último clique.
+- Nunca olhar um número sem contexto (público, dias rodando, volume).
+
+## Criativos (cursos do Leandro Ferrari, 18/11)
+- Criativo **nativo** (celular, sem produção) e imagem "feia" de texto direto costumam vender mais que arte bonita. Testar os dois.
+- Gravar em blocos: ganchos, meios e chamadas separados, e montar as combinações. Nomear cada anúncio com o código das partes (ex.: `G3-M1-F2`) para saber qual gancho vende.
+- Teste isolado: cada criativo com pouco gasto. Se o custo por checkout já passa do custo por venda aceitável, pausar.
+- Público quente primeiro (engajados 180 dias, alunos, compradores, semelhantes de compradores); frio só com os criativos que já venderam.
+
 ## Estrutura recomendada para começar
 1. Uma campanha de vendas, 1 conjunto aberto (Brasil, 25 a 55 anos), 2 a 3 anúncios.
 2. Anúncios com vídeos do Wesley que já performaram no orgânico (o `analista-wg` aponta quais).
