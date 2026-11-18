@@ -30,7 +30,8 @@ Registro completo para não depender da memória do Claude. Regra nova do Victor
    - Limite legal registrado: o agente nunca nega, atrasa ou dificulta reembolso pedido dentro da garantia de 7 dias e nunca faz o reembolso.
 5. O Victor é o único ponto de aprovação da operação. Ele sabe do risco e prefere assim, com tudo chegando no WhatsApp para não virar gargalo.
 
-## 4. Mensagem de acesso pós-compra (ligada nesta madrugada)
+## 4. Mensagem de acesso pós-compra (NO AR desde 18/11 às 3h47)
+- Meta aprovou o modelo como Utilidade; automação publicada (AO VIVO, gatilho ativo), conferida na lista de automações.
 - **Caminho:** compra aprovada na Greenn (qualquer produto) ou na Hotmart (só o evento "Compra aprovada") → a ponte (Apps Script, versão 4, 18/11 3h24, mesma URL) tira e põe a tag `enviar_acesso` no contato do ManyChat (cria o contato pelo telefone do checkout se não existir) → automação **"WPP - Acesso pos-compra (Greenn e Hotmart)"** manda o modelo `caveira_acesso_academia`.
 - Compra de e-book fica fora (não entra pela Academia).
 - Sai pelo WhatsApp do ManyChat ("Equipe Santiago"), igual ao upsell da IA e à recuperação de carrinho. O texto manda chamar o suporte oficial (31) 97334-6056. Quando o atendimento do número oficial estiver no ar, a mensagem passa para ele.
