@@ -1,5 +1,9 @@
 # Decisões
 
+- 2026-11-18 · Victor · [FIXA até o fim da Black] Tráfego pago é 100% do Diogo enquanto a Black estiver rodando. Agentes não propõem corte, pausa nem orçamento. Depois da Black, o Agente WG começa o tráfego do zero (criativos, estáticos) com o teto de R$ 50/dia.
+- 2026-11-18 · Victor · Debriefing pode ser mais detalhado. Também quer receber no WhatsApp pessoal (quando o atendimento estiver no ar).
+- 2026-11-18 · Victor · Aprovou consertar a mensagem de recuperação de carrinho (20261118-ofertas-1).
+
 - 2026-11-18 · Victor · [FIXA] Garantia de 7 dias em TODOS os produtos e plataformas. Nunca 30 dias.
 - 2026-11-18 · Victor · Downsell da IA a R$ 147 automático no funil da Greenn depois da Black: fica como está.
 - 2026-11-18 · Victor · [FIXA] Nada pode depender da Netlify. Tudo na Atomicat. Tirar o que restar.
