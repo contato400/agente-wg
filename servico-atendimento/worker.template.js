@@ -139,9 +139,7 @@ async function baixarMidia(id, env) {
 }
 
 async function pensar(hist, nome, fone, admin, env) {
-  const extra = admin
-    ? '\n\nATENÇÃO: quem está falando é o Victor, responsável pela operação. Trate como chefe: responda de forma direta, sem tom de venda, e não use a ferramenta passar_para_humano.'
-    : `\n\nPrimeiro nome no perfil do WhatsApp: ${nome || 'não informado'} (use só se parecer um nome de verdade).`;
+  const extra = admin ? '\n\nATENÇÃO: quem está falando é o Victor, responsável pela operação. Trate como chefe: responda de forma direta, sem tom de venda, e não use a ferramenta passar_para_humano.' : `\n\nPrimeiro nome no perfil do WhatsApp: ${nome || 'não informado'} (use só se parecer um nome de verdade).`;
   const msgs = juntar(hist);
   for (let volta = 0; volta < 3; volta++) {
     const r = await fetch('https://api.anthropic.com/v1/messages', {
@@ -150,7 +148,7 @@ async function pensar(hist, nome, fone, admin, env) {
       body: JSON.stringify({
         model: env.MODELO || 'claude-sonnet-5-5', max_tokens: 700,
         system: [{ type: 'text', text: SISTEMA, cache_control: { type: 'ephemeral' } }, { type: 'text', text: extra }],
-        tools: admin ? [] : FERRAMENTAS, messages: msgs
+        tools: admin ? [] : FERRAMENTAS, messages: msgs,
       })
     });
     const d = await r.json();

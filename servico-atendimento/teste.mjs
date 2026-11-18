@@ -1,5 +1,5 @@
 import w from './worker.js';
-const kv=new Map(); const env={WG:{get:async k=>kv.get(k)??null,put:async(k,v)=>kv.set(k,v),delete:async k=>kv.delete(k)},
+const kv=new Map([['conhecimento','BASE']]); const env={WG:{get:async k=>kv.get(k)??null,put:async(k,v)=>kv.set(k,v),delete:async k=>kv.delete(k)},
  VERIFY_TOKEN:'v',APP_SECRET:'s',WA_TOKEN:'t',ANTHROPIC_API_KEY:'a',PHONE_ID:'1',WABA_ID:'2',MODO:'teste',TESTE_FONES:'5531900000000',ADMIN_FONE:'5531999999999'};
 const enviados=[];
 globalThis.fetch=async(u,o)=>{ if(String(u).includes('anthropic')){const b=JSON.parse(o.body); const last=b.messages.at(-1);
