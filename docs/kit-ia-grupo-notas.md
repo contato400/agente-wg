@@ -20,7 +20,7 @@ Lido em 18/11/2026 pelo Claude, texto completo dos 5 PDFs. Notas com palavras pr
 | Regra de higiene de sessão | `CLAUDE.md` seção 10 | Sessões longas: salvar e abrir nova depois de 2 ou 3 resumos |
 
 ## O que dá para fazer a mais (decisão do Victor)
-1. **Imagem e vídeo com IA:** o grátis cobre testes (Nano Banana ~20 a 25 imagens por dia no Gemini; créditos diários do Kling). Se um dia precisar em volume, o Google AI Pro (R$ 96,99/mês) traz Veo e Nano Banana. Hoje não é necessário: o WG vende o Wesley real e os vídeos dele.
+1. **Imagem e vídeo com IA:** o Victor já tem o **Google AI Pro** (Veo, Nano Banana e Flow), pago até 2027. Não precisa assinar nada. O Claude usa pelo Chrome do Victor quando precisar de cena de apoio, fundo, capa ou ilustração; o vídeo de venda continua sendo o Wesley real.
 2. **Voz clonada e avatar (ElevenLabs, HeyGen):** não recomendo para o WG. A marca é o Wesley de verdade; avatar pode parecer falso e cair em regra da Meta.
 3. **Chatwoot (código aberto, no lugar de um atendimento pago):** caixa de entrada para o humano assumir conversas do WhatsApp. Só faz sentido depois que o atendente 24h estiver no ar; ele enfrenta o mesmo bloqueio de número da Meta.
 4. **SkillSpector:** usar antes de instalar qualquer skill de terceiros (do grupo, de cursos).

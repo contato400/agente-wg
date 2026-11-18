@@ -44,11 +44,13 @@ Fontes: kit do grupo (Guias 01, 03 e 04, nov/2026) e o padrão usado nos vídeos
 3. Caminho preferido: montar em HTML e exportar PNG 1080x1350 (texto sai certo) ou usar o Canva conectado (criação em massa para muitas variações). Imagem gerada só quando precisar de foto que não existe.
 4. Ajustar por página. Conferir no celular.
 
-## Ferramentas (começar pelo grátis)
+## Ferramentas (começar pelo que já temos)
+O Victor tem o **Google AI Pro** assinado (até 2027). Não há conector do Gemini aqui: o Claude usa pelo Chrome do Victor (gemini.google.com e Flow), com a conta dele já logada, e baixa o resultado para editar. Gerar com IA nunca substitui o Wesley real em vídeo de venda; serve para cena de apoio, fundo, capa e ilustração.
+
 | Precisa de | Grátis | Pago (só com OK do Victor) |
 |---|---|---|
 | Cortar, legendar, juntar, faixa | ffmpeg e Python nesta sessão | |
 | Arte e carrossel | HTML para PNG, Canva conectado | |
-| Imagem nova (foto, cena) | Nano Banana no Gemini (~20 a 25 por dia), ChatGPT grátis (imagem com texto) | Google AI Pro R$ 96,99/mês |
-| Vídeo gerado por IA | créditos grátis do Kling | Google AI Pro (Veo) |
+| Imagem nova (foto, cena) | **Google AI Pro do Victor (já assinado):** Nano Banana no Gemini; ChatGPT grátis para imagem com texto | |
+| Vídeo gerado por IA | **Google AI Pro do Victor:** Veo no Gemini e no Flow (créditos do plano) | |
 | Voz e avatar | não usar: o WG vende o Wesley real | |
