@@ -42,7 +42,10 @@ Mais `capa: {selo, titulo, faixa, quadro}` para a capa.
 3. `python3 gerar_serie.py parte.json` para o MP4. Confira duração (25 a 40 s) e volume (`ffmpeg -af volumedetect`, pico perto de -1 dB).
 4. Entregue: MP4, capa, legenda pronta (sem travessão, com "Comente CAVEIRA para ver a parte X"), horário sugerido.
 
-## 4. Erros que o Victor já cobrou
+## 4. Nível 2: imagens de cena (ideia do Victor, 18/11)
+Para deixar o vídeo mais rico, o fundo de cada cena pode ser uma imagem gerada no Gemini (Nano Banana), no ChatGPT ou no Flow, pela conta do Victor no Chrome dele, ou montada no Canva. Exemplos: mãos de uma senhora segurando o celular na cozinha, porta de apartamento vista de dentro à noite, moto parada na calçada. Regras: nenhum rosto reconhecível nem pessoa real, nada de texto dentro da imagem (o texto entra no motor), 1080x1920, tom escuro igual ao do motor, uma camada de pedido por vez. A imagem entra atrás do celular ou da porta, com zoom lento.
+
+## 5. Erros que o Victor já cobrou
 - Vídeo só com placas e sem narração ("simples e feio", "pai").
 - Pedido sem sentido para quem assiste ("Comente SEGURA").
 - Esperar o Victor pensar: você pesquisa, decide o formato, faz, confere e entrega pronto.
