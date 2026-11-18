@@ -60,7 +60,7 @@ Notas: `docs/livros-mestres/` (10 Máquina de Edição, 13 Publicidade em Vídeo
 - **Texto nunca gerado dentro da imagem pela IA;** entra no editor, na área segura.
 - **Cara de IA:** trocar "bonito, profissional, cinematográfico" por decisões que se veem (luz, lente, cor, lugar); revisar a arte procurando pele de plástico, mãos e textos estranhos, simetria perfeita demais.
 - **Prompt de imagem ou vídeo afirmativo,** uma camada nova por geração, um movimento de câmera por plano; custo lido antes de gerar; uma linha por tentativa na planilha da pasta do projeto.
-- **Pessoa:** nunca Wesley, aluno ou "cliente" gerados por IA (decisão de 14/10). IA só para b-roll e animação sem rosto.
+- **Pessoa:** aluno, "cliente" ou depoimento nunca gerados por IA. **Clone do Wesley** (aprovado em 18/11 por ele e pelo Victor) só com o avatar e a voz oficiais da conta dele, em conteúdo de engajamento e Reels de teste, sempre com rótulo de IA, no jeito dele de falar (nada destoante), **nunca em demonstração de técnica** (técnica é gravação real). Fora isso, IA só para b-roll e animação sem rosto.
 - **Anúncio curto em cinco batidas** (gancho, problema ou desejo, virada com o produto, prova, chamada única) e roteiro em colunas: tempo, imagem, texto na tela, som.
 - **Variações:** base aprovada + uma mudança por versão. Nome: `wg_peça_formato_vN-variavel_AAAA-MM-DD`, nunca "final".
 - **Trilha só com licença comercial** (biblioteca do CapCut para uso comercial ou da Meta) ou sem trilha.

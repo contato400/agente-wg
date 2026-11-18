@@ -12,6 +12,12 @@ Modelo:
 - Verificado? sim/não, como
 ```
 
+## 2026-11-18 18h20 · clone aprovado e Operação WG 2.0
+- Pedido: decisões do Victor (clone liberado para Reels de teste, chaves em variáveis, contas em dezembro, testar edição) e uma nova base para toda a operação.
+- Feito: decisões em `memoria/decisoes.md`; B27 e B28 atualizados e B29 (piloto do clone) no backlog; regra do clone na `edicao-video-arte-wg`; `docs/estrutura-operacao-wg-v2.md`.
+- Pendente: o Victor colar as chaves nas variáveis da tarefa agendada; termo e take de treino do Wesley; escolher a ferramenta de avatar (paga, conta do Wesley).
+- Verificado? sim, commitado na main.
+
 ## 2026-11-18 17h40 · livros da Mestres Play (20 e-books)
 - Pedido: ler os 20 e-books da Biblioteca dos Mestres e aplicar nos agentes, automações e operação.
 - Feito: texto extraído dos 20 PDFs; notas em `docs/livros-mestres/` (índice + 12 notas); aplicado em CLAUDE.md, chefe, analista, todas as fichas (seção Mudanças), pauta, edição, atendimento e settings.json; backlog B21 a B28.

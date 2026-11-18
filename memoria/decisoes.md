@@ -43,3 +43,7 @@
 - 2026-11-18 · Victor · [FIXA] Agentes autônomos: cada um sabe o que mede, de onde lê, o que constrói e quando age; descobrem sozinhos o que gera resultado e qual estratégia subir, e só pedem aprovação para ação externa. Backlog em `memoria/backlog.md`, um agente por dia na rotina.
 - 2026-11-18 · Victor · Não pedir públicos ao Diogo; o tráfego analisa com o que lê no Windsor e na planilha.
 - 2026-11-18 · Victor · Aprovados para começar: relatório de vendas por origem (grupo, post, anúncio) e pesquisa de não compradores.
+- 2026-11-18 · Victor e Wesley · Clone digital do Wesley liberado para Reels de teste (conteúdo de engajamento para trazer seguidor e lead). Condições: termo de imagem e voz assinado pelo Wesley, consentimento gravado por ele na plataforma, contas no nome dele, rótulo de IA em toda peça, nada destoante do jeito dele, nunca em demonstração de técnica (técnica é gravação real). Substitui, só para esse uso, a decisão de 14/10.
+- 2026-11-18 · Victor · Chaves da ponte saem do texto da tarefa agendada para variáveis de ambiente (o Victor cola os valores; pode ser já).
+- 2026-11-18 · Victor · Contas do negócio no nome do Wesley: o financeiro levanta em dezembro (B25).
+- 2026-11-18 · Victor · Quer testar a edição de vídeo pelo agente (B27) e um piloto de vídeo com o clone a partir de tema em alta (B29).
