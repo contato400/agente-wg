@@ -1,5 +1,10 @@
 # Decisões
 
+- 2026-11-18 · Victor · [FIXA] Garantia de 7 dias em TODOS os produtos e plataformas. Nunca 30 dias.
+- 2026-11-18 · Victor · Downsell da IA a R$ 147 automático no funil da Greenn depois da Black: fica como está.
+- 2026-11-18 · Victor · [FIXA] Nada pode depender da Netlify. Tudo na Atomicat. Tirar o que restar.
+- 2026-11-18 · Victor · Cópia duplicada da régua do Gui apagada (fica só claude.ai/artifact/7bB5X8EHDA7ZgYqGqNe9JX).
+
 - 2026-11-18 · Victor · [FIXA] Uma tarefa agendada só ("Agente WG - Rotina diaria completa", 7h35 seg a sáb) faz debriefing, tráfego e pauta, e manda um e-mail único.
 - 2026-11-18 · Victor · [FIXA] Canal único com o Victor: WhatsApp pessoal dele (número só na variável WG_ADMIN_FONE). Todos os agentes avisam e pedem aprovação por lá quando o serviço estiver no ar. Até lá, e-mail do Luis corinthiano.
 - 2026-11-18 · Victor · [FIXA] Pedido de reembolso ou reclamação: o agente avisa o Victor no WhatsApp; com o OK dele, o atendimento tenta recuperar a venda com boa conversa; se não der, o Victor faz o reembolso. Agente nunca reembolsa.

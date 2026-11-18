@@ -10,12 +10,13 @@ Regras fixas da operação estão nas skills: wg-regras-operacao, wg-relatorio-v
 - **Mensagem de acesso pós-compra NO AR (3h47):** automação "WPP - Acesso pós-compra (Greenn e Hotmart)", modelo `caveira_acesso_academia` (Utilidade, aprovado), botão "Entrar na Academia". Sai pelo "Equipe Santiago".
 - **Windsor.ai** na conta do Luis corinthiano, ligado à conta de anúncios 4500 (plano grátis, 1 conta). **Canva** do Luis corinthiano conectado no Claude da empresa.
 - **Decisões do Victor:** canal único com ele pelo WhatsApp pessoal (quando o atendimento estiver no ar); reembolso: agente avisa, atendimento tenta recuperar com o OK dele, quem reembolsa é o Victor; catálogo do WhatsApp não mexe; UTM por agente (utm_term=ag-<agente>); palavras CAVEIRA, MULHER, SEGURA, PROTEGER, KIDS; foco na Black até 30/11. Registro: `kairos/agente-wg-conversa-18-nov-madrugada.md`. Funis propostos: `kairos/funis-e-melhorias-18-nov.md`. Revisão geral: `kairos/revisao-17-e-18-nov.md`.
+- **Decisões das 4h:** garantia de 7 dias em tudo (nunca 30); downsell da IA a R$ 147 automático fica; nada pode depender da Netlify (tirar o que resta); cópia duplicada da régua do Gui apagada.
 - **Pendente amanhã:** código do Samuel (app da Meta do atendimento no número oficial), chave da API do Claude (cartão do Victor), serviço de atendimento 24h.
 
 ## Fase atual
 - Black Caveira 2026 encerrou 16/11 19h. Página da Black segue aberta (R$ 397). Reabertura relâmpago sexta 20/11 19h (sem data de fechamento).
 - Meta até 30/11: 150 vendas orgânicas e R$ 30 mil líquidos. Em 17/11: 115 vendas e R$ 25.361,74 (Greenn + Hotmart).
-- Fila de espera: grupo novo (link devzapp). Régua do Gui: https://claude.ai/artifact/7bB5X8EHDA7ZgYqGqNe9JX (há uma cópia duplicada por engano: claude.ai/artifact/2EP6Xpz5tKajn4vuHaCqb2, apagar só com OK do Victor).
+- Fila de espera: grupo novo (link devzapp). Régua do Gui: https://claude.ai/artifact/7bB5X8EHDA7ZgYqGqNe9JX (a cópia duplicada foi apagada em 18/11).
 
 ## Plataformas e IDs
 - Greenn produtos: Black 1 ano 201654 (checkout payfast.greenn.com.br/201654/offer/7T52i6), Black 2 anos 202271, Black vitalício 202274, Black #TP 204640, assinaturas 205044 / 205301 / 205307, IA KMC 200398 (oferta 197: /200398/offer/FcRqQ7; oferta 147: /200398/offer/e5CpZW), DPC 2.0 31865, E-book Vida Segura 182127, Desafio 7 Movimentos 30523. Total de 74 produtos ativos na conta. Cupom BLACK10 = 10%, só Black 1 ano. Greenn tem área "Tokens e Api Key" e "MCP" (possível conector futuro).
@@ -24,7 +25,7 @@ Regras fixas da operação estão nas skills: wg-regras-operacao, wg-relatorio-v
 - Página de vendas: https://www.wesleygimenez.com.br/black-caveira-2026 (sempre com utm_source=vc).
 
 ## Preço da IA KMC (decisão do Victor, 17/11)
-- Oferta padrão R$ 197. Downsell R$ 147 só na mão, quando a pessoa questionar o preço. (Atenção: o funil da Greenn oferece o downsell R$ 147 automaticamente a quem recusa a IA depois da Black; houve venda assim em 17/11 19h41. Confirmar com o Victor se fica.)
+- Oferta padrão R$ 197. Downsell R$ 147 só na mão, quando a pessoa questionar o preço. O funil da Greenn oferece o downsell R$ 147 automaticamente a quem recusa a IA depois da Black: o Victor decidiu manter (18/11).
 
 ## ManyChat: o que existe (18/11)
 - Tags: Compradores Black 2026 (80), comprador_greenn (148, recebe também compradores da Hotmart), comprou_ia_kmc (5), recuperacao_carrinho_black_1711 (38), recuperacao_carrinho_ebook_1711 (17), carrinho_pendente, nova_compra_black, enviar_acesso (18/11).
