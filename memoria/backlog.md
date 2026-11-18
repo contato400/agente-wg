@@ -1,0 +1,29 @@
+# Backlog de iniciativas dos agentes
+
+Lista viva do que a equipe tem que construir, cada item com dono. O `chefe-wg` mantém. Cada agente, no seu dia da semana (ver `rotinas/agenda.md`), pega o primeiro item dele com status A FAZER ou EM ANDAMENTO, faz todo o trabalho interno (análise, rascunho, texto, planilha, página em rascunho) e, se o próximo passo for externo, coloca na fila de aprovação. Ninguém precisa do Victor para começar; só para aprovar.
+
+Status: A FAZER · EM ANDAMENTO · NA FILA (com ID) · FEITO (data) · PARADO (motivo).
+Regras: nunca dado pessoal aqui; ideia nova entra no fim com a fonte; o chefe reordena pela venda que cada item pode trazer.
+
+| ID | Iniciativa | Dono | Quando | Fonte | Status |
+|---|---|---|---|---|---|
+| B01 | Relatório de vendas por origem: abrir `vc` e `FB` por `utm_medium` (grupo, story, bio, e-mail), `utm_campaign` e `utm_content` (qual mensagem, post ou anúncio vendeu). Vai para o debriefing todo dia | analista-wg | já | Corredor Polonês, dados (aulas 23 a 25) | A FAZER |
+| B02 | Medição da reabertura: vendas por hora de sexta 19h até segunda, por mensagem da régua (`utm_content`), aluno x não aluno, ordem dos compradores para os prêmios (camisa 3, encontro 20, livros até 23h59) só com iniciais | analista-wg | sex 20/11 a seg 23/11 | `docs/reabertura-20-nov-oferta.md` | A FAZER |
+| B03 | Pesquisa de não compradores: formulário curto (por que não entrou, acredita que é possível e por quê, se tivesse um curso mais barato qual tema, o que precisaria ter) com o presente "lista VIP da próxima turma e replays". Texto da mensagem para o grupo | atendimento-wg (perguntas e texto), ofertas-paginas-wg (formulário) | rascunho até sáb 21/11, envio seg 23/11 com aprovação | Corredor Polonês, pesquisas (aula 28) | A FAZER |
+| B04 | Pesquisa de alunos para os compradores da Black e da reabertura: perfil (para quem comprou, já treinou, idade, há quanto tempo segue o Wesley), "o que eu falei ou fiz que te fez comprar?", maior dificuldade antes, o que quase fez desistir, interesse em produto maior. Presente no fim | atendimento-wg | envio seg 23/11 com aprovação | Corredor Polonês (aulas 27, 23 a 25, 30 a 34) | A FAZER |
+| B05 | Voz do cliente: juntar, sem dado pessoal, as frases reais de dor, desejo e objeção (pesquisas, conversas, comentários) em `memoria/voz-do-cliente.md`. Alimenta copy, pauta e PPN | atendimento-wg | toda quarta | Copy (PPN), atração (aula 31) | A FAZER |
+| B06 | DPC 2.0 para quem não comprou: aula curta sobre o tema mais desejado, oferta com bônus para os primeiros, grupo próprio ("eu não vou te deixar para trás") | ofertas-paginas-wg com social-media-wg | seg 23/11 (já previsto na régua) | 6º pico (aula 102) | A FAZER |
+| B07 | Termômetro do direct e dos comentários: quem está chegando e pedindo o quê; se pedem outra coisa, qual conteúdo atraiu errado | social-media-wg | toda segunda | Atração (aula 34) | A FAZER |
+| B08 | Nove assuntos de Stories do Wesley (resultado de aluno, bastidor, pergunta respondida, notícia com ângulo de proteção, família, história dele, Academia por dentro, aviso de campanha, autoridade), três por dia, e revisão de bio, destaques e três fixados | social-media-wg | semana de 23/11 | Atração (aula 34) | A FAZER |
+| B09 | Um formato novo por semana na pauta (caixinha respondida em vídeo no feed, imagem de texto com a fonte do Instagram, carrossel com a oportunidade na 1ª tela), medido por comentário com palavra-chave e venda | social-media-wg | contínuo | Atração (aulas 32 e 33) | A FAZER |
+| B10 | Custo global e por produto: investimento total sobre vendas totais, custo para trazer um comprador por produto e recompra em 30, 60 e 90 dias | financeiro-wg | toda quinta, a partir de 26/11 | Masterclass (tráfego), produto e preço (aula 18) | A FAZER |
+| B11 | Conversão das páginas: visitas (Atomicat), início de checkout, compra, bump e upsell por página; a pior página recebe 1 teste | ofertas-paginas-wg | toda terça | Front e-book, tráfego (funil) | A FAZER |
+| B12 | PPN (público, promessa, narrativa) por produto que entra em campanha: começar por DPC 2.0, Vida Segura, Contra Ataque Feminino e Kids | ofertas-paginas-wg | dezembro | Copy (aulas 64 a 70) | A FAZER |
+| B13 | Mapa da esteira dos 23 cursos por dor, com entrada, principal e alto valor; apontar cursos que disputam a mesma dor | ofertas-paginas-wg | dezembro | Produto e preço (aulas 14 a 18) | A FAZER |
+| B14 | Trilhas por perfil na Academia (mulher que anda sozinha, pai ou mãe, mais de 50, do zero) | ofertas-paginas-wg | dezembro, depois do B13 | Produto (aula 17) | A FAZER |
+| B15 | Calendário 2027 com 5 ou 6 aberturas, carrinho fechado no meio, Black antecipada, um lançamento pago no 1º semestre | chefe-wg | dezembro | Formatos de venda (aulas 11 a 13), lançamento pago | A FAZER |
+| B16 | Fase 2 com as objeções universais do público do Wesley (sou velho demais, nunca treinei, online funciona, não tenho tempo, já comprei curso e não usei): um roteiro por objeção | social-media-wg | dezembro | Fase 2 (aulas 40 a 46) | A FAZER |
+| B17 | Degustação: liberar uma aula da Academia para quem compra o e-book Vida Segura | ofertas-paginas-wg | dezembro | Masterclass (degustação) | A FAZER |
+| B18 | Tráfego pós-Black: R$ 10 a R$ 15 por dia em conteúdo do Wesley para seguidores e envolvimento de 90 dias, o resto em venda, dentro do teto de R$ 50 | trafego-wg | só depois que o Victor disser que a Black acabou | Tráfego do Corredor Polonês | PARADO (Black) |
+| B19 | Auditoria semanal do que está no ar: páginas, preços, garantia, anúncios e posts da semana contra as regras de marca, CDC e Meta | juridico-wg | todo sábado | CLAUDE.md, marca-limites-wg | A FAZER |
+| B20 | Atendimento 24h no número oficial (YCloud): tentar de novo a conexão, ticket se travar, chaves no Cloudflare, teste, MODO=ativo | Victor com atendimento-wg | 19/11 | `docs/atendente-whatsapp-status-18-nov.md` | EM ANDAMENTO |

@@ -18,6 +18,20 @@ Os comandos abaixo continuam existindo para rodar na mão quando precisar:
 | `/semana` | chefe-wg | Revisão da semana |
 | (serviço, 24h) | atendimento WhatsApp | Responde no número oficial (em construção) |
 
+## Agente do dia (a partir de 19/11)
+Além do debriefing, do tráfego e da pauta, a rotina diária faz uma **rodada de iniciativa**: o agente do dia pega o primeiro item dele em `memoria/backlog.md`, faz todo o trabalho interno e põe na fila o que for externo. Um agente por dia para controlar o custo.
+
+| Dia | Agente | Além do backlog |
+|---|---|---|
+| Segunda | social-media-wg | Termômetro do direct e dos comentários (B07) |
+| Terça | ofertas-paginas-wg | Conversão das páginas (B11) |
+| Quarta | atendimento-wg | Voz do cliente (B05) |
+| Quinta | financeiro-wg | Custo global, por produto e recompra (B10) |
+| Sexta | analista-wg | Balanço da semana por origem; em 20/11, medição da reabertura (B02) |
+| Sábado | juridico-wg | Auditoria do que está no ar (B19); o chefe fecha a semana e reordena o backlog |
+
+Datas de campanha passam na frente: em dia de abertura ou reabertura, a rodada é do analista (medição) e do chefe (ajuste da régua).
+
 ## Como agendar (escolher um)
 1. **Tarefas agendadas do Claude Code na nuvem** (claude.ai/code): criar uma tarefa por linha, com o comando como instrução e este projeto como repositório. Roda sem o seu computador.
 2. **GitHub Actions** (grátis até certo uso): um arquivo de workflow por rotina rodando `claude -p "/debrief"` com a chave da API nos segredos do repositório.

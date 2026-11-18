@@ -8,7 +8,7 @@ Leia este arquivo antes de abrir pastas inteiras. Uma linha por item. Atualizado
 - `tudo.md`: este mapa.
 
 ## .claude/agents (8 agentes)
-chefe-wg (coordena, debriefing, biblioteca de método), analista-wg, atendimento-wg, social-media-wg, trafego-wg, ofertas-paginas-wg, financeiro-wg, juridico-wg.
+Cada ficha diz o que o agente mede, de onde lê, as skills, a rotina, o sinal que faz agir e os itens dele no backlog. chefe-wg (coordena, debriefing, backlog, biblioteca de método), analista-wg, atendimento-wg, social-media-wg, trafego-wg, ofertas-paginas-wg, financeiro-wg, juridico-wg.
 
 ## .claude/commands
 /debrief, /pauta, /trafego, /atendimento, /semana, /executar-aprovados.
@@ -22,7 +22,7 @@ chefe-wg (coordena, debriefing, biblioteca de método), analista-wg, atendimento
 - Tráfego e números: `trafego-wg-guardrails`, `wg-relatorio-vendas`, `debrief-diario-wg`.
 
 ## memoria/
-- `estado.md` (situação atual, reescrito todo dia), `decisoes.md` (decisões com data), `aprendizados.md` (o que funcionou), `passagem.md` (registro curto do que foi feito em cada sessão), `README.md` (regras).
+- `estado.md` (situação atual, reescrito todo dia), `decisoes.md` (decisões com data), `aprendizados.md` (o que funcionou), `passagem.md` (registro curto do que foi feito em cada sessão), `backlog.md` (iniciativas com dono e status), `voz-do-cliente.md` (frases reais dos clientes, sem dado pessoal), `README.md` (regras).
 
 ## docs/
 - Estado e operação: `00-WG-documento-mestre.md`, `revisao-17-e-18-nov.md`, `funis-e-melhorias-18-nov.md`, `conexoes.md`, `mapa-whatsapp.md`.
@@ -34,7 +34,7 @@ chefe-wg (coordena, debriefing, biblioteca de método), analista-wg, atendimento
 ## Outras pastas
 - `aprovacao/`: fila de aprovação (como funciona).
 - `relatorios/`: relatórios diários dos agentes (AAAA-MM-DD-nome.md).
-- `rotinas/`: agenda, ponte com a planilha (`ponte.sh`), configuração do executor.
+- `rotinas/`: agenda (inclui o agente do dia), ponte com a planilha (`ponte.sh`), configuração do executor.
 - `servico-atendimento/`: código do atendente de WhatsApp (Cloudflare Worker) e testes.
 
 ## Fora do repositório

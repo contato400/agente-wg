@@ -7,6 +7,8 @@ Três arquivos, cada um com prazo de validade diferente (memória que nunca expi
 | `estado.md` | Situação atual: meta do mês, campanha aberta, ofertas ativas, o que está no ar | Reescrito todo dia pelo `chefe-wg` | chefe-wg |
 | `decisoes.md` | Decisões do Victor e do Wesley (o que foi aprovado, recusado, regras novas) | 90 dias; regra permanente fica marcada [FIXA] | qualquer agente, sempre com data e quem decidiu |
 | `passagem.md` | Registro curto do que cada sessão fez (pedido, feito, decisões, pendente) | 30 dias; depois resumido | quem trabalhou |
+| `backlog.md` | Iniciativas com dono, prazo e status | Viva; o chefe reordena aos sábados | chefe-wg e o dono do item |
+| `voz-do-cliente.md` | Frases reais de dor, desejo, objeção e motivo de compra, sem dado pessoal | 90 dias | atendimento-wg (quarta) e qualquer agente |
 | `aprendizados.md` | O que funcionou e o que não funcionou, com número | 60 dias; o que se confirmar 3 vezes vira [FIXA] | qualquer agente |
 
 Regras:

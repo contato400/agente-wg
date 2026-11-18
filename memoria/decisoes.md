@@ -40,3 +40,6 @@
 - 2026-10-14 · Victor · [FIXA] Vídeos de IA para stories descartados (cara de artificial). Usar vídeos e fotos reais do Wesley.
 - 2026-11-18 · Victor · Reabertura 20/11: preço igual ao 2º lote (R$ 397, aluno R$ 347), nunca voltar para 297/247 (risco de reembolso de quem pagou 397). Sem kit completo. Prêmios: 3 primeiros camisa, 20 primeiros encontro ao vivo, livros digitais para quem comprar até 23h59 de sexta. Sem live: vídeo gravado de 3 a 5 min. Quem não comprar recebe o DPC 2.0. Falta OK do Wesley.
 - 2026-11-18 · Victor · Victor tem o Google AI Pro assinado (Gemini, Nano Banana, Veo, Flow) até 2027. Usar pelo Chrome dele quando precisar de imagem ou vídeo gerado; não assinar outra ferramenta.
+- 2026-11-18 · Victor · [FIXA] Agentes autônomos: cada um sabe o que mede, de onde lê, o que constrói e quando age; descobrem sozinhos o que gera resultado e qual estratégia subir, e só pedem aprovação para ação externa. Backlog em `memoria/backlog.md`, um agente por dia na rotina.
+- 2026-11-18 · Victor · Não pedir públicos ao Diogo; o tráfego analisa com o que lê no Windsor e na planilha.
+- 2026-11-18 · Victor · Aprovados para começar: relatório de vendas por origem (grupo, post, anúncio) e pesquisa de não compradores.

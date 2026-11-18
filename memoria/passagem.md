@@ -12,6 +12,12 @@ Modelo:
 - Verificado? sim/não, como
 ```
 
+## 2026-11-18 17h · agentes autônomos
+- Pedido: deixar os agentes capazes de trabalhar sozinhos (medir, achar o que vende, propor estratégia), só pedindo aprovação; não pedir públicos ao Diogo.
+- Feito: fichas dos 8 agentes reescritas (mede, fontes, rotina, sinal de alerta, itens do backlog); `memoria/backlog.md` (B01 a B20) e `memoria/voz-do-cliente.md`; agente do dia em `rotinas/agenda.md`; ciclo de autonomia no `chefe-wg`; CLAUDE.md, README da memória, decisões e `tudo.md`. Rotina diária ganhou a rodada do agente do dia.
+- Pendente: primeira rodada amanhã 19/11 (quinta: financeiro); B02 na sexta.
+- Verificado? sim, arquivos na main.
+
 ## 2026-11-18 16h · Corredor Polonês fechado; cursos menores travados no login
 - Pedido: terminar o curso todo na mesma conversa.
 - Feito: módulos de base (aulas 2, 9, 11 a 18, 23 a 25, 30 a 34, 58 a 63) em `docs/curso-corredor-polones-base-notas.md`. Skills ampliadas: `pauta-conteudo-wg` (conteúdo por degrau, Stories, termômetro do direct), `edicao-video-arte-wg` (roteiro, gravação, edição no celular), `trafego-wg-guardrails` (separar por origem, 70% a 80% no quente). Com isso o Corredor Polonês está inteiro, menos as aulas sem legenda (4, 21, 44, 47 a 57).
