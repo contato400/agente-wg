@@ -25,6 +25,17 @@ Recalcule para cada produto (e-book R$ 27,90 só se pagar com upsell; a IA KMC e
 - Custo por clique muito acima da média da conta: revisar público.
 Com R$ 30 por dia, uma decisão leva dias. Não mude tudo de uma vez: uma variável por teste.
 
+## Veredito por anúncio (método do curso ZX LAB, adaptado em 18/11)
+- **Até a Black acabar: modo só leitura.** Mostrar os números por anúncio, sem veredito de escalar ou pausar (decisão do Victor: o tráfego é do Diogo).
+- Depois da Black: KPI principal é o **custo por venda**, meta **R$ 80** (produto de R$ 197).
+  - **Escalar** quando o custo por venda for até 0,8x da meta (até R$ 64).
+  - **Pausar** quando passar de 1,5x da meta (acima de R$ 120).
+  - **Manter** entre os dois.
+  - **Amostra insuficiente**: anúncio que gastou menos de 1,2x da meta (R$ 96) não recebe veredito. Esperar 24 a 72 h.
+- Mudança de verba: uma por dia, no máximo +30% por vez, mínimo R$ 10 por campanha ativa, sempre dentro do teto de R$ 50. Reavaliar 24 h depois; se piorar 2 dias seguidos, voltar ao que era.
+- Toda proposta mostra o número e o motivo ("custo por venda R$ 140, 75% acima da meta, gasto R$ 210").
+- Janelas de leitura: 4, 7, 14 e 30 dias. Decidir pela de 7 dias.
+
 ## Estrutura recomendada para começar
 1. Uma campanha de vendas, 1 conjunto aberto (Brasil, 25 a 55 anos), 2 a 3 anúncios.
 2. Anúncios com vídeos do Wesley que já performaram no orgânico (o `analista-wg` aponta quais).
