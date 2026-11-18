@@ -31,3 +31,20 @@ Cada item com a prova lida hoje. OK = provado hoje. PROBLEMA = afeta venda ou op
 - Tarefa agendada: Instagram pelo Metricool, passo do financeiro, propostas vencidas viram VENCIDO, itens APROVADO parados aparecem no debriefing.
 - Agente novo: `auditor-wg` (checklist diário de 8 itens e auditoria completa no sábado).
 - `memoria/estado.md` atualizado.
+
+## Rodada 2 · 20h50 a 21h (ManyChat e página)
+- **Página da reabertura: EXECUTADO** (20261118-ofertas-2). Bloco publicado; conferido na página no ar simulando 20/11 19h05 (prêmios da reabertura) e 21/11 00h10 (livros encerrado). Backup "Antes do quadro da reabertura" no Atomicat.
+- **ManyChat, automações no ar (lista lida 20h55):**
+| Automação | Execuções | Leitura |
+|---|---|---|
+| WPP - Acesso pos-compra (Greenn e Hotmart) | 3 | **PROBLEMA**: 4 vendas pagas desde 03h47 e só 3 envios. A que falta é a das 17h12, a mesma do erro "WhatsApp ID already exists" na ponte. Quem já é contato do ManyChat não recebe a mensagem de acesso. CTR 0% (ninguém clicou no botão da Academia ainda) |
+| WPP - Upsell IA KMC pós-compra Black | 3 | Mesmo furo do item acima |
+| WPP - Recuperação de carrinho automática | 6 | No ar; ajuste aprovado (ofertas-1) ainda não feito |
+| FACEBOOK - Comentarios - grupo de espera - 1711 | 254 | CTR 2,4% |
+| STORY - grupo VIP (/bf) - 0411 | 129 | CTR 6,7% |
+| LIVE BC - grupo VIP (/bf) | 14 | |
+| Diga Oi para novos seguidores | 15.719 | CTR 6,4% |
+| Auto-DM de links dos comentários | 10.784 | CTR 5,8% |
+- **Aviso do ManyChat:** "O plano será alterado para Pro em 22 dias, e você perderá alguns recursos". Ver com o Victor o que sai no Pro.
+- **Decisão pendente:** na sexta 19h, os funis de comentário, story, live e novo seguidor continuam mandando para o grupo de espera ou viram para a página da Black (skill `wg-manychat-funis`, "viradas típicas")?
+- **Navegador:** o Chrome parou de responder às capturas de tela às 20h52 (computador provavelmente em repouso). Edição de fluxo no ManyChat ficou para quando o Victor voltar.
