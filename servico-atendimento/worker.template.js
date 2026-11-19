@@ -160,7 +160,7 @@ export default {
       return new Response(txt, { headers: { 'content-type': 'application/json' } });
     }
     // ---- Porta dos agentes (rotina agendada): só com o segredo AVISO_TOKEN no cabeçalho Authorization: Bearer ----
-    if (url.pathname === '/avisar' || url.pathname === '/equipe' || url.pathname === '/recados') {
+    if (url.pathname === '/avisar' || url.pathname === '/equipe' || url.pathname === '/recados' || url.pathname === '/perguntar') {
       const tk = (req.headers.get('authorization') || '').replace(/^Bearer\s+/i, '');
       if (!env.AVISO_TOKEN || tk !== env.AVISO_TOKEN) return new Response('negado', { status: 403 });
       let b = {}; if (req.method === 'POST') { try { b = await req.json(); } catch {} }
@@ -174,6 +174,19 @@ export default {
         const adm = String(env.ADMIN_FONE).replace(/\D/g, '');
         await addHist(env, chave === 'chefe-wg' ? adm : 'ag:' + chave + ':' + adm, { role: 'assistant', content: texto });
         return Response.json({ ok: enviados === partes.length, partes: partes.length, enviados });
+      }
+      if (url.pathname === '/perguntar' && req.method === 'POST') {
+        // O Jarvis (assistente de voz no computador do Victor) fala com um agente: {agente: "financeiro", pergunta: "..."}.
+        // Usa o mesmo histórico do #nome no WhatsApp, então a conversa continua de um lado para o outro.
+        const chave = APELIDOS[semAcento(b.agente || 'chefe')] || 'chefe-wg';
+        const pergunta = String(b.pergunta || '').trim().slice(0, 4000);
+        if (!env.ADMIN_FONE || pergunta.length < 2) return new Response('faltou pergunta', { status: 400 });
+        const adm = String(env.ADMIN_FONE).replace(/\D/g, '');
+        const hk = chave === 'chefe-wg' ? adm : 'ag:' + chave + ':' + adm;
+        await addHist(env, hk, { role: 'user', content: '[Victor pelo Jarvis, no computador; a resposta vai ser lida em voz alta, então responda curto e sem tabela] ' + pergunta });
+        const partes = await pensar(await getHist(env, hk), 'Victor', env.ADMIN_FONE, chave, env);
+        for (const t of partes) await addHist(env, hk, { role: 'assistant', content: t });
+        return Response.json({ agente: NOME_AGENTE[chave], resposta: partes.join('\n\n') });
       }
       if (url.pathname === '/equipe' && req.method === 'POST') {
         // A rotina atualiza a memória que os agentes do WhatsApp enxergam (estado, decisões, backlog, conversas, passagem).

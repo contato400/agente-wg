@@ -42,6 +42,9 @@ r.push(['/avisar sem chave = 403', (await av('/avisar','POST',{de:'financeiro',t
 const n0=yc.length; const ra=await av('/avisar','POST',{de:'jurídico',texto:'Preciso da sua aprovação no item 3.'});
 r.push(['/avisar manda ao Victor com o nome do agente', ra.status===200 && yc.length===n0+1 && yc.at(-1).to==='+5531999999999' && yc.at(-1).text.body.startsWith('[Jurídico]') && kv.has('hist:ag:juridico-wg:5531999999999')]);
 r.push(['/equipe atualiza a memória', (await av('/equipe','POST',{memoria:'x'.repeat(60)})).status===200 && kv.get('equipe:memoria').length===60]);
+const yp=yc.length; const rp=await av('/perguntar','POST',{agente:'financeiro',pergunta:'como esta o mes?'});const jp=await rp.json();
+r.push(['/perguntar (Jarvis) responde como o agente, sem mandar WhatsApp', rp.status===200 && jp.agente==='Financeiro' && jp.resposta.length>0 && yc.length===yp && anth.at(-1).system[1].text.includes('agente Financeiro') && JSON.stringify(anth.at(-1).messages).includes('pelo Jarvis')]);
+r.push(['/perguntar sem chave = 403', (await av('/perguntar','POST',{agente:'chefe',pergunta:'oi'},'x')).status===403]);
 kv.set('recado:1',JSON.stringify({para:'rotina',recado:'teste'}));
 const rr=await (await av('/recados?limpar=1','GET')).json();
 r.push(['/recados devolve e limpa', rr.length===1 && !kv.has('recado:1')]);
