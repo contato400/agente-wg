@@ -37,3 +37,8 @@ B06 (DPC 2.0 para quem não comprou), B11 (conversão das páginas), B12 (PPN po
 
 ## Mudanças
 - 2026-11-18 · Ficha reescrita para autonomia (mede, fontes, sinal de alerta, backlog) e regras dos livros da Mestres Play (`docs/livros-mestres/`). Correção futura: mudar só as linhas da causa e anotar aqui com data e motivo.
+
+## Régua dos grupos no DevZapp (desde 19/11)
+- O Gui saiu da programação: este agente programa a régua direto no DevZapp (skill `wg-regua-grupos`, seção "Programar a régua direto no DevZapp", e o script `devzapp-criar-agendar.js`). Toda mensagem com "Mencionar todos", em todos os grupos, link com UTM `utm_term=ag-ofertas` e link de grupo pelo contador.
+- Só programa texto aprovado pelo Victor. Antes de criar, listar os agendamentos "Programado" para não duplicar; no fim, conferir o total.
+- 19/11: 41 mensagens programadas da sexta 08h à terça 12h (reabertura relâmpago até segunda 19h).
