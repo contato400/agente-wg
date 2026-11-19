@@ -197,3 +197,8 @@ Modelo:
 ## 2026-11-19 07h10 · Avatar animado no site
 - Feito: vídeo do Gemini (Victor anexou) recortado quadro a quadro (rembg isnet), alinhado às imagens do avatar e salvo em webm com fundo transparente (666 KB, CloudFront Higgsfield). No ar em /inicio: o boneco acena e aponta ao abrir (Chrome, Edge, Firefox, Android); quando fala, troca para as imagens com boca sincronizada; repete a animação a cada 16 s. Safari e iPhone ficam com as imagens.
 - Verificado: Playwright no ar, vídeo toca com transparência, classe "falando" entra durante a narração.
+
+## 2026-11-19 07h20 · Site v4 virou a página principal
+- Victor aprovou ("Sim"). Backup da antiga raiz ([DPC] [FRONT] [ORG-DOMÍNIO], Jwn8mcsMcXmAzQX5WPBI) feito na Atomicat; ela foi republicada em /defesa-pessoal-caveira. Site v4 publicado na raiz www.wesleygimenez.com.br (o /inicio continua funcionando).
+- Verificado: / , /inicio, /defesa-pessoal-caveira e /dpc respondem 200; vídeo do avatar toca na raiz.
+- Atenção: wesleygimenez.com.br sem "www" não responde (problema de DNS que já existia, não mexi). Links antigos que apontavam para a raiz agora caem no site novo, que leva ao DPC.
