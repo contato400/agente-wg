@@ -250,3 +250,10 @@ Modelo:
 - Verificado: simulação no celular (agora, sex 19h05, sáb 00h10, seg 19h05), order bumps nos botões, teste de aviso com a venda do Lucão (12h42).
 - Teste Lucão no ManyChat: acesso enviado 12h42 (modelo caveira_acesso_academia); upsell IA agendado para 15h42 (atraso de 3h, janela 8h a 22h).
 - Pendente: número antigo (31) 97334-6056 no modelo de acesso (precisa modelo novo aprovado pela Meta) e na mensagem #2 do upsell IA (edição bloqueada para mim, Victor decide); relógio de 15 min do checkout Greenn; régua do Gui e funis do ManyChat com o prazo de segunda.
+
+## 2026-11-19 13h35 · Pedidos do Victor (13h08)
+- Upsell IA (ManyChat): número de suporte trocado para (31) 99329-4274 e espera de 3h para 2h. Publicado. Quem já estava na espera (ex.: Lucão) segue o horário antigo.
+- Modelo novo caveira_acesso_academia_v2 (número novo) enviado à Meta 13h15. Falta: trocar na automação "WPP - Acesso pós-compra (Greenn e Hotmart)" quando aprovar.
+- Checkouts Greenn 145095 e 145096: faixa "ATÉ SEGUNDA, 23/11, ÀS 19H · Finalize agora e garanta seus prêmios." Botão de WhatsApp do checkout: (31) 99329-4274. O relógio da Greenn só aceita minutos por pessoa (15 min); não conta até uma data.
+- Régua do Gui (artifact 7bB5X8EHDA7ZgYqGqNe9JX, versão 13): prazo de segunda, mensagens de domingo e segunda, DPC passou para terça 24/11.
+- E-mail da Academia: copy e banner em conteudo/2026-11-19/email-academia (copy.md, banner.jpg). Disparo 18h a 18h30 depois do "pode mandar" do Victor e da decisão sobre prêmios.

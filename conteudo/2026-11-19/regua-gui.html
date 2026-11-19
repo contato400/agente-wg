@@ -1,0 +1,328 @@
+<title>Régua Fila de Espera Caveira</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Layout: coluna única de leitura, dias como blocos, cada mensagem com horário, canal e botão copiar */
+:root{--bg:#f6f4f3;--fg:#1b1617;--muted:#6d6466;--line:#e2dcdc;--card:#ffffff;--accent:#b3121b;--ok:#1f7a45;--warn:#a5650a;
+--display:'Oswald',Impact,'Arial Narrow',sans-serif;--body:'Inter',system-ui,-apple-system,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121011;--fg:#efe9ea;--muted:#a59a9c;--line:#2c2627;--card:#1b1718;--accent:#ff4b52;--ok:#4fc983;--warn:#e7a53b;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121011;--fg:#efe9ea;--muted:#a59a9c;--line:#2c2627;--card:#1b1718;--accent:#ff4b52;--ok:#4fc983;--warn:#e7a53b;color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding-block:28px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:28px}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(28px,6vw,42px);letter-spacing:.5px;text-transform:uppercase;margin:0;text-wrap:balance}
+h2{font-family:var(--display);font-weight:500;font-size:22px;text-transform:uppercase;letter-spacing:.6px;margin:0 0 10px;text-wrap:balance}
+.sub{color:var(--muted);margin:6px 0 0;max-width:65ch}
+.eyebrow{font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--accent);font-weight:600}
+section{display:flex;flex-direction:column;gap:12px}
+table{border-collapse:collapse;width:100%;font-size:14px}
+.tw{overflow-x:auto}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);font-weight:600}
+.pill{display:inline-block;font-size:12px;font-weight:600;padding:2px 9px;border-radius:999px;border:1px solid currentColor;white-space:nowrap}
+.ok{color:var(--ok)}.warn{color:var(--warn)}.bad{color:var(--accent)}
+.msg{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13px;color:var(--muted)}
+.meta b{color:var(--fg);font-variant-numeric:tabular-nums}
+.txt{white-space:pre-wrap;margin:0;font-family:var(--body);font-size:14.5px;overflow-wrap:anywhere}
+.poll{font-size:14px;margin:0;padding-left:20px}
+button{align-self:flex-start;font:600 13px var(--body);color:var(--accent);background:transparent;border:1px solid var(--accent);border-radius:6px;padding:5px 12px;cursor:pointer}
+button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.day{border-left:3px solid var(--accent);padding-left:14px;display:flex;flex-direction:column;gap:12px}
+.note{font-size:13.5px;color:var(--muted);max-width:65ch;margin:0}
+ul{margin:0;padding-left:20px}
+.art{width:100%;max-width:300px;aspect-ratio:1;border-radius:8px;display:block;border:1px solid var(--line)}
+.artnote{font-size:12.5px;color:var(--warn);margin:0;font-weight:600}
+</style>
+<div class="wrap">
+<header>
+<div class="eyebrow">Krav Magá Caveira · pós-Black 2026 · para o Gui</div>
+<h1>Régua da Fila de Espera</h1>
+<p class="sub">Terça (17/11) a sexta (20/11, feriado). Terça e quarta: só conteúdo e enquete, sem falar de abertura nem de novidade. Quinta à noite: anúncio da reabertura relâmpago. Sexta, às 19h: abre. A reabertura vai até segunda, 23/11, às 19h: esse é o prazo real e entra nas mensagens para dar urgência.</p>
+<p class="sub" style="color:var(--accent);font-weight:600">Atualizado em 19/11, 13h30: a Black reaberta vai até <b>segunda, 23/11, às 19h</b> (decisão do Victor). Saiu "pode sair do ar a qualquer momento"; entrou o prazo de segunda e as mensagens de sábado, domingo e segunda. Suporte oficial agora é (31) 99329-4274. Mudanças marcadas com ✏️ 19/11 e 🆕 19/11.</p>
+<p class="sub">Atualização anterior, 18/11, 13h20: entraram os prêmios da reabertura (3 primeiros camisa, 20 primeiros encontro ao vivo, livros digitais até 23h59 de sexta) e o vídeo do Mestre nas 15h e 19h. Mensagens mudadas estão marcadas com ✏️ MUDOU; novas com 🆕 NOVA. Preço igual ao 2º lote (aluno na página).</p>
+</header>
+
+<section>
+<h2>Regras da régua</h2>
+<ul>
+<li>Cada mensagem diz para onde vai: <span class="pill ok">Todos os grupos</span> (grupo de espera novo e grupos antigos de disparo), <span class="pill warn">Só grupo de espera (novo)</span> ou <span class="pill bad">Só grupos antigos</span>. Só a quinta 20h e a sexta 08h05 são diferentes entre grupo novo e antigos.</li>
+<li>Grupos antigos: o objetivo é levar a pessoa para o grupo de espera novo (link do DevZap). A partir das 19h de sexta, todos recebem o link da página.</li>
+<li>Terça e quarta: 2 posts por dia (12h e 18h). Quinta: 12h e 20h. Sexta: ritmo crescente até as 19h.</li>
+<li>✏️ 19/11: prazo real é <b>segunda, 23/11, às 19h</b>. Pode e deve ser citado. Depois disso a Black sai do ar.</li>
+<li>Formas de pagamento para citar na sexta: cartão em até 12x, Pix à vista, e Pix ou cartão parcelado em até 6x sem comprometer o limite. Preço de aluno na página, com o e-mail da conta da Academia.</li>
+<li>Sem travessão nos textos. Suporte oficial: (31) 99329-4274 (mudou em 19/11).</li>
+<li>Cada mensagem tem a sua imagem logo acima do texto: mandar a imagem com o texto na legenda. As imagens em tamanho cheio (1080x1080) estão no pacote <b>Imagens_Regua_Gui.zip</b>, numeradas na ordem (ex.: 07_sexta_08h.jpg). Aqui é para conferir qual vai com qual.</li>
+</ul>
+</section>
+
+<section>
+<h2>Links</h2>
+<div class="msg"><div class="meta"><b>Grupo de espera</b> usar nos grupos antigos na quinta</div><pre class="txt">https://devzapp.com.br/r/s9mRreup?utm_source=vc</pre><button data-c>Copiar</button></div>
+<div class="msg"><div class="meta"><b>Página da Black</b> usar na sexta. Trocar o final utm_content por mensagem se quiser medir</div><pre class="txt">https://www.wesleygimenez.com.br/black-caveira-2026?utm_source=vc&amp;utm_medium=whatsapp-grupo&amp;utm_campaign=reabertura-2011</pre><button data-c>Copiar</button></div>
+</section>
+
+<section>
+<h2>Foto e descrição dos grupos</h2>
+<div class="msg"><div class="meta"><b>Descrição</b> todos os grupos de disparo</div>
+<pre class="txt">☠️ FILA DE ESPERA | MESTRE WESLEY GIMENEZ
+
+A Black Caveira 2026 encerrou e foi a maior da história.
+Este grupo é pra quem não quer deixar a própria segurança, e a da família, na sorte.
+
+Aqui você recebe conteúdo de defesa pessoal do Mestre e fica sabendo primeiro de tudo.
+🔔 Ative as notificações.
+
+Suporte oficial: (31) 99329-4274</pre><button data-c>Copiar</button></div>
+<img class="art" src="img/00_foto_dos_grupos.jpg" alt="Foto dos grupos: Fila de espera" loading="lazy">
+<p class="note">Foto dos grupos de disparo (arquivo 00_foto_dos_grupos.jpg no pacote). O texto já está centralizado para caber no recorte redondo do WhatsApp.</p>
+</section>
+
+<section>
+<h2>Terça · 17/11</h2>
+<div class="day">
+<div class="msg"><div class="meta"><b>12h00 · enquete</b> <span class="pill ok">Todos os grupos</span></div>
+<img class="art" src="img/01_terca_12h_enquete.jpg" alt="Arte 01: enquete Você conseguiu aproveitar a Black" loading="lazy">
+<pre class="txt">☠️ Pergunta rápida pra quem está aqui:
+
+Você conseguiu aproveitar a condição da Black Caveira?</pre>
+<ol class="poll"><li>Sim, aproveitei ☠️</li><li>Não deu tempo</li><li>Fiquei em dúvida</li><li>Ainda tem chance de eu aproveitar?</li></ol>
+<button data-c>Copiar</button>
+<p class="note">Enquete nativa do WhatsApp, uma resposta por pessoa. O resultado mostra quantos ficaram de fora e por quê.</p></div>
+<div class="msg"><div class="meta"><b>18h00 · conteúdo</b> <span class="pill ok">Todos os grupos</span></div>
+<img class="art" src="img/02_terca_18h.jpg" alt="Arte 02: 3 hábitos" loading="lazy">
+<pre class="txt">🛡️ 3 HÁBITOS PRA SAIR DE CASA MAIS SEGURO
+(direto do Protocolo Vida Segura do Mestre Wesley)
+
+1️⃣ Celular no bolso nos 30 segundos antes de abrir o portão. Quem sai olhando a tela é o alvo mais fácil da rua.
+
+2️⃣ Olhe a rua antes de abrir. Se tiver alguém parado sem motivo perto do seu portão ou do seu carro, não sai. Espera ou dá uma volta.
+
+3️⃣ Chave na mão antes de chegar no carro. Quanto menos tempo parado do lado de fora, menor a janela pra uma abordagem.
+
+Parece simples. É exatamente por isso que funciona.
+Reage com 🔥 se você vai fazer isso amanhã.</pre><button data-c>Copiar</button></div>
+</div>
+</section>
+
+<section>
+<h2>Quarta · 18/11</h2>
+<div class="day">
+<div class="msg"><div class="meta"><b>12h00 · enquete</b> <span class="pill ok">Todos os grupos</span></div>
+<img class="art" src="img/03_quarta_12h_enquete.jpg" alt="Arte 03: enquete" loading="lazy">
+<pre class="txt">☠️ Quem você mais quer proteger hoje?</pre>
+<ol class="poll"><li>Eu mesmo</li><li>Minha esposa ou meu marido</li><li>Meus filhos</li><li>Meus pais</li><li>Todo mundo lá de casa</li></ol>
+<button data-c>Copiar</button>
+<p class="note">Se não der pra usar enquete no grupo, trocar por "Reage com 👤 você, ❤️ cônjuge, 👶 filhos, 👴 pais".</p></div>
+<div class="msg"><div class="meta"><b>18h00 · conteúdo</b> <span class="pill ok">Todos os grupos</span></div>
+<img class="art" src="img/04_quarta_18h.jpg" alt="Arte 04: distância de segurança" loading="lazy">
+<pre class="txt">🧠 TESTA ISSO AMANHÃ, NA SAÍDA PRA TRABALHAR
+
+O Mestre Wesley chama de "distância de segurança": mantenha sempre pelo menos um braço e meio entre você e alguém que você não conhece e que está se aproximando.
+
+Se a pessoa avançar:
+✋ levante as mãos abertas na altura do peito, como quem diz "calma"
+🗣️ fale firme e alto: "Para aí!"
+👣 dê um passo pra trás ou pro lado, nunca pra parede
+
+Isso não é briga. É ganhar 2 segundos pra pensar e sair. E 2 segundos mudam tudo.
+
+Amanhã, presta atenção em quanta gente chega perto de você sem você perceber. Depois me conta aqui.</pre><button data-c>Copiar</button></div>
+</div>
+</section>
+
+<section>
+<h2>Quinta · 19/11</h2>
+<div class="day">
+<div class="msg"><div class="meta"><b>12h00 · conteúdo + engajamento</b> <span class="pill ok">Todos os grupos</span></div>
+<img class="art" src="img/05_quinta_12h.jpg" alt="Arte 05: regra nº 1" loading="lazy">
+<pre class="txt">📌 A REGRA Nº 1 DO KRAV MAGÁ CAVEIRA
+
+Celular, carteira e carro se compram de novo. Você não.
+
+Num assalto com arma, a primeira escolha é entregar, observar e sair vivo. A técnica física é pra quando não existe outra saída. E aí ela precisa estar no corpo, não na cabeça. Por isso se treina antes.
+
+Você já passou por alguma situação de risco na rua? Responde aqui com 👍 sim ou 👎 não.</pre><button data-c>Copiar</button></div>
+<div class="msg"><div class="meta"><b>20h00 · anúncio ✏️ 19/11</b> <span class="pill warn">Só grupo de espera (novo)</span></div>
+<img class="art" src="img/06_quinta_20h_anuncio.jpg" alt="Arte 06: aviso" loading="lazy">
+<pre class="txt">⚠️ AVISO IMPORTANTE
+
+Depois que a Black encerrou, chegou muita mensagem pro Mestre Wesley no Instagram e no suporte. Gente que não conseguiu aproveitar, que ficou sem limite, que viu tarde.
+
+Por isso, o Mestre decidiu:
+
+AMANHÃ, sexta-feira, feriado, às 19h, vamos fazer uma REABERTURA RELÂMPAGO da maior Black Caveira da história.
+
+Se você está aqui e ainda não aproveitou, sério: essa vai ser a sua última oportunidade.
+
+🔔 Ativa as notificações deste grupo. Amanhã, às 19h, o link sai aqui. A condição vai só até segunda, 23/11, às 19h.
+
+E quem garantir primeiro ganha presente do Mestre. 🎁</pre><button data-c>Copiar</button></div>
+<div class="msg"><div class="meta"><b>20h00 · anúncio ✏️ 19/11</b> <span class="pill bad">Só grupos antigos</span></div>
+<img class="art" src="img/06_quinta_20h_anuncio.jpg" alt="Arte 06: aviso, mesma imagem" loading="lazy">
+<pre class="txt">⚠️ AVISO IMPORTANTE
+
+Depois que a Black encerrou, chegou muita mensagem pro Mestre Wesley de gente que não conseguiu aproveitar.
+
+Por isso, AMANHÃ, sexta-feira, feriado, às 19h, vamos fazer uma REABERTURA RELÂMPAGO da maior Black Caveira da história.
+
+O link sai primeiro no grupo oficial e a condição vai só até segunda, 23/11, às 19h. Se você ainda não aproveitou, essa vai ser a sua última oportunidade. E quem garantir primeiro ganha presente do Mestre. 🎁
+
+👇 Entra agora no grupo pra receber na frente:
+https://devzapp.com.br/r/s9mRreup?utm_source=vc</pre><button data-c>Copiar</button></div>
+</div>
+</section>
+
+<section>
+<h2>Sexta · 20/11 · reabertura relâmpago</h2>
+<p class="note">Ritmo: a cada 3 horas pela manhã, de hora em hora a partir das 14h, a cada 30 minutos a partir das 17h. Antes das 19h, mesmo texto em todos os grupos. A partir das 19h, com o link da página.</p>
+<div class="day">
+<div class="msg"><div class="meta"><b>08h00</b> <span class="pill ok">Todos os grupos</span></div><img class="art" src="img/07_sexta_08h.jpg" alt="Arte 07" loading="lazy">
+<pre class="txt">☀️ Bom dia, Caveira.
+
+Hoje é o dia. Às 19h, reabertura relâmpago da maior Black Caveira da história.
+
+Quem ficou de fora tem hoje a última oportunidade. Programa o despertador pras 19h. ⏰</pre><button data-c>Copiar</button></div>
+<div class="msg"><div class="meta"><b>08h05</b> <span class="pill bad">Só grupos antigos</span></div><pre class="txt">☠️ Hoje, às 19h, tem reabertura relâmpago da Black Caveira.
+
+O link sai primeiro no grupo oficial. Se você ainda não entrou, entra agora:
+https://devzapp.com.br/r/s9mRreup?utm_source=vc</pre><button data-c>Copiar</button>
+<p class="note">Sem imagem, ou repetir a imagem 07. Só nos grupos antigos, logo depois da mensagem das 08h.</p></div>
+<div class="msg"><div class="meta"><b>11h00 ✏️ MUDOU</b> <span class="pill ok">Todos os grupos</span></div><img class="art" src="img/08_sexta_11h.jpg" alt="Arte 08" loading="lazy">
+<pre class="txt">Pra você já chegar às 19h decidido:
+
+✅ 23 treinamentos do Mestre Wesley
+✅ 1 ano de acesso
+✅ 7 dias de garantia: se não gostar, devolvemos 100%
+
+E desta vez ninguém fica de fora por causa de limite: dá pra parcelar no Pix ou no cartão em até 6x sem comprometer o limite.
+
+🎁 E tem presente do Mestre para quem garantir hoje:
+👕 os 3 primeiros ganham a camisa Caveira
+🎥 os 20 primeiros entram no encontro ao vivo com o Mestre Wesley
+📚 todo mundo que garantir até 23h59 de hoje leva os 6 livros digitais do Mestre
+
+Hoje, às 19h. ☠️</pre><button data-c>Copiar</button></div>
+<div class="msg"><div class="meta"><b>14h00 ✏️ 19/11</b> <span class="pill ok">Todos os grupos</span></div><img class="art" src="img/09_sexta_14h.jpg" alt="Arte 09" loading="lazy">
+<pre class="txt">Faltam 5 horas.
+
+Não estamos brincando: é uma reabertura relâmpago. Abre às 19h e vai só até segunda, 23/11, às 19h.</pre><button data-c>Copiar</button></div>
+<div class="msg"><div class="meta"><b>15h00 ✏️ MUDOU</b> <span class="pill ok">Todos os grupos</span></div><p class="artnote">Mandar junto o corte do vídeo do Mestre com a aula rápida (o Victor envia o arquivo). Texto igual.</p><img class="art" src="img/10_sexta_15h.jpg" alt="Arte 10" loading="lazy">
+<pre class="txt">Pergunta de novo, sem enrolação:
+
+Se alguém te abordasse hoje à noite, você saberia o que fazer?
+
+Se a resposta for "não sei", às 19h você tem a chance de mudar isso. ☠️</pre><button data-c>Copiar</button></div>
+<div class="msg"><div class="meta"><b>16h00</b> <span class="pill ok">Todos os grupos</span></div><img class="art" src="img/11_sexta_16h.jpg" alt="Arte 11" loading="lazy">
+<pre class="txt">Faltam 3 horas.
+
+Já é aluno da Academia? Você tem preço de aluno. Na página, é só usar o mesmo e-mail da sua conta.</pre><button data-c>Copiar</button></div>
+<div class="msg"><div class="meta"><b>17h00 ✏️ MUDOU</b> <span class="pill ok">Todos os grupos</span></div><img class="art" src="img/12_sexta_17h.jpg" alt="Arte 12" loading="lazy">
+<pre class="txt">⏰ Faltam 2 horas.
+
+Separa o cartão ou deixa o app do banco aberto. Às 19h o link sai aqui, e os 3 primeiros ganham a camisa Caveira. Os 20 primeiros ainda entram no encontro ao vivo com o Mestre.</pre><button data-c>Copiar</button></div>
+<div class="msg"><div class="meta"><b>17h30</b> <span class="pill ok">Todos os grupos</span></div><img class="art" src="img/13_sexta_17h30.jpg" alt="Arte 13" loading="lazy">
+<pre class="txt">Formas de pagamento hoje:
+
+💳 Cartão em até 12x
+⚡ Pix à vista
+🔓 Pix ou cartão parcelado em até 6x, sem comprometer o limite
+
+Ninguém fica de fora. Faltam 1h30.</pre><button data-c>Copiar</button></div>
+<div class="msg"><div class="meta"><b>18h00</b> <span class="pill ok">Todos os grupos</span></div><img class="art" src="img/14_sexta_18h.jpg" alt="Arte 14" loading="lazy">
+<pre class="txt">⚠️ FALTA 1 HORA.
+
+Não estamos mentindo: essa é a última oportunidade de entrar na maior Black Caveira da história.</pre><button data-c>Copiar</button></div>
+<div class="msg"><div class="meta"><b>18h30</b> <span class="pill ok">Todos os grupos</span></div><img class="art" src="img/15_sexta_18h30.jpg" alt="Arte 15" loading="lazy">
+<pre class="txt">⏳ 30 MINUTOS.
+
+Fica com este grupo aberto. O link sai aqui às 19h em ponto. ☠️</pre><button data-c>Copiar</button></div>
+<div class="msg"><div class="meta"><b>19h00 · abertura ✏️ 19/11</b> <span class="pill ok">Todos os grupos</span> com link da página</div><p class="artnote">Mandar junto o vídeo inteiro do Mestre (o Victor envia o arquivo).</p><img class="art" src="img/16_sexta_19h_abertura.jpg" alt="Arte 16" loading="lazy">
+<pre class="txt">⚡ ABRIU. REABERTURA RELÂMPAGO DA BLACK CAVEIRA.
+
+Os 23 treinamentos do Mestre Wesley, com 1 ano de acesso e 7 dias de garantia.
+
+💳 Cartão em até 12x
+⚡ Pix à vista
+🔓 Pix ou cartão parcelado em até 6x, sem comprometer o limite
+🎓 Já é aluno? Preço de aluno na página, com o e-mail da sua conta.
+
+🎁 Os 3 primeiros ganham a camisa Caveira, os 20 primeiros entram no encontro ao vivo com o Mestre, e quem garantir até 23h59 de hoje leva os 6 livros digitais.
+
+Vai só até segunda, 23/11, às 19h. Garante agora 👇
+https://www.wesleygimenez.com.br/black-caveira-2026?utm_source=vc&amp;utm_medium=whatsapp-grupo&amp;utm_campaign=reabertura-2011&amp;utm_content=19h</pre><button data-c>Copiar</button></div>
+<div class="msg"><div class="meta"><b>19h30</b> <span class="pill ok">Todos os grupos</span> com link da página</div><p class="artnote">Só mandar se já tiver venda (o Victor confirma).</p><img class="art" src="img/17_sexta_19h30.jpg" alt="Arte 17" loading="lazy">
+<pre class="txt">As primeiras vagas da reabertura já estão sendo garantidas. ☠️
+
+Se você ficou esperando esse momento, é agora 👇
+https://www.wesleygimenez.com.br/black-caveira-2026?utm_source=vc&amp;utm_medium=whatsapp-grupo&amp;utm_campaign=reabertura-2011&amp;utm_content=19h30</pre><button data-c>Copiar</button></div>
+<div class="msg"><div class="meta"><b>20h30</b> <span class="pill ok">Todos os grupos</span> com link da página</div><img class="art" src="img/18_sexta_20h30.jpg" alt="Arte 18" loading="lazy">
+<pre class="txt">Sem limite no cartão? Hoje isso não te impede.
+
+Na página, toque em "Parcelar sem travar o limite" e divida no Pix ou no cartão em até 6x 👇
+https://www.wesleygimenez.com.br/black-caveira-2026?utm_source=vc&amp;utm_medium=whatsapp-grupo&amp;utm_campaign=reabertura-2011&amp;utm_content=20h30</pre><button data-c>Copiar</button></div>
+<div class="msg"><div class="meta"><b>22h00 ✏️ 19/11</b> <span class="pill ok">Todos os grupos</span> com link da página</div><img class="art" src="img/19_sexta_22h.jpg" alt="Arte 19" loading="lazy">
+<pre class="txt">⚠️ É relâmpago de verdade: a reabertura vai só até segunda, 23/11, às 19h.
+
+Se você ainda está pensando, lembra: 7 dias de garantia. O risco é zero, o arrependimento de ficar de fora não.
+
+📚 E lembra: quem garantir até 23h59 de hoje ainda leva os 6 livros digitais do Mestre. 👇
+https://www.wesleygimenez.com.br/black-caveira-2026?utm_source=vc&amp;utm_medium=whatsapp-grupo&amp;utm_campaign=reabertura-2011&amp;utm_content=22h</pre><button data-c>Copiar</button></div>
+<div class="msg"><div class="meta"><b>23h00 🆕 NOVA</b> <span class="pill ok">Todos os grupos</span> com link da página</div>
+<pre class="txt">📚 Última hora para levar os 6 livros digitais do Mestre Wesley junto com os 23 treinamentos. Depois da meia-noite, os livros saem do pacote. 👇
+https://www.wesleygimenez.com.br/black-caveira-2026?utm_source=vc&amp;utm_medium=whatsapp-grupo&amp;utm_campaign=reabertura-2011&amp;utm_content=23h</pre><button data-c>Copiar</button><p class="note">Sem imagem, ou repetir a imagem 19.</p></div>
+</div>
+</section>
+
+<section>
+<h2>Sábado · 21/11 a terça · 24/11</h2>
+<div class="day">
+<div class="msg"><div class="meta"><b>Sábado 12h00 🆕 NOVA</b> <span class="pill ok">Todos os grupos</span> com link da página</div>
+<pre class="txt">☠️ A reabertura continua no ar até segunda, 23/11, às 19h, e ainda dá para entrar no encontro ao vivo com o Mestre Wesley. Restam [X] vagas dos 20 primeiros.
+
+Os 23 treinamentos, 1 ano de acesso e 7 dias de garantia 👇
+https://www.wesleygimenez.com.br/black-caveira-2026?utm_source=vc&amp;utm_medium=whatsapp-grupo&amp;utm_campaign=reabertura-2011&amp;utm_content=sab12h</pre><button data-c>Copiar</button><p class="artnote">[X] só com o número real que o Victor passar. Se as 20 vagas acabaram, não mandar.</p></div>
+<div class="msg"><div class="meta"><b>Domingo 12h00 🆕 19/11</b> <span class="pill ok">Todos os grupos</span> com link da página</div>
+<pre class="txt">☠️ Amanhã, segunda, às 19h, a Black Caveira sai do ar de vez.
+
+Os 23 treinamentos do Mestre Wesley, 1 ano de acesso, certificado em cada curso e 7 dias de garantia. Já é aluno? Preço de aluno na página, com o e-mail da sua conta. 👇
+https://www.wesleygimenez.com.br/black-caveira-2026?utm_source=vc&amp;utm_medium=whatsapp-grupo&amp;utm_campaign=reabertura-2011&amp;utm_content=dom12h</pre><button data-c>Copiar</button></div>
+<div class="msg"><div class="meta"><b>Segunda 09h00 🆕 19/11</b> <span class="pill ok">Todos os grupos</span> com link da página</div>
+<pre class="txt">⚠️ HOJE É O ÚLTIMO DIA.
+
+Às 19h a Black Caveira sai do ar. Depois disso, cada curso volta para o preço normal, separado.
+
+Se você quer os 23 treinamentos com 1 ano de acesso, é hoje 👇
+https://www.wesleygimenez.com.br/black-caveira-2026?utm_source=vc&amp;utm_medium=whatsapp-grupo&amp;utm_campaign=reabertura-2011&amp;utm_content=seg09h</pre><button data-c>Copiar</button></div>
+<div class="msg"><div class="meta"><b>Segunda 15h00 🆕 19/11</b> <span class="pill ok">Todos os grupos</span> com link da página</div>
+<pre class="txt">Faltam 4 horas.
+
+Sem limite no cartão? Na página, toque em "Parcelar sem travar o limite" e divida no Pix ou no cartão em até 6x. 7 dias de garantia: se não gostar, devolvemos 100%. 👇
+https://www.wesleygimenez.com.br/black-caveira-2026?utm_source=vc&amp;utm_medium=whatsapp-grupo&amp;utm_campaign=reabertura-2011&amp;utm_content=seg15h</pre><button data-c>Copiar</button></div>
+<div class="msg"><div class="meta"><b>Segunda 17h00 🆕 19/11</b> <span class="pill ok">Todos os grupos</span> com link da página</div>
+<pre class="txt">⏰ Faltam 2 horas para a Black Caveira sair do ar.
+
+Depois das 19h não tem reabertura. 👇
+https://www.wesleygimenez.com.br/black-caveira-2026?utm_source=vc&amp;utm_medium=whatsapp-grupo&amp;utm_campaign=reabertura-2011&amp;utm_content=seg17h</pre><button data-c>Copiar</button></div>
+<div class="msg"><div class="meta"><b>Segunda 18h00 🆕 19/11</b> <span class="pill ok">Todos os grupos</span> com link da página</div>
+<pre class="txt">⚠️ ÚLTIMA HORA.
+
+Às 19h em ponto a Black Caveira sai do ar. Se é pra você, garante agora 👇
+https://www.wesleygimenez.com.br/black-caveira-2026?utm_source=vc&amp;utm_medium=whatsapp-grupo&amp;utm_campaign=reabertura-2011&amp;utm_content=seg18h</pre><button data-c>Copiar</button></div>
+<div class="msg"><div class="meta"><b>Segunda 18h45 🆕 19/11</b> <span class="pill ok">Todos os grupos</span> com link da página</div>
+<pre class="txt">⏳ 15 minutos.
+
+Última chamada para entrar na Black Caveira 👇
+https://www.wesleygimenez.com.br/black-caveira-2026?utm_source=vc&amp;utm_medium=whatsapp-grupo&amp;utm_campaign=reabertura-2011&amp;utm_content=seg18h45</pre><button data-c>Copiar</button><p class="artnote">A página sai do ar às 19h (o Victor confirma). Depois das 19h não mandar mais o link da Black.</p></div>
+<div class="msg"><div class="meta"><b>Terça 24/11 12h00 ✏️ 19/11 (era segunda)</b> <span class="pill ok">Todos os grupos</span></div>
+<pre class="txt">Pra quem ficou de fora da Black e quer começar por um curso só, o conselho do Mestre é o Defesa Pessoal Caveira 2.0: é o mais completo para quem começa do zero, com certificado e 7 dias de garantia 👇
+https://www.wesleygimenez.com.br/dpc?utm_source=vc&amp;utm_medium=whatsapp-grupo&amp;utm_campaign=pos-reabertura&amp;utm_content=dpc</pre><button data-c>Copiar</button></div>
+</div>
+</div>
+</section>
+
+
+</div>
+<script>
+document.querySelectorAll('[data-c]').forEach(b=>b.addEventListener('click',()=>{const box=b.parentElement;let t=box.querySelector('.txt').textContent;const p=box.querySelector('.poll');if(p)t+='\n\n'+[...p.children].map((li,i)=>(i+1)+'. '+li.textContent).join('\n');const done=()=>{const o=b.textContent;b.textContent='Copiado';setTimeout(()=>b.textContent=o,1400)};const sel=()=>{const r=document.createRange();r.selectNodeContents(box.querySelector('.txt'));const s=getSelection();s.removeAllRanges();s.addRange(r)};try{navigator.clipboard.writeText(t).then(done,sel)}catch(e){sel()}}));
+</script>
+
