@@ -18,7 +18,7 @@ Mapa completo de fontes: `docs/mapa-de-fontes.md`.
 | Diário | Um dia por linha: gasto Meta (coluna B, valor) e vendas por origem (fórmulas) | agente: só a coluna B e linhas novas |
 | Vendas | Uma venda por linha, 14 colunas iguais à aba Vendas da planilha WG | agente: acrescenta as linhas novas |
 | Produtos | QUERY automática por produto e origem | fórmula |
-| Custos | Meta (fórmula), taxas (fórmula), ManyChat, Atomicat, Canva, IA | agente: só valores fixos confirmados pelo Victor |
+| Custos | Meta (fórmula), taxas (fórmula), ManyChat, Atomicat, Canva, IA, DevZap; TOTAL em B9 (o Resumo lê `=Custos!B9`; linha nova entra acima do TOTAL e a soma e o Resumo são ajustados) | agente: só valores fixos confirmados pelo Victor |
 | Reembolsos | Data, primeiro nome, produto, plataforma, valor, dentro dos 7 dias, motivo, situação | agente |
 
 - **Planilha em pt_BR:** fórmula com função em inglês, separador `;` e decimal com vírgula dentro da fórmula (`=3377,09+...`). Valor numérico enviado como número (297.5) entra certo. Depois de escrever, leia de volta e procure `#ERROR!`.

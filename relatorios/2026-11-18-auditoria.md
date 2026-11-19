@@ -55,3 +55,14 @@ Cada item com a prova lida hoje. OK = provado hoje. PROBLEMA = afeta venda ou op
 - **DÚVIDA:** /guia/trilha-12-semanas abre quase vazia (sem preço, sem checkout, sem garantia). Conferir se é página de aluno ou se quebrou.
 - Detalhe: /catalogo tem 2 travessões no texto (regra da marca: nenhum).
 - Ainda não auditado: checkout do aluno R$ 347, order bumps da Greenn por produto, entrega na Academia por produto (precisa de login de aluno de teste), funis de comentário do Instagram por palavra (destino de cada um), catálogo do WhatsApp, grupos e régua do Gui, anúncios ativos.
+
+## Rodada 4 · 22h a 23h · compradores da Black do tráfego sem acesso
+- **Causa:** o produto da Greenn 204640 (cópia da Black 1 ano usada no tráfego, #TP) mandava a compra para a Cademi, mas a entrega #276456 "BLACK CAVEIRA 2026 - 1 ANO (Cópia)" estava sem o código do produto. A compra virava "Cadastro gratuito" ou nem criava o aluno.
+- **Correção:** código 204640 colocado na entrega #276456 (libera os mesmos 28 produtos em 7 vitrines da entrega original #275158).
+- **Compradores antigos (12):** 10 receberam a entrega na mão na Cademi (5 alunos já existiam, 5 foram criados com "Criar e enviar boas vindas"); 2 já tinham acesso por outra compra (vitalício ou 1 ano). Conferido aluno por aluno: aparece "BLACK CAVEIRA 2026 - 1 ANO (Cópia)" em Compras.
+- **Falta:** conferir na próxima venda do tráfego se entra sozinho; olhar se outro produto copiado da Greenn tem entrega na Cademi sem código (B41).
+
+## Rodada 4 · financeiro
+- ManyChat de 11 a 16/11 (planilha do Guilherme): assinatura US$ 152,14 + 9 recargas de US$ 10 = US$ 242,14, cerca de R$ 1.393,42 com IOF (estimativa; valor exato na fatura). Três recargas em 1 minuto em 11/11 20h25: conferir se foi clique duplicado.
+- DevZap R$ 197 por mês (não renova em dezembro).
+- Painel Financeiro, aba Custos: total do mês R$ 7.075,98. Resumo agora lê o total certo (`=Custos!B9`).

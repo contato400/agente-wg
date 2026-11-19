@@ -102,3 +102,10 @@ Modelo:
 - Decisões: sex 19h os funis do ManyChat viram para a página (B35); ManyChat vai para o Pro; DevZap sai em dezembro (B36).
 - Pendente: aprovação do modelo na Meta (19/11); conferir a ponte na próxima venda; Metricool ainda sem posts (checagem 19/11 9h15); comprador das 17h12 não recebeu a mensagem de acesso (decidir se manda à mão).
 - Verificado: página no ar simulando 20/11 19h05 e 21/11 00h10; automação publicada ("versão publicada foi atualizada"); ponte respondendo depois do deploy.
+
+## 18/11 23h · Acesso dos compradores do tráfego + custos
+- Pedido: os 12 compradores da Black do tráfego estavam sem acesso; passar ManyChat e DevZap para o financeiro.
+- Feito: entrega #276456 da Cademi ganhou o código 204640; 10 compradores receberam a entrega na mão, 2 já tinham acesso. Custos no Painel Financeiro (ManyChat ~R$ 1.393,42 estimado, DevZap R$ 197; total R$ 7.075,98) e Resumo lendo o total certo.
+- Decisões: alunos criados na Cademi com "Criar e enviar boas vindas" (Victor: "tem que ligar lá").
+- Pendente: próxima venda do tráfego entra sozinha? (conferir); B41 mapa de entregas; recargas duplicadas do ManyChat em 11/11; perguntas do Victor sobre suporte de acesso no WhatsApp, MCP da Greenn, "2,2,2" na Greenn e agentes individuais.
+- Verificado: cada um dos 10 alunos mostra "BLACK CAVEIRA 2026 - 1 ANO (Cópia)" em Compras; Custos!B9 = 7075,98.
