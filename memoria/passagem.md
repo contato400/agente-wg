@@ -136,3 +136,9 @@ Modelo:
 - Feito: 9 PDFs tirados da aula 9840709 (Cademi), dica reescrita, conferido como aluno (0 PDFs). Modelo caveira_guia_novo aprovado pela Meta como Marketing; transmissão enviada para 1 comprador (contato achado pelo telefone, etiqueta aviso_guia_novo_1811, público conferido = 1, ~US$ 0,07).
 - Pendente: o 2º comprador (pagou em euro) não está no ManyChat e a Greenn não mostrou o telefone dele; fica sem aviso (ele vê o guia novo na Academia).
 - Aprendizado: no ManyChat, a caixa de entrada não manda sem licença; para mandar a 1 pessoa fora da janela, etiqueta só nela + Mensagem em massa com o modelo, conferindo que o público é 1 antes de enviar.
+
+## 19/11 00h55 · Número de suporte 4274 na YCloud
+- Pedido: ligar o agente do WhatsApp no (31) 99329-4274 (antigo suporte) via YCloud; 6056 fica só para a Kairós.
+- Feito: coexistência concluída no portfólio Victor Augusto (o WABA do portfólio do Wesley está restrito, erro #2655121). Conta "Victor Augusto - WG", WABA 1114391257639372, status Conectado, limite 250 clientes/dia.
+- Código: worker lê pela YCloud (POST /yc, assinatura YC_WEBHOOK_SECRET), ignora eventos da Meta de outro número, eco do celular pausa o agente. Publicado no Cloudflare com OK do Victor (conteúdo conferido igual ao repositório).
+- Pendente: Victor cola YC_KEY e YC_WEBHOOK_SECRET (formulário já preenchido com YC_FROM=+553193294274); passar ADMIN_FONE para Segredo; teste "oi"; MODO=ativo; migrar o número de suporte (Academia, Greenn, Hotmart, páginas, grupos, conhecimento.txt, CLAUDE.md).
