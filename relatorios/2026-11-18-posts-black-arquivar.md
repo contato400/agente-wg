@@ -32,3 +32,10 @@ Carrosséis com dica útil e CTA da Black (engajamento 1,4 a 7): 02/11 "3 erros"
 2. Reel de 22/10 com 110 de alcance é cópia do de 21/10: arquivar.
 3. Os 2 reels da Black (12/11 e 08/11): manter até a reabertura e decidir depois.
 4. Arquivar é no app do Instagram do Wesley (Metricool não arquiva). Quem faz: Wesley ou quem tem o celular dele. Arquivar não apaga; dá para desarquivar.
+
+## Conferência 18/11 23h20 (pedido do Victor: só o que é da Black; apagar em vez de arquivar)
+- Abri os posts no Instagram do Wesley (logado no Chrome do Luis corinthiano). Os 10 do feed têm Black na legenda; o de 12/11 ("Comente CAVEIRA") tem a Black na imagem ("Nota de despedida", 1º lote, 12x de R$ 30,54). Todos são do Victor.
+- O reel de 22/10 ("Seu celular acabou de tocar") é cópia do de 21/10 e fala da Black na legenda.
+- Opcional: o próprio reel de 21/10 (Black na legenda, engajamento 1,5).
+- 28/10: o Metricool mostra um post só nesse dia com Black. O segundo que o Victor citou não apareceu (pode ser story).
+- Pelo computador o Instagram só tem **Excluir** (não tem Arquivar). Excluir é para sempre. Esperando o "pode apagar" final do Victor com esta lista.

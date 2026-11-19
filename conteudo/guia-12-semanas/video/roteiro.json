@@ -1,0 +1,14 @@
+{"cenas":[
+ {"img":"start_top","leg":"O Guia de 12 semanas ficou ^NOVO","fala":"Comprou a Black e pegou o Guia de Treino de 12 semanas? Ele ficou novo, e agora é bem mais fácil de usar."},
+ {"img":"start","tap":"start","leg":"1. Abra o guia na ^Academia","fala":"Primeiro, entre na Academia e abra a aula do guia. Depois, toque em montar o meu plano."},
+ {"img":"q1","tap":"q1","leg":"2. Responda só ^3 perguntas","fala":"Responda só três perguntas. A primeira é o que você quer primeiro: se defender na rua, proteger a família ou ganhar preparo físico."},
+ {"img":"q2","tap":"q2","leg":"Quantos dias por ^semana?","fala":"Depois, quantos dias por semana você consegue treinar."},
+ {"img":"q3","tap":"q3","leg":"Sozinho ou com ^alguém?","fala":"E se você vai treinar sozinho ou com alguém."},
+ {"img":"plan","tap":"plan","leg":"3. Veja o *treino de hoje*","fala":"Pronto. Em cima aparece o treino de hoje, com o botão que abre a aula certa na Academia."},
+ {"img":"pre_done","tap":"done","leg":"4. Treinou? Marque +feito","fala":"Treinou? Toque em fiz o treino de hoje."},
+ {"img":"done","leg":"O guia já mostra o ^próximo","fala":"E o guia já mostra o próximo treino."},
+ {"img":"gains","leg":"O que você treina em cada ^mês","fala":"Mais embaixo, você vê o que vai treinar em cada mês,"},
+ {"img":"weeks","leg":"E todas as aulas, ^semana a semana","fala":"e todas as aulas, semana por semana."},
+ {"img":"perdeu","leg":"Perdeu um dia? +Sem problema","fala":"Perdeu um dia? Sem problema. O guia continua de onde você parou."},
+ {"final":true,"leg":"Abra a Academia e faça o ^treino de hoje","fala":"Abra a Academia agora e faça o seu primeiro treino. Tamo junto, Caveira!"}
+]}
