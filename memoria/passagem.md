@@ -287,3 +287,7 @@ Modelo:
 - Pedido: Victor 18h22 (A e B pesadas pareciam o mesmo vídeo).
 - Feito: B com corte próprio (condição, Pix parcelado, 23 treinamentos), 15 s, cenários garagem, sala à noite e gráfico amarelo/preto, cartão de crédito 3D com X. Arquivos B antigos (tatame, rua-noite, estúdio) apagados; prontas.md atualizado.
 - Verificado: folhas conferidas, -14,5 LUFS, pico -1,5 dB, sem boleto.
+
+## 19/11 19h16 · disparo da Academia (reabertura)
+- Feito: 23.155 e-mails, 18h30 a 19h15, 0 erros; 76 com a Black fora; teste ao Victor 18h28. Modelo e remetente voltaram ao padrão (conferido). Registro: kairos/disparo-academia-reabertura-19-nov.md. Skill nova: disparo-academia-wg.
+- Pendente: a checagem agendada das 19h39 vai achar tudo pronto (não consegui apagá-la).
