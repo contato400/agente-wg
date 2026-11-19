@@ -66,6 +66,9 @@ h1 em{font-style:normal;color:var(--red);display:block}
 .av .ab,.av .ap{opacity:0}
 .av.boca .ab{opacity:1}.av.boca .fc{opacity:0}
 .av.apontando .ap{opacity:1}.av.apontando .fc,.av.apontando .ab{opacity:0}
+.av .vd{opacity:0;transition:opacity .25s}
+.av.vid .vd{opacity:1}.av.vid .fc,.av.vid .ap{opacity:0}
+.av.vid.falando .vd{opacity:0}.av.vid.falando .fc{opacity:1}.av.vid.falando.boca .fc{opacity:0}
 .fly{position:absolute;width:clamp(70px,8vw,112px);border-radius:12px;box-shadow:0 16px 38px rgba(0,0,0,.65);animation:fly 6s ease-in-out infinite;will-change:transform}
 @keyframes fly{0%,100%{transform:translate(0,0) rotate(var(--r))}50%{transform:translate(var(--x),var(--y)) rotate(calc(var(--r)*-1))}}
 .bal{position:absolute;left:-6%;top:30%;max-width:290px;background:#fff;color:#111;border-radius:20px 20px 20px 4px;padding:14px 16px;font-size:15px;line-height:1.45;font-weight:500;box-shadow:0 20px 50px rgba(0,0,0,.5);z-index:3;opacity:0;transform:translateY(10px) scale(.96);transition:.35s}
@@ -213,6 +216,7 @@ footer{border-top:1px solid var(--line);padding-block:26px 90px;color:#77736c;fo
     <img class="fc" src="img/boca-fechada.webp" alt="Personagem 3D do Mestre Wesley Gimenez acenando" fetchpriority="high">
     <img class="ab" src="img/boca-aberta.webp" alt="" aria-hidden="true">
     <img class="ap" src="img/aponta.webp" alt="" aria-hidden="true" loading="lazy">
+    <video class="vd" muted playsinline preload="none" aria-hidden="true"></video>
    </div>
    <span class="ia">Personagem criado com IA</span>
   </div>
@@ -394,19 +398,22 @@ function classe(t){t=t.toLowerCase();for(var i=0;i<RG.length;i++)if(RG[i][1].tes
 
 var aud=document.getElementById('aud'),av=document.getElementById('av'),bal=document.getElementById('bal'),bt=document.getElementById('baltxt'),gu=document.getElementById('guia'),gt=document.getElementById('guiatxt'),som=document.getElementById('som');
 var on=false,ctx,an2,buf,fim=0,raf,tw,ditas={},fila=null;
+// avatar animado (video com fundo transparente): Chrome, Edge, Firefox e Android. Safari fica com as imagens.
+var VID='img/aceno.webm',vd=av.querySelector('.vd'),ua=navigator.userAgent;
+if(vd.canPlayType('video/webm; codecs="vp9"')&&!(/Safari/.test(ua)&&!/Chrome|Chromium|Android/.test(ua))&&!matchMedia('(prefers-reduced-motion:reduce)').matches){vd.src=VID;vd.addEventListener('playing',function(){av.classList.add('vid')});vd.addEventListener('ended',function(){av.classList.remove('vid');setTimeout(function(){if(!av.classList.contains('falando')){vd.currentTime=0;vd.play().catch(function(){})}},16000)});var pv=vd.play();if(pv&&pv.catch)pv.catch(function(){})}
 function liga(){if(on)return;on=true;som.classList.add('on');som.querySelector('span').textContent='Som ligado';
  try{ctx=new(window.AudioContext||window.webkitAudioContext)();var s=ctx.createMediaElementSource(aud);an2=ctx.createAnalyser();an2.fftSize=512;buf=new Uint8Array(an2.fftSize);s.connect(an2);an2.connect(ctx.destination)}catch(e){}
  aud.preload='auto';aud.load()}
 function desliga(){on=false;aud.pause();som.classList.remove('on');som.querySelector('span').textContent='Ouvir o Mestre';fecha()}
-function fecha(){av.classList.remove('boca');gu.classList.remove('boca');cancelAnimationFrame(raf)}
+function fecha(){av.classList.remove('boca','falando');gu.classList.remove('boca');cancelAnimationFrame(raf)}
 function escreve(el,t){clearInterval(tw);var i=0;el.textContent='';tw=setInterval(function(){el.textContent=t.slice(0,++i);if(i>=t.length)clearInterval(tw)},28)}
 function loop(alvo){raf=requestAnimationFrame(function(){loop(alvo)});
- if(aud.currentTime>=fim){aud.pause();fecha();setTimeout(function(){if(alvo==='hero'){av.classList.add('apontando');setTimeout(function(){av.classList.remove('apontando')},2600)}else gu.classList.remove('on')},alvo==='hero'?200:1600);return}
+ if(aud.currentTime>=fim){aud.pause();fecha();setTimeout(function(){if(alvo==='hero'&&!av.classList.contains('vid')){av.classList.add('apontando');setTimeout(function(){av.classList.remove('apontando')},2600)}else gu.classList.remove('on')},alvo==='hero'?200:1600);return}
  var v=0;if(an2){an2.getByteTimeDomainData(buf);for(var i=0;i<buf.length;i++){var d=(buf[i]-128)/128;v+=d*d}v=Math.sqrt(v/buf.length)}else v=Math.random()*.2;
  var abre=v>0.045,el=alvo==='hero'?av:gu;el.classList.toggle('boca',abre)}
 var gt2;function fala(k,alvo){var f=F[k];if(!f)return;alvo=alvo||'hero';clearTimeout(gt2);if(alvo!=='hero')gt2=setTimeout(function(){gu.classList.remove('on','boca')},(f[1]+2.5)*1000);
  if(alvo==='hero'){bal.classList.add('on');escreve(bt,f[2])}else{gt.textContent=f[2];gu.classList.add('on')}
- if(!on)return;cancelAnimationFrame(raf);av.classList.remove('apontando');
+ if(!on)return;cancelAnimationFrame(raf);av.classList.remove('apontando');if(alvo==='hero')av.classList.add('falando');
  if(ctx&&ctx.state==='suspended')ctx.resume();
  aud.currentTime=f[0]+0.02;fim=f[0]+f[1];var p=aud.play();if(p&&p.catch)p.catch(function(){});loop(alvo)}
 function comeca(){liga();fala('intro','hero');ditas.intro=1}
