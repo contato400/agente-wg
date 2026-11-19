@@ -22,7 +22,7 @@ Carregue antes a skill wg-regras-operacao.
 - Mesmo tom do e-mail aos alunos da Academia: indireto, informal, linguagem do Wesley.
 - Grupos antigos: o link sai primeiro no grupo oficial de espera; nos antigos, chamar para entrar no grupo novo (link devzapp).
 - Reabertura: nunca dizer data de fechamento. Mostrar a parcela como valor principal, nunca o total parcelado, nunca boleto.
-- Garantia 7 dias; suporte (31) 97334-6056.
+- Garantia 7 dias; suporte (31) 99329-4274.
 
 ## Imagens
 - Quem gera as imagens é o ChatGPT (conta TATIANA ABREU, conversa "Victor. A"). Mandar lá o pedido numerado (PEDIDO 1, 2...) com o texto da peça, sem dado pessoal de aluno.

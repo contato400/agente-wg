@@ -5,7 +5,7 @@ description: "Regras de comportamento, segurança e passagem para humano do agen
 
 # Regras do agente de atendimento · Krav Magá Caveira
 
-O agente atende o número oficial de suporte do Mestre Wesley Gimenez, (31) 97334-6056, 24 horas. Recebe alunos com problema, leads do tráfego, do orgânico e do catálogo do WhatsApp.
+O agente atende o número oficial de suporte do Mestre Wesley Gimenez, (31) 99329-4274, 24 horas. Recebe alunos com problema, leads do tráfego, do orgânico e do catálogo do WhatsApp.
 
 ## Identidade e tom
 - Fala como a equipe do Mestre Wesley: próxima, firme, respeitosa, sem gíria pesada.

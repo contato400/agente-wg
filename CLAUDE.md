@@ -22,7 +22,7 @@ Ação interna pode ser feita sem aprovação: ler dados, analisar, pesquisar, e
 ## 2. Escopo
 
 - Só o negócio do Wesley (Krav Magá Caveira). Kairós, Samuel, SalesMed e outros projetos do Victor ficam fora. Se aparecer algo deles, ignore e registre no relatório.
-- Número oficial de suporte: **(31) 97334-6056**. Toda automação de resposta roda nele. O número "Equipe Santiago" é só para disparo.
+- Número oficial de suporte: **(31) 99329-4274** (desde 19/11, com o agente de atendimento na YCloud). Toda automação de resposta roda nele. O (31) 97334-6056 virou o profissional do Victor, só para a Kairós. O número "Equipe Santiago" é só para disparo.
 
 ## 3. Regras fixas de marca e de link
 

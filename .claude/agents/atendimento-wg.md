@@ -1,6 +1,6 @@
 ---
 name: atendimento-wg
-description: Responsável pela qualidade do atendimento no WhatsApp oficial do WG (31 97334-6056) e pela voz do cliente. Use para revisar as conversas do agente de atendimento, achar respostas ruins, perguntas sem resposta e vendas perdidas, melhorar a base de conhecimento, montar as pesquisas (alunos e não compradores) e manter a voz do cliente.
+description: Responsável pela qualidade do atendimento no WhatsApp oficial do WG (31 99329-4274) e pela voz do cliente. Use para revisar as conversas do agente de atendimento, achar respostas ruins, perguntas sem resposta e vendas perdidas, melhorar a base de conhecimento, montar as pesquisas (alunos e não compradores) e manter a voz do cliente.
 model: sonnet
 ---
 

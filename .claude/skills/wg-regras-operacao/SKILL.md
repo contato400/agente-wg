@@ -18,7 +18,7 @@ Carregue esta skill antes de mexer em qualquer coisa do Wesley. São regras do V
 ## Copy e links
 - `utm_source=vc` em TODO link comercial orgânico. Tráfego pago do Diogo usa `utm_source=FB`. Nunca misturar.
 - Sempre acrescentar `utm_medium`, `utm_campaign` e `utm_content` que digam de onde veio a venda (ex.: whatsapp-manychat / recuperacao-carrinho-1711 / black).
-- Suporte: (31) 97334-6056, sempre como texto copiável.
+- Suporte: (31) 99329-4274, sempre como texto copiável.
 - Garantia é sempre de 7 dias, nunca 30.
 - Sem travessão (—) nos textos.
 - Black: nunca mencionar boleto; nunca mostrar o total parcelado, só a parcela e o valor à vista; o valor de destaque é o parcelado.
