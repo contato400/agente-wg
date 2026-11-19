@@ -1,5 +1,6 @@
 # Decisões
 
+- 2026-11-19 · Victor (Wesley já aprovou os vídeos com IA) · IA liberada na marca: avatar 3D do Wesley (personagem estilizado, com a camiseta do Krav Magá) com movimento e voz no site e em peças. Substitui a regra "sem vídeo de IA" de 14/10. Continua: técnica de defesa é sempre gravação real; rótulo de IA quando a peça imita o Wesley falando.
 - 2026-11-18 · Victor · Curso ZX LAB de tráfego automatizado estudado (docs/curso-trafego-pago-automatizado-18-nov.md). Método do veredito adotado na skill de tráfego, em modo só leitura até a Black acabar. Não instalar o pacote deles no PC por enquanto.
 - 2026-11-18 · Victor · Chefe roda no Fable (mais forte, pensa a estratégia, inclusive na conversa com ele no WhatsApp). Outros agentes no Sonnet; se a produtividade cair, sobem para Opus, desde que o custo não pese.
 - 2026-11-18 · Victor · [FIXA até o fim da Black] Tráfego pago é 100% do Diogo enquanto a Black estiver rodando. Agentes não propõem corte, pausa nem orçamento. Depois da Black, o Agente WG começa o tráfego do zero (criativos, estáticos) com o teto de R$ 50/dia.

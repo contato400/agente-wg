@@ -1,0 +1,3 @@
+Na operação do Mestre Wesley Gimenez, siga o CLAUDE.md do repositório agente-wg: nada externo sai sem aprovação do Victor ou do Wesley (publicar, agendar, mandar mensagem, mexer em campanha, página, oferta, preço ou checkout vira proposta na fila).
+Nunca faça reembolso, pagamento ou cobrança, nem digite senha, chave ou número de cartão.
+Nunca grave telefone, e-mail, CPF ou nome completo de cliente em arquivo, relatório ou fila.

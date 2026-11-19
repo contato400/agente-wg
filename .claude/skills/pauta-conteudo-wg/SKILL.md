@@ -76,4 +76,4 @@ Notas: `docs/livros-mestres/07-ruptura-viral-notas.md`.
 - **Cortes:** live e aula longa do Wesley viram 3 a 5 verticais, cada um com trecho que se entende sozinho e fecho chamando para o completo.
 
 ## Proibido
-Ver `marca-limites-wg`. Em resumo: sem imagem de vítima, sem explorar tragédia, sem incentivar violência, sem prometer que o treino resolve tudo, sem criança identificável, sem vídeo de IA.
+Ver `marca-limites-wg`. Em resumo: sem imagem de vítima, sem explorar tragédia, sem incentivar violência, sem prometer que o treino resolve tudo, sem criança identificável (IA liberada para avatar do Wesley desde 19/11; técnica sempre real).

@@ -1,0 +1,179 @@
+<title>Krav Magá Caveira</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#050405; --bg2:#0e0a0b; --fg:#f4ece9; --fg80:rgba(244,236,233,.8); --fg60:rgba(244,236,233,.6); --fg40:rgba(244,236,233,.4);
+  --red:#c8141c; --red2:#e3262e; --line:rgba(244,236,233,.12); --card:#141011;
+  color-scheme:dark;
+}
+html,body{background:var(--bg);color:var(--fg)}
+*,*::before,*::after{box-sizing:border-box}
+body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:17px;line-height:1.6}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:Anton,Impact,"Arial Narrow",sans-serif;font-weight:400;letter-spacing:.01em;text-wrap:balance;margin:0}
+:focus-visible{outline:3px solid var(--red2);outline-offset:3px}
+
+/* topo */
+.nav{position:absolute;inset:0 0 auto;z-index:5;padding-block:18px}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:Anton,Impact,sans-serif;font-size:20px;letter-spacing:.06em;text-decoration:none}
+.logo b{color:var(--red2);font-weight:400}
+.nav a.wpp{font-size:14px;font-weight:700;text-decoration:none;border:1px solid var(--fg40);padding:8px 14px;border-radius:999px;transition:background .2s,border-color .2s}
+.nav a.wpp:hover{background:var(--red);border-color:var(--red)}
+.hero{position:relative;min-height:100svh;overflow:hidden;display:flex;align-items:flex-end;isolation:isolate}
+.cena{position:absolute;inset:-3%;z-index:-3;background:url({{HERO}}) 72% 30%/cover no-repeat;
+  translate:calc(var(--mx,0)*-18px) calc(var(--my,0)*-12px);scale:1.04}
+.luz{position:absolute;inset:0;z-index:-2;background:radial-gradient(60% 70% at 70% 30%,rgba(227,38,46,.22),transparent 70%);mix-blend-mode:screen;animation:pisca 7s infinite}
+@keyframes pisca{0%,18%,22%,60%,63%,100%{opacity:1}19%,21%{opacity:.35}61%{opacity:.6}}
+.sombra{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(5,4,5,.95) 0%,rgba(5,4,5,.7) 36%,transparent 62%),linear-gradient(0deg,var(--bg) 0%,transparent 28%)}
+#poeira{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.texto{padding-block:120px 72px;max-width:640px;translate:calc(var(--mx,0)*10px) calc(var(--my,0)*6px)}
+.selo{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--fg80);border-left:3px solid var(--red2);padding-left:10px;margin-bottom:22px}
+.hero h1{font-size:clamp(40px,7.2vw,86px);line-height:1.02;text-transform:uppercase}
+.hero h1 em{font-style:normal;color:var(--red2)}
+.sub{font-size:clamp(17px,1.6vw,20px);color:var(--fg80);margin:22px 0 30px;max-width:34em}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--red);color:#fff;text-decoration:none;font-weight:700;font-size:18px;padding:17px 26px;border-radius:8px;box-shadow:0 10px 30px rgba(200,20,28,.35);transition:background .2s,transform .2s}
+.btn:hover{background:var(--red2);transform:translateY(-2px)}
+.nota{display:block;margin-top:12px;font-size:14px;color:var(--fg60)}
+.entra{opacity:0;transform:translateY(14px);animation:entra .7s cubic-bezier(.2,.7,.2,1) forwards}
+.entra:nth-child(2){animation-delay:.12s}.entra:nth-child(3){animation-delay:.24s}.entra:nth-child(4){animation-delay:.36s}
+@keyframes entra{to{opacity:1;transform:none}}
+
+/* seções */
+section{padding-block:88px}
+.titulo{font-size:clamp(32px,4.4vw,52px);text-transform:uppercase;line-height:1.05;margin-bottom:12px}
+.lead{color:var(--fg60);max-width:40em;margin:0 0 40px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}
+.card{display:flex;flex-direction:column;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:26px;text-decoration:none;transition:border-color .2s,transform .2s;min-width:0}
+.card:hover{border-color:var(--red);transform:translateY(-3px)}
+.card h3{font-size:26px;line-height:1.1;text-transform:uppercase}
+.card p{margin:0;color:var(--fg60);font-size:16px;flex:1}
+.card .cta{font-weight:700;color:var(--red2);font-size:15px}
+.card .cta i{font-style:normal;display:inline-block;transition:transform .2s}
+.card:hover .cta i{transform:translateX(4px)}
+
+.mestre{background:var(--bg2);border-block:1px solid var(--line)}
+.duas{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.duas>*{min-width:0}
+.foto{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/5;max-width:100%}
+.foto img{width:100%;height:100%;object-fit:cover;display:block}
+.foto figcaption{position:absolute;left:14px;bottom:12px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--fg80)}
+.lista{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:14px}
+.lista li{padding-left:30px;position:relative;color:var(--fg80)}
+.lista li::before{content:"";position:absolute;left:0;top:.55em;width:14px;height:3px;background:var(--red2)}
+
+.como{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.como div{background:var(--bg);padding:26px}
+.como strong{display:block;font-family:Anton,Impact,sans-serif;font-weight:400;font-size:22px;text-transform:uppercase;margin-bottom:6px}
+.como span{color:var(--fg60);font-size:15px}
+
+.faixa{position:relative;overflow:hidden;text-align:center}
+.faixa .bgimg{position:absolute;inset:0;z-index:-1;background:url({{ESPELHO}}) center/cover;opacity:.18}
+.faixa p{color:var(--fg80);max-width:34em;margin:14px auto 30px}
+footer{padding-block:40px;border-top:1px solid var(--line);color:var(--fg40);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+.proto{position:fixed;right:max(12px,env(safe-area-inset-right,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9;background:#000;border:1px solid var(--line);color:var(--fg60);font-size:12px;padding:6px 10px;border-radius:6px}
+
+@media (max-width:820px){
+  .cena{inset:0 0 auto;height:62%;background-image:url({{HERO_M}});background-position:50% 18%;translate:none;scale:1}
+  .sombra{background:linear-gradient(0deg,var(--bg) 40%,rgba(5,4,5,.55) 58%,rgba(5,4,5,.1) 100%)}
+  .nav a.wpp .longo{display:none}
+  .texto{padding-block:46svh 44px}
+  .texto{translate:none}
+  .duas{grid-template-columns:1fr;gap:32px}
+  section{padding-block:64px}
+  .btn{width:100%;justify-content:center}
+  .proto{display:none}
+}
+@media (prefers-reduced-motion:reduce){.luz,.entra{animation:none;opacity:1;transform:none}.cena,.texto{translate:none}#poeira{display:none}}
+</style>
+
+<header class="nav"><div class="wrap">
+  <a class="logo" href="#topo">KRAV MAGÁ <b>CAVEIRA</b></a>
+  <a class="wpp" href="{{WPP}}" target="_blank" rel="noopener"><span class="longo">Tirar dúvida no </span>WhatsApp</a>
+</div></header>
+
+<main id="topo">
+<section class="hero" aria-label="Apresentação" style="padding:0">
+  <div class="cena" aria-hidden="true"></div>
+  <div class="luz" aria-hidden="true"></div>
+  <canvas id="poeira" aria-hidden="true"></canvas>
+  <div class="sombra" aria-hidden="true"></div>
+  <div class="wrap" style="width:100%">
+    <div class="texto">
+      <span class="selo entra">Mestre Wesley Gimenez · Defesa pessoal online</span>
+      <h1 class="entra">Aprenda a se defender <em>de verdade</em>, mesmo sem nunca ter treinado</h1>
+      <p class="sub entra">Treine em casa, no seu ritmo, com o Mestre Wesley Gimenez. Você recebe certificado ao concluir e tem 7 dias de garantia.</p>
+      <div class="entra">
+        <a class="btn" href="#situacao">Escolher meu treino (leva 1 minuto) <span aria-hidden="true">↓</span></a>
+        <span class="nota">Você vê o curso e o preço antes de pagar qualquer coisa.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="situacao"><div class="wrap">
+  <h2 class="titulo">Qual é a sua situação?</h2>
+  <p class="lead">Toque na opção que mais parece com você. Cada uma abre o treino feito para esse caso, com o vídeo do Mestre explicando.</p>
+  <div class="grid">
+{{CARDS}}
+  </div>
+</div></section>
+
+<section class="mestre"><div class="wrap duas">
+  <figure class="foto" style="margin:0"><img src="{{LUVAS}}" alt="Mestre Wesley Gimenez de uniforme preto segurando as luvas na academia de Krav Magá" loading="lazy" width="1100" height="1650"><figcaption>Mestre Wesley Gimenez</figcaption></figure>
+  <div>
+    <h2 class="titulo">Quem vai te ensinar</h2>
+    <p class="lead" style="margin-bottom:0">O Mestre Wesley Gimenez é perito forense e ex-policial penal. Criou o Krav Magá Caveira para ensinar o que funciona na rua: perceber o perigo antes, se proteger e sair inteiro.</p>
+    <ul class="lista">
+      <li>Defesa pessoal é evitar, se proteger e sair. Nada de briga.</li>
+      <li>Técnicas simples, para quem nunca treinou e para qualquer idade.</li>
+      <li>Aulas curtas, que você assiste pelo celular quando puder.</li>
+    </ul>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2 class="titulo">Como funciona</h2>
+  <p class="lead">Sem mensalidade escondida e sem precisar sair de casa.</p>
+  <div class="como">
+    <div><strong>1. Escolha</strong><span>Você escolhe o treino pela sua situação e vê o preço na página.</span></div>
+    <div><strong>2. Acesse</strong><span>O acesso chega no seu e-mail logo depois do pagamento.</span></div>
+    <div><strong>3. Treine</strong><span>Assista no celular, no seu ritmo, quantas vezes quiser.</span></div>
+    <div><strong>4. Certificado</strong><span>Concluiu o curso, recebe o certificado. E tem 7 dias de garantia.</span></div>
+  </div>
+</div></section>
+
+<section class="faixa"><div class="bgimg" aria-hidden="true"></div><div class="wrap">
+  <h2 class="titulo">Ficou com dúvida?</h2>
+  <p>Fale com a equipe do Mestre Wesley no WhatsApp (31) 99329-4274. A gente te ajuda a escolher o treino certo.</p>
+  <a class="btn" href="{{WPP}}" target="_blank" rel="noopener">Falar no WhatsApp e escolher meu treino</a>
+</div></section>
+</main>
+
+<footer><div class="wrap"><span>Krav Magá Caveira · Mestre Wesley Gimenez</span><span>Suporte: (31) 99329-4274</span></div></footer>
+<div class="proto">Rascunho para aprovação</div>
+
+<script>
+(function(){
+  var fino = matchMedia('(hover:hover) and (pointer:fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!fino) return;
+  var hero=document.querySelector('.hero'), mx=0,my=0,tx=0,ty=0;
+  addEventListener('mousemove',function(e){tx=e.clientX/innerWidth*2-1;ty=e.clientY/innerHeight*2-1});
+  var cv=document.getElementById('poeira'), cx=cv.getContext('2d'), P=[], W,H;
+  function tam(){W=cv.width=hero.clientWidth;H=cv.height=hero.clientHeight}
+  tam(); addEventListener('resize',tam);
+  for(var i=0;i<70;i++)P.push({x:Math.random(),y:Math.random(),r:Math.random()*1.6+.3,v:Math.random()*.00025+.00008,a:Math.random()*.5+.15});
+  (function tick(){
+    mx+=(tx-mx)*.06; my+=(ty-my)*.06;
+    hero.style.setProperty('--mx',mx.toFixed(4)); hero.style.setProperty('--my',my.toFixed(4));
+    cx.clearRect(0,0,W,H);
+    for(var i=0;i<P.length;i++){var p=P[i]; p.y-=p.v; p.x+=Math.sin((p.y+i)*6)*.0002; if(p.y<0){p.y=1;p.x=Math.random()}
+      cx.fillStyle='rgba(255,210,200,'+p.a+')'; cx.beginPath(); cx.arc(p.x*W+mx*-8,p.y*H+my*-5,p.r,0,6.283); cx.fill()}
+    requestAnimationFrame(tick);
+  })();
+})();
+</script>

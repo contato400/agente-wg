@@ -160,7 +160,7 @@ export default {
       return new Response(txt, { headers: { 'content-type': 'application/json' } });
     }
     // ---- Porta dos agentes (rotina agendada): só com o segredo AVISO_TOKEN no cabeçalho Authorization: Bearer ----
-    if (url.pathname === '/avisar' || url.pathname === '/equipe' || url.pathname === '/recados') {
+    if (url.pathname === '/avisar' || url.pathname === '/equipe' || url.pathname === '/recados' || url.pathname === '/perguntar') {
       const tk = (req.headers.get('authorization') || '').replace(/^Bearer\s+/i, '');
       if (!env.AVISO_TOKEN || tk !== env.AVISO_TOKEN) return new Response('negado', { status: 403 });
       let b = {}; if (req.method === 'POST') { try { b = await req.json(); } catch {} }
@@ -174,6 +174,19 @@ export default {
         const adm = String(env.ADMIN_FONE).replace(/\D/g, '');
         await addHist(env, chave === 'chefe-wg' ? adm : 'ag:' + chave + ':' + adm, { role: 'assistant', content: texto });
         return Response.json({ ok: enviados === partes.length, partes: partes.length, enviados });
+      }
+      if (url.pathname === '/perguntar' && req.method === 'POST') {
+        // O Jarvis (assistente de voz no computador do Victor) fala com um agente: {agente: "financeiro", pergunta: "..."}.
+        // Usa o mesmo histórico do #nome no WhatsApp, então a conversa continua de um lado para o outro.
+        const chave = APELIDOS[semAcento(b.agente || 'chefe')] || 'chefe-wg';
+        const pergunta = String(b.pergunta || '').trim().slice(0, 4000);
+        if (!env.ADMIN_FONE || pergunta.length < 2) return new Response('faltou pergunta', { status: 400 });
+        const adm = String(env.ADMIN_FONE).replace(/\D/g, '');
+        const hk = chave === 'chefe-wg' ? adm : 'ag:' + chave + ':' + adm;
+        await addHist(env, hk, { role: 'user', content: '[Victor pelo Jarvis, no computador; a resposta vai ser lida em voz alta, então responda curto e sem tabela] ' + pergunta });
+        const partes = await pensar((await getHist(env, hk)).slice(-12), 'Victor', env.ADMIN_FONE, chave, env, true);
+        for (const t of partes) await addHist(env, hk, { role: 'assistant', content: t });
+        return Response.json({ agente: NOME_AGENTE[chave], resposta: partes.join('\n\n') });
       }
       if (url.pathname === '/equipe' && req.method === 'POST') {
         // A rotina atualiza a memória que os agentes do WhatsApp enxergam (estado, decisões, backlog, conversas, passagem).
@@ -330,10 +343,26 @@ async function paraConteudo(m, env) {
     partes.push({ type: 'text', text: m.image.caption || '[a pessoa mandou esta imagem]' });
     return partes;
   }
-  if (m.type === 'audio') return '[a pessoa mandou um áudio que você não consegue ouvir; peça com carinho para escrever em texto]';
+  if (m.type === 'audio') {
+    // Áudio vira texto pelo Whisper da Cloudflare (Workers AI, associação AI). Sem a associação ou se falhar, pede texto.
+    const txt = await transcrever(m.audio, env);
+    return txt ? '[áudio transcrito] ' + txt : '[a pessoa mandou um áudio que você não consegue ouvir; peça com carinho para escrever em texto]';
+  }
   if (m.type === 'order') return '[a pessoa enviou um pedido pelo catálogo do WhatsApp: ' + JSON.stringify(m.order.product_items || []) + ']';
   if (m.type === 'document') return '[a pessoa mandou um documento: ' + (m.document.filename || '') + ']';
   return null;
+}
+
+async function transcrever(audio, env) {
+  if (!env.AI || !audio) return null;
+  try {
+    const a = audio.link ? await baixarYC(audio, env) : await baixarMidia(audio.id, env);
+    if (!a) return null;
+    const r = await env.AI.run('@cf/openai/whisper-large-v3-turbo', { audio: a.b64, language: 'pt' });
+    const t = String((r && r.text) || '').trim();
+    await passo(env, 'audio transcrito ' + t.length + ' letras');
+    return t || null;
+  } catch (e) { await passo(env, 'audio falhou ' + String(e).slice(0, 120)); return null; }
 }
 
 async function baixarMidia(id, env) {
@@ -366,7 +395,7 @@ async function chamarClaude(env, corpo) {
   return { ok: r.ok, status: r.status, d: await r.json() };
 }
 
-async function pensar(hist, nome, fone, agente, env) {
+async function pensar(hist, nome, fone, agente, env, rapido = false) {
   const hora = agora();
   const extra = agente ? `\n\n${hora}` : `\n\n${hora}\nPrimeiro nome no perfil do WhatsApp: ${nome || 'não informado'} (use só se parecer um nome de verdade).`;
   const sistema = [{ type: 'text', text: SISTEMA, cache_control: { type: 'ephemeral' } }];
@@ -375,8 +404,9 @@ async function pensar(hist, nome, fone, agente, env) {
   const msgs = juntar(hist);
   for (let volta = 0; volta < 4; volta++) {
     const { ok, status, d } = await chamarClaude(env, {
-      model: agente === 'chefe-wg' ? (env.MODELO_CHEFE || 'claude-fable-5-2') : (agente ? (env.MODELO_AGENTES || 'claude-sonnet-5-5') : (env.MODELO || 'claude-sonnet-5-5')),
-      max_tokens: agente ? 4000 : 1500, system: sistema, tools: agente ? FERRAMENTAS_EQUIPE : FERRAMENTAS, messages: msgs,
+      // rapido (voz pelo Jarvis): todos em Sonnet e resposta curta, para responder em segundos
+      model: rapido ? (env.MODELO_VOZ || env.MODELO_AGENTES || 'claude-sonnet-5-5') : agente === 'chefe-wg' ? (env.MODELO_CHEFE || 'claude-fable-5-2') : (agente ? (env.MODELO_AGENTES || 'claude-sonnet-5-5') : (env.MODELO || 'claude-sonnet-5-5')),
+      max_tokens: rapido ? 900 : agente ? 4000 : 1500, system: sistema, tools: agente ? FERRAMENTAS_EQUIPE : FERRAMENTAS, messages: msgs,
     });
     if (!ok) { console.log('anthropic', JSON.stringify(d)); await passo(env, 'anthropic erro ' + status + ' ' + JSON.stringify(d.error || d).slice(0, 150)); return ['Shalom! Recebi sua mensagem e já já te respondo. Tamo junto, Caveira!']; }
     const usos = (d.content || []).filter(c => c.type === 'tool_use');

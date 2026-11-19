@@ -172,3 +172,39 @@ Modelo:
 - Decisões: nenhuma nova do Victor. Nada externo executado.
 - Pendente: decisões 1 a 6 do debriefing; linha do Diário de 19/11 no Painel Financeiro (criar amanhã com as fórmulas); conector competitors do Metricool; Hotmart.
 - Verificado: Resumo e Diário do Painel sem #ERROR!; MP4 30,5 s, pico -1 dB, folha de conferência e capa olhadas.
+## 19/11 04h10 · troca do número (Academia fechada)
+- Feito: varredura das 321 páginas da Academia (cursos e aulas) com sessão de aluno: 0 ocorrências do número antigo. Menu "Fale com o suporte", assinatura dos e-mails e bloco "MEUS TREINAMENTOS NO TOPO" já trocados.
+- Pendente: Greenn (Configurações > Suporte pede e-mail de suporte; aguardando o Victor), Hotmart (contato de suporte do produtor) e bio do Instagram: o navegador não está logado no Instagram nem na Hotmart e agente não digita senha. Victor faz ou loga e avisa.
+- Verificado: 30/30 páginas do site com o número novo; worker com hash 7248c71b...
+
+## 19/11 04h · site cinematográfico, Greenn, rotina
+- Feito: rotina agendada conferida e correta (chaves do passo 2 e WhatsApp no passo 8). Greenn > Configurações > Suporte salvo com o e-mail que já aparece no checkout + WhatsApp 31 99329-4274 (aguarda o Wesley clicar no link de confirmação). Instagram: bio e links sem número. Hotmart: lista de produtos aparece vazia na conta logada, contato de suporte não alcançado.
+- Site (B43): debate com ofertas-paginas-wg; conceito escolhido = foto real em loop sutil (lanterna descartada: escondia conteúdo no celular e exigiria agressor feito por IA). Rascunho publicado como página privada para o Victor ver. Fotos do ensaio em Drive ARQUIVOS WG/FOTOS WG (76 fotos).
+- Pendente: Victor terminar o login do Higgsfield (conector adicionado, conexão incompleta); Hotmart por outro caminho.
+
+## 19/11 05h · Jarvis no computador do Victor
+- Feito: worker ganhou a porta POST /perguntar (Bearer AVISO_TOKEN; mesmo histórico do #nome). Jarvis instalado em C:\Users\Victor Augusto\Jarvis (Python 3.12 por winget, Claude Code CLI logado), com wg\wg.py, processo "Equipe do Wesley" em modelos\meus e memoria\sobre_mim.md. WG_AVISO_TOKEN gravado nas variáveis do Windows.
+- Verificado: `python wg\wg.py chefe ...` respondeu "[Chefe] OK. Quinta-feira, 19 de novembro de 2026."
+- Aprendizado: a Cloudflare devolve 403 (erro 1010) para o User-Agent padrão do Python; todo cliente Python do worker precisa de User-Agent próprio.
+- Pendente: Victor reiniciar e abrir o Jarvis pela primeira vez (baixa o modelo de voz).
+
+## 19/11 05h50 · voz e áudio
+- Feito: /perguntar em modo rápido (Sonnet, 900 tokens); áudio no WhatsApp agora vira texto (Workers AI whisper-large-v3-turbo, associação AI). Testes 21/21. No ar conferido.
+- Computador do Victor: Asus X515JF, i5-1035G1, 8 GB (1,7 GB livres), SSD 238 GB. Gargalo é memória; sugerido pente de 16 GB e tirar programas da inicialização.
+- Pendente troca de número: textos da régua dos grupos (Gui) e fluxos do ManyChat ainda não revisados; Hotmart (lista de produtos vazia na conta logada); Greenn aguarda o Wesley confirmar o e-mail.
+
+## 2026-11-19 06h55 · Site v4 publicado (/inicio)
+- Pedido: Victor pediu a minha melhor versão do site (crítica + melhorias), capas dos treinamentos flutuando como na Black, vídeo do avatar no Flow/Gemini.
+- Feito: site v4 em `conteudo/site-cinematografico/v4/` (index.html local, index.pub.html publicado). No ar em https://www.wesleygimenez.com.br/inicio (Atomicat, página html wgs2F03vzPFIPaY4oRGf). Sem porta de entrada (conteúdo aparece na hora), avatar 3D com boca sincronizada, capas voando no hero, anel 3D com as 22 capas, grade com filtros (página de venda com UTM ou WhatsApp quando não tem página), como funciona com print da Academia, Mestre, depoimentos reais, garantia, FAQ, barra fixa no celular, narração em 13 falas num só mp3 (CloudFront Higgsfield, CORS liberado).
+- Decisões: raiz "/" continua a página antiga até o Victor mandar trocar. Código Caveira avulso fora (lista "não oferecer"). Sem preço no site.
+- Vídeo do avatar acenando: gerado no Gemini (10 s, 720x1280), mas não deu para tirar do navegador (CSP bloqueia, acesso à pasta Downloads negado). Falta o Victor anexar o arquivo ou liberar a pasta.
+- Verificado: Playwright no ar, celular 390 e desktop 1440 sem rolagem lateral, boca abre com o áudio, sem erro no console. Número antigo: 30 páginas da Atomicat ainda têm 97334-6056 no HTML bruto, mas todas têm o script que troca para 99329-4274 ao carregar.
+
+## 2026-11-19 07h10 · Avatar animado no site
+- Feito: vídeo do Gemini (Victor anexou) recortado quadro a quadro (rembg isnet), alinhado às imagens do avatar e salvo em webm com fundo transparente (666 KB, CloudFront Higgsfield). No ar em /inicio: o boneco acena e aponta ao abrir (Chrome, Edge, Firefox, Android); quando fala, troca para as imagens com boca sincronizada; repete a animação a cada 16 s. Safari e iPhone ficam com as imagens.
+- Verificado: Playwright no ar, vídeo toca com transparência, classe "falando" entra durante a narração.
+
+## 2026-11-19 07h20 · Site v4 virou a página principal
+- Victor aprovou ("Sim"). Backup da antiga raiz ([DPC] [FRONT] [ORG-DOMÍNIO], Jwn8mcsMcXmAzQX5WPBI) feito na Atomicat; ela foi republicada em /defesa-pessoal-caveira. Site v4 publicado na raiz www.wesleygimenez.com.br (o /inicio continua funcionando).
+- Verificado: / , /inicio, /defesa-pessoal-caveira e /dpc respondem 200; vídeo do avatar toca na raiz.
+- Atenção: wesleygimenez.com.br sem "www" não responde (problema de DNS que já existia, não mexi). Links antigos que apontavam para a raiz agora caem no site novo, que leva ao DPC.

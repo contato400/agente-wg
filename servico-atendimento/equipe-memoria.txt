@@ -33,7 +33,8 @@
 - PENDENTE: 20261118-trafego-1 (urgente), 20261118-trafego-2, 20261118-social-1, 20261118-social-2, 20261118-social-3.
 
 ### memoria/passagem.md (últimas entradas)
-## 19/11 02h40 · Agente do WhatsApp contextualizado (skills e produtos)
-- Academia ligada (CADEMI_KEY, ferramentas conferir_academia e enviar_link_senha): teste do Victor achou a Black liberada e mandou o link de senha.
-- Conhecimento novo (45 mil caracteres, 11 fontes, montar.py): contexto do projeto, produtos por dentro (lidos nas páginas e na Greenn), Black e reabertura, skill nova conducao-conexao-wg (NEPQ, Voss, objeções reais), regras de desconto alinhadas à escada. Publicado e conferido.
-- Pendente: Victor testar com #cliente (catálogo, Black, objeções); depois MODO=ativo e trocar o número de suporte em todos os lugares (Academia, Greenn, Hotmart, páginas, catálogo, grupos, skills).
+## 19/11 05h · Jarvis no computador do Victor
+- Feito: worker ganhou a porta POST /perguntar (Bearer AVISO_TOKEN; mesmo histórico do #nome). Jarvis instalado em C:\Users\Victor Augusto\Jarvis (Python 3.12 por winget, Claude Code CLI logado), com wg\wg.py, processo "Equipe do Wesley" em modelos\meus e memoria\sobre_mim.md. WG_AVISO_TOKEN gravado nas variáveis do Windows.
+- Verificado: `python wg\wg.py chefe ...` respondeu "[Chefe] OK. Quinta-feira, 19 de novembro de 2026."
+- Aprendizado: a Cloudflare devolve 403 (erro 1010) para o User-Agent padrão do Python; todo cliente Python do worker precisa de User-Agent próprio.
+- Pendente: Victor reiniciar e abrir o Jarvis pela primeira vez (baixa o modelo de voz).

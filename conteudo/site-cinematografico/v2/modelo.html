@@ -1,0 +1,373 @@
+<title>Krav Magá Caveira</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;700&display=swap">
+<style>
+:root{--bg:#050405;--bg2:#0d090a;--fg:#f4ece9;--fg80:rgba(244,236,233,.82);--fg60:rgba(244,236,233,.62);--fg40:rgba(244,236,233,.4);--red:#c8141c;--red2:#e3262e;--line:rgba(244,236,233,.12);--card:#130f10;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html,body{background:var(--bg);color:var(--fg)}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:17px;line-height:1.6;overflow-x:hidden}
+a{color:inherit}
+h1,h2,h3{font-family:Anton,Impact,"Arial Narrow",sans-serif;font-weight:400;letter-spacing:.01em;text-wrap:balance;margin:0;text-transform:uppercase}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+:focus-visible{outline:3px solid var(--red2);outline-offset:3px}
+
+/* porta */
+#porta{position:fixed;inset:0;z-index:60;display:grid;place-items:center;background:radial-gradient(60% 60% at 50% 45%,#2a0507 0%,#050405 70%);transition:opacity .9s,visibility .9s}
+#porta.fora{opacity:0;visibility:hidden}
+#porta .caixa{text-align:center;padding:24px}
+#porta .rosto{width:120px;height:120px;border-radius:50%;margin:0 auto 18px;background:#1a0b0d url({{ROSTO}}) 50% 18%/240% no-repeat;border:2px solid var(--red);box-shadow:0 0 40px rgba(227,38,46,.45)}
+#porta .marca{font-family:Anton,Impact,sans-serif;font-size:clamp(34px,7vw,64px);letter-spacing:.04em;line-height:1}
+#porta .marca b{color:var(--red2);font-weight:400}
+#porta p{color:var(--fg60);margin:12px 0 28px}
+#porta button{font:700 18px Inter,sans-serif;color:#fff;background:var(--red);border:0;border-radius:999px;padding:18px 34px;cursor:pointer;animation:pulso 2s infinite}
+#porta small{display:block;margin-top:14px;color:var(--fg40);font-size:13px}
+@keyframes pulso{0%{box-shadow:0 0 0 0 rgba(227,38,46,.55)}70%{box-shadow:0 0 0 22px rgba(227,38,46,0)}100%{box-shadow:0 0 0 0 rgba(227,38,46,0)}}
+
+/* palco */
+.palco{position:relative;min-height:100svh;overflow:hidden;isolation:isolate;display:flex;align-items:center}
+.fundo{position:absolute;inset:-5%;z-index:-3;background:url({{FUNDO}}) 70% 30%/cover no-repeat;filter:blur(7px) brightness(.4);translate:calc(var(--mx,0)*-16px) calc(var(--my,0)*-10px);scale:1.07}
+.luz{position:absolute;inset:0;z-index:-2;background:radial-gradient(40% 60% at 28% 45%,rgba(227,38,46,.34),transparent 70%);animation:pisca 7s infinite}
+@keyframes pisca{0%,18%,22%,60%,63%,100%{opacity:1}19%,21%{opacity:.4}61%{opacity:.65}}
+.chao{position:absolute;left:0;right:0;bottom:0;height:34%;z-index:-1;background:linear-gradient(0deg,var(--bg) 8%,transparent)}
+#poeira{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.nav{position:absolute;inset:0 0 auto;z-index:5;padding-block:18px}
+.nav .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.logo{font-family:Anton,Impact,sans-serif;font-size:20px;letter-spacing:.06em;text-decoration:none}
+.logo b{color:var(--red2);font-weight:400}
+.nav button{background:rgba(0,0,0,.35);border:1px solid var(--fg40);color:var(--fg);border-radius:999px;padding:7px 14px;font:600 14px Inter,sans-serif;cursor:pointer}
+.grade{display:grid;grid-template-columns:.85fr 1.15fr;gap:36px;align-items:center;width:100%;padding-block:86px 36px}
+.grade>*{min-width:0}
+
+/* personagem */
+.avatar{position:relative;justify-self:center;width:min(100%,380px);aspect-ratio:560/1004;perspective:900px}
+.avatar .corpo{position:absolute;inset:0;transform:rotateY(calc(var(--mx,0)*10deg)) rotateX(calc(var(--my,0)*-4deg));transform-style:preserve-3d}
+.avatar .entra{position:absolute;inset:0;opacity:0;transform:translateY(40px) scale(.94)}
+.vivo .avatar .entra{opacity:1;transform:none;transition:opacity 1s .15s,transform 1.2s cubic-bezier(.2,.8,.2,1) .15s}
+.avatar .respira{position:absolute;inset:0;animation:respira 4.2s ease-in-out infinite;transform-origin:50% 100%}
+@keyframes respira{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-6px) scale(1.012)}}
+.avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 26px rgba(227,38,46,.3)) drop-shadow(0 26px 26px rgba(0,0,0,.7));transition:opacity .25s}
+.avatar .aberta{opacity:0;transition:none}
+.avatar.boca .aberta{opacity:1}
+.avatar .aponta{opacity:0}
+.avatar.apontando .aponta{opacity:1}
+.avatar.apontando .fechada,.avatar.apontando .aberta{opacity:0}
+.avatar .sombra{position:absolute;left:50%;bottom:-1%;width:62%;height:16px;translate:-50% 0;border-radius:50%;background:radial-gradient(rgba(227,38,46,.45),transparent 70%);filter:blur(5px)}
+.ia{position:absolute;left:50%;bottom:-30px;translate:-50% 0;font-size:11px;color:var(--fg40);white-space:nowrap}
+
+/* conversa */
+.conversa{max-width:600px}
+.selo{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--fg80);border-left:3px solid var(--red2);padding-left:10px;margin-bottom:16px}
+.balao{position:relative;background:rgba(19,15,16,.84);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:18px 18px 18px 4px;padding:22px 24px;font-size:clamp(18px,1.9vw,22px);line-height:1.45;min-height:150px;box-shadow:0 20px 50px rgba(0,0,0,.45)}
+.balao::before{content:"";position:absolute;left:-9px;bottom:14px;border:9px solid transparent;border-right-color:rgba(244,236,233,.12);border-left:0}
+.balao .quem{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red2);margin-bottom:8px}
+.ondas{display:inline-flex;gap:2px;height:12px;align-items:flex-end}
+.ondas i{width:3px;background:var(--red2);height:3px;border-radius:2px;transition:height .08s}
+.cursor{display:inline-block;width:2px;height:1.05em;background:var(--red2);vertical-align:-3px;margin-left:2px;animation:pisc 1s steps(1) infinite}
+@keyframes pisc{50%{opacity:0}}
+form.pergunta{display:flex;gap:8px;margin-top:16px}
+form.pergunta input{flex:1;min-width:0;background:#0d0a0b;border:1px solid var(--fg40);color:var(--fg);border-radius:12px;padding:15px 16px;font:16px Inter,sans-serif}
+form.pergunta input:focus{border-color:var(--red2);outline:none;box-shadow:0 0 0 3px rgba(227,38,46,.25)}
+.btn,form.pergunta button{background:var(--red);color:#fff;border:0;border-radius:12px;padding:15px 20px;font:700 16px Inter,sans-serif;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background .2s,transform .2s}
+.btn:hover,form.pergunta button:hover{background:var(--red2);transform:translateY(-2px)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chips button{background:rgba(0,0,0,.3);border:1px solid var(--line);color:var(--fg80);border-radius:999px;padding:8px 14px;font:500 14px Inter,sans-serif;cursor:pointer;transition:border-color .2s,color .2s,transform .2s}
+.chips button:hover{border-color:var(--red);color:#fff;transform:translateY(-2px)}
+.resultado{margin-top:16px;padding:18px 20px;border:1px solid var(--red);border-radius:14px;background:linear-gradient(135deg,rgba(200,20,28,.18),rgba(200,20,28,.04));animation:surge .6s cubic-bezier(.2,.8,.2,1)}
+@keyframes surge{from{opacity:0;transform:translateY(14px) scale(.98)}}
+.resultado h3{font-size:24px;margin-bottom:6px}
+.resultado p{margin:0 0 14px;color:var(--fg80);font-size:16px}
+.desce{display:inline-block;margin-top:20px;color:var(--fg60);font-size:14px;text-decoration:none}
+.desce i{display:inline-block;font-style:normal;animation:desce 1.6s infinite}
+@keyframes desce{50%{transform:translateY(5px)}}
+
+/* revelar ao rolar */
+[data-revela]{opacity:0;transform:translateY(46px) rotateX(10deg);transform-origin:50% 100%;transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i,0)*.09s)}
+[data-revela].visto{opacity:1;transform:none}
+.cena3d{perspective:1100px}
+section.bloco{padding-block:96px;position:relative}
+.titulo{font-size:clamp(34px,4.6vw,56px);line-height:1.04;margin-bottom:10px}
+.titulo span{color:var(--red2)}
+.traco{display:block;height:3px;width:0;background:var(--red2);margin:0 0 18px;transition:width 1s cubic-bezier(.2,.8,.2,1) .2s}
+.visto .traco,.traco.visto{width:72px}
+.lead{color:var(--fg60);max-width:40em;margin:0 0 36px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}
+.card{position:relative;display:flex;flex-direction:column;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px;text-decoration:none;min-width:0;overflow:hidden;transform-style:preserve-3d;transition:border-color .25s,box-shadow .25s}
+.card::after{content:"";position:absolute;inset:0;background:radial-gradient(400px circle at var(--cx,50%) var(--cy,50%),rgba(227,38,46,.18),transparent 45%);opacity:0;transition:opacity .25s;pointer-events:none}
+.card:hover{border-color:var(--red);box-shadow:0 20px 40px rgba(0,0,0,.5)}
+.card:hover::after{opacity:1}
+.card .num{font-family:Anton,Impact,sans-serif;font-size:14px;color:var(--red2);letter-spacing:.1em}
+.card h3{font-size:25px;line-height:1.1}
+.card p{margin:0;color:var(--fg60);font-size:16px;flex:1}
+.card .cta{font-weight:700;color:var(--red2);font-size:15px}
+.mestre{background:var(--bg2);border-block:1px solid var(--line);overflow:hidden}
+.duas{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.duas>*{min-width:0}
+.foto{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/5;margin:0}
+.foto img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.12);transition:transform 1.6s cubic-bezier(.2,.8,.2,1)}
+.foto.visto img{transform:scale(1)}
+.foto figcaption{position:absolute;left:14px;bottom:12px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--fg80);background:rgba(0,0,0,.5);padding:4px 8px;border-radius:6px}
+.lista{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px}
+.lista li{padding-left:28px;position:relative;color:var(--fg80)}
+.lista li::before{content:"";position:absolute;left:0;top:.62em;width:14px;height:3px;background:var(--red2)}
+.trilha{position:relative;display:grid;gap:18px;padding-left:44px}
+.trilha::before{content:"";position:absolute;left:15px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.trilha .barra{position:absolute;left:15px;top:6px;width:2px;height:calc(var(--p,0)*100%);background:var(--red2);box-shadow:0 0 12px var(--red2)}
+.passo{position:relative;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.passo::before{content:attr(data-n);position:absolute;left:-44px;top:14px;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font:700 14px Inter,sans-serif;background:var(--bg);border:2px solid var(--fg40);color:var(--fg60);transition:all .4s}
+.passo.ativo::before{border-color:var(--red2);background:var(--red);color:#fff;box-shadow:0 0 18px rgba(227,38,46,.6)}
+.passo strong{display:block;font-family:Anton,Impact,sans-serif;font-weight:400;font-size:22px;text-transform:uppercase}
+.passo span{color:var(--fg60);font-size:15px}
+.final{text-align:center}
+.final p{color:var(--fg80);max-width:34em;margin:12px auto 26px}
+footer{padding-block:34px;border-top:1px solid var(--line);color:var(--fg40);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+
+/* guia que acompanha a rolagem */
+#guia{position:fixed;left:max(14px,env(safe-area-inset-left,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:40;display:flex;align-items:flex-end;gap:10px;opacity:0;transform:translateY(20px);transition:opacity .5s,transform .5s;pointer-events:none}
+#guia.on{opacity:1;transform:none}
+#guia .cara{position:relative;width:74px;height:74px;border-radius:50%;overflow:hidden;border:2px solid var(--red);background:#1a0b0d;box-shadow:0 8px 24px rgba(0,0,0,.6);flex:none}
+#guia .cara div{position:absolute;inset:0;background-size:250%;background-position:50% 14%;background-repeat:no-repeat}
+#guia .cara .ab{opacity:0}
+#guia.boca .cara .ab{opacity:1}
+#guia .fala{max-width:min(320px,calc(100vw - 120px));background:rgba(19,15,16,.94);border:1px solid var(--line);border-radius:14px 14px 14px 4px;padding:10px 14px;font-size:14px;line-height:1.4;color:var(--fg80)}
+.proto{position:fixed;right:max(12px,env(safe-area-inset-right,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9;background:#000;border:1px solid var(--line);color:var(--fg60);font-size:12px;padding:6px 10px;border-radius:6px}
+
+@media (max-width:860px){
+  .grade{grid-template-columns:1fr;padding-block:72px 40px;gap:4px}
+  .avatar{width:min(48vw,210px);margin-bottom:34px}
+  .conversa .selo{display:none}
+  .balao::before{display:none}
+  .duas{grid-template-columns:1fr;gap:30px}
+  form.pergunta{flex-direction:column}
+  .proto{display:none}
+  #guia .cara{width:58px;height:58px}
+}
+@media (prefers-reduced-motion:reduce){.luz,.avatar .respira,#porta button{animation:none}.fundo{translate:none}#poeira{display:none}.avatar .corpo{transform:none}[data-revela]{opacity:1;transform:none;transition:none}}
+</style>
+
+<div id="porta" role="dialog" aria-label="Entrada">
+  <div class="caixa">
+    <div class="rosto" aria-hidden="true"></div>
+    <div class="marca">KRAV MAGÁ <b>CAVEIRA</b></div>
+    <p>O Mestre Wesley vai te receber e te guiar até o treino certo.</p>
+    <button id="entrar" type="button">Entrar e ouvir o Mestre</button>
+    <small><a href="#" id="semsom" style="color:inherit">Entrar sem som</a></small>
+  </div>
+</div>
+
+<main>
+<section class="palco" aria-label="Boas-vindas">
+  <div class="fundo" aria-hidden="true"></div>
+  <div class="luz" aria-hidden="true"></div>
+  <canvas id="poeira" aria-hidden="true"></canvas>
+  <div class="chao" aria-hidden="true"></div>
+  <header class="nav"><div class="wrap">
+    <a class="logo" href="#">KRAV MAGÁ <b>CAVEIRA</b></a>
+    <button type="button" id="som" aria-pressed="true">Som ligado</button>
+  </div></header>
+  <div class="wrap" style="width:100%">
+    <div class="grade">
+      <div class="avatar" id="avatar">
+        <div class="corpo"><div class="entra"><div class="respira">
+          <img class="fechada" src="{{FECHADA}}" alt="Personagem do Mestre Wesley Gimenez acenando">
+          <img class="aberta" src="{{ABERTA}}" alt="" aria-hidden="true">
+          <img class="aponta" src="{{APONTA}}" alt="" aria-hidden="true">
+        </div></div></div>
+        <div class="sombra" aria-hidden="true"></div>
+        <span class="ia">Personagem criado com IA</span>
+      </div>
+      <div class="conversa">
+        <span class="selo">Mestre Wesley Gimenez · Defesa pessoal online</span>
+        <div class="balao" aria-live="polite"><span class="quem">Mestre Wesley <span class="ondas" aria-hidden="true"><i></i><i></i><i></i><i></i></span></span><span id="fala"></span><span class="cursor" aria-hidden="true"></span></div>
+        <form class="pergunta" id="form">
+          <label for="texto" style="position:absolute;left:-9999px">O que você está procurando?</label>
+          <input id="texto" autocomplete="off" placeholder="Escreva aqui. Ex.: tenho medo de assalto">
+          <button type="submit">Responder</button>
+        </form>
+        <div class="chips" role="group" aria-label="Respostas rápidas">
+          <button data-c="iniciante">Nunca treinei</button>
+          <button data-c="mulher">Sou mulher</button>
+          <button data-c="assalto">Medo de assalto</button>
+          <button data-c="faca">Medo de faca</button>
+          <button data-c="bullying">Meu filho sofre bullying</button>
+        </div>
+        <div id="resultado"></div>
+        <a class="desce" href="#situacao">Prefere ver todas as opções? Role a tela <i aria-hidden="true">↓</i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bloco cena3d" id="situacao" data-fala="sec_situacao"><div class="wrap">
+  <h2 class="titulo" data-revela>Qual é a sua <span>situação?</span></h2>
+  <span class="traco" data-revela></span>
+  <p class="lead" data-revela>Toque na opção que mais parece com você. Cada uma abre o treino feito para esse caso, com o vídeo do Mestre explicando e o preço na página.</p>
+  <div class="grid">
+{{CARDS}}
+  </div>
+</div></section>
+
+<section class="bloco mestre" id="mestre" data-fala="sec_mestre"><div class="wrap duas">
+  <figure class="foto" data-revela><img src="{{FOTO}}" alt="Mestre Wesley Gimenez de verdade, treinando com a luva da caveira" loading="lazy"><figcaption>O Mestre de verdade</figcaption></figure>
+  <div>
+    <h2 class="titulo" data-revela>Quem vai <span>te ensinar</span></h2>
+    <span class="traco" data-revela></span>
+    <p class="lead" data-revela style="margin-bottom:0">O Mestre Wesley Gimenez é perito forense e ex-policial penal. Criou o Krav Magá Caveira para ensinar o que funciona na vida real: perceber o perigo antes, se proteger e sair inteiro.</p>
+    <ul class="lista">
+      <li data-revela style="--i:1">Defesa pessoal é evitar, se proteger e sair. Nada de briga.</li>
+      <li data-revela style="--i:2">Técnicas simples, para quem nunca treinou e para qualquer idade.</li>
+      <li data-revela style="--i:3">Aulas curtas, que você assiste pelo celular quando puder.</li>
+    </ul>
+  </div>
+</div></section>
+
+<section class="bloco" id="como" data-fala="sec_como"><div class="wrap duas">
+  <div>
+    <h2 class="titulo" data-revela>Como <span>funciona</span></h2>
+    <span class="traco" data-revela></span>
+    <p class="lead" data-revela>Sem mensalidade escondida e sem precisar sair de casa. Role e acompanhe o caminho.</p>
+  </div>
+  <div class="trilha" id="trilha"><div class="barra" aria-hidden="true"></div>
+    <div class="passo" data-n="1" data-revela><strong>Escolha</strong><span>Você escolhe o treino pela sua situação e vê o preço na página.</span></div>
+    <div class="passo" data-n="2" data-revela><strong>Acesse</strong><span>O acesso chega no seu e-mail logo depois do pagamento.</span></div>
+    <div class="passo" data-n="3" data-revela><strong>Treine</strong><span>Assista no celular, no seu ritmo, quantas vezes quiser.</span></div>
+    <div class="passo" data-n="4" data-revela><strong>Certificado</strong><span>Concluiu, recebe o certificado. E tem 7 dias de garantia.</span></div>
+  </div>
+</div></section>
+
+<section class="bloco final"><div class="wrap">
+  <h2 class="titulo" data-revela>Ficou com <span>dúvida?</span></h2>
+  <p data-revela>Fale com a equipe do Mestre Wesley no WhatsApp (31) 99329-4274. A gente te ajuda a escolher o treino certo.</p>
+  <a class="btn" data-revela href="{{WPP}}" target="_blank" rel="noopener">Falar no WhatsApp e escolher meu treino</a>
+</div></section>
+</main>
+<footer><div class="wrap"><span>Krav Magá Caveira · Mestre Wesley Gimenez</span><span>Suporte: (31) 99329-4274</span></div></footer>
+
+<div id="guia" aria-live="polite"><div class="cara" aria-hidden="true"><div class="fe" style="background-image:url({{FECHADA}})"></div><div class="ab" style="background-image:url({{ABERTA}})"></div></div><div class="fala" id="guiaFala"></div></div>
+<div class="proto">Rascunho para aprovação</div>
+
+<script>
+const FALAS = {{FALAS}}, AUDIO = {{AUDIO}}, DESTINO = {{DESTINO}};
+const $ = s => document.querySelector(s), el = id => document.getElementById(id);
+const avatar = el('avatar'), guia = el('guia'), ondas = [...document.querySelectorAll('.ondas i')];
+const calmo = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let somLigado = true, ctx = null, analisador = null, audio = null, digitando = null, alvoBoca = avatar, falando = false;
+
+// boca: abre conforme o volume da voz (WebAudio); sem som, mexe no ritmo do texto
+const buf = new Uint8Array(512);
+(function boca(){
+  let v = 0;
+  if (falando && analisador && somLigado) { analisador.getByteTimeDomainData(buf); let s = 0; for (const x of buf) { const d = (x - 128) / 128; s += d * d; } v = Math.sqrt(s / buf.length); }
+  else if (falando) v = (Math.sin(performance.now() / 70) + 1) * .05;
+  alvoBoca.classList.toggle('boca', v > .035);
+  ondas.forEach((o, i) => o.style.height = (3 + Math.min(9, v * 120 * (1 + (i % 2) * .5))) + 'px');
+  requestAnimationFrame(boca);
+})();
+
+function tocar(chave, quem){
+  if (audio) { audio.pause(); audio = null; }
+  alvoBoca.classList.remove('boca'); alvoBoca = quem; avatar.classList.remove('apontando');
+  const texto = FALAS[chave]; let dur = Math.max(2.5, texto.length / 15);
+  falando = true;
+  if (somLigado) {
+    audio = new Audio(AUDIO[chave]);
+    if (ctx) { const src = ctx.createMediaElementSource(audio); src.connect(analisador); }
+    audio.addEventListener('loadedmetadata', () => { if (isFinite(audio.duration)) dur = audio.duration; });
+    audio.addEventListener('ended', () => { falando = false; quem.classList.remove('boca'); quem.dispatchEvent(new Event('fim')); });
+    audio.play().catch(() => {});
+  } else setTimeout(() => { falando = false; quem.dispatchEvent(new Event('fim')); }, dur * 1000);
+  return { texto, dur: () => dur };
+}
+
+function falar(chave){
+  const r = tocar(chave, avatar); const alvo = el('fala');
+  clearInterval(digitando); alvo.textContent = '';
+  let i = 0; const t0 = performance.now();
+  digitando = setInterval(() => {
+    const p = Math.min(1, (performance.now() - t0) / (r.dur() * 1000 * .93)); const n = Math.floor(p * r.texto.length);
+    if (n > i) { i = n; alvo.textContent = r.texto.slice(0, i); }
+    if (p >= 1) { clearInterval(digitando); alvo.textContent = r.texto; }
+  }, 40);
+}
+
+const REGRAS = [
+  ['bullying', /bull|filh|crian|escola|colega|apanha/],
+  ['mulher', /mulher|femin|assedi|agarr|cabelo|namorad|marido|sou menina|garota/],
+  ['faca', /faca|l[aâ]mina|canivete|arma branca/],
+  ['assalto', /assalt|roub|ladr|rua|carro|casa|seguran|golpe|sequestr/],
+  ['iniciante', /nunca|come[cç]|inici|zero|aprender|defender|treinar|lutar/]
+];
+const classificar = t => { t = t.toLowerCase(); for (const [c, r] of REGRAS) if (r.test(t)) return c; return 'duvida'; };
+
+function responder(chave){
+  falar(chave);
+  const d = DESTINO[chave];
+  el('resultado').innerHTML = d
+    ? `<div class="resultado"><h3>${d.nome}</h3><p>${d.texto}</p><a class="btn" href="${d.url}" target="_blank" rel="noopener">${d.botao} →</a></div>`
+    : `<div class="resultado"><h3>Vamos achar juntos</h3><p>Role a tela e escolha a situação mais parecida com a sua, ou fale com a equipe.</p><a class="btn" href="#situacao">Ver as opções ↓</a></div>`;
+  avatar.addEventListener('fim', () => avatar.classList.add('apontando'), { once: true });
+}
+el('form').addEventListener('submit', e => { e.preventDefault(); const t = el('texto').value.trim(); if (t) responder(classificar(t)); });
+document.querySelectorAll('.chips button').forEach(b => b.addEventListener('click', () => responder(b.dataset.c)));
+
+function marcarSom(){ el('som').textContent = somLigado ? 'Som ligado' : 'Som desligado'; el('som').setAttribute('aria-pressed', somLigado); }
+function abrir(comSom){
+  somLigado = comSom; marcarSom();
+  if (comSom) { try { ctx = new (window.AudioContext || window.webkitAudioContext)(); analisador = ctx.createAnalyser(); analisador.fftSize = 1024; analisador.connect(ctx.destination); } catch (e) { ctx = null; } }
+  el('porta').classList.add('fora'); document.body.classList.add('vivo');
+  setTimeout(() => falar('intro'), 1000);
+}
+el('entrar').addEventListener('click', () => abrir(true));
+el('semsom').addEventListener('click', e => { e.preventDefault(); abrir(false); });
+el('som').addEventListener('click', () => { somLigado = !somLigado; if (!somLigado && audio) audio.pause(); if (somLigado && !ctx) { try { ctx = new AudioContext(); analisador = ctx.createAnalyser(); analisador.connect(ctx.destination); } catch (e) {} } marcarSom(); });
+
+// revelar ao rolar + o Mestre comenta cada parte uma vez
+const vistos = new Set();
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visto'); io.unobserve(e.target); } }), { threshold: .18 });
+document.querySelectorAll('[data-revela]').forEach(n => io.observe(n));
+let tempoGuia = null;
+const ioSec = new IntersectionObserver(es => es.forEach(e => {
+  const k = e.target.dataset.fala;
+  if (!e.isIntersecting || vistos.has(k) || !document.body.classList.contains('vivo')) return;
+  vistos.add(k); el('guiaFala').textContent = FALAS[k]; guia.classList.add('on');
+  tocar(k, guia);
+  clearTimeout(tempoGuia); guia.addEventListener('fim', () => { tempoGuia = setTimeout(() => guia.classList.remove('on'), 1800); }, { once: true });
+}), { threshold: .45 });
+document.querySelectorAll('[data-fala]').forEach(n => ioSec.observe(n));
+const palcoIO = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) guia.classList.remove('on'); }), { threshold: .6 });
+palcoIO.observe($('.palco'));
+
+// trilha que acende conforme rola
+const trilha = el('trilha'), passos = [...trilha.querySelectorAll('.passo')];
+addEventListener('scroll', () => {
+  const r = trilha.getBoundingClientRect(); const p = Math.max(0, Math.min(1, (innerHeight * .65 - r.top) / r.height));
+  trilha.style.setProperty('--p', p.toFixed(3));
+  passos.forEach((s, i) => s.classList.toggle('ativo', p >= (i + .3) / passos.length));
+}, { passive: true });
+
+// cartões com inclinação 3D e luz que segue o mouse
+if (matchMedia('(hover:hover) and (pointer:fine)').matches && !calmo) document.querySelectorAll('.card').forEach(c => {
+  c.addEventListener('mousemove', e => { const r = c.getBoundingClientRect(); const x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+    c.style.transform = `perspective(800px) rotateY(${(x - .5) * 10}deg) rotateX(${(.5 - y) * 8}deg) translateY(-4px)`; c.style.setProperty('--cx', x * 100 + '%'); c.style.setProperty('--cy', y * 100 + '%'); });
+  c.addEventListener('mouseleave', () => { c.style.transform = ''; });
+});
+
+// fundo e personagem seguem o mouse; poeira no ar
+(function(){
+  const palco = $('.palco'); const fino = matchMedia('(hover:hover) and (pointer:fine)').matches && !calmo;
+  let mx = 0, my = 0, tx = 0, ty = 0;
+  if (fino) addEventListener('mousemove', e => { tx = e.clientX / innerWidth * 2 - 1; ty = e.clientY / innerHeight * 2 - 1; });
+  const cv = el('poeira'), cx = cv.getContext('2d'); let W, H; const P = [];
+  const tam = () => { W = cv.width = palco.clientWidth; H = cv.height = palco.clientHeight; }; tam(); addEventListener('resize', tam);
+  for (let i = 0; i < 60; i++) P.push({ x: Math.random(), y: Math.random(), r: Math.random() * 1.5 + .3, v: Math.random() * .00025 + .00008, a: Math.random() * .45 + .15 });
+  (function tick(){
+    mx += (tx - mx) * .06; my += (ty - my) * .06;
+    palco.style.setProperty('--mx', mx.toFixed(4)); palco.style.setProperty('--my', my.toFixed(4));
+    cx.clearRect(0, 0, W, H);
+    for (const p of P) { p.y -= p.v; if (p.y < 0) { p.y = 1; p.x = Math.random(); } cx.fillStyle = 'rgba(255,210,200,' + p.a + ')'; cx.beginPath(); cx.arc(p.x * W, p.y * H, p.r, 0, 6.283); cx.fill(); }
+    requestAnimationFrame(tick);
+  })();
+})();
+</script>

@@ -86,7 +86,7 @@ const FERRAMENTAS = [{
 }];
 
 // ---- Equipe de agentes (19/11): o Victor fala com cada um pelo "#nome"; todos leem a memória da operação e podem perguntar a outro agente ----
-const EQUIPE = {"regras": "Nada externo sem aprovação do Victor ou do Wesley (publicar, gastar, mandar mensagem a cliente, mexer em página, oferta, campanha). Reembolso e pagamento nunca por agente. Só o negócio do Wesley. Suporte oficial (31) 99329-4274. Sem travessão. Sucesso é venda, não atividade; separar comprovado de estimado. Sem dado pessoal de cliente em memória ou relatório. Expediente dos agentes 8h às 18h (o atendimento do WhatsApp responde 24 h).", "fichas": {"analista-wg": "Responde por: O que vende e o que não vende. Mede: Vendas por origem, grupo, post, anúncio, produto e agente; saúde dos dados. Pode sozinho: Sim (só leitura)", "financeiro-wg": "Responde por: Quanto sobra de verdade. Mede: Líquido, projeção, custo global, custo por comprador por produto, recompra, reembolso. Pode sozinho: Sim (só leitura)", "atendimento-wg": "Responde por: Qualidade do WhatsApp e voz do cliente. Mede: Conversão das conversas, passagens para humano, erros, objeções; pesquisas. Pode sozinho: Só propõe", "social-media-wg": "Responde por: Conversa que vira venda no Instagram. Mede: Comentário com palavra-chave e venda por post; termômetro do direct. Pode sozinho: Só propõe", "ofertas-paginas-wg": "Responde por: Oferta, página, checkout e esteira. Mede: Conversão por página, bump, upsell, recuperação; PPN, esteira, trilhas. Pode sozinho: Só propõe (rascunho sim)", "trafego-wg": "Responde por: Assistente do Diogo. Mede: Custo por venda, funil do anúncio. Pode sozinho: Só relatório até o fim da Black", "juridico-wg": "Responde por: Risco. Mede: Itens revisados e motivos de ajuste. Pode sozinho: Sim (só revisão)", "sucesso-aluno-wg": "Responde por: Aluno depois da compra. Mede: Acesso liberado, \"não recebi acesso\", Guia 12 semanas. Pode sozinho: Sim (interno); externo pela fila", "auditor-wg": "Responde por: Rota certa. Mede: O que está funcionando de verdade, com prova do dia. Pode sozinho: Sim (só leitura)", "chefe-wg": "Coordenador da equipe (Agente WG): debriefing diário, decide qual agente faz o quê, consolida propostas na fila de aprovação e responde ao Victor."}, "memoria": "### memoria/estado.md\n# Estado atual (atualizado em 2026-11-18 20h30 pela auditoria)\n\n## Meta de novembro\n- 150 vendas orgânicas e R$ 30 mil líquidos. Em 17/11: 115 vendas e R$ 25.361,74 (Greenn + Hotmart).\n\n## Campanha\n- Black Caveira 2026 encerrou em 16/11 às 19h. Página segue aberta a R$ 397.\n- Reabertura relâmpago sexta 20/11 às 19h (sem data de fechamento).\n- Foco até 30/11: Black (as vendas se arrastam depois da reabertura). Depois, o catálogo volta a ser o foco do atendimento.\n- Catálogo do WhatsApp: 23 cursos, sem e-book, está certo e vendendo. Não mexer.\n\n## Prioridades combinadas em 18/11 (madrugada)\n1. Atendimento 24h no número oficial (falta o código do Samuel e a chave da API).\n2. Mensagem de acesso logo depois da compra (link da Academia, e-mail da compra, spam). Cerca de um quarto das conversas do suporte é gente que não consegue entrar.\n3. Anúncio direto para conversa no WhatsApp, R$ 20 a R$ 30 por dia, quando o atendimento estiver no ar.\n4. UTM por agente (utm_term=ag-<agente>).\n5. Canal único com o Victor pelo WhatsApp dele.\n\n## O que está no ar\n- Ponte Greenn/Hotmart → ManyChat + planilha (Apps Script v2): todos os 74 produtos da Greenn e todos da Hotmart.\n- ManyChat: recuperação de carrinho automática (tag carrinho_pendente, cupom BLACK10) e upsell da IA KMC pós-compra (R$ 197).\n- Tráfego pago: em 17/11 ainda havia 3 campanhas da Black ATIVAS (GREENN 01, 04 e 05), gasto de R$ 845,62 no dia com 1 compra. Proposta de corte 20261118-trafego-1 na fila. Gasto desde 04/11: R$ 5.089,52.\n- Ponte gravando vendas desde 18/11 (4 vendas de tráfego no dia). Erro ao criar contato no ManyChat quando ele já existe (ver auditoria 18/11).\n- Instagram do Wesley ligado ao Metricool em 18/11 20h (importando). Windsor só com Meta Ads. Painel Financeiro WG criado.\n\n## Agentes\n- Fase 1 ligada: atendimento (em construção) e debriefing diário.\n- Fase 2 (social media com aprovação) e Fase 3 (tráfego como assistente do Diogo, liberado em 18/11): prontos para ligar.\n- Expediente dos agentes: 8h às 18h. Atendimento do WhatsApp responde fora do horário.\n\n## Fila de aprovação em 18/11\n- PENDENTE: 20261118-trafego-1 (urgente), 20261118-trafego-2, 20261118-social-1, 20261118-social-2, 20261118-social-3.\n\n### memoria/passagem.md (últimas entradas)\n## 19/11 02h40 · Agente do WhatsApp contextualizado (skills e produtos)\n- Academia ligada (CADEMI_KEY, ferramentas conferir_academia e enviar_link_senha): teste do Victor achou a Black liberada e mandou o link de senha.\n- Conhecimento novo (45 mil caracteres, 11 fontes, montar.py): contexto do projeto, produtos por dentro (lidos nas páginas e na Greenn), Black e reabertura, skill nova conducao-conexao-wg (NEPQ, Voss, objeções reais), regras de desconto alinhadas à escada. Publicado e conferido.\n- Pendente: Victor testar com #cliente (catálogo, Black, objeções); depois MODO=ativo e trocar o número de suporte em todos os lugares (Academia, Greenn, Hotmart, páginas, catálogo, grupos, skills)."};   // { regras, fichas: { 'chefe-wg': '...', ... }, memoria: '...' } montado por montar.py
+const EQUIPE = {"regras": "Nada externo sem aprovação do Victor ou do Wesley (publicar, gastar, mandar mensagem a cliente, mexer em página, oferta, campanha). Reembolso e pagamento nunca por agente. Só o negócio do Wesley. Suporte oficial (31) 99329-4274. Sem travessão. Sucesso é venda, não atividade; separar comprovado de estimado. Sem dado pessoal de cliente em memória ou relatório. Expediente dos agentes 8h às 18h (o atendimento do WhatsApp responde 24 h).", "fichas": {"analista-wg": "Responde por: O que vende e o que não vende. Mede: Vendas por origem, grupo, post, anúncio, produto e agente; saúde dos dados. Pode sozinho: Sim (só leitura)", "financeiro-wg": "Responde por: Quanto sobra de verdade. Mede: Líquido, projeção, custo global, custo por comprador por produto, recompra, reembolso. Pode sozinho: Sim (só leitura)", "atendimento-wg": "Responde por: Qualidade do WhatsApp e voz do cliente. Mede: Conversão das conversas, passagens para humano, erros, objeções; pesquisas. Pode sozinho: Só propõe", "social-media-wg": "Responde por: Conversa que vira venda no Instagram. Mede: Comentário com palavra-chave e venda por post; termômetro do direct. Pode sozinho: Só propõe", "ofertas-paginas-wg": "Responde por: Oferta, página, checkout e esteira. Mede: Conversão por página, bump, upsell, recuperação; PPN, esteira, trilhas. Pode sozinho: Só propõe (rascunho sim)", "trafego-wg": "Responde por: Assistente do Diogo. Mede: Custo por venda, funil do anúncio. Pode sozinho: Só relatório até o fim da Black", "juridico-wg": "Responde por: Risco. Mede: Itens revisados e motivos de ajuste. Pode sozinho: Sim (só revisão)", "sucesso-aluno-wg": "Responde por: Aluno depois da compra. Mede: Acesso liberado, \"não recebi acesso\", Guia 12 semanas. Pode sozinho: Sim (interno); externo pela fila", "auditor-wg": "Responde por: Rota certa. Mede: O que está funcionando de verdade, com prova do dia. Pode sozinho: Sim (só leitura)", "chefe-wg": "Coordenador da equipe (Agente WG): debriefing diário, decide qual agente faz o quê, consolida propostas na fila de aprovação e responde ao Victor."}, "memoria": "### memoria/estado.md\n# Estado atual (atualizado em 2026-11-18 20h30 pela auditoria)\n\n## Meta de novembro\n- 150 vendas orgânicas e R$ 30 mil líquidos. Em 17/11: 115 vendas e R$ 25.361,74 (Greenn + Hotmart).\n\n## Campanha\n- Black Caveira 2026 encerrou em 16/11 às 19h. Página segue aberta a R$ 397.\n- Reabertura relâmpago sexta 20/11 às 19h (sem data de fechamento).\n- Foco até 30/11: Black (as vendas se arrastam depois da reabertura). Depois, o catálogo volta a ser o foco do atendimento.\n- Catálogo do WhatsApp: 23 cursos, sem e-book, está certo e vendendo. Não mexer.\n\n## Prioridades combinadas em 18/11 (madrugada)\n1. Atendimento 24h no número oficial (falta o código do Samuel e a chave da API).\n2. Mensagem de acesso logo depois da compra (link da Academia, e-mail da compra, spam). Cerca de um quarto das conversas do suporte é gente que não consegue entrar.\n3. Anúncio direto para conversa no WhatsApp, R$ 20 a R$ 30 por dia, quando o atendimento estiver no ar.\n4. UTM por agente (utm_term=ag-<agente>).\n5. Canal único com o Victor pelo WhatsApp dele.\n\n## O que está no ar\n- Ponte Greenn/Hotmart → ManyChat + planilha (Apps Script v2): todos os 74 produtos da Greenn e todos da Hotmart.\n- ManyChat: recuperação de carrinho automática (tag carrinho_pendente, cupom BLACK10) e upsell da IA KMC pós-compra (R$ 197).\n- Tráfego pago: em 17/11 ainda havia 3 campanhas da Black ATIVAS (GREENN 01, 04 e 05), gasto de R$ 845,62 no dia com 1 compra. Proposta de corte 20261118-trafego-1 na fila. Gasto desde 04/11: R$ 5.089,52.\n- Ponte gravando vendas desde 18/11 (4 vendas de tráfego no dia). Erro ao criar contato no ManyChat quando ele já existe (ver auditoria 18/11).\n- Instagram do Wesley ligado ao Metricool em 18/11 20h (importando). Windsor só com Meta Ads. Painel Financeiro WG criado.\n\n## Agentes\n- Fase 1 ligada: atendimento (em construção) e debriefing diário.\n- Fase 2 (social media com aprovação) e Fase 3 (tráfego como assistente do Diogo, liberado em 18/11): prontos para ligar.\n- Expediente dos agentes: 8h às 18h. Atendimento do WhatsApp responde fora do horário.\n\n## Fila de aprovação em 18/11\n- PENDENTE: 20261118-trafego-1 (urgente), 20261118-trafego-2, 20261118-social-1, 20261118-social-2, 20261118-social-3.\n\n### memoria/passagem.md (últimas entradas)\n## 19/11 05h · Jarvis no computador do Victor\n- Feito: worker ganhou a porta POST /perguntar (Bearer AVISO_TOKEN; mesmo histórico do #nome). Jarvis instalado em C:\\Users\\Victor Augusto\\Jarvis (Python 3.12 por winget, Claude Code CLI logado), com wg\\wg.py, processo \"Equipe do Wesley\" em modelos\\meus e memoria\\sobre_mim.md. WG_AVISO_TOKEN gravado nas variáveis do Windows.\n- Verificado: `python wg\\wg.py chefe ...` respondeu \"[Chefe] OK. Quinta-feira, 19 de novembro de 2026.\"\n- Aprendizado: a Cloudflare devolve 403 (erro 1010) para o User-Agent padrão do Python; todo cliente Python do worker precisa de User-Agent próprio.\n- Pendente: Victor reiniciar e abrir o Jarvis pela primeira vez (baixa o modelo de voz)."};   // { regras, fichas: { 'chefe-wg': '...', ... }, memoria: '...' } montado por montar.py
 const APELIDOS = {
   chefe: 'chefe-wg', financeiro: 'financeiro-wg', social: 'social-media-wg', midia: 'social-media-wg', socialmedia: 'social-media-wg', instagram: 'social-media-wg',
   trafego: 'trafego-wg', anuncios: 'trafego-wg', juridico: 'juridico-wg', ofertas: 'ofertas-paginas-wg', paginas: 'ofertas-paginas-wg',
@@ -160,7 +160,7 @@ export default {
       return new Response(txt, { headers: { 'content-type': 'application/json' } });
     }
     // ---- Porta dos agentes (rotina agendada): só com o segredo AVISO_TOKEN no cabeçalho Authorization: Bearer ----
-    if (url.pathname === '/avisar' || url.pathname === '/equipe' || url.pathname === '/recados') {
+    if (url.pathname === '/avisar' || url.pathname === '/equipe' || url.pathname === '/recados' || url.pathname === '/perguntar') {
       const tk = (req.headers.get('authorization') || '').replace(/^Bearer\s+/i, '');
       if (!env.AVISO_TOKEN || tk !== env.AVISO_TOKEN) return new Response('negado', { status: 403 });
       let b = {}; if (req.method === 'POST') { try { b = await req.json(); } catch {} }
@@ -174,6 +174,19 @@ export default {
         const adm = String(env.ADMIN_FONE).replace(/\D/g, '');
         await addHist(env, chave === 'chefe-wg' ? adm : 'ag:' + chave + ':' + adm, { role: 'assistant', content: texto });
         return Response.json({ ok: enviados === partes.length, partes: partes.length, enviados });
+      }
+      if (url.pathname === '/perguntar' && req.method === 'POST') {
+        // O Jarvis (assistente de voz no computador do Victor) fala com um agente: {agente: "financeiro", pergunta: "..."}.
+        // Usa o mesmo histórico do #nome no WhatsApp, então a conversa continua de um lado para o outro.
+        const chave = APELIDOS[semAcento(b.agente || 'chefe')] || 'chefe-wg';
+        const pergunta = String(b.pergunta || '').trim().slice(0, 4000);
+        if (!env.ADMIN_FONE || pergunta.length < 2) return new Response('faltou pergunta', { status: 400 });
+        const adm = String(env.ADMIN_FONE).replace(/\D/g, '');
+        const hk = chave === 'chefe-wg' ? adm : 'ag:' + chave + ':' + adm;
+        await addHist(env, hk, { role: 'user', content: '[Victor pelo Jarvis, no computador; a resposta vai ser lida em voz alta, então responda curto e sem tabela] ' + pergunta });
+        const partes = await pensar((await getHist(env, hk)).slice(-12), 'Victor', env.ADMIN_FONE, chave, env, true);
+        for (const t of partes) await addHist(env, hk, { role: 'assistant', content: t });
+        return Response.json({ agente: NOME_AGENTE[chave], resposta: partes.join('\n\n') });
       }
       if (url.pathname === '/equipe' && req.method === 'POST') {
         // A rotina atualiza a memória que os agentes do WhatsApp enxergam (estado, decisões, backlog, conversas, passagem).
@@ -330,10 +343,26 @@ async function paraConteudo(m, env) {
     partes.push({ type: 'text', text: m.image.caption || '[a pessoa mandou esta imagem]' });
     return partes;
   }
-  if (m.type === 'audio') return '[a pessoa mandou um áudio que você não consegue ouvir; peça com carinho para escrever em texto]';
+  if (m.type === 'audio') {
+    // Áudio vira texto pelo Whisper da Cloudflare (Workers AI, associação AI). Sem a associação ou se falhar, pede texto.
+    const txt = await transcrever(m.audio, env);
+    return txt ? '[áudio transcrito] ' + txt : '[a pessoa mandou um áudio que você não consegue ouvir; peça com carinho para escrever em texto]';
+  }
   if (m.type === 'order') return '[a pessoa enviou um pedido pelo catálogo do WhatsApp: ' + JSON.stringify(m.order.product_items || []) + ']';
   if (m.type === 'document') return '[a pessoa mandou um documento: ' + (m.document.filename || '') + ']';
   return null;
+}
+
+async function transcrever(audio, env) {
+  if (!env.AI || !audio) return null;
+  try {
+    const a = audio.link ? await baixarYC(audio, env) : await baixarMidia(audio.id, env);
+    if (!a) return null;
+    const r = await env.AI.run('@cf/openai/whisper-large-v3-turbo', { audio: a.b64, language: 'pt' });
+    const t = String((r && r.text) || '').trim();
+    await passo(env, 'audio transcrito ' + t.length + ' letras');
+    return t || null;
+  } catch (e) { await passo(env, 'audio falhou ' + String(e).slice(0, 120)); return null; }
 }
 
 async function baixarMidia(id, env) {
@@ -366,7 +395,7 @@ async function chamarClaude(env, corpo) {
   return { ok: r.ok, status: r.status, d: await r.json() };
 }
 
-async function pensar(hist, nome, fone, agente, env) {
+async function pensar(hist, nome, fone, agente, env, rapido = false) {
   const hora = agora();
   const extra = agente ? `\n\n${hora}` : `\n\n${hora}\nPrimeiro nome no perfil do WhatsApp: ${nome || 'não informado'} (use só se parecer um nome de verdade).`;
   const sistema = [{ type: 'text', text: SISTEMA, cache_control: { type: 'ephemeral' } }];
@@ -375,8 +404,9 @@ async function pensar(hist, nome, fone, agente, env) {
   const msgs = juntar(hist);
   for (let volta = 0; volta < 4; volta++) {
     const { ok, status, d } = await chamarClaude(env, {
-      model: agente === 'chefe-wg' ? (env.MODELO_CHEFE || 'claude-fable-5-2') : (agente ? (env.MODELO_AGENTES || 'claude-sonnet-5-5') : (env.MODELO || 'claude-sonnet-5-5')),
-      max_tokens: agente ? 4000 : 1500, system: sistema, tools: agente ? FERRAMENTAS_EQUIPE : FERRAMENTAS, messages: msgs,
+      // rapido (voz pelo Jarvis): todos em Sonnet e resposta curta, para responder em segundos
+      model: rapido ? (env.MODELO_VOZ || env.MODELO_AGENTES || 'claude-sonnet-5-5') : agente === 'chefe-wg' ? (env.MODELO_CHEFE || 'claude-fable-5-2') : (agente ? (env.MODELO_AGENTES || 'claude-sonnet-5-5') : (env.MODELO || 'claude-sonnet-5-5')),
+      max_tokens: rapido ? 900 : agente ? 4000 : 1500, system: sistema, tools: agente ? FERRAMENTAS_EQUIPE : FERRAMENTAS, messages: msgs,
     });
     if (!ok) { console.log('anthropic', JSON.stringify(d)); await passo(env, 'anthropic erro ' + status + ' ' + JSON.stringify(d.error || d).slice(0, 150)); return ['Shalom! Recebi sua mensagem e já já te respondo. Tamo junto, Caveira!']; }
     const usos = (d.content || []).filter(c => c.type === 'tool_use');

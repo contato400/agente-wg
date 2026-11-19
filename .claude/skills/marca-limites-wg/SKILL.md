@@ -26,5 +26,5 @@ description: Limites de tema, voz e imagem da marca do Mestre Wesley Gimenez (Kr
 - "VETO evita 70%": usar o protocolo VETO sem o número, a não ser que exista fonte.
 
 ## Imagem
-- Vídeos e fotos reais do Wesley. Sem vídeo de IA (o público percebe e rejeita).
+- Fotos e vídeos reais do Wesley são a base. IA liberada em 19/11 (Victor, com aprovação do Wesley): avatar 3D do Wesley com movimento e voz no site e em peças. Técnica de defesa sempre com gravação real; rótulo de IA quando imitar o Wesley falando.
 - Estáticos gerados no ChatGPT pelo Victor, a partir do pedido escrito pelo agente.
