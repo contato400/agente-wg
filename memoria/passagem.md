@@ -95,3 +95,10 @@ Modelo:
 - Decisões: planilha pt_BR usa `;` e vírgula decimal dentro da fórmula.
 - Pendente: custo do ManyChat; credenciais Hotmart e Cademi (Victor cola na variável de ambiente); passo diário do financeiro na tarefa agendada (prompt não foi alterado hoje); macro `{{ad.name}}` num anúncio do Diogo.
 - Verificado: valores lidos de volta da planilha, sem #ERROR!.
+
+## 18/11 21h40 · Auditoria e correções (página, recuperação, ponte)
+- Pedido: auditoria completa; executar o que o Victor aprovou (prêmios da reabertura na página, recuperação de carrinho, conserto da mensagem de acesso); agente auditor; anotar tudo.
+- Feito: agente `auditor-wg`; `relatorios/2026-11-18-auditoria.md`; tarefa agendada com Metricool e passo do financeiro; página /black-caveira-2026 com troca automática dos prêmios sex 19h (testada); recuperação de carrinho sem cupom para todos + "Tamo junto" (publicada) e modelo com "Shalom" em análise na Meta; ponte versão 6 procurando contato existente por telefone, e-mail e nome.
+- Decisões: sex 19h os funis do ManyChat viram para a página (B35); ManyChat vai para o Pro; DevZap sai em dezembro (B36).
+- Pendente: aprovação do modelo na Meta (19/11); conferir a ponte na próxima venda; Metricool ainda sem posts (checagem 19/11 9h15); comprador das 17h12 não recebeu a mensagem de acesso (decidir se manda à mão).
+- Verificado: página no ar simulando 20/11 19h05 e 21/11 00h10; automação publicada ("versão publicada foi atualizada"); ponte respondendo depois do deploy.
