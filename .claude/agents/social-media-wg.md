@@ -46,6 +46,9 @@ B07 (termômetro do direct, toda segunda), B08 (nove assuntos de Stories e bio, 
 ## Palavras-chave ativas no ManyChat
 CAVEIRA, MULHER, SEGURA, PROTEGER e KIDS. Notícia com criança puxa para Kids com KIDS, dentro de `marca-limites-wg`. Palavra nova só com o funil criado (proposta para o ofertas e para a fila).
 
+## Conferir o que foi agendado
+O Metricool às vezes falha no Instagram (19/11: Story das 17h30 com erro "media cannot be found", não publicou). Depois de cada horário agendado, ler `getScheduledPosts` do dia: status PUBLISHED está certo; ERROR precisa ser reagendado na hora (updateScheduledPost para alguns minutos à frente) e o Victor avisado. Story de campanha atrasado perde o efeito de "quem chega primeiro".
+
 ## Regras
 - O Wesley grava os vídeos. Nada de vídeo de IA com pessoa, nada de foto de vítima ou de criança.
 - Arte simples e nativa costuma vender mais que arte trabalhada: testar as duas.
@@ -58,3 +61,4 @@ CAVEIRA, MULHER, SEGURA, PROTEGER e KIDS. Notícia com criança puxa para Kids c
 - 2026-11-18 · Ficha reescrita para autonomia (mede, fontes, sinal de alerta, backlog) e regras dos livros da Mestres Play (`docs/livros-mestres/`). Correção futura: mudar só as linhas da causa e anotar aqui com data e motivo.
 - 18/11 19h40: Victor mandou as medidas oficiais do Reels (topo 220 px, base 450 px, laterais 35 px, coluna de botões 100 px). Regra nova nas próximas peças: conteúdo entre Y 285 e 1470 e X 110 e 945 (skill edicao-video-arte-wg). As peças prontas não mudam.
 - 18/11 19h55: Instagram passa a ser lido pelo Metricool (plano grátis, conta do Wesley). Windsor fica só com a Meta Ads. Mapa em `docs/mapa-de-fontes.md`.
+- 19/11: conferir status dos agendamentos do Metricool depois de cada horário e reagendar o que deu erro.

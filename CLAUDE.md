@@ -86,6 +86,7 @@ Sucesso é **venda**, não atividade. Todo relatório começa por vendas e recei
 - Começo: ler `tudo.md` (mapa do repositório), `memoria/estado.md` e a última entrada de `memoria/passagem.md`. Abrir só os arquivos que a tarefa pede.
 - Fim de cada etapa: escrever a entrada em `memoria/passagem.md` (pedido, feito, decisões, pendente, verificado).
 - Regra que vale para o próximo trabalho do mesmo tipo vai para a skill do assunto; o que vale só para a tarefa atual não é registrado.
+- **Tudo vira treino** (pedido do Victor, 19/11): o que foi feito, o que está sendo feito e o que deu certo ou errado vai para a skill e a ficha do agente responsável por aquela função, e o aprendizado para `memoria/aprendizados.md`. Fazer isso no fim de cada etapa, sem esperar pedido.
 - Sessão longa: depois de 2 ou 3 resumos automáticos, salvar a passagem e começar sessão nova.
 
 ## 11. Formato de entrega para o Victor

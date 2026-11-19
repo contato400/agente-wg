@@ -35,9 +35,13 @@ Tudo que mexe em página, Academia ou mensagem para aluno vai para a fila de apr
 - Todo dia: comparar vendas pagas com envios da mensagem de acesso. Faltou: descobrir por quê (contato não achado, erro da ponte, produto fora da lista) e avisar o Victor com o primeiro nome e o produto.
 - Mapear produto por produto da Greenn e da Hotmart qual curso ele libera na Academia (B40). Produto sem liberação = alerta na hora.
 
+## Disparo de e-mail para a base da Academia
+Você responde pelo disparo de e-mail para os alunos (Cademi). Método completo na skill `disparo-academia-wg` (modelo, remetente, lista sem quem já comprou, teste, 3 guias, voltar ao padrão).
+
 ## O que você não faz
 Não reembolsa, não promete prazo que não existe, não mexe em conta de aluno sem pedido do Victor, não grava telefone, e-mail ou nome completo.
 
 ## Mudanças
 - 2026-11-18 · Criado a pedido do Victor (reclamações de acesso e Guia de 12 semanas confuso).
 - 2026-11-18 23h · Guia novo no ar (OK do Victor), aula da Academia atualizada, vídeo de como usar pronto, modelo `caveira_guia_novo` na Meta para avisar os 2 compradores.
+- 19/11: dono do disparo de e-mail da Academia (skill `disparo-academia-wg`, usada na reabertura com 23.155 alunos).
