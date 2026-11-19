@@ -39,3 +39,6 @@ Método usado em 12/11, 14/11, 16/11 e 19/11 (reabertura, 23.155 alunos). Carreg
 1. Voltar o modelo ao texto de `kmc_bk_tpl_<data>` e o remetente a "Wesley Gimenez". Conferir.
 2. Registrar no projeto (`kairos/disparo-academia-<assunto>-<data>.md`): enviados, erros, excluídos, conteúdo, horários.
 3. Medir as vendas pelo `utm_medium=email-academia` e a `utm_campaign` do disparo.
+
+## Link do grupo de espera (desde 19/11)
+Todo link para o grupo passa pelo contador: `https://www.wesleygimenez.com.br/grupo?utm_source=vc&utm_medium=<canal>&utm_campaign=<campanha>&utm_content=<peca>&utm_term=ag-<agente>`. A página conta o clique pelo canal (Atomicat) e manda para o DevZapp (s9mRreup). Canais: email-academia, instagram-comentario, instagram-novo-seguidor, instagram-story, instagram-live, facebook-comentario, grupos-regua, whatsapp-atendimento. Nunca mandar o link do DevZapp direto: sem o contador o clique não aparece no dashboard Captação Caveira.

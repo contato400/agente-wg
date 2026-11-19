@@ -44,3 +44,6 @@ Carregue esta skill antes de mexer em qualquer coisa do Wesley. São regras do V
 - CSV de uma aba, colunas `first_name,phone`.
 - Só o primeiro nome; se o nome não dá para identificar (@, e-mail, fragmento), o contato sai.
 - Telefone no formato internacional (+55...). Sem duplicados, sem mentorados, sem quem já recebeu o mesmo disparo.
+
+## Link do grupo de espera (desde 19/11)
+Todo link para o grupo passa pelo contador: `https://www.wesleygimenez.com.br/grupo?utm_source=vc&utm_medium=<canal>&utm_campaign=<campanha>&utm_content=<peca>&utm_term=ag-<agente>`. A página conta o clique pelo canal (Atomicat) e manda para o DevZapp (s9mRreup). Canais: email-academia, instagram-comentario, instagram-novo-seguidor, instagram-story, instagram-live, facebook-comentario, grupos-regua, whatsapp-atendimento. Nunca mandar o link do DevZapp direto: sem o contador o clique não aparece no dashboard Captação Caveira.

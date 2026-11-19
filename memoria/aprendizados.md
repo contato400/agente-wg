@@ -19,3 +19,4 @@
 - 19/11 · Academia: a Cademi só fica logada no Chrome do Victor Augusto; o Victor clica em Entrar. Lista da entrega da Black carrega 20 por vez (loadMore, juntar ids). `perPage` alto dá erro 500.
 - 19/11 · Áudio para o Victor: sem crédito na OpenAI, o serviço manda texto curto. Voltar a ver quando houver crédito.
 - 19/11 · Vídeo: A e B pesadas com a mesma fala e cenários parecidos "pareciam um vídeo só" (Victor). Refeito o B com outra ordem (gancho de condição primeiro), 15 s e cenários próprios. Regra registrada na skill de edição.
+- 19/11 · Captação: o DevZapp não separa entradas por canal; os cliques por canal vêm da página contador /grupo (Atomicat). Abertura de e-mail a Cademi não mede.

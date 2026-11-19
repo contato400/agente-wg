@@ -31,3 +31,6 @@ Carregue antes a skill wg-regras-operacao.
 ## Atualizar
 - Para revisar, republicar o MESMO artifact (mesma URL), nunca criar outro.
 - Ao terminar, mandar o link para o Victor repassar ao Gui.
+
+## Link do grupo de espera (desde 19/11)
+Todo link para o grupo passa pelo contador: `https://www.wesleygimenez.com.br/grupo?utm_source=vc&utm_medium=<canal>&utm_campaign=<campanha>&utm_content=<peca>&utm_term=ag-<agente>`. A página conta o clique pelo canal (Atomicat) e manda para o DevZapp (s9mRreup). Canais: email-academia, instagram-comentario, instagram-novo-seguidor, instagram-story, instagram-live, facebook-comentario, grupos-regua, whatsapp-atendimento. Nunca mandar o link do DevZapp direto: sem o contador o clique não aparece no dashboard Captação Caveira.

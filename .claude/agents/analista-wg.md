@@ -44,3 +44,13 @@ B01 (relatório por origem) e B02 (medição da reabertura). Veja `memoria/backl
 
 ## Mudanças
 - 2026-11-18 · Ficha reescrita para autonomia (mede, fontes, sinal de alerta, backlog) e regras dos livros da Mestres Play (`docs/livros-mestres/`). Correção futura: mudar só as linhas da causa e anotar aqui com data e motivo.
+
+## Dashboard Captação Caveira (dono: você, desde 19/11)
+Artifact: https://claude.ai/artifact/2LFpUVgz5RmkuYy7i5eytt (tipo Data). Mostra, por canal, quantos receberam, abriram, clicaram e entraram no grupo.
+- **Automático:** cliques no link do grupo (página /grupo da Atomicat, por utm_medium), consulta ao vivo na Atomicat.
+- **Você registra todo dia na rotina** (ArtifactData, coleção `data/captacao/etapas`, um documento `<AAAA-MM-DD>_<canal>` com dia, canal, nome, periodo, recebeu, abriu, clicou_pct, entrou, fonte, obs):
+  - ManyChat (Chrome do Luis corinthiano, Automação → Minhas automações): execuções e CTR de cada fluxo ao vivo (comentários, novo seguidor, story, live, Facebook). Para o número do dia, abrir o fluxo e usar o período do dia anterior; se só tiver o acumulado, escrever periodo "acumulado".
+  - Academia: enviados de cada disparo (skill `disparo-academia-wg`). Abertura não é medida (deixar null).
+  - DevZapp (campanha "Gestão"): participantes, entradas e saídas do dia; vai na linha canal "grupo-devzapp".
+- Número sem fonte fica null, nunca estimado.
+- Mudanças: 19/11 dashboard criado; links do grupo passam pelo contador /grupo.
