@@ -165,3 +165,10 @@ Modelo:
 - Serviço do WhatsApp (worker): data e hora de Brasília em toda resposta + reabertura automática (antes/depois de sexta 20/11 19h); resposta do chefe cortava em 1.200 tokens, agora 4.000 e quebra em partes; #chefe/#financeiro/#social/#trafego/#juridico/#ofertas/#auditor/#analista/#sucesso/#atendimento/#cliente/#equipe; ferramentas perguntar_agente e registrar_recado; portas /avisar, /equipe e /recados com o segredo AVISO_TOKEN. Implantado e conferido (código implantado = gerado).
 - Rotina: rotinas/whatsapp.sh (avisar, avisar-arquivo, memoria, recados); debriefing passa a ir pelo WhatsApp (skill debrief-diario-wg).
 - Pendente: Victor criar o segredo AVISO_TOKEN no Cloudflare e WG_AVISO_TOKEN na tarefa agendada (mesmo valor); trocar número na Academia (Cademi), Greenn, Hotmart e Instagram; decidir CAVEIRA99.
+
+## 19/11 08h · Rotina diária completa (tarefa agendada)
+- Pedido: debriefing, tráfego (só leitura), entrega da manhã do social, agente do dia (quinta: financeiro), WhatsApp, commit.
+- Feito: ponte lida (Painel, Vendas 4, Log, Erros 1 antigo, Atendimento vazio, Fila); MCP da Greenn (vendas 17 e 18/11, reembolsos de novembro: achou chargeback de R$ 3.697,64 do VIP); Windsor 7 dias por campanha; Metricool reels 30 dias e evolution; radar com datas conferidas; Parte 1 nova da Dona Maria renderizada (conteudo/2026-11-19/); juridico-wg revisou; 3 propostas na fila; Painel Financeiro WG (+1 venda, gasto 16 a 18/11, chargeback); relatórios trafego, social, financeiro e debrief; debriefing enviado no WhatsApp (3 partes); recados vazios.
+- Decisões: nenhuma nova do Victor. Nada externo executado.
+- Pendente: decisões 1 a 6 do debriefing; linha do Diário de 19/11 no Painel Financeiro (criar amanhã com as fórmulas); conector competitors do Metricool; Hotmart.
+- Verificado: Resumo e Diário do Painel sem #ERROR!; MP4 30,5 s, pico -1 dB, folha de conferência e capa olhadas.

@@ -1,0 +1,11 @@
+{"nome": "parte1-nova", "selo": "PARTE 1", "trechos": [
+ {"fala": "Se o banco te ligar pedindo um código, desligue na hora.", "legenda": "Se o *BANCO ligar pedindo um ^CÓDIGO, *desligue.", "telefone": "on", "antes": 0},
+ {"fala": "Olha o que quase aconteceu com a Dona Maria.", "legenda": "Olha o que quase aconteceu com a Dona Maria.", "chamada": {"nome": "Central do Banco", "icone": "bank"}},
+ {"fala": "Dona Maria, aqui é da central de segurança do seu banco.", "voz": "tel", "bolha": "Aqui é da central de segurança do seu banco.", "rotulo": "ELE DISSE:", "limpar_legenda": true},
+ {"fala": "Tem uma compra de dois mil reais no seu cartão. Foi a senhora?", "voz": "tel", "bolha": "Tem uma compra de R$ 2.000 no seu cartão. Foi a senhora?", "rotulo": "ELE DISSE:"},
+ {"fala": "Para cancelar, me fala o código que chegou no seu celular.", "voz": "tel", "bolha": "Para cancelar, me fala o código que chegou no seu celular.", "rotulo": "ELE DISSE:", "tensao": true, "dedo": true},
+ {"fala": "Ela ficou nervosa e já ia falar o código.", "legenda": "Ela ficou *nervosa e já ia falar o código."},
+ {"fala": "Com esse código, o golpista entra na conta e leva tudo.", "legenda": "Com esse código, o golpista *leva tudo.", "regra": "Banco NUNCA pede código nem senha."},
+ {"fala": "O que ela fez em seguida salvou o dinheiro dela.", "final": {"selo": "FIM DA PARTE 1", "pergunta": "O que ela fez em seguida?", "chamada": "Comente <span class=k>CAVEIRA</span><small>para ver a parte 2</small>"}},
+ {"fala": "Comente caveira para ver a parte dois. E manda para a sua mãe.", "mostrar_chamada": true}],
+ "capa": {"selo": "PARTE 1", "titulo": "O CÓDIGO<br><span style='color:#ff3341'>DO BANCO</span>", "faixa": "Manda para sua mãe antes que liguem pra ela", "quadro": 4.6}}

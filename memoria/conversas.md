@@ -22,3 +22,7 @@ Formato (uma linha por pedido, sem dado pessoal):
 | 2026-11-18 | chefe-wg | social-media-wg | Lista de posts da Black para arquivar em `relatorios/2026-11-18-posts-black-arquivar.md`: esperar o OK do Victor e passar para quem tem o celular do Wesley | | ABERTO |
 | 2026-11-18 | chefe-wg | social-media-wg | Vídeo de 60 s no motor de vídeo narrado mostrando como usar o Guia novo (abrir, 3 perguntas, treino de hoje, marcar feito) | | ABERTO |
 | 2026-11-18 | chefe-wg | sucesso-aluno-wg | Mensagem para quem tem o Guia (compradores do order bump e alunos da Black): "o guia ficou novo, é assim que usa"; levar para a fila | | ABERTO |
+| 2026-11-19 | social-media-wg | financeiro-wg | Quais posts de ontem trouxeram venda (utm_content)? | 0 venda orgânica com UTM em 18/11; nenhum post vendeu | RESPONDIDO |
+| 2026-11-19 | financeiro-wg | trafego-wg | Algum anúncio acima de R$ 120 por venda ontem? | Total R$ 138,95 por venda real; GREENN-04 R$ 111; GREENN-05 e 62 sem venda (R$ 130); 1 venda com {{ad.name}} | RESPONDIDO |
+| 2026-11-19 | juridico-wg | social-media-wg | Funil CAVEIRA promete parte 2 e entrega o grupo | Proposta 20261119-social-3 | NA FILA |
+| 2026-11-19 | chefe-wg | WhatsApp | recados do Victor | nenhum recado | FECHADO |
