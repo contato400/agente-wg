@@ -68,5 +68,17 @@ globalThis.fetch=async(u,o)=>{ if(String(u).includes('openai')) return {ok:false
 const nv3=yc.length; await av('/avisar','POST',{de:'executor',texto:'y'.repeat(900)});
 r.push(['sem crédito: manda o resumo curto em texto', yc.length===nv3+1 && yc[nv3].text.body==='Resumo curto.\n\nID 1']);
 globalThis.fetch=f1; delete env.OPENAI_API_KEY;
+{ const vend=[]; const f2=globalThis.fetch; env.GREENN_TOKEN='g';
+globalThis.fetch=async(u,o)=>{ if(String(u).includes('greenn')) return {ok:true,json:async()=>({data:[
+ {id:10614007,status:'paid',product_id:201669,product:{name:'Guia de Treino'},amount:97,total:119.68,created_at:'2026-11-19T15:42:14Z',method:'CREDIT_CARD',installments:12,client:{name:'LUCAS X'}},
+ {id:10614006,status:'paid',product_id:202274,product:{name:'Vitalício'},amount:197,total:243.05,created_at:'2026-11-19T15:42:12Z',method:'CREDIT_CARD',installments:12,client:{name:'LUCAS X'}},
+ {id:10614005,status:'paid',product_id:201654,product:{name:'Black 1 ano'},amount:397,total:489.81,created_at:'2026-11-19T15:42:10Z',method:'CREDIT_CARD',installments:12,client:{name:'LUCAS X'}}]})};
+ if(String(u).includes('ycloud')){yc.push(JSON.parse(o.body)); return {ok:true,text:async()=>'{"status":"accepted"}'};} return f2(u,o);};
+const n0=yc.length; const pr=[];
+for(const id of [10614006,10614005,10614007]) await w.fetch(new Request('https://x/venda',{method:'POST',body:JSON.stringify({id,email:'a@b.c',utm_source:'vc',utm_medium:'whatsapp',utm_campaign:'reabertura-black',utm_content:'link-victor',origem:'Orgânico (VC)'})}),env,{waitUntil:x=>pr.push(x)});
+await Promise.all(pr); const msg=yc.slice(n0).map(x=>x.text.body);
+r.push(['venda: 3 avisos viram 1 mensagem com bumps e origem', msg.length===1 && msg[0].includes('Lucas') && msg[0].includes('Black 1 ano: R$ 397,00') && msg[0].includes('Vitalício R$ 197,00') && msg[0].includes('R$ 852,54') && msg[0].includes('Orgânico (VC): whatsapp / reabertura-black / link-victor')]);
+r.push(['venda sem e-mail = 400', (await w.fetch(new Request('https://x/venda',{method:'POST',body:'{"id":1}'}),env,{waitUntil:()=>{}})).status===400]);
+globalThis.fetch=f2; delete env.GREENN_TOKEN; console.log(msg[0]); }
 for(const [n,ok] of r) console.log(ok?'OK    ':'FALHOU', n);
 process.exit(r.every(x=>x[1])?0:1);

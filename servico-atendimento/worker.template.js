@@ -233,6 +233,14 @@ export default {
     }
     // ---- Porta dos agentes (rotina agendada): só com o segredo AVISO_TOKEN no cabeçalho Authorization: Bearer ----
     // Arquivos das peças (vídeo, capa) para mandar ao Victor pelo WhatsApp: os agentes sobem aqui e recebem um link público por 3 dias.
+    // Aviso de venda aprovada (19/11): a ponte do Apps Script repassa cada venda paga da Greenn. Sem segredo: o serviço confere a venda direto na Greenn.
+    if (url.pathname === '/venda' && req.method === 'POST') {
+      let b = {}; try { b = await req.json(); } catch {}
+      if (!/^\d{5,12}$/.test(String(b.id || '')) || !b.email) return new Response('faltou', { status: 400 });
+      if (env.FILA) await env.FILA.send({ tipo: 'venda', v: b }, { delaySeconds: 45 });
+      else ctx.waitUntil(avisarVenda(b, env));
+      return new Response('ok');
+    }
     if (url.pathname === '/midia' && req.method === 'POST') {
       const tk = (req.headers.get('authorization') || '').replace(/^Bearer\s+/i, '');
       if (!env.AVISO_TOKEN || tk !== env.AVISO_TOKEN) return new Response('negado', { status: 403 });
@@ -342,7 +350,7 @@ export default {
   async queue(batch, env) {
     env = kvSeguro(env);
     for (const m of batch.messages) {
-      try { if (m.body.tipo === 'yc') await processarYC(m.body.ev, env); else if (m.body.tipo === 'meta') await processar(m.body.dados, env); }
+      try { if (m.body.tipo === 'yc') await processarYC(m.body.ev, env); else if (m.body.tipo === 'meta') await processar(m.body.dados, env); else if (m.body.tipo === 'venda') await avisarVenda(m.body.v, env); }
       catch (e) { await passo(env, 'erro na fila: ' + String(e).slice(0, 150)); }
       m.ack();
     }
@@ -624,6 +632,39 @@ async function executar(u, fone, nome, env) {
       : 'Recado registrado. O executor pega na próxima rodada (de hora em hora, no minuto 7, das 9h às 18h, ou já está rodando) e avisa o Victor aqui.';
   }
   return 'ferramenta desconhecida';
+}
+
+// Junta a venda principal e os order bumps do mesmo cliente (até 10 min) e avisa o Victor uma vez só, pela primeira venda do grupo.
+const BRL = n => 'R$ ' + Number(n || 0).toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+async function avisarVenda(v, env) {
+  if (!env.GREENN_TOKEN || !env.ADMIN_FONE) return;
+  const r = await fetch('https://apiadm.greenn.com.br/api/v1/sales?per_page=20&sort=-created_at&filter%5Bclient_email%5D=' + encodeURIComponent(String(v.email).trim().toLowerCase()), { headers: { Authorization: 'Bearer ' + env.GREENN_TOKEN, accept: 'application/json' } });
+  if (!r.ok) { await passo(env, 'venda: greenn ' + r.status); return; }
+  const lista = ((await r.json()).data || []).filter(x => x.status === 'paid');
+  const esta = lista.find(x => String(x.id) === String(v.id));
+  if (!esta) { await passo(env, 'venda: não confirmada na Greenn'); return; }
+  const t0 = Date.parse(esta.created_at);
+  const grupo = lista.filter(x => Math.abs(Date.parse(x.created_at) - t0) < 10 * 60000).sort((a, b) => a.id - b.id);
+  if (String(grupo[0].id) !== String(v.id)) return;   // só a primeira venda do grupo avisa
+  const [principal, ...bumps] = grupo;
+  const nome = x => (x.product && x.product.name) || PRODUTOS_GREENN[x.product_id] || ('produto ' + x.product_id);
+  const totalPago = grupo.reduce((s, x) => s + Number(x.total || x.amount || 0), 0);
+  const metodo = { CREDIT_CARD: 'cartão', PIX: 'Pix', BOLETO: 'boleto', TWO_CREDIT_CARDS: 'dois cartões', PAYPAL: 'PayPal' }[principal.method] || principal.method || '';
+  const parc = principal.installments > 1 ? ' em ' + principal.installments + 'x' : '';
+  const primeiro = String((principal.client || {}).name || '').trim().split(/\s+/)[0] || '';
+  const cap = primeiro ? primeiro.charAt(0) + primeiro.slice(1).toLowerCase() : 'Cliente';
+  const src = String(v.utm_source || ''), trafego = /trafego|tráfego/i.test(v.origem || '') || /^fb$/i.test(src);
+  const rastro = [v.utm_medium, v.utm_campaign, v.utm_content].filter(Boolean).join(' / ');
+  const origem = trafego ? `Tráfego pago (Diogo)${rastro ? ': ' + rastro : ''}` : (src ? `Orgânico (${src.toUpperCase()})${rastro ? ': ' + rastro : ''}` : 'Sem rastreio (link sem UTM)');
+  const linhas = [
+    `💰 Venda aprovada · ${cap}`,
+    `${nome(principal)}: ${BRL(principal.amount)}`,
+    bumps.length ? 'Order bump: ' + bumps.map(x => `${nome(x)} ${BRL(x.amount)}`).join(' + ') : 'Order bump: não levou',
+    `Pago: ${BRL(totalPago)} no ${metodo}${parc}`,
+    `Origem: ${origem}`
+  ];
+  await enviar(env.ADMIN_FONE, linhas.join('\n'), env);
+  await passo(env, 'venda avisada ' + grupo.length + ' item(ns)');
 }
 
 async function perguntarAgente(chave, pergunta, env) {

@@ -37,3 +37,8 @@ Tudo da operação do Wesley fica nas contas do **Luis corinthiano** (luiscorint
 - **Vídeo de IA:** o Victor descartou vídeo de IA nos stories porque ficou com cara de artificial. Flow entra só para b-roll, animação de explicação e cenas sem pessoa. O Wesley continua gravando o principal.
 - **Instagram e Facebook direto:** publicar pelo Metricool em modo revisão é mais seguro que o agente clicar no Instagram. Menos risco de bloqueio da conta.
 - **Chaves e senhas:** nunca nos arquivos. Ficam nas configurações de cada conector ou em variáveis de ambiente.
+
+## Aviso de venda no WhatsApp do Victor (19/11)
+- Ponte Apps Script "Ponte Greenn ManyChat WG" (versão 7): depois de anotar a venda paga na aba Vendas, `avisarVendaWG_` repassa id, e-mail e UTMs para `POST /venda` do serviço agente-wg.
+- O serviço espera 45 s (fila), confere a venda na API da Greenn, junta a principal com os order bumps do mesmo cliente (até 10 min) e manda UMA mensagem: produto e valor, order bump, total pago e forma, origem (Orgânico VC ou Tráfego FB, com medium / campanha / conteúdo). Só primeiro nome do cliente.
+- Hotmart ainda não entra (só Greenn).
