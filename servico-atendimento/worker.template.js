@@ -184,7 +184,7 @@ export default {
         const adm = String(env.ADMIN_FONE).replace(/\D/g, '');
         const hk = chave === 'chefe-wg' ? adm : 'ag:' + chave + ':' + adm;
         await addHist(env, hk, { role: 'user', content: '[Victor pelo Jarvis, no computador; a resposta vai ser lida em voz alta, então responda curto e sem tabela] ' + pergunta });
-        const partes = await pensar(await getHist(env, hk), 'Victor', env.ADMIN_FONE, chave, env);
+        const partes = await pensar((await getHist(env, hk)).slice(-12), 'Victor', env.ADMIN_FONE, chave, env, true);
         for (const t of partes) await addHist(env, hk, { role: 'assistant', content: t });
         return Response.json({ agente: NOME_AGENTE[chave], resposta: partes.join('\n\n') });
       }
@@ -379,7 +379,7 @@ async function chamarClaude(env, corpo) {
   return { ok: r.ok, status: r.status, d: await r.json() };
 }
 
-async function pensar(hist, nome, fone, agente, env) {
+async function pensar(hist, nome, fone, agente, env, rapido = false) {
   const hora = agora();
   const extra = agente ? `\n\n${hora}` : `\n\n${hora}\nPrimeiro nome no perfil do WhatsApp: ${nome || 'não informado'} (use só se parecer um nome de verdade).`;
   const sistema = [{ type: 'text', text: SISTEMA, cache_control: { type: 'ephemeral' } }];
@@ -388,8 +388,9 @@ async function pensar(hist, nome, fone, agente, env) {
   const msgs = juntar(hist);
   for (let volta = 0; volta < 4; volta++) {
     const { ok, status, d } = await chamarClaude(env, {
-      model: agente === 'chefe-wg' ? (env.MODELO_CHEFE || 'claude-fable-5-2') : (agente ? (env.MODELO_AGENTES || 'claude-sonnet-5-5') : (env.MODELO || 'claude-sonnet-5-5')),
-      max_tokens: agente ? 4000 : 1500, system: sistema, tools: agente ? FERRAMENTAS_EQUIPE : FERRAMENTAS, messages: msgs,
+      // rapido (voz pelo Jarvis): todos em Sonnet e resposta curta, para responder em segundos
+      model: rapido ? (env.MODELO_VOZ || env.MODELO_AGENTES || 'claude-sonnet-5-5') : agente === 'chefe-wg' ? (env.MODELO_CHEFE || 'claude-fable-5-2') : (agente ? (env.MODELO_AGENTES || 'claude-sonnet-5-5') : (env.MODELO || 'claude-sonnet-5-5')),
+      max_tokens: rapido ? 900 : agente ? 4000 : 1500, system: sistema, tools: agente ? FERRAMENTAS_EQUIPE : FERRAMENTAS, messages: msgs,
     });
     if (!ok) { console.log('anthropic', JSON.stringify(d)); await passo(env, 'anthropic erro ' + status + ' ' + JSON.stringify(d.error || d).slice(0, 150)); return ['Shalom! Recebi sua mensagem e já já te respondo. Tamo junto, Caveira!']; }
     const usos = (d.content || []).filter(c => c.type === 'tool_use');

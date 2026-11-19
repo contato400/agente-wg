@@ -33,7 +33,8 @@
 - PENDENTE: 20261118-trafego-1 (urgente), 20261118-trafego-2, 20261118-social-1, 20261118-social-2, 20261118-social-3.
 
 ### memoria/passagem.md (últimas entradas)
-## 19/11 04h · site cinematográfico, Greenn, rotina
-- Feito: rotina agendada conferida e correta (chaves do passo 2 e WhatsApp no passo 8). Greenn > Configurações > Suporte salvo com o e-mail que já aparece no checkout + WhatsApp 31 99329-4274 (aguarda o Wesley clicar no link de confirmação). Instagram: bio e links sem número. Hotmart: lista de produtos aparece vazia na conta logada, contato de suporte não alcançado.
-- Site (B43): debate com ofertas-paginas-wg; conceito escolhido = foto real em loop sutil (lanterna descartada: escondia conteúdo no celular e exigiria agressor feito por IA). Rascunho publicado como página privada para o Victor ver. Fotos do ensaio em Drive ARQUIVOS WG/FOTOS WG (76 fotos).
-- Pendente: Victor terminar o login do Higgsfield (conector adicionado, conexão incompleta); Hotmart por outro caminho.
+## 19/11 05h · Jarvis no computador do Victor
+- Feito: worker ganhou a porta POST /perguntar (Bearer AVISO_TOKEN; mesmo histórico do #nome). Jarvis instalado em C:\Users\Victor Augusto\Jarvis (Python 3.12 por winget, Claude Code CLI logado), com wg\wg.py, processo "Equipe do Wesley" em modelos\meus e memoria\sobre_mim.md. WG_AVISO_TOKEN gravado nas variáveis do Windows.
+- Verificado: `python wg\wg.py chefe ...` respondeu "[Chefe] OK. Quinta-feira, 19 de novembro de 2026."
+- Aprendizado: a Cloudflare devolve 403 (erro 1010) para o User-Agent padrão do Python; todo cliente Python do worker precisa de User-Agent próprio.
+- Pendente: Victor reiniciar e abrir o Jarvis pela primeira vez (baixa o modelo de voz).
