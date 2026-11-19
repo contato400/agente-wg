@@ -110,3 +110,112 @@ class Tatame:
 
 
 SCENES = {"tatame": Tatame}
+
+
+class Rua:
+    """Rua à noite desfocada: prédios com janelas acesas, postes laranja, faróis e lanternas passando, asfalto molhado refletindo, garoa."""
+    def __init__(self):
+        rng = np.random.default_rng(11); WW = W + 2 * MARG
+        sky = np.zeros((H, WW, 3), np.float32)
+        for y in range(H):
+            f = y / 1150; sky[y] = np.array([40, 18, 10]) * (1 - min(f, 1)) + np.array([60, 30, 22]) * min(f, 1)
+        # prédios (longe)
+        x = 0
+        while x < WW:
+            bw = int(rng.integers(120, 260)); top = int(rng.integers(150, 600))
+            cv2.rectangle(sky, (x, top), (x + bw, 1150), (22, 14, 12), -1)
+            for wy in range(top + 30, 1120, 46):
+                for wx in range(x + 16, x + bw - 20, 34):
+                    if rng.random() < 0.38:
+                        c = (90, 190, 255) if rng.random() < 0.7 else (255, 230, 200)
+                        cv2.rectangle(sky, (wx, wy), (wx + 16, wy + 22), tuple(v * rng.uniform(0.5, 1) for v in c), -1)
+            x += bw + int(rng.integers(6, 30))
+        # rua e calçada
+        cv2.rectangle(sky, (0, 1150), (WW, H), (26, 20, 18), -1)
+        refl = cv2.flip(sky[650:1150], 0) * 0.35
+        sky[1150:1650] += cv2.resize(refl, (WW, 500)) * np.linspace(1, 0, 500, dtype=np.float32)[:, None, None]
+        self.far = cv2.GaussianBlur(sky, (0, 0), 10)
+        # postes (meio): bokeh grande laranja
+        lamp = np.zeros((H, WW, 3), np.float32)
+        for lx in (60, 520, 980, 1260):
+            cv2.circle(lamp, (lx, 330), 34, (60, 150, 255), -1)
+            cv2.line(lamp, (lx, 330), (lx, 1600), (55, 140, 240), 6)
+        self.lamp = cv2.GaussianBlur(lamp, (0, 0), 18) * 1.6 + cv2.GaussianBlur(lamp, (0, 0), 70) * 4
+        self.car = [(rng.uniform(0, 1), rng.uniform(0.6, 1.4), 1 if rng.random() < 0.5 else -1, rng.uniform(0, 1)) for _ in range(9)]
+        self.disc = {}
+        self.vig = vignette(0.7)
+        self.rain = rng.random((220, 3))
+        self.pt = Particulas(n=70, cor=(255, 210, 160), seed=5)
+
+    def bokeh(self, rad):
+        if rad not in self.disc:
+            s = rad * 2; g = np.zeros((2 * s + 1, 2 * s + 1), np.float32); cv2.circle(g, (s, s), rad, 1.0, -1)
+            self.disc[rad] = cv2.GaussianBlur(g, (0, 0), rad * 0.35)
+        return self.disc[rad]
+
+    def add_disc(self, img, x, y, rad, col, a):
+        d = self.bokeh(rad); hh = d.shape[0] // 2; xi, yi = int(x), int(y)
+        x0, y0, x1, y1 = max(0, xi - hh), max(0, yi - hh), min(W, xi + hh + 1), min(H, yi + hh + 1)
+        if x1 <= x0 or y1 <= y0: return
+        img[y0:y1, x0:x1] += d[y0 - (yi - hh):y1 - (yi - hh), x0 - (xi - hh):x1 - (xi - hh)][..., None] * np.array(col, np.float32) * a
+
+    def frame(self, t):
+        cx = math.sin(t * 0.3)
+        img = shift(self.far, cx * 15).copy() + shift(self.lamp, cx * 45)
+        for ph, sp, d, lane in self.car:  # faróis brancos indo, lanternas vermelhas voltando
+            x = ((ph + t * 0.18 * sp * d) % 1.4 - 0.2) * W
+            y = 1120 + lane * 60
+            col = (230, 240, 255) if d > 0 else (40, 40, 255)
+            for k in (0, 1):
+                self.add_disc(img, x + k * 70, y, 26, col, 0.9)
+                self.add_disc(img, x + k * 70, y + 140, 30, col, 0.25)  # reflexo no asfalto
+        rr = self.rain
+        for x0, y0, z in rr:  # garoa
+            y = (y0 * H + t * (900 + 600 * z)) % H; x = (x0 * W + y * 0.15) % W
+            cv2.line(img, (int(x), int(y)), (int(x + 6), int(y + 30 + 30 * z)), (110, 105, 100), 1)
+        img = self.pt.draw(img, t, cx * 60)
+        return np.clip(img * self.vig, 0, 255)
+
+
+class Estudio:
+    """Estúdio preto e vermelho: painéis de luz vermelha, halo atrás da cabeça, fumaça rolando, chão brilhante, varredura de luz."""
+    def __init__(self):
+        rng = np.random.default_rng(21); WW = W + 2 * MARG
+        base = np.zeros((H, WW, 3), np.float32); base[:] = (8, 7, 9)
+        pan = np.zeros((H, WW, 3), np.float32)
+        for x in (70, WW - 70):
+            cv2.rectangle(pan, (x - 40, 120), (x + 40, 1180), (40, 40, 255), -1)
+        for x in (330, WW - 330):
+            cv2.rectangle(pan, (x - 8, 200), (x + 8, 1100), (60, 60, 255), -1)
+        self.pan = cv2.GaussianBlur(pan, (0, 0), 6) * 0.9 + cv2.GaussianBlur(pan, (0, 0), 80) * 1.8
+        # chão brilhante com reflexo dos painéis
+        floor = np.zeros((H, WW, 3), np.float32)
+        floor[1180:] = (14, 12, 16)
+        refl = cv2.flip(self.pan[600:1180], 0) * 0.3
+        floor[1180:1760] += refl * np.linspace(1, 0, 580, dtype=np.float32)[:, None, None]
+        self.base = cv2.GaussianBlur(base + floor, (0, 0), 6)
+        yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
+        self.halo = np.exp(-(((xx - 540) / 420) ** 2 + ((yy - 620) / 520) ** 2))[..., None] * np.array([22, 20, 130], np.float32)
+        n = rng.random((H // 16, (W + 600) // 16)).astype(np.float32)
+        smoke = cv2.resize(cv2.GaussianBlur(n, (0, 0), 3), (W + 600, H), interpolation=cv2.INTER_CUBIC)
+        self.smoke = np.clip((smoke - 0.45) * 3, 0, 1)
+        self.vig = vignette(0.8); self.pt = Particulas(n=90, cor=(110, 120, 255), seed=9)
+        self.sweeps = []
+
+    def frame(self, t):
+        cx = math.sin(t * 0.32)
+        img = shift(self.base, cx * 15).copy()
+        img += shift(self.pan, cx * 35) * (0.9 + 0.1 * math.sin(t * 2.3))
+        img += self.halo * (0.75 + 0.25 * math.sin(t * 1.6))
+        off = int((t * 40) % 600)
+        img += self.smoke[:, off:off + W, None] * np.array([12, 10, 45], np.float32)
+        ph = (t % 4.5) / 4.5  # varredura de luz em diagonal
+        x = -400 + ph * 1900
+        beam = np.zeros((H, W), np.float32)
+        cv2.fillConvexPoly(beam, np.array([[int(x), 0], [int(x + 160), 0], [int(x - 500), H], [int(x - 660), H]], np.int32), 1)
+        img += cv2.blur(beam, (61, 61))[..., None] * np.array([40, 40, 110], np.float32) * 0.5
+        img = self.pt.draw(img, t, cx * 70)
+        return np.clip(img * self.vig, 0, 255)
+
+
+SCENES.update({"rua": Rua, "estudio": Estudio})

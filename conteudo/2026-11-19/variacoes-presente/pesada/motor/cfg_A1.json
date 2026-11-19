@@ -1,0 +1,248 @@
+{
+ "video": "/home/claude/agente-wg/conteudo/2026-11-19/variacoes-presente/pesada/base.mp4",
+ "words": "/home/claude/agente-wg/conteudo/2026-11-19/variacoes-presente/pesada/base.mp4.words.json",
+ "masks_raw": "/tmp/claude-0/-home-claude/18ecb643-e46a-54b4-bb6c-bb4a8009ab64/scratchpad/pres/full/masks",
+ "prep": "/tmp/claude-0/-home-claude/18ecb643-e46a-54b4-bb6c-bb4a8009ab64/scratchpad/pres/full/prep",
+ "trabalho": "/tmp/claude-0/-home-claude/18ecb643-e46a-54b4-bb6c-bb4a8009ab64/scratchpad/pres/full/A1",
+ "saida": "/home/claude/agente-wg/conteudo/2026-11-19/variacoes-presente/pesada/wg_presenteA_9x16_pesada1-tatame_2026-11-19.mp4",
+ "scene": "tatame",
+ "rim": [
+  255,
+  45,
+  35
+ ],
+ "fx": [
+  {
+   "layer": "fg",
+   "type": "card",
+   "t0": 0.62,
+   "t1": 1.42,
+   "y": 300,
+   "size": 78,
+   "rx": 90,
+   "html": "RECADO URGENTE"
+  },
+  {
+   "layer": "bg",
+   "type": "split",
+   "t0": 1.42,
+   "t1": 3.78,
+   "chars": [
+    "2",
+    "3"
+   ],
+   "x": [
+    70,
+    770
+   ],
+   "y": 470,
+   "size": 400
+  },
+  {
+   "layer": "fg",
+   "type": "card",
+   "t0": 2.82,
+   "t1": 3.78,
+   "y": 300,
+   "size": 62,
+   "spin": 360,
+   "cls": "y",
+   "html": "PELO PREÇO DE UM CURSO"
+  },
+  {
+   "layer": "bg",
+   "type": "marquee",
+   "t0": 3.81,
+   "t1": 7.5,
+   "y": 340,
+   "size": 300,
+   "speed": 620,
+   "text": "INSCRIÇÕES"
+  },
+  {
+   "layer": "fg",
+   "type": "card",
+   "t0": 7.55,
+   "t1": 9.55,
+   "y": 300,
+   "size": 60,
+   "rx": 90,
+   "html": "RECEBER O PAGAMENTO"
+  },
+  {
+   "layer": "fg",
+   "type": "big",
+   "t0": 10.35,
+   "t1": 12.3,
+   "y": 300,
+   "size": 120,
+   "html": "PIX PARCELADO"
+  },
+  {
+   "layer": "fg",
+   "type": "stamp",
+   "t0": 13.9,
+   "t1": 14.8,
+   "y": 310,
+   "size": 66,
+   "cls": "",
+   "html": "NÃO TEM CARTÃO?"
+  },
+  {
+   "layer": "bg",
+   "type": "marquee",
+   "t0": 15.9,
+   "t1": 18.15,
+   "y": 360,
+   "size": 260,
+   "speed": 700,
+   "dir": -1,
+   "cls": "r",
+   "text": "PIX PARCELADO"
+  },
+  {
+   "layer": "fg",
+   "type": "card",
+   "t0": 18.2,
+   "t1": 19.83,
+   "y": 300,
+   "size": 70,
+   "cls": "solid",
+   "rx": 90,
+   "html": "CLIQUE NO BOTÃO ↓"
+  }
+ ],
+ "band": {
+  "kind": "A",
+  "y0": 1255,
+  "y1": 1595,
+  "pad": 110
+ },
+ "capY": 1240,
+ "keywords": [
+  "23",
+  "PROGRAMAS",
+  "TREINAMENTO",
+  "CURSO",
+  "URGENTE",
+  "INSCRIÇÕES",
+  "PIX",
+  "PIX.",
+  "PARCELADO",
+  "PARCELAR",
+  "CARTÃO",
+  "CRÉDITO",
+  "BOTÃO",
+  "PAGAMENTO"
+ ],
+ "punches": [
+  [
+   0.94,
+   0.05
+  ],
+  [
+   1.48,
+   0.05
+  ],
+  [
+   3.04,
+   0.03
+  ],
+  [
+   5.26,
+   0.03
+  ],
+  [
+   10.44,
+   0.05
+  ],
+  [
+   13.92,
+   0.04
+  ],
+  [
+   16.32,
+   0.03
+  ],
+  [
+   18.5,
+   0.04
+  ]
+ ],
+ "whips": [
+  1.42,
+  3.81,
+  9.59,
+  18.15
+ ],
+ "sfx": [
+  [
+   "pop",
+   0.62,
+   0.22
+  ],
+  [
+   "whoosh",
+   1.25,
+   0.3
+  ],
+  [
+   "hit",
+   1.5,
+   0.32
+  ],
+  [
+   "pop",
+   2.82,
+   0.2
+  ],
+  [
+   "whoosh",
+   3.64,
+   0.28
+  ],
+  [
+   "pop",
+   7.55,
+   0.2
+  ],
+  [
+   "whoosh",
+   9.42,
+   0.28
+  ],
+  [
+   "hit",
+   10.45,
+   0.3
+  ],
+  [
+   "hit",
+   13.9,
+   0.26
+  ],
+  [
+   "whoosh",
+   15.8,
+   0.25
+  ],
+  [
+   "whoosh",
+   17.98,
+   0.28
+  ],
+  [
+   "pop",
+   18.25,
+   0.2
+  ],
+  [
+   "chime",
+   19.9,
+   0.25
+  ]
+ ],
+ "card": 2.5,
+ "capa_t": 1.8,
+ "folha_passo": 2
+}
