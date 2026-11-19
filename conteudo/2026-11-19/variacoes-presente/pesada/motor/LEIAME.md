@@ -34,3 +34,8 @@ Tempo vem quase todo da composição em 1080x1920 (fechamento morfológico e des
 - Todo `ffmpeg` chamado de script em segundo plano leva `-nostdin` (sem isso ele trava esperando o teclado).
 - A faixa antiga fica queimada no peito: a faixa nova cobre Y 1255 a 1595; com Wesley a 86% o texto da faixa fica entre Y ~1290 e 1465 (área segura).
 - Rampa de 40 px na borda do quadro original reduzido, senão aparece a quina do ombro cortado.
+
+## Vídeo B refeito (19/11 18h22)
+- Corte próprio `../condB.mp4` (`_projeto/cut.py` com S5x,S4a,S4b,S6,S2a,S2b,S7): condição, Pix parcelado, 23 treinamentos, 12,5 s de fala + 2,5 s de cartão.
+- `configsB.py` gera `cfgB_B1..B3.json`. Cenários novos `garagem`, `sala`, `perigo`; efeito novo `ccard` (cartão de crédito 3D que leva um X no tempo `tx`).
+- Moeda agora entra girando só até 80 graus (não mostra o verso espelhado); texto `big` sai sem zoom grande (não corta no topo).

@@ -282,3 +282,8 @@ Modelo:
 - Feito: 6 MP4 de 22,3 s em `conteudo/2026-11-19/variacoes-presente/pesada/` com capa, folha e `prontas.md`. Motor v2 em `pesada/motor/` (LEIAME.md, configs.py), ~2,5 min por vídeo.
 - Verificado: folha de cada uma olhada; sem boleto; -14,4 LUFS, pico -1,4 dB; legenda e faixa dentro da área segura.
 - Pendente: Victor aprova, Diogo sobe. Limite conhecido: borrão da mão perto da borda mostra 2 a 3 quadros do fundo antigo.
+
+## 19/11 ~18h50 · editor-video-wg: pesadas do B refeitas
+- Pedido: Victor 18h22 (A e B pesadas pareciam o mesmo vídeo).
+- Feito: B com corte próprio (condição, Pix parcelado, 23 treinamentos), 15 s, cenários garagem, sala à noite e gráfico amarelo/preto, cartão de crédito 3D com X. Arquivos B antigos (tatame, rua-noite, estúdio) apagados; prontas.md atualizado.
+- Verificado: folhas conferidas, -14,5 LUFS, pico -1,5 dB, sem boleto.
