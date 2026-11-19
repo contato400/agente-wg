@@ -193,3 +193,7 @@ Modelo:
 - Decisões: raiz "/" continua a página antiga até o Victor mandar trocar. Código Caveira avulso fora (lista "não oferecer"). Sem preço no site.
 - Vídeo do avatar acenando: gerado no Gemini (10 s, 720x1280), mas não deu para tirar do navegador (CSP bloqueia, acesso à pasta Downloads negado). Falta o Victor anexar o arquivo ou liberar a pasta.
 - Verificado: Playwright no ar, celular 390 e desktop 1440 sem rolagem lateral, boca abre com o áudio, sem erro no console. Número antigo: 30 páginas da Atomicat ainda têm 97334-6056 no HTML bruto, mas todas têm o script que troca para 99329-4274 ao carregar.
+
+## 2026-11-19 07h10 · Avatar animado no site
+- Feito: vídeo do Gemini (Victor anexou) recortado quadro a quadro (rembg isnet), alinhado às imagens do avatar e salvo em webm com fundo transparente (666 KB, CloudFront Higgsfield). No ar em /inicio: o boneco acena e aponta ao abrir (Chrome, Edge, Firefox, Android); quando fala, troca para as imagens com boca sincronizada; repete a animação a cada 16 s. Safari e iPhone ficam com as imagens.
+- Verificado: Playwright no ar, vídeo toca com transparência, classe "falando" entra durante a narração.
