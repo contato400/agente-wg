@@ -142,3 +142,9 @@ Modelo:
 - Feito: coexistência concluída no portfólio Victor Augusto (o WABA do portfólio do Wesley está restrito, erro #2655121). Conta "Victor Augusto - WG", WABA 1114391257639372, status Conectado, limite 250 clientes/dia.
 - Código: worker lê pela YCloud (POST /yc, assinatura YC_WEBHOOK_SECRET), ignora eventos da Meta de outro número, eco do celular pausa o agente. Publicado no Cloudflare com OK do Victor (conteúdo conferido igual ao repositório).
 - Pendente: Victor cola YC_KEY e YC_WEBHOOK_SECRET (formulário já preenchido com YC_FROM=+553193294274); passar ADMIN_FONE para Segredo; teste "oi"; MODO=ativo; migrar o número de suporte (Academia, Greenn, Hotmart, páginas, grupos, conhecimento.txt, CLAUDE.md).
+
+## 19/11 01h40 · Agente do 4274 respondendo, voz humana e consulta de compra
+- Feito: webhook YCloud estava Inativo (ligado). A YCloud manda cada mensagem 2x (inbound_message.received e inbox.message.created): o agente usa só inbox.message.created. Teste do Victor às 01:16: uma resposta, sem erro. Rastro de cada passo em KV diag:passos.
+- Voz humana no prompt + skill voz-humana-atendimento-wg. Modo #cliente/#chefe para o Victor testar como cliente.
+- Ferramenta consultar_compra (Greenn API pública v1, GET /sales?filter[client_email]; Hotmart sales/history). Sem segredo ela avisa que a plataforma não está conectada e não afirma que a compra não existe.
+- Pendente (Victor): criar token na Greenn (Configurações > Integrações e Tokens > Criar token, só escopo "Consultar vendas") e colar como segredo GREENN_TOKEN; Hotmart: credenciais (HOTMART_CLIENT_ID, HOTMART_CLIENT_SECRET, HOTMART_BASIC); Cademi: ver a API no admin (perfil Victor Augusto). Depois: skills de venda/copy no conhecimento, 10 conversas simuladas, MODO=ativo, migração do número.

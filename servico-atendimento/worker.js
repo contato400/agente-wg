@@ -34,7 +34,7 @@ JEITO DE FALAR (o mais importante: quem escreve quer falar com alguém da equipe
 - Se perguntarem se é robô: seja honesto, você é o assistente da equipe do Mestre Wesley e chama uma pessoa se ela preferir.
 - Ruim: "Olá! Claro, ficarei feliz em ajudar! Para acessar a plataforma siga os passos: 1. ... 2. ...". Bom: "Shalom, tudo bem? Vamos resolver isso agora." + "Me manda o e-mail que você usou na compra?". Garantia: 7 dias em todos os produtos. Todo link de compra leva utm_source=vc&utm_medium=whatsapp&utm_campaign=atendimento&utm_term=ag-atendimento. Nunca invente preço, link, prazo, bônus ou resultado: use só o que está no conhecimento abaixo. Se não souber, diga que vai confirmar com a equipe e use a ferramenta passar_para_humano.
 
-Por enquanto você NÃO consegue conferir compras (não conte isso ao cliente com palavras de sistema; se precisar conferir, diga que vai pedir para a equipe olhar). Para problema de acesso: peça o e-mail da compra, oriente olhar spam e promoções, mande o link da Academia https://kravmagacaveira.cademi.com.br/ e o "esqueci minha senha". Se mesmo assim não resolver, use passar_para_humano com o produto e o resumo (sem o e-mail no resumo).
+Para conferir compra, use a ferramenta consultar_compra com o e-mail que a pessoa mandar (não fale de \"sistema\" com o cliente; diga \"deixa eu ver aqui\"). Para problema de acesso: peça o e-mail da compra, confira a compra, oriente olhar spam e promoções, mande o link da Academia https://kravmagacaveira.cademi.com.br/ e o "esqueci minha senha". Se mesmo assim não resolver, use passar_para_humano com o produto e o resumo (sem o e-mail no resumo).
 
 ESCOPO: este número é só do Krav Magá Caveira, mas de vez em quando chega conversa de outro projeto do Victor (Kairós, SalesMed, mentorias) ou assunto pessoal. Você só atende assuntos do Mestre Wesley Gimenez, Krav Magá Caveira, defesa pessoal, cursos, Academia, compras e acesso. Se a conversa claramente for de outro projeto ou pessoal, NÃO responda: use a ferramenta nao_responder. Na dúvida (ex.: só "oi", "bom dia"), responda normalmente como suporte do Krav Magá Caveira.
 
@@ -54,6 +54,10 @@ const FERRAMENTAS = [{
     resumo: { type: 'string', description: 'Uma ou duas frases do que a pessoa precisa. Sem telefone, e-mail ou CPF.' },
     produto: { type: 'string' }
   }, required: ['motivo', 'resumo'] }
+}, {
+  name: 'consultar_compra',
+  description: 'Confere na Greenn e na Hotmart as compras feitas com um e-mail (produto, situação do pagamento, data). Use quando a pessoa disser que comprou e tem problema de acesso ou pagamento, depois que ela mandar o e-mail da compra. Só fale com a pessoa sobre as compras do e-mail que ELA mandou; nunca conte nome, CPF ou telefone que vierem na consulta.',
+  input_schema: { type: 'object', properties: { email: { type: 'string', description: 'E-mail que a pessoa disse ter usado na compra.' } }, required: ['email'] }
 }, {
   name: 'nao_responder',
   description: 'A conversa não é do Krav Magá Caveira (outro projeto ou assunto pessoal). Não envia nada.',
@@ -281,7 +285,53 @@ async function executar(u, fone, nome, env) {
     await env.WG.put('alerta:' + Date.now(), aviso, { expirationTtl: 30 * 86400 });
     return 'Equipe avisada. Diga à pessoa que a equipe vai assumir por aqui e responde em horário comercial (8h às 18h).';
   }
+  if (u.name === 'consultar_compra') return consultarCompra(String((u.input || {}).email || '').trim().toLowerCase(), env);
   return 'ferramenta desconhecida';
+}
+
+// ---- Consulta de compra (Greenn: token só com o escopo "Consultar vendas"; Hotmart: credenciais da conta) ----
+const STATUS_GREENN = { paid: 'aprovada (paga)', waiting_payment: 'aguardando pagamento (Pix ou boleto não pago)', refused: 'recusada (pagamento não passou)', refunded: 'reembolsada', chargedback: 'contestada no cartão (chargeback)', pending_refund: 'reembolso em andamento', canceled: 'cancelada', trialing: 'em teste' };
+async function consultarCompra(email, env) {
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return 'E-mail inválido. Peça para a pessoa conferir e mandar de novo.';
+  const achados = [];
+  const avisos = [];
+  if (env.GREENN_TOKEN) {
+    try {
+      const r = await fetch('https://apiadm.greenn.com.br/api/v1/sales?per_page=20&sort=-created_at&filter%5Bclient_email%5D=' + encodeURIComponent(email), { headers: { Authorization: 'Bearer ' + env.GREENN_TOKEN, accept: 'application/json' } });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok) avisos.push('Greenn não respondeu (' + r.status + ')');
+      else for (const v of (j.data || [])) {
+        if (String((v.client || {}).email || '').toLowerCase() !== email) continue;
+        achados.push(`Greenn: ${(v.product || {}).name || 'produto ' + v.product_id} | ${STATUS_GREENN[v.status] || v.status} | ${v.method || ''} | compra ${String(v.created_at || '').slice(0, 10)}${v.paid_at ? ' | paga ' + String(v.paid_at).slice(0, 10) : ''}`);
+      }
+    } catch (e) { avisos.push('Greenn com erro'); }
+  } else avisos.push('Greenn ainda não conectada');
+  if (env.HOTMART_BASIC && env.HOTMART_CLIENT_ID && env.HOTMART_CLIENT_SECRET) {
+    try {
+      let tk = await env.WG.get('hotmart:token');
+      if (!tk) {
+        const a = await fetch(`https://api-sec-vlc.hotmart.com/security/oauth/token?grant_type=client_credentials&client_id=${encodeURIComponent(env.HOTMART_CLIENT_ID)}&client_secret=${encodeURIComponent(env.HOTMART_CLIENT_SECRET)}`, { method: 'POST', headers: { Authorization: 'Basic ' + env.HOTMART_BASIC, 'content-type': 'application/json' } });
+        const aj = await a.json().catch(() => ({}));
+        if (aj.access_token) { tk = aj.access_token; await env.WG.put('hotmart:token', tk, { expirationTtl: Math.max(300, (aj.expires_in || 3600) - 300) }); }
+      }
+      if (!tk) avisos.push('Hotmart não autorizou');
+      else {
+        const desde = Date.now() - 3 * 365 * 86400000;
+        const r = await fetch(`https://developers.hotmart.com/payments/api/v1/sales/history?buyer_email=${encodeURIComponent(email)}&start_date=${desde}&end_date=${Date.now()}&max_results=20`, { headers: { Authorization: 'Bearer ' + tk } });
+        const j = await r.json().catch(() => ({}));
+        if (!r.ok) avisos.push('Hotmart não respondeu (' + r.status + ')');
+        else for (const it of (j.items || [])) {
+          const pu = it.purchase || {};
+          achados.push(`Hotmart: ${(it.product || {}).name || 'produto'} | ${pu.status || ''} | compra ${pu.order_date ? new Date(pu.order_date).toISOString().slice(0, 10) : ''}${pu.approved_date ? ' | aprovada ' + new Date(pu.approved_date).toISOString().slice(0, 10) : ''}`);
+        }
+      }
+    } catch (e) { avisos.push('Hotmart com erro'); }
+  } else avisos.push('Hotmart ainda não conectada');
+  await passo(env, 'consulta de compra: ' + achados.length + ' achada(s)' + (avisos.length ? ' | ' + avisos.join('; ') : ''));
+  const base = achados.length ? 'Compras encontradas para esse e-mail:\n' + achados.join('\n') : 'Nenhuma compra encontrada com esse e-mail.';
+  const dica = achados.length ? '\nAprovada: o acesso chega nesse e-mail; oriente entrar na Academia com ele (esqueci minha senha se precisar). Aguardando pagamento: explique e ofereça o link de novo. Recusada: o pagamento não passou. Reembolsada ou cancelada: não tem acesso; se a pessoa estranhar, passe para humano.'
+    : '\nPergunte com calma se ela pode ter usado outro e-mail (ou comprado no nome de outra pessoa). Depois de 2 e-mails sem achar, passe para humano.';
+  return base + dica + (avisos.length ? '\n(Observação interna, não conte ao cliente: ' + avisos.join('; ') + '. Se alguma plataforma não foi consultada, não afirme que a compra não existe; diga que vai pedir para a equipe conferir.)' : '');
 }
 
 function juntar(hist) {
