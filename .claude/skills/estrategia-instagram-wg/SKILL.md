@@ -52,3 +52,9 @@ Sem fonte, não entra. Tendência que não se aplica ao público do Wesley não 
 ## 6. Ferramentas e custo
 - Já temos: motor de vídeo narrado, Canva, Google AI Pro do Victor (Gemini, Nano Banana, Veo, Flow), ChatGPT do Victor, DaVinci (voz ElevenLabs, créditos limitados), Metricool (sem rede conectada ainda).
 - Ferramenta nova (Higgsfield, HeyGen, CapCut Pro, etc.): pesquise preço no site oficial, calcule custo por vídeo, compare com o que já temos, e proponha **um teste pequeno com teto**. Sem compra, sem cadastro com cartão: isso é do Victor.
+
+## Limpeza de posts de campanha (feito em 18/11, repetir depois de cada campanha)
+- Depois de uma campanha (Black, reabertura), listar pelo Metricool todos os posts e reels da campanha (legenda, imagem ou vídeo) com visualizações, curtidas e comentários; abrir cada um no Instagram para conferir.
+- Propor apagar os que menos engajaram; manter os que viraram conteúdo bom. Mostrar a lista ao Victor e só apagar com o OK dele (não tem volta).
+- Só mexer no que o Victor postou (campanha). Post do próprio Wesley não se mexe.
+- No computador: post = três pontinhos > Excluir; reel = três pontinhos > Gerenciar post > Excluir (ou "Remover da grade do perfil", que não apaga).

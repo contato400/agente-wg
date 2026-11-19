@@ -123,3 +123,10 @@ Modelo:
 - Decisões: posts para apagar só os da Black (Victor), depois; Hotmart sem conector (seguimos pelo navegador).
 - Pendente: vídeo de 60 s (social), mensagem para quem tem o guia (fila), conferir o botão do guia dentro da Academia (Chrome desconectou), lista de posts só com os da Black.
 - Verificado: teste em celular simulado (3 trilhas e ritmos, sem erro, sem link vazio); página no ar renderizada pela Atomicat com plano família 2 dias.
+
+## 18/11 23h45 · Guia (vídeo, aula, aviso) + limpeza da Black no Instagram + uma tarefa agendada só
+- Pedido: vídeo do guia, aviso a quem tem o guia, apagar os posts da Black que menos engajaram, deixar só uma tarefa agendada, ensinar os agentes.
+- Feito: vídeo de 55 s com telas reais (conteudo/guia-12-semanas/video/); texto da aula 9840709 na Academia trocado; modelo caveira_guia_novo enviado para a Meta (para os 2 compradores do guia); 12 posts/reels da Black apagados com OK do Victor (conferido 12/12, e os que ficam 12/12); lembrete do guia apagado e o do Metricool desligado (não deixou apagar); skills edicao-video-arte-wg, estrategia-instagram-wg, suporte-acesso-wg e ficha do sucesso-aluno-wg atualizadas.
+- Decisões: só uma tarefa agendada (a das 7h35); apagar em vez de arquivar os posts da Black.
+- Pendente: quando o modelo caveira_guia_novo for aprovado, mandar para os 2 compradores (precisa do Chrome; pedir na conversa); PDFs antigos na aula do guia (tirar com OK).
+- Verificado: fetch de cada post depois de apagar; vídeo conferido em folha de quadros e volume.

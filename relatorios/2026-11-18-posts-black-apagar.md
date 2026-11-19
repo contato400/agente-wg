@@ -38,3 +38,8 @@ Reel 22/10 "Seu celular acabou de tocar" (cópia) e 4 reels de 09 a 12/11 com le
 | 06/11 | O seu incômodo é informação | 55.226 | 935 | 24 |
 
 Limite: o Metricool grátis só mostra 30 dias; vídeo da Black sem a palavra Black na legenda pode ter ficado de fora.
+
+## EXECUTADO 18/11 23h45 (Victor: "Pode apagar os 12")
+- Os 12 da lista foram excluídos pelo Instagram no computador (Chrome do Luis corinthiano), um por um, conferindo o post antes de confirmar.
+- Conferência final: 12/12 apagados; os 9 que ficam e os 3 maiores posts do período continuam no ar (12/12 conferidos).
+- Aprendizado: no computador, post tem "Excluir" no menu de três pontinhos; reel tem "Gerenciar post" > "Excluir" e também "Remover da grade do perfil" (opção mais leve para a próxima vez).
