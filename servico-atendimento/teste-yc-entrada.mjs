@@ -62,5 +62,11 @@ r.push(['voz: chefe responde em áudio + texto curto', oa.length===1 && oa[0].in
 const nv2=yc.length; await av('/avisar','POST',{de:'executor',texto:'x'.repeat(400)});
 r.push(['voz: aviso longo do executor vira áudio resumido', oa.length===2 && yc[nv2].type==='audio']);
 globalThis.fetch=f0; delete env.OPENAI_API_KEY;
+env.OPENAI_API_KEY='oa'; const f1=globalThis.fetch;
+globalThis.fetch=async(u,o)=>{ if(String(u).includes('openai')) return {ok:false,status:429,text:async()=>'sem credito'};
+ if(String(u).includes('anthropic')){anth.push(JSON.parse(o.body)); return {ok:true,json:async()=>({content:[{type:'text',text:'FALA: Resumo curto.\nTEXTO: ID 1'}]})};} return f1(u,o);};
+const nv3=yc.length; await av('/avisar','POST',{de:'executor',texto:'y'.repeat(900)});
+r.push(['sem crédito: manda o resumo curto em texto', yc.length===nv3+1 && yc[nv3].text.body==='Resumo curto.\n\nID 1']);
+globalThis.fetch=f1; delete env.OPENAI_API_KEY;
 for(const [n,ok] of r) console.log(ok?'OK    ':'FALHOU', n);
 process.exit(r.every(x=>x[1])?0:1);

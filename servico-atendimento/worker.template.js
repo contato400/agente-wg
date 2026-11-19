@@ -161,6 +161,11 @@ async function mandarVictor(para, texto, env) {
           }
         }
       }
+      // Sem voz (sem crédito ou erro): manda o resumo curto em texto, não o textão.
+      if (partes && partes.fala) {
+        for (const p of dividirLongo([partes.fala, partes.texto].filter(Boolean).join('\n\n'))) await enviar(para, p, env);
+        return true;
+      }
     } catch (e) { await passo(env, 'voz falhou ' + String(e).slice(0, 120)); }
   }
   const semMarca = String(texto || '').replace(/^(\[[^\]]{1,40}\]\s*)?FALA:\s*/i, '$1').replace(/^\s*FALA:\s*/i, '').replace(/\n?\s*TEXTO:\s*-?\s*$/i, '').replace(/\n\s*TEXTO:\s*/i, '\n\n');

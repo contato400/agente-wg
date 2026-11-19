@@ -27,8 +27,10 @@
 - PENDENTE: 20261119-social-1, -2, -3; 20261118-social-1, -2, -3. Nenhum APROVADO esperando execução.
 
 ### memoria/passagem.md (últimas entradas)
-## 2026-11-19 11h45 · Executor na hora
-- Pedido: Victor quer o agente executando na hora do áudio e só 2 tarefas agendadas.
-- Feito: tarefa nova "Agente WG - Executor" (Code, Sonnet, repo agente-wg, a cada hora + acionador API). Antiga (tipo Chat) apagada. Cloudflare: segredo EXECUTOR_TOKEN (colado pelo Victor) e variável EXECUTOR_URL. Rede do ambiente Default liberada pelo Victor para script.google.com, script.googleusercontent.com e o worker.
-- Verificado: execução de teste 11h41 leu recados e fila, conferiu Metricool, mandou WhatsApp e fez commit.
-- Pendente: testar o disparo na hora com um áudio real do Victor.
+## 2026-11-19 12h · Executor: recados internos da reabertura (parcial)
+- Pedido: 7 recados do chefe (11h50), tarefas internas de leitura para ofertas, analista, social e atendimento. Nenhuma aprovação nova; fila sem linha APROVADO pendente (só 20261119-sucesso-1 PENDENTE).
+- Feito: confirmado que a aba Vendas grava data e hora com segundo (horário de Brasília), então a ordem das vendas para camisa (3), encontro (20) e livros dá para medir pela planilha (só Greenn; Hotmart segue sem hora).
+- Achado na página /black-caveira-2026-oferta (tráfego): o código ainda tem contagem regressiva para 16/11 19h e preço 297 no dado estruturado. Não mexi (só leitura). Conferir se a página orgânica /black-caveira-2026 tem o mesmo resíduo antes de sexta 19h.
+- Não feito: leitura completa das páginas (a ferramenta devolve a lista inteira e é pesada; o acesso direto ao site é bloqueado nesta execução), checkout, régua do Gui, modelo Shalom na Meta, texto dos funis do ManyChat, bateria do atendente.
+- Recados NÃO limpos: ficam para o chefe e os agentes tratarem em sessão com acesso.
+- Verificado: cabeçalho da aba Vendas e fila pela ponte. Não verificado: tudo que depende de abrir a página.
