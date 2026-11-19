@@ -165,3 +165,8 @@ Modelo:
 - Serviço do WhatsApp (worker): data e hora de Brasília em toda resposta + reabertura automática (antes/depois de sexta 20/11 19h); resposta do chefe cortava em 1.200 tokens, agora 4.000 e quebra em partes; #chefe/#financeiro/#social/#trafego/#juridico/#ofertas/#auditor/#analista/#sucesso/#atendimento/#cliente/#equipe; ferramentas perguntar_agente e registrar_recado; portas /avisar, /equipe e /recados com o segredo AVISO_TOKEN. Implantado e conferido (código implantado = gerado).
 - Rotina: rotinas/whatsapp.sh (avisar, avisar-arquivo, memoria, recados); debriefing passa a ir pelo WhatsApp (skill debrief-diario-wg).
 - Pendente: Victor criar o segredo AVISO_TOKEN no Cloudflare e WG_AVISO_TOKEN na tarefa agendada (mesmo valor); trocar número na Academia (Cademi), Greenn, Hotmart e Instagram; decidir CAVEIRA99.
+
+## 19/11 04h10 · troca do número (Academia fechada)
+- Feito: varredura das 321 páginas da Academia (cursos e aulas) com sessão de aluno: 0 ocorrências do número antigo. Menu "Fale com o suporte", assinatura dos e-mails e bloco "MEUS TREINAMENTOS NO TOPO" já trocados.
+- Pendente: Greenn (Configurações > Suporte pede e-mail de suporte; aguardando o Victor), Hotmart (contato de suporte do produtor) e bio do Instagram: o navegador não está logado no Instagram nem na Hotmart e agente não digita senha. Victor faz ou loga e avisa.
+- Verificado: 30/30 páginas do site com o número novo; worker com hash 7248c71b...
