@@ -109,3 +109,10 @@ Modelo:
 - Decisões: alunos criados na Cademi com "Criar e enviar boas vindas" (Victor: "tem que ligar lá").
 - Pendente: próxima venda do tráfego entra sozinha? (conferir); B41 mapa de entregas; recargas duplicadas do ManyChat em 11/11; perguntas do Victor sobre suporte de acesso no WhatsApp, MCP da Greenn, "2,2,2" na Greenn e agentes individuais.
 - Verificado: cada um dos 10 alunos mostra "BLACK CAVEIRA 2026 - 1 ANO (Cópia)" em Compras; Custos!B9 = 7075,98.
+
+## 18/11 23h40 · Fechamento de tudo antes da próxima ideia do Victor
+- Pedido: deixar tudo pronto e funcionando (auditoria, agentes, Metricool, MCP da Greenn, agentes conversando entre si); atendente do WhatsApp fica responsável também pelo suporte de acesso (com as 2 consultas novas).
+- Feito: Metricool com dados; lista dos posts da Black para arquivar; conector Greenn adicionado e autorizado pelo Victor no Chrome do Luis corinthiano; vendas de novembro cruzadas com as 114 entregas da Cademi (nenhum furo além do 204640 já corrigido); diagnóstico e plano do Guia 12 semanas; canal `memoria/conversas.md` e regra no CLAUDE.md, ficha do chefe e agenda; modelo da recuperação aprovado.
+- Decisões: atendente do WhatsApp faz o suporte de acesso (Victor); agentes conversam pelo chefe; MCP da Greenn só leitura, mudança pela fila.
+- Pendente: OK do Victor na lista de posts; construir o Guia novo (sucesso-aluno 19/11); passo do modelo na automação de recuperação; Hotmart; atendente 24h; chaves da tarefa agendada.
+- Verificado: Metricool e Greenn responderam com dados; página do guia testada clicando; modelo "Aprovado" na tela do ManyChat.

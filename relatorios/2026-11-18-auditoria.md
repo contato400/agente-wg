@@ -66,3 +66,17 @@ Cada item com a prova lida hoje. OK = provado hoje. PROBLEMA = afeta venda ou op
 - ManyChat de 11 a 16/11 (planilha do Guilherme): assinatura US$ 152,14 + 9 recargas de US$ 10 = US$ 242,14, cerca de R$ 1.393,42 com IOF (estimativa; valor exato na fatura). Três recargas em 1 minuto em 11/11 20h25: conferir se foi clique duplicado.
 - DevZap R$ 197 por mês (não renova em dezembro).
 - Painel Financeiro, aba Custos: total do mês R$ 7.075,98. Resumo agora lê o total certo (`=Custos!B9`).
+
+## Rodada 5 · 22h40 a 23h40 · fechamento
+| Item | Status | Evidência |
+|---|---|---|
+| Metricool mandando dados | OK | 1.854.023 seguidores; 99 reels e 33 posts do feed de 20/10 a 18/11 com alcance, interações, engajamento e pulo nos 3 s |
+| Posts da Black para arquivar (B37) | Lista pronta, esperando Victor | `relatorios/2026-11-18-posts-black-arquivar.md` |
+| MCP da Greenn | Conectado | Conector "Greenn" no Claude (autorizado na conta do Luis corinthiano); `list_sales` devolveu 177 vendas pagas de 01 a 18/11 |
+| Entregas da Cademi x vendas da Greenn (B41/B40) | OK na Greenn | 114 entregas, nenhuma sem código; todo produto vendido em novembro tem entrega (e-book é arquivo da Greenn). Hotmart não conferida |
+| Guia 12 semanas | Diagnóstico e plano prontos | Funciona, mas é confuso (13 perguntas, sem link de aula, nome "Trilha Rotina Corrida"). Vendeu 2 em novembro. `docs/guia-12-semanas-diagnostico.md` |
+| Conversa entre agentes | Ligada | `memoria/conversas.md`, CLAUDE.md, ficha do chefe, agenda |
+| Modelo `caveira_recuperacao_carrinho` | Aprovado pela Meta | ManyChat, Configurações, WhatsApp, Modelos de Mensagem |
+| Tarefa agendada | Sem mudança no texto | As regras novas entram pelo repositório (CLAUDE.md e ficha do chefe), que a rotina lê. O texto tem chaves dentro e por isso não foi reescrito |
+
+Ainda aberto (com dono): passo do modelo dentro da automação de recuperação (conferir se pegou a versão aprovada, auditor-wg 19/11); 2 travessões no /catalogo (ofertas, pela fila); funis do ManyChat na sexta 19h (B35); chaves da tarefa agendada para variável de ambiente (Victor); entregas da Hotmart (sem acesso de leitura); atendente do WhatsApp 24h (YCloud, número restrito).
