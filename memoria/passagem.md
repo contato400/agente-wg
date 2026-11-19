@@ -229,3 +229,9 @@ Modelo:
 - Pendente: Victor decide se move P3 (17h) e P4 normal (21h) por causa do post dele às 19h (2h de intervalo, regra é 2h30); ouvir a Parte 3 para conferir a frase nova.
 - Verificado: legendas e horários pelo Metricool. Não verificado: conteúdo falado dos vídeos.
 - Fila: nenhuma linha APROVADO pendente; 20261119-sucesso-1 segue PENDENTE.
+
+## 2026-11-19 11h45 · Executor na hora
+- Pedido: Victor quer o agente executando na hora do áudio e só 2 tarefas agendadas.
+- Feito: tarefa nova "Agente WG - Executor" (Code, Sonnet, repo agente-wg, a cada hora + acionador API). Antiga (tipo Chat) apagada. Cloudflare: segredo EXECUTOR_TOKEN (colado pelo Victor) e variável EXECUTOR_URL. Rede do ambiente Default liberada pelo Victor para script.google.com, script.googleusercontent.com e o worker.
+- Verificado: execução de teste 11h41 leu recados e fila, conferiu Metricool, mandou WhatsApp e fez commit.
+- Pendente: testar o disparo na hora com um áudio real do Victor.

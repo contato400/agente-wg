@@ -1,4 +1,4 @@
-# Executor da equipe WG (roda de hora em hora, 9h às 18h, segunda a sábado)
+# Executor da equipe WG (dispara na hora pelo WhatsApp via API; reserva de hora em hora)
 
 Objetivo: o que o Victor (ou o Wesley) aprova pelo WhatsApp é executado no mesmo dia, sem ele precisar abrir o computador.
 
