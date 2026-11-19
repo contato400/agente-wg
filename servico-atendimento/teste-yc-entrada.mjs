@@ -1,7 +1,7 @@
 // Teste da leitura pela YCloud (POST /yc): assinatura, filtro de número, envio pela YCloud, eco humano, e Meta de outro número ignorada.
 import w from './worker.js';
-const kv=new Map(); const env={WG:{get:async k=>kv.get(k)??null,put:async(k,v)=>kv.set(k,v),delete:async k=>kv.delete(k)},
- VERIFY_TOKEN:'v',APP_SECRET:'s',WA_TOKEN:'t',YC_KEY:'yc',YC_WEBHOOK_SECRET:'whsec',YC_FROM:'+553193294274',ANTHROPIC_API_KEY:'a',MODO:'teste',TESTE_FONES:'553190000000',ADMIN_FONE:'5531999999999'};
+const kv=new Map(); const env={WG:{get:async k=>kv.get(k)??null,put:async(k,v)=>kv.set(k,v),delete:async k=>kv.delete(k),list:async({prefix})=>({keys:[...kv.keys()].filter(k=>k.startsWith(prefix)).map(name=>({name}))})},
+ VERIFY_TOKEN:'v',APP_SECRET:'s',WA_TOKEN:'t',YC_KEY:'yc',YC_WEBHOOK_SECRET:'whsec',YC_FROM:'+553193294274',ANTHROPIC_API_KEY:'a',MODO:'teste',TESTE_FONES:'553190000000',ADMIN_FONE:'5531999999999',AVISO_TOKEN:'av'};
 const yc=[], anth=[];
 globalThis.fetch=async(u,o)=>{ u=String(u);
  if(u.includes('anthropic')){anth.push(JSON.parse(o.body)); return {ok:true,json:async()=>({content:[{type:'text',text:'Shalom, tudo bem?'}]})};}
@@ -33,7 +33,18 @@ await yreq(ent(20,'+5531999999999','+553193294274','#cliente')); const nSim=yc.l
 await yreq(ent(21,'+5531999999999','+553193294274','nao consigo entrar'));
 r.push(['#cliente: responde como cliente (com ferramentas)', yc.length===nSim+1 && anth.at(-1).tools.length>0 && kv.has('hist:sim5531999999999')]);
 await yreq(ent(22,'+5531999999999','+553193294274','#chefe')); await yreq(ent(23,'+5531999999999','+553193294274','status'));
-r.push(['#chefe: volta ao modo chefe', anth.at(-1).tools.length===0]);
+r.push(['#chefe: volta ao modo chefe (ficha do chefe, ferramentas da equipe, data e hora)', anth.at(-1).tools.some(t=>t.name==='perguntar_agente') && anth.at(-1).system[1].text.includes('agente Chefe') && anth.at(-1).system[2].text.includes('AGORA:') && anth.at(-1).model.includes('fable')]);
+await yreq(ent(24,'+5531999999999','+553193294274','#Financeiro')); await yreq(ent(25,'+5531999999999','+553193294274','quanto vendeu?'));
+r.push(['#financeiro: fala só com o financeiro, histórico próprio', anth.at(-1).system[1].text.includes('agente Financeiro') && kv.has('hist:ag:financeiro-wg:5531999999999') && yc.at(-2).text.body.includes('Falando com Financeiro')]);
+r.push(['cliente também vê data e hora', anth.find(a=>a.system.length===2).system[1].text.includes('AGORA:')]);
+const av=async(path,metodo,corpo,tk='av')=>{const res=await w.fetch(new Request('https://x'+path,{method:metodo,body:corpo?JSON.stringify(corpo):undefined,headers:{authorization:'Bearer '+tk}}),env,{waitUntil:()=>{}});return res;};
+r.push(['/avisar sem chave = 403', (await av('/avisar','POST',{de:'financeiro',texto:'oi chefe'},'x')).status===403]);
+const n0=yc.length; const ra=await av('/avisar','POST',{de:'jurídico',texto:'Preciso da sua aprovação no item 3.'});
+r.push(['/avisar manda ao Victor com o nome do agente', ra.status===200 && yc.length===n0+1 && yc.at(-1).to==='+5531999999999' && yc.at(-1).text.body.startsWith('[Jurídico]') && kv.has('hist:ag:juridico-wg:5531999999999')]);
+r.push(['/equipe atualiza a memória', (await av('/equipe','POST',{memoria:'x'.repeat(60)})).status===200 && kv.get('equipe:memoria').length===60]);
+kv.set('recado:1',JSON.stringify({para:'rotina',recado:'teste'}));
+const rr=await (await av('/recados?limpar=1','GET')).json();
+r.push(['/recados devolve e limpa', rr.length===1 && !kv.has('recado:1')]);
 const antes=yc.length; await yreq({type:'whatsapp.inbound_message.received',whatsappInboundMessage:{wamid:'wamid.dup',from:'+5531999999999',to:'+553193294274',type:'text',text:{body:'Oi'}}});
 r.push(['inbound_message.received ignorado (evita duplicar)', yc.length===antes]);
 for(const [n,ok] of r) console.log(ok?'OK    ':'FALHOU', n);

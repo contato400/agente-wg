@@ -158,3 +158,10 @@ Modelo:
 - Academia ligada (CADEMI_KEY, ferramentas conferir_academia e enviar_link_senha): teste do Victor achou a Black liberada e mandou o link de senha.
 - Conhecimento novo (45 mil caracteres, 11 fontes, montar.py): contexto do projeto, produtos por dentro (lidos nas páginas e na Greenn), Black e reabertura, skill nova conducao-conexao-wg (NEPQ, Voss, objeções reais), regras de desconto alinhadas à escada. Publicado e conferido.
 - Pendente: Victor testar com #cliente (catálogo, Black, objeções); depois MODO=ativo e trocar o número de suporte em todos os lugares (Academia, Greenn, Hotmart, páginas, catálogo, grupos, skills).
+
+## 19/11 03h40 · Agente ativo para todos, número novo nas páginas, agentes no WhatsApp
+- MODO=ativo conferido. Número de suporte (31) 99329-4274 em CLAUDE.md, skills e guia (commit e8ed331).
+- Atomicat: 30 páginas publicadas tinham o 97334-6056 (catálogo 31 links, Black e Black oferta, 20 páginas de venda, 5 obrigado, guia, privacidade, pp-black26). Em todas entrou o script `kmc-suporte-4274` (cópia em conteudo/atendimento/patch-numero-suporte-paginas.html) no topHead/topBody ou no index.html, que troca número e links wa.me ao carregar. Conferido no ar: 30 de 30; catálogo com 31 links novos e 0 antigos. O HTML de origem ainda tem o número velho (trocar de vez quando cada página for reeditada).
+- Serviço do WhatsApp (worker): data e hora de Brasília em toda resposta + reabertura automática (antes/depois de sexta 20/11 19h); resposta do chefe cortava em 1.200 tokens, agora 4.000 e quebra em partes; #chefe/#financeiro/#social/#trafego/#juridico/#ofertas/#auditor/#analista/#sucesso/#atendimento/#cliente/#equipe; ferramentas perguntar_agente e registrar_recado; portas /avisar, /equipe e /recados com o segredo AVISO_TOKEN. Implantado e conferido (código implantado = gerado).
+- Rotina: rotinas/whatsapp.sh (avisar, avisar-arquivo, memoria, recados); debriefing passa a ir pelo WhatsApp (skill debrief-diario-wg).
+- Pendente: Victor criar o segredo AVISO_TOKEN no Cloudflare e WG_AVISO_TOKEN na tarefa agendada (mesmo valor); trocar número na Academia (Cademi), Greenn, Hotmart e Instagram; decidir CAVEIRA99.

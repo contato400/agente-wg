@@ -85,6 +85,45 @@ const FERRAMENTAS = [{
   input_schema: { type: 'object', properties: { assunto: { type: 'string', description: 'Ex.: Kairós, SalesMed, pessoal. Sem dados pessoais.' } }, required: ['assunto'] }
 }];
 
+// ---- Equipe de agentes (19/11): o Victor fala com cada um pelo "#nome"; todos leem a memória da operação e podem perguntar a outro agente ----
+const EQUIPE = {"regras": "Nada externo sem aprovação do Victor ou do Wesley (publicar, gastar, mandar mensagem a cliente, mexer em página, oferta, campanha). Reembolso e pagamento nunca por agente. Só o negócio do Wesley. Suporte oficial (31) 99329-4274. Sem travessão. Sucesso é venda, não atividade; separar comprovado de estimado. Sem dado pessoal de cliente em memória ou relatório. Expediente dos agentes 8h às 18h (o atendimento do WhatsApp responde 24 h).", "fichas": {"analista-wg": "Responde por: O que vende e o que não vende. Mede: Vendas por origem, grupo, post, anúncio, produto e agente; saúde dos dados. Pode sozinho: Sim (só leitura)", "financeiro-wg": "Responde por: Quanto sobra de verdade. Mede: Líquido, projeção, custo global, custo por comprador por produto, recompra, reembolso. Pode sozinho: Sim (só leitura)", "atendimento-wg": "Responde por: Qualidade do WhatsApp e voz do cliente. Mede: Conversão das conversas, passagens para humano, erros, objeções; pesquisas. Pode sozinho: Só propõe", "social-media-wg": "Responde por: Conversa que vira venda no Instagram. Mede: Comentário com palavra-chave e venda por post; termômetro do direct. Pode sozinho: Só propõe", "ofertas-paginas-wg": "Responde por: Oferta, página, checkout e esteira. Mede: Conversão por página, bump, upsell, recuperação; PPN, esteira, trilhas. Pode sozinho: Só propõe (rascunho sim)", "trafego-wg": "Responde por: Assistente do Diogo. Mede: Custo por venda, funil do anúncio. Pode sozinho: Só relatório até o fim da Black", "juridico-wg": "Responde por: Risco. Mede: Itens revisados e motivos de ajuste. Pode sozinho: Sim (só revisão)", "sucesso-aluno-wg": "Responde por: Aluno depois da compra. Mede: Acesso liberado, \"não recebi acesso\", Guia 12 semanas. Pode sozinho: Sim (interno); externo pela fila", "auditor-wg": "Responde por: Rota certa. Mede: O que está funcionando de verdade, com prova do dia. Pode sozinho: Sim (só leitura)", "chefe-wg": "Coordenador da equipe (Agente WG): debriefing diário, decide qual agente faz o quê, consolida propostas na fila de aprovação e responde ao Victor."}, "memoria": "### memoria/estado.md\n# Estado atual (atualizado em 2026-11-18 20h30 pela auditoria)\n\n## Meta de novembro\n- 150 vendas orgânicas e R$ 30 mil líquidos. Em 17/11: 115 vendas e R$ 25.361,74 (Greenn + Hotmart).\n\n## Campanha\n- Black Caveira 2026 encerrou em 16/11 às 19h. Página segue aberta a R$ 397.\n- Reabertura relâmpago sexta 20/11 às 19h (sem data de fechamento).\n- Foco até 30/11: Black (as vendas se arrastam depois da reabertura). Depois, o catálogo volta a ser o foco do atendimento.\n- Catálogo do WhatsApp: 23 cursos, sem e-book, está certo e vendendo. Não mexer.\n\n## Prioridades combinadas em 18/11 (madrugada)\n1. Atendimento 24h no número oficial (falta o código do Samuel e a chave da API).\n2. Mensagem de acesso logo depois da compra (link da Academia, e-mail da compra, spam). Cerca de um quarto das conversas do suporte é gente que não consegue entrar.\n3. Anúncio direto para conversa no WhatsApp, R$ 20 a R$ 30 por dia, quando o atendimento estiver no ar.\n4. UTM por agente (utm_term=ag-<agente>).\n5. Canal único com o Victor pelo WhatsApp dele.\n\n## O que está no ar\n- Ponte Greenn/Hotmart → ManyChat + planilha (Apps Script v2): todos os 74 produtos da Greenn e todos da Hotmart.\n- ManyChat: recuperação de carrinho automática (tag carrinho_pendente, cupom BLACK10) e upsell da IA KMC pós-compra (R$ 197).\n- Tráfego pago: em 17/11 ainda havia 3 campanhas da Black ATIVAS (GREENN 01, 04 e 05), gasto de R$ 845,62 no dia com 1 compra. Proposta de corte 20261118-trafego-1 na fila. Gasto desde 04/11: R$ 5.089,52.\n- Ponte gravando vendas desde 18/11 (4 vendas de tráfego no dia). Erro ao criar contato no ManyChat quando ele já existe (ver auditoria 18/11).\n- Instagram do Wesley ligado ao Metricool em 18/11 20h (importando). Windsor só com Meta Ads. Painel Financeiro WG criado.\n\n## Agentes\n- Fase 1 ligada: atendimento (em construção) e debriefing diário.\n- Fase 2 (social media com aprovação) e Fase 3 (tráfego como assistente do Diogo, liberado em 18/11): prontos para ligar.\n- Expediente dos agentes: 8h às 18h. Atendimento do WhatsApp responde fora do horário.\n\n## Fila de aprovação em 18/11\n- PENDENTE: 20261118-trafego-1 (urgente), 20261118-trafego-2, 20261118-social-1, 20261118-social-2, 20261118-social-3.\n\n### memoria/passagem.md (últimas entradas)\n## 19/11 02h40 · Agente do WhatsApp contextualizado (skills e produtos)\n- Academia ligada (CADEMI_KEY, ferramentas conferir_academia e enviar_link_senha): teste do Victor achou a Black liberada e mandou o link de senha.\n- Conhecimento novo (45 mil caracteres, 11 fontes, montar.py): contexto do projeto, produtos por dentro (lidos nas páginas e na Greenn), Black e reabertura, skill nova conducao-conexao-wg (NEPQ, Voss, objeções reais), regras de desconto alinhadas à escada. Publicado e conferido.\n- Pendente: Victor testar com #cliente (catálogo, Black, objeções); depois MODO=ativo e trocar o número de suporte em todos os lugares (Academia, Greenn, Hotmart, páginas, catálogo, grupos, skills)."};   // { regras, fichas: { 'chefe-wg': '...', ... }, memoria: '...' } montado por montar.py
+const APELIDOS = {
+  chefe: 'chefe-wg', financeiro: 'financeiro-wg', social: 'social-media-wg', midia: 'social-media-wg', socialmedia: 'social-media-wg', instagram: 'social-media-wg',
+  trafego: 'trafego-wg', anuncios: 'trafego-wg', juridico: 'juridico-wg', ofertas: 'ofertas-paginas-wg', paginas: 'ofertas-paginas-wg',
+  auditor: 'auditor-wg', analista: 'analista-wg', dados: 'analista-wg', sucesso: 'sucesso-aluno-wg', aluno: 'sucesso-aluno-wg', atendimento: 'atendimento-wg'
+};
+const NOME_AGENTE = { 'chefe-wg': 'Chefe', 'financeiro-wg': 'Financeiro', 'social-media-wg': 'Social', 'trafego-wg': 'Tráfego', 'juridico-wg': 'Jurídico',
+  'ofertas-paginas-wg': 'Ofertas', 'auditor-wg': 'Auditor', 'analista-wg': 'Analista', 'sucesso-aluno-wg': 'Sucesso do aluno', 'atendimento-wg': 'Atendimento' };
+const LISTA_HASH = '#chefe, #financeiro, #social, #trafego, #juridico, #ofertas, #auditor, #analista, #sucesso, #atendimento e #cliente';
+function semAcento(s) { return String(s).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z]/g, ''); }
+
+// Data e hora de Brasília, para o agente saber em que momento da campanha está.
+const REABERTURA = Date.parse('2026-11-20T19:00:00-03:00');
+function agora() {
+  const d = new Date();
+  const f = new Intl.DateTimeFormat('pt-BR', { timeZone: 'America/Sao_Paulo', weekday: 'long', day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }).format(d);
+  const fase = d.getTime() < REABERTURA ? 'A reabertura da Black (sexta 20/11, 19h) AINDA NÃO ABRIU: convide a pessoa a voltar sexta às 19h.' : 'A reabertura da Black (sexta 20/11, 19h) JÁ ESTÁ ABERTA: mande o link da página quando fizer sentido, sem citar data de fechamento.';
+  const h = Number(new Intl.DateTimeFormat('pt-BR', { timeZone: 'America/Sao_Paulo', hour: '2-digit', hour12: false }).format(d));
+  return `AGORA: ${f} (horário de Brasília). ${fase} Horário comercial da equipe: 8h às 18h (${h >= 8 && h < 18 ? 'estamos dentro' : 'estamos fora'} dele agora).`;
+}
+async function memoriaEquipe(env) { return (await env.WG.get('equipe:memoria')) || EQUIPE.memoria; }
+async function equipeBase(env) { try { const b = JSON.parse((await env.WG.get('equipe:base')) || 'null'); if (b && b.fichas) return b; } catch {} return EQUIPE; }
+async function sistemaAgente(chave, env) {
+  const base = await equipeBase(env);
+  return `Você é o agente ${NOME_AGENTE[chave] || chave} da equipe de agentes que opera o negócio do Mestre Wesley Gimenez (Krav Magá Caveira). Quem fala com você agora é o Victor, o responsável, pelo WhatsApp de suporte. Ele escolheu falar com você digitando #${Object.keys(APELIDOS).find(k => APELIDOS[k] === chave)}.
+Responda como esse agente: direto, em português, curto, como mensagem de WhatsApp (sem tabelas; listas curtas só se ajudarem). Sem travessão.
+Você enxerga a memória da equipe abaixo (estado, decisões, backlog, conversas entre agentes e a última passagem): use para dizer o que você e os outros estão fazendo. Você NÃO mexe no trabalho dos outros. Para saber algo de outro agente, use a ferramenta perguntar_agente. Nenhuma ação externa (publicar, gastar, mandar mensagem para cliente, mexer em página, oferta ou campanha) sem aprovação do Victor ou do Wesley; se ele aprovar aqui, registre com registrar_recado para a rotina executar. Nunca invente número: o que não estiver na memória ou nas consultas, diga que não tem.
+
+REGRAS DE TODOS OS AGENTES:
+${base.regras}
+
+SUA FICHA:
+${base.fichas[chave] || EQUIPE.fichas[chave] || '(sem ficha)'}
+
+MEMÓRIA DA EQUIPE (atualizada pela rotina diária):
+${await memoriaEquipe(env)}`;
+}
+
 export default {
   async fetch(req, env, ctx) {
     const url = new URL(req.url);
@@ -119,6 +158,40 @@ export default {
       };
       const txt = JSON.stringify(out, null, 1).split(env.WA_TOKEN || '@@nada@@').join('[token]');
       return new Response(txt, { headers: { 'content-type': 'application/json' } });
+    }
+    // ---- Porta dos agentes (rotina agendada): só com o segredo AVISO_TOKEN no cabeçalho Authorization: Bearer ----
+    if (url.pathname === '/avisar' || url.pathname === '/equipe' || url.pathname === '/recados') {
+      const tk = (req.headers.get('authorization') || '').replace(/^Bearer\s+/i, '');
+      if (!env.AVISO_TOKEN || tk !== env.AVISO_TOKEN) return new Response('negado', { status: 403 });
+      let b = {}; if (req.method === 'POST') { try { b = await req.json(); } catch {} }
+      if (url.pathname === '/avisar' && req.method === 'POST') {
+        // Um agente manda mensagem ao Victor: {de: "financeiro", texto: "..."}. Fica no histórico daquele agente, então o Victor responde com #financeiro.
+        const chave = APELIDOS[semAcento(b.de || 'chefe')] || 'chefe-wg';
+        const texto = `[${NOME_AGENTE[chave]}] ` + String(b.texto || '').trim();
+        if (!env.ADMIN_FONE || texto.length < 5) return new Response('faltou texto', { status: 400 });
+        const partes = dividirLongo(texto); let enviados = 0;
+        for (const p of partes) { if ((await enviar(env.ADMIN_FONE, p, env)) !== false) enviados++; }
+        const adm = String(env.ADMIN_FONE).replace(/\D/g, '');
+        await addHist(env, chave === 'chefe-wg' ? adm : 'ag:' + chave + ':' + adm, { role: 'assistant', content: texto });
+        return Response.json({ ok: enviados === partes.length, partes: partes.length, enviados });
+      }
+      if (url.pathname === '/equipe' && req.method === 'POST') {
+        // A rotina atualiza a memória que os agentes do WhatsApp enxergam (estado, decisões, backlog, conversas, passagem).
+        if (!b.memoria || String(b.memoria).length < 50) return new Response('faltou memoria', { status: 400 });
+        await env.WG.put('equipe:memoria', String(b.memoria).slice(0, 120000));
+        if (b.fichas && typeof b.fichas === 'object') await env.WG.put('equipe:base', JSON.stringify({ regras: String(b.regras || EQUIPE.regras).slice(0, 20000), fichas: b.fichas }));
+        return Response.json({ ok: true, tamanho: String(b.memoria).length });
+      }
+      if (url.pathname === '/recados' && req.method === 'GET') {
+        // A rotina busca recados e conversas entre agentes feitas pelo WhatsApp (e apaga com ?limpar=1 depois de registrar).
+        const out = [];
+        for (const pre of ['recado:', 'conversa:']) {
+          const l = await env.WG.list({ prefix: pre });
+          for (const k of l.keys) { out.push({ chave: k.name, ...JSON.parse((await env.WG.get(k.name)) || '{}') }); if (url.searchParams.get('limpar') === '1') await env.WG.delete(k.name); }
+        }
+        return Response.json(out);
+      }
+      return new Response('rota', { status: 404 });
     }
     if (req.method === 'POST' && url.pathname === '/mc') {
       // Chamado pela resposta padrão do WhatsApp no ManyChat (só dispara quando nenhum fluxo pegou a mensagem).
@@ -205,16 +278,20 @@ async function receber(m, nome, env) {
 
   // Modo simulação do Victor: "#cliente" faz o agente responder a ele como se fosse um cliente (para testar a voz e o fluxo);
   // "#chefe" volta ao normal. A conversa simulada fica num histórico separado.
-  const cmd = m.type === 'text' ? String(m.text.body || '').trim().toLowerCase() : '';
-  if (admin && (cmd === '#cliente' || cmd === '#chefe')) {
-    if (cmd === '#cliente') { await env.WG.put('sim:' + de, '1', { expirationTtl: 86400 }); await env.WG.delete('hist:sim' + de); }
-    else await env.WG.delete('sim:' + de);
-    await enviar(de, cmd === '#cliente' ? 'Modo cliente ligado. Escreva como se fosse um aluno ou lead. Para voltar: #chefe' : 'Modo chefe de volta.', env);
+  // "#cliente": simula um cliente. "#chefe", "#financeiro", "#social"...: fala com aquele agente. "#equipe": lista.
+  const cmd = m.type === 'text' ? String(m.text.body || '').trim() : '';
+  const hash = /^#\S+$/.test(cmd) ? semAcento(cmd.slice(1)) : '';
+  if (admin && hash && (hash === 'cliente' || hash === 'equipe' || APELIDOS[hash])) {
+    if (hash === 'cliente') { await env.WG.put('sim:' + de, '1', { expirationTtl: 86400 }); await env.WG.delete('hist:sim' + de); await enviar(de, 'Modo cliente ligado. Escreva como se fosse um aluno ou lead. Para sair: #chefe (ou outro agente).', env); }
+    else if (hash === 'equipe') await enviar(de, 'Agentes: ' + LISTA_HASH + '. Digite o # do agente e fale só com ele até trocar.', env);
+    else { await env.WG.delete('sim:' + de); await env.WG.put('modo:' + de, APELIDOS[hash]); await enviar(de, `Falando com ${NOME_AGENTE[APELIDOS[hash]]}. Para trocar: ${LISTA_HASH}.`, env); }
     return;
   }
   const simula = admin && !!(await env.WG.get('sim:' + de));
-  const hk = simula ? 'sim' + de : de;
-  const chefe = admin && !simula;
+  const agente = admin && !simula ? ((await env.WG.get('modo:' + de)) || 'chefe-wg') : null;
+  const base = admin && env.ADMIN_FONE ? String(env.ADMIN_FONE).replace(/\D/g, '') : de;   // mesmo histórico que a porta /avisar usa
+  const hk = simula ? 'sim' + de : (agente ? (agente === 'chefe-wg' ? base : 'ag:' + agente + ':' + base) : de);
+  const chefe = agente;
 
   const conteudo = await paraConteudo(m, env);
   if (!conteudo) return;
@@ -269,24 +346,42 @@ async function baixarMidia(id, env) {
   } catch { return null; }
 }
 
-async function pensar(hist, nome, fone, admin, env) {
-  const extra = admin ? '\n\nATENÇÃO: quem está falando é o Victor, responsável pela operação. Trate como chefe: responda de forma direta, sem tom de venda, e não use a ferramenta passar_para_humano.' : `\n\nPrimeiro nome no perfil do WhatsApp: ${nome || 'não informado'} (use só se parecer um nome de verdade).`;
+// Ferramentas dos agentes (modo Victor): consultas de cliente + falar com outro agente + deixar recado para a rotina.
+const FERRAMENTAS_EQUIPE = FERRAMENTAS.filter(f => ['consultar_compra', 'conferir_academia', 'enviar_link_senha'].includes(f.name)).concat([{
+  name: 'perguntar_agente',
+  description: 'Pergunta algo a outro agente da equipe (ele responde com a ficha e a memória dele). Use para saber o que o outro está fazendo, pedir um número ou uma opinião. Não serve para mandar o outro mexer em nada.',
+  input_schema: { type: 'object', properties: { agente: { type: 'string', enum: Object.keys(NOME_AGENTE) }, pergunta: { type: 'string' } }, required: ['agente', 'pergunta'] }
+}, {
+  name: 'registrar_recado',
+  description: 'Deixa um recado ou pedido para a rotina diária da equipe (vai para memoria/conversas.md na próxima rotina): aprovação do Victor, pedido a outro agente, tarefa. Sem dados pessoais de cliente.',
+  input_schema: { type: 'object', properties: { para: { type: 'string', description: 'agente de destino ou "rotina"' }, recado: { type: 'string' } }, required: ['para', 'recado'] }
+}]);
+
+async function chamarClaude(env, corpo) {
+  const r = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: { 'x-api-key': env.ANTHROPIC_API_KEY, 'anthropic-version': '2023-06-01', 'content-type': 'application/json' },
+    body: JSON.stringify(corpo)
+  });
+  return { ok: r.ok, status: r.status, d: await r.json() };
+}
+
+async function pensar(hist, nome, fone, agente, env) {
+  const hora = agora();
+  const extra = agente ? `\n\n${hora}` : `\n\n${hora}\nPrimeiro nome no perfil do WhatsApp: ${nome || 'não informado'} (use só se parecer um nome de verdade).`;
+  const sistema = [{ type: 'text', text: SISTEMA, cache_control: { type: 'ephemeral' } }];
+  if (agente) sistema.push({ type: 'text', text: await sistemaAgente(agente, env), cache_control: { type: 'ephemeral' } });
+  sistema.push({ type: 'text', text: extra });
   const msgs = juntar(hist);
-  for (let volta = 0; volta < 3; volta++) {
-    const r = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'x-api-key': env.ANTHROPIC_API_KEY, 'anthropic-version': '2023-06-01', 'content-type': 'application/json' },
-      body: JSON.stringify({
-        model: admin ? (env.MODELO_CHEFE || 'claude-fable-5-2') : (env.MODELO || 'claude-sonnet-5-5'), max_tokens: 1200,
-        system: [{ type: 'text', text: SISTEMA, cache_control: { type: 'ephemeral' } }, { type: 'text', text: extra }],
-        tools: admin ? [] : FERRAMENTAS, messages: msgs,
-      })
+  for (let volta = 0; volta < 4; volta++) {
+    const { ok, status, d } = await chamarClaude(env, {
+      model: agente === 'chefe-wg' ? (env.MODELO_CHEFE || 'claude-fable-5-2') : (agente ? (env.MODELO_AGENTES || 'claude-sonnet-5-5') : (env.MODELO || 'claude-sonnet-5-5')),
+      max_tokens: agente ? 4000 : 1500, system: sistema, tools: agente ? FERRAMENTAS_EQUIPE : FERRAMENTAS, messages: msgs,
     });
-    const d = await r.json();
-    if (!r.ok) { console.log('anthropic', JSON.stringify(d)); await passo(env, 'anthropic erro ' + r.status + ' ' + JSON.stringify(d.error || d).slice(0, 150)); return ['Shalom! Recebi sua mensagem e já já te respondo. Tamo junto, Caveira!']; }
+    if (!ok) { console.log('anthropic', JSON.stringify(d)); await passo(env, 'anthropic erro ' + status + ' ' + JSON.stringify(d.error || d).slice(0, 150)); return ['Shalom! Recebi sua mensagem e já já te respondo. Tamo junto, Caveira!']; }
     const usos = (d.content || []).filter(c => c.type === 'tool_use');
     const textos = (d.content || []).filter(c => c.type === 'text').map(c => c.text.trim()).filter(Boolean);
-    if (!usos.length) return dividir(textos.join('\n\n'));
+    if (!usos.length) { if (d.stop_reason === 'max_tokens') await passo(env, 'resposta cortada no limite'); return agente ? dividirLongo(textos.join('\n\n')) : dividir(textos.join('\n\n')); }
     const fora = usos.find(u => u.name === 'nao_responder');
     if (fora) { await env.WG.put('fora:' + Date.now(), JSON.stringify({ final: String(fone).slice(-4), assunto: (fora.input || {}).assunto || '' }), { expirationTtl: 7 * 86400 }); return []; }
     msgs.push({ role: 'assistant', content: d.content });
@@ -309,7 +404,26 @@ async function executar(u, fone, nome, env) {
   if (u.name === 'consultar_compra') return consultarCompra(String((u.input || {}).email || '').trim().toLowerCase(), env);
   if (u.name === 'conferir_academia') return conferirAcademia(String((u.input || {}).email || '').trim().toLowerCase(), env);
   if (u.name === 'enviar_link_senha') return enviarLinkSenha(String((u.input || {}).email || '').trim().toLowerCase(), env);
+  if (u.name === 'perguntar_agente') return perguntarAgente(String((u.input || {}).agente || ''), String((u.input || {}).pergunta || ''), env);
+  if (u.name === 'registrar_recado') {
+    const i = u.input || {};
+    await env.WG.put('recado:' + Date.now(), JSON.stringify({ quando: agora(), para: i.para, recado: String(i.recado || '').slice(0, 2000) }), { expirationTtl: 14 * 86400 });
+    return 'Recado registrado. A rotina diária leva para memoria/conversas.md.';
+  }
   return 'ferramenta desconhecida';
+}
+
+async function perguntarAgente(chave, pergunta, env) {
+  if (!EQUIPE.fichas[chave]) return 'Agente não encontrado.';
+  const { ok, d } = await chamarClaude(env, {
+    model: env.MODELO_AGENTES || 'claude-sonnet-5-5', max_tokens: 1200,
+    system: [{ type: 'text', text: await sistemaAgente(chave, env), cache_control: { type: 'ephemeral' } }, { type: 'text', text: agora() + '\nQuem pergunta agora é outro agente da equipe, não o Victor. Responda curto, só com o que você sabe pela memória e pela sua ficha.' }],
+    messages: [{ role: 'user', content: pergunta }]
+  });
+  if (!ok) return 'O agente não respondeu agora.';
+  const t = (d.content || []).filter(c => c.type === 'text').map(c => c.text).join('\n').trim();
+  await env.WG.put('conversa:' + Date.now(), JSON.stringify({ quando: agora(), para: chave, pergunta: pergunta.slice(0, 1000), resposta: t.slice(0, 2000) }), { expirationTtl: 14 * 86400 });
+  return t || '(sem resposta)';
 }
 
 // ---- Academia (Cademi API v3; chave com users.read, enrollments.read, products.read e users.send_access) ----
@@ -435,6 +549,19 @@ function dividir(t) {
   const partes = t.split(/\n{2,}/).map(s => s.trim()).filter(Boolean);
   if (partes.length <= 2) return partes;
   return [partes[0], partes.slice(1).join('\n\n')];
+}
+// Agentes falando com o Victor: mensagens podem ser longas; quebra em blocos de até ~3500 caracteres (limite do WhatsApp é 4096).
+function dividirLongo(t) {
+  t = t.replace(/\s*—\s*/g, ', ').trim();
+  if (!t) return [];
+  const out = []; let atual = '';
+  for (const p of t.split(/\n{2,}/)) {
+    if (atual && (atual.length + p.length + 2) > 3500) { out.push(atual); atual = ''; }
+    atual = atual ? atual + '\n\n' + p : p;
+    while (atual.length > 3500) { out.push(atual.slice(0, 3500)); atual = atual.slice(3500); }
+  }
+  if (atual) out.push(atual);
+  return out;
 }
 
 async function getHist(env, fone) { try { return JSON.parse(await env.WG.get('hist:' + fone) || '[]'); } catch { return []; } }

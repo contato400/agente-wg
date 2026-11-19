@@ -30,4 +30,5 @@ Lido pelo Victor no celular, de manhã. Precisa caber em 2 minutos de leitura.
 - Comprovado x estimado sempre separado.
 - Se um dado não veio, diga "sem dado de X" em vez de omitir.
 - Nada de dado pessoal de cliente.
-- Onde entregar: arquivo `relatorios/AAAA-MM-DD-debrief.md` e, quando o envio estiver configurado, e-mail para a conta do Victor.
+- Onde entregar: arquivo `relatorios/AAAA-MM-DD-debrief.md` e no **WhatsApp do Victor** (decisão de 19/11: com o atendimento 24 h no ar, o canal é o WhatsApp, não o e-mail): `rotinas/whatsapp.sh avisar-arquivo chefe relatorios/AAAA-MM-DD-debrief.md`. Versão para WhatsApp: curta, sem tabela (lista simples), até ~3.500 caracteres por parte. Só use `rotinas/ponte.sh email` se o envio pelo WhatsApp falhar (ex.: Victor sem falar com o número há mais de 24 h).
+- Depois do debriefing: `rotinas/whatsapp.sh recados` (traz recados e conversas que o Victor fez com os agentes pelo #nome; registrar em `memoria/conversas.md`) e `rotinas/whatsapp.sh memoria` (atualiza o que os agentes do WhatsApp enxergam).
