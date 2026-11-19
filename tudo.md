@@ -37,6 +37,8 @@ Cada ficha diz o que o agente mede, de onde lê, as skills, a rotina, o sinal qu
 - `relatorios/`: relatórios diários dos agentes (AAAA-MM-DD-nome.md).
 - `rotinas/`: agenda (inclui o agente do dia), ponte com a planilha (`ponte.sh`), configuração do executor.
 - `servico-atendimento/`: código do atendente de WhatsApp (Cloudflare Worker) e testes.
+- `jarvis/`: processos para o Jarvis (assistente de voz no Windows do Victor) falar com os agentes; LEIA-ME com instalação e regras extras.
+- `conteudo/site-cinematografico/`: site único do Wesley (B43): fotos, prompts de referência e rascunho.
 
 ## Fora do repositório
 - Projeto "VICTOR. A" no claude.ai: cópias dos docs em `kairos/`.
