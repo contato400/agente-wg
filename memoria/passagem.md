@@ -276,3 +276,9 @@ Modelo:
 - Decisões: as duas famílias usam a mesma fala limpa; não fiz versão com prêmio (o Wesley não fala do prêmio e ele só vale de sexta 19h até lotar).
 - Pendente: OK do Victor no piloto antes das 6 variações pesadas; decisões listadas em variacoes.md (cortes, originais no ar falando boleto, Pix parcelado no checkout do anúncio, "pelo preço de um curso").
 - Verificado: folhas olhadas uma a uma, faixa antiga não aparece, re-transcrição da fala cortada, pico -1,4 dB, I -14.
+
+## 19/11 ~17h · editor-video-wg: 6 variações pesadas
+- Pedido: Victor 16h23 aprovou piloto, cortes, "pelo preço de um curso", gancho A v2 e Pix parcelado (Hotmart). Pediu 6 variações pesadas (A1, B1 tatame; A2, B2 rua à noite; A3, B3 estúdio).
+- Feito: 6 MP4 de 22,3 s em `conteudo/2026-11-19/variacoes-presente/pesada/` com capa, folha e `prontas.md`. Motor v2 em `pesada/motor/` (LEIAME.md, configs.py), ~2,5 min por vídeo.
+- Verificado: folha de cada uma olhada; sem boleto; -14,4 LUFS, pico -1,4 dB; legenda e faixa dentro da área segura.
+- Pendente: Victor aprova, Diogo sobe. Limite conhecido: borrão da mão perto da borda mostra 2 a 3 quadros do fundo antigo.

@@ -1,5 +1,18 @@
 # Motor de edição pesada WG (troca de cenário + efeitos 3D na fala)
 
+## v2 (19/11, 6 variações completas) · ~2,5 a 3 min por vídeo de 22 s em 2 núcleos
+```bash
+cd conteudo/2026-11-19/variacoes-presente/pesada/motor
+python3 -I configs.py <pasta_de_trabalho>          # gera cfg_A1..cfg_B3.json
+nohup python3 -I motor.py cfg_A1.json > log.txt 2>&1 < /dev/null &
+```
+- Máscara bruta uma vez por vídeo (`masks_raw`) e preparo uma vez (`prep`: fechamento, erosão, desfoque, escala 86% e borda de luz em meia resolução, ampliados na composição). As 6 variações usam o mesmo preparo.
+- Cenários `tatame`, `rua`, `estudio` em `cenarios.py` (camadas prontas + parallax, ~0,05 s por quadro).
+- Efeitos em `cena.html`: `split`, `marquee`, `tilt` (atrás); `card`, `big`, `stamp`, `coin`, `gift` (frente ou atrás, campo `layer`). Cartão final entra sozinho depois da fala (`card: 2.5`).
+- Aprendido: palavra gigante atrás da cabeça (`tilt` grande) some atrás do rosto, use `split` nas laterais; caixa de presente vai atrás dele (`layer: bg`) para não cobrir o rosto; moeda tem de assentar de frente (girando sem parar, o texto aparece espelhado); PNG opaco (cartão final) vem sem canal alfa.
+- Limite conhecido: mão em movimento rápido perto da borda do quadro mostra um pedaço do fundo antigo por 2 a 3 quadros (borrão da mão no original).
+
+
 Testado no piloto `../piloto_A1.mp4` (19/11). Sem Higgsfield nem IA generativa: rosto e voz do Wesley são os reais.
 
 ## Arquivos

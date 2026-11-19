@@ -82,3 +82,6 @@ Para motion mais elaborado (moldura, cartões, palavra passando atrás do rosto)
 ## 10. Depois que a Meta rodar
 - O Diogo informa retenção de 3 s, CTR e custo por compra por `utm_content`. O editor anota em `memoria/aprendizados.md`: qual gancho ganhou, com que verba e período.
 - Gancho que ganhou vira base da próxima rodada; gancho que perdeu não volta.
+
+## 11. Edição pesada (troca de cenário + efeitos 3D na fala), aprovada pelo Victor em 19/11 ("ficou brabo")
+Motor pronto: `conteudo/2026-11-19/variacoes-presente/pesada/motor/` (ler o `LEIAME.md`). Wesley real recortado (MediaPipe), cenários em Python em camadas (tatame, rua à noite, estúdio), elementos 3D em CSS no Playwright nas palavras que ele fala, whip, punch-in e efeitos sonoros sintetizados. ~3 min por vídeo de 22 s. Piloto de 6 a 8 s antes de estilo novo. Limites conhecidos: mão rápida perto da borda mostra 2 a 3 quadros do fundo antigo; número atrás da cabeça some quando ele inclina (preferir número inteiro ao lado, não dividido). Palavra vermelha em fundo vermelho some: usar branco ou amarelo.
