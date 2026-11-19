@@ -301,6 +301,8 @@ async function executar(u, fone, nome, env) {
 }
 
 // ---- Consulta de compra (Greenn: token só com o escopo "Consultar vendas"; Hotmart: credenciais da conta) ----
+// A API de vendas devolve só o número do produto; nomes conferidos na Greenn em 19/11.
+const PRODUTOS_GREENN = { 201654: 'Black Caveira 2026 (23 treinamentos, 1 ano)', 204640: 'Black Caveira 2026 (23 treinamentos, 1 ano)', 202271: 'Black Caveira 2026 (23 treinamentos, 2 anos)', 202274: 'Black Caveira 2026 (23 treinamentos, vitalício)', 201669: 'Guia de Treino: Trilha de 12 Semanas', 200398: 'IA KMC', 182127: 'E-book Vida Segura', 183084: 'Protocolo Rua', 184140: 'Protocolo Deslocamento', 185026: 'Protocolo Residencial', 158493: 'Protocolo Vida Segura', 158759: 'Entrega Personalizada WG', 158943: 'Caveira VIP Presencial', 160931: 'Mentoria WG', 140616: 'Combo Família Segura', 137555: 'Manual de Reação e Sobrevivência com Facas e Lâminas', 128948: 'Guia Prático de Prevenção de Confrontos', 127358: 'Combate e Sobrevivência com Lâminas (12 em 1)', 120469: 'Combo Proteção (DPC + DPF)', 103816: 'Combo Casal (DPC + DPF)', 97341: 'Desafio 30D + Defesa Pessoal Caveira 2.0', 73212: 'Comunidade Caveira vitalícia', 67014: 'Combo 4x1 (DPC 2.0 + Modo Caveira + MCD + Briga de Rua)', 66296: 'Desafio 30D', 64571: 'Mentalidade Caveira (mensal)', 64419: 'Combo 6 livros digitais', 64412: 'Mentalidade Caveira (lives)', 59654: 'Defesa Pessoal Kids', 59652: 'E-book Como Treinar seu Filho contra o Bullying', 59651: 'Preparação Física Kids', 59649: 'Primeiros Socorros Kids', 57436: 'Defesa Pessoal Caveira 2.0', 53654: 'Desafio Combate Caveira 7 Movimentos', 43884: 'Modo Caveira de Defesa Pessoal', 42930: 'Defesa contra Ataques com Lâminas', 33496: 'Combate com Lâminas', 33494: 'Combo 7 Seminários', 32088: 'Seminário Defesa de Socos', 32080: 'Seminário Defesa de Quedas', 31884: 'Comunidade Caveira vitalícia', 31873: 'Segurança de Comércios', 31868: 'Preparação Física Caveira', 31865: 'Defesa Pessoal Caveira 2.0 (DPC)', 30523: 'Desafio Combate Caveira 7 Movimentos', 30239: 'Primeiros Socorros Caveira (APH)', 29627: '2 Seminários (Socos e Quedas)', 28513: 'Defesa de Socos Completo', 28509: 'O Código Caveira', 28506: 'Comunidade Caveira', 28504: 'Contra Ataque Feminino', 28503: 'Socos para Iniciantes', 28502: 'Combate e Sobrevivência com Lâminas', 28501: 'Briga de Rua: 57 técnicas', 28497: 'Socos Avançados', 28495: 'Os Segredos do Armlock', 28491: 'Jiu Jitsu x Krav Maga para Rua', 27901: 'Protocolo MCD' };
 const STATUS_GREENN = { paid: 'aprovada (paga)', waiting_payment: 'aguardando pagamento (Pix ou boleto não pago)', refused: 'recusada (pagamento não passou)', refunded: 'reembolsada', chargedback: 'contestada no cartão (chargeback)', pending_refund: 'reembolso em andamento', canceled: 'cancelada', trialing: 'em teste' };
 async function consultarCompra(email, env) {
   if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return 'E-mail inválido. Peça para a pessoa conferir e mandar de novo.';
@@ -312,8 +314,8 @@ async function consultarCompra(email, env) {
       const j = await r.json().catch(() => ({}));
       if (!r.ok) avisos.push('Greenn não respondeu (' + r.status + ')');
       else for (const v of (j.data || [])) {
-        if (String((v.client || {}).email || '').toLowerCase() !== email) continue;
-        achados.push(`Greenn: ${(v.product || {}).name || 'produto ' + v.product_id} | ${STATUS_GREENN[v.status] || v.status} | ${v.method || ''} | compra ${String(v.created_at || '').slice(0, 10)}${v.paid_at ? ' | paga ' + String(v.paid_at).slice(0, 10) : ''}`);
+        if (v.client && v.client.email && String(v.client.email).toLowerCase() !== email) continue;  // a API já filtra pelo e-mail; o cliente nem sempre vem na resposta
+        achados.push(`Greenn: ${(v.product || {}).name || PRODUTOS_GREENN[v.product_id] || 'produto código ' + v.product_id} | ${STATUS_GREENN[v.status] || v.status} | ${v.method || ''} | compra ${String(v.created_at || '').slice(0, 10)}${v.paid_at ? ' | paga ' + String(v.paid_at).slice(0, 10) : ''}`);
       }
     } catch (e) { avisos.push('Greenn com erro'); }
   } else avisos.push('Greenn ainda não conectada');
@@ -327,10 +329,14 @@ async function consultarCompra(email, env) {
       }
       if (!tk) avisos.push('Hotmart não autorizou');
       else {
-        const desde = Date.now() - 3 * 365 * 86400000;
-        const r = await fetch(`https://developers.hotmart.com/payments/api/v1/sales/history?buyer_email=${encodeURIComponent(email)}&start_date=${desde}&end_date=${Date.now()}&max_results=20`, { headers: { Authorization: 'Bearer ' + tk } });
-        const j = await r.json().catch(() => ({}));
-        if (!r.ok) avisos.push('Hotmart não respondeu (' + r.status + ')');
+        const H = { headers: { Authorization: 'Bearer ' + tk } };
+        const base = 'https://developers.hotmart.com/payments/api/v1/sales/history?max_results=20&buyer_email=' + encodeURIComponent(email);
+        let r = await fetch(base + '&start_date=' + (Date.now() - 365 * 86400000) + '&end_date=' + Date.now(), H);
+        let txt = await r.text();
+        if (r.status === 400) { await passo(env, 'hotmart 400 com datas: ' + txt.replace(/[^\s"]+@[^\s"]+/g, '#').slice(0, 160)); r = await fetch(base, H); txt = await r.text(); }
+        if (r.status === 401) await env.WG.delete('hotmart:token');
+        let j = {}; try { j = JSON.parse(txt); } catch {}
+        if (!r.ok) { avisos.push('Hotmart não respondeu (' + r.status + ')'); await passo(env, 'hotmart ' + r.status + ': ' + txt.replace(/[^\s"]+@[^\s"]+/g, '#').slice(0, 160)); }
         else for (const it of (j.items || [])) {
           const pu = it.purchase || {};
           achados.push(`Hotmart: ${(it.product || {}).name || 'produto'} | ${pu.status || ''} | compra ${pu.order_date ? new Date(pu.order_date).toISOString().slice(0, 10) : ''}${pu.approved_date ? ' | aprovada ' + new Date(pu.approved_date).toISOString().slice(0, 10) : ''}`);
