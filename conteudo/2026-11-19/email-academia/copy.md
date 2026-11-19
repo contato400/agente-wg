@@ -1,10 +1,11 @@
-# E-mail para a base da Academia · quinta 19/11, 18h a 18h30
+# E-mail para a base da Academia · quinta 19/11, 18h a 18h30 (v2, 13h50)
 
-Base: skills copy-conversacional-wg (nível de consciência 4 e 5: aluno que já conhece o Wesley) e oferta-irresistivel (resultado, itens com valor, garantia, para quem é, um CTA).
+Pedido do Victor (13h41): não dizer que já abriu (efeito tsunami na sexta 19h, por causa dos prêmios). Mensagem: "Só para Aluno Caveira: a Black vai reabrir pra você que ainda não entrou". Botão leva ao grupo de espera; número de suporte para quem quiser garantir antes.
+Base: skills copy-conversacional-wg (aluno já conhece o Wesley: direto ao que ganha, preço só dele e motivo real para agir) e oferta-irresistivel (itens, garantia, prêmios como bônus que resolvem "por que agora", um CTA).
 Método: igual aos disparos de 12/11 e 14/11 (modelo "Boas-vindas de compra" da Cademi, remetente "Mestre Wesley", reenvio de acesso). Fora do envio: todo aluno com a entrega da Black #275158 (já comprou). Modelo volta ao texto padrão no fim.
 
 ## Imagem do topo
-banner.jpg (capas dos cursos ao fundo): "SÓ PARA ALUNO CAVEIRA · A BLACK REABRIU PRA VOCÊ ENTRAR ANTES · Os 23 treinamentos do Mestre Wesley com preço de aluno: 12x de R$ 35,68 · ATÉ SEGUNDA, 23/11, ÀS 19H"
+banner.jpg: "SÓ PARA ALUNO CAVEIRA · A BLACK VAI REABRIR PRA VOCÊ · Os 23 treinamentos com preço de aluno: 12x de R$ 35,68 · SEXTA, 20/11, ÀS 19H"
 
 ## Abertura
 O Mestre Wesley tem um recado importante pra você!
@@ -12,7 +13,7 @@ O Mestre Wesley tem um recado importante pra você!
 ## Texto
 Shalom, tudo bem?
 
-Depois que a Black Caveira fechou, muito aluno me escreveu dizendo que não conseguiu entrar a tempo. A reabertura oficial é amanhã, sexta, às 19h. Mas você já é meu aluno, então eu liberei pra você entrar antes de todo mundo, a partir de agora.
+Depois que a Black Caveira fechou, muito aluno me escreveu dizendo que não conseguiu entrar a tempo. Então eu decidi: amanhã, sexta-feira, às 19h, a Black vai reabrir por pouco tempo, e quem já é meu aluno entra com preço especial.
 
 **O que você leva:**
 ✅ Os 23 treinamentos do Método Caveira: defesa pessoal, proteção da família, defesa contra faca, golpes e preparo físico e mental
@@ -22,22 +23,27 @@ Depois que a Black Caveira fechou, muito aluno me escreveu dizendo que não cons
 ✅ 7 dias de garantia: se não for pra você, devolvo o seu dinheiro
 
 **Preço de aluno:** 12x de R$ 35,68 ou R$ 347 à vista (quem não é aluno paga R$ 397).
-Na página, toque em **"Já sou aluno Caveira"** e confirme o seu e-mail para liberar o seu preço.
+**Quer mais tempo de acesso?** Na hora do pagamento você escolhe: ampliar para 2 anos (+ R$ 97) ou deixar vitalício (+ R$ 197). E ainda pode levar o Guia de Treino de 12 semanas, que monta a sua rotina.
 
-**Quer mais tempo de acesso?** Na hora do pagamento você escolhe: ampliar para 2 anos (+ R$ 97) ou deixar vitalício (+ R$ 197). E ainda pode levar o Guia de Treino de 12 semanas, que monta a sua rotina de estudo.
+**🎁 Presente pra quem chegar primeiro, a partir das 19h de sexta:**
+👕 Os 3 primeiros pagamentos aprovados ganham a camisa Caveira
+🎥 Os 20 primeiros entram num encontro ao vivo comigo
+📚 Quem garantir até 23h59 de sexta leva os meus 6 livros digitais
 
-[PRÊMIOS: ver decisão 1]
+A reabertura vai de sexta, 20/11, às 19h, até segunda, 23/11, às 19h. Depois disso, sai do ar.
 
-A condição de aluno vale até **segunda, 23/11, às 19h**. Depois disso, sai do ar.
+O link sai primeiro no grupo oficial. Entra agora pra receber na frente:
 
-**Botão:** QUERO ENTRAR COM PREÇO DE ALUNO
-https://www.wesleygimenez.com.br/black-caveira-2026?utm_source=vc&utm_medium=email-academia&utm_campaign=reabertura-2011&utm_content=alunos-antecipado-1911&utm_term=ag-ofertas
+**Botão:** QUERO ENTRAR NO GRUPO E RECEBER O LINK
+https://devzapp.com.br/r/s9mRreup?utm_source=vc&utm_medium=email-academia&utm_campaign=reabertura-2011&utm_content=alunos-quinta&utm_term=ag-ofertas
+
+Ficou com alguma dúvida ou quer falar com a minha equipe? Chama no WhatsApp do suporte: (31) 99329-4274.
 
 Tamo junto, Caveira!
 Mestre Wesley
 
 ## Caixa em destaque (do modelo da Cademi)
-ALUNO CAVEIRA ENTRA ANTES · 12x de R$ 35,68 ou R$ 347 · ATÉ SEGUNDA, 23/11, ÀS 19H
+SÓ PARA ALUNO CAVEIRA · A BLACK REABRE SEXTA, 20/11, ÀS 19H · Preço de aluno: 12x de R$ 35,68 ou R$ 347
 
 ## Por que essa oferta funciona
-O aluno já confia no Wesley (consciência alta), então o e-mail vai direto ao que ele ganha, ao preço que só ele tem e a um motivo real para decidir agora: entrar antes de todo mundo e o prazo de segunda. A garantia tira o risco, e os adicionais deixam quem quer mais escolher sem complicar a oferta principal.
+O aluno já confia no Wesley, então o e-mail vai direto ao que ele leva e ao preço que só ele tem. Os prêmios dos primeiros e o horário marcado concentram as compras às 19h de sexta, e o prazo real de segunda dá o motivo para não deixar para depois. A garantia tira o risco.

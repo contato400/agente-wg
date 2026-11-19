@@ -257,3 +257,9 @@ Modelo:
 - Checkouts Greenn 145095 e 145096: faixa "ATÉ SEGUNDA, 23/11, ÀS 19H · Finalize agora e garanta seus prêmios." Botão de WhatsApp do checkout: (31) 99329-4274. O relógio da Greenn só aceita minutos por pessoa (15 min); não conta até uma data.
 - Régua do Gui (artifact 7bB5X8EHDA7ZgYqGqNe9JX, versão 13): prazo de segunda, mensagens de domingo e segunda, DPC passou para terça 24/11.
 - E-mail da Academia: copy e banner em conteudo/2026-11-19/email-academia (copy.md, banner.jpg). Disparo 18h a 18h30 depois do "pode mandar" do Victor e da decisão sobre prêmios.
+
+## 2026-11-19 13h55 · E-mail v2, modelo de acesso, stories
+- Victor (13h41): não dizer aos alunos que já abriu (tsunami na sexta 19h por causa dos prêmios). E-mail v2: "a Black vai reabrir pra você", botão para o grupo de espera, suporte (31) 99329-4274 no fim. Banner refeito.
+- Modelo caveira_acesso_academia_v2 aprovado pela Meta e colocado na automação "WPP - Acesso pós-compra (Greenn e Hotmart)". Publicado.
+- Stories (social-media-wg): 4 artes em conteudo/2026-11-19/stories (sequencia.md), para 15h30, 17h30, 19h30 e 20h45. Não programadas: esperam OK do Victor. O 4 pede resposta CAVEIRA no story; confirmar se o funil de resposta a story do ManyChat leva ao grupo.
+- Atenção: o atendente ainda vende na hora para quem pede (decisão das 12h38); o e-mail não fala disso.
