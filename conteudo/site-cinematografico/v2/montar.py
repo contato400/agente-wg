@@ -10,13 +10,14 @@ D = {
  'bullying': ('Preparar o seu filho', 'Postura, voz firme e confiança para pedir ajuda e não virar alvo.', 'catalogo', 'Ver o que serve para o meu filho'),
 }
 DEST = {k: {'nome': n, 'texto': t, 'url': U.format(p=p, c='avatar-' + k), 'botao': b} for k, (n, t, p, b) in D.items()}
-cards = '\n'.join(f'<a class="card" href="{U.format(p=p, c="card-"+k)}" target="_blank" rel="noopener"><h3>{n}</h3><p>{t}</p><span class="cta">{b} →</span></a>' for k, (n, t, p, b) in D.items())
-cards += f'\n<a class="card" href="{U.format(p="catalogo", c="card-nao-sei")}" target="_blank" rel="noopener"><h3>Não sei por onde começar</h3><p>Veja todos os treinos organizados por situação.</p><span class="cta">Ver o catálogo →</span></a>'
+SIT = {'iniciante': 'Nunca treinei nada', 'mulher': 'Sou mulher e quero me proteger', 'assalto': 'Tenho medo de assalto', 'faca': 'Medo de faca', 'bullying': 'Meu filho sofre bullying'}
+cards = '\n'.join(f'<a class="card" data-revela style="--i:{i}" href="{U.format(p=p, c="card-"+k)}" target="_blank" rel="noopener"><span class="num">0{i+1}</span><h3>{SIT[k]}</h3><p>{t}</p><span class="cta">{b} →</span></a>' for i, (k, (n, t, p, b)) in enumerate(D.items()))
+cards += f'\n<a class="card" data-revela style="--i:5" href="{U.format(p="catalogo", c="card-nao-sei")}" target="_blank" rel="noopener"><span class="num">06</span><h3>Não sei por onde começar</h3><p>Veja todos os treinos organizados por situação.</p><span class="cta">Ver o catálogo →</span></a>'
 falas = json.load(open(A / 'falas.json', encoding='utf-8'))
 audio = {k: b64(A / 'audio' / f'{k}.mp3', 'audio/mpeg') for k in falas}
 h = (A / 'modelo.html').read_text(encoding='utf-8')
-rep = {'{{FUNDO}}': b64(F / 'hero-vermelho-m.webp', 'image/webp'), '{{AVATAR}}': b64(A / 'avatar.webp', 'image/webp'),
-       '{{FOTO}}': b64(F / 'chute-espelho-s.webp', 'image/webp'), '{{CARDS}}': cards,
+rep = {'{{FUNDO}}': b64(F / 'hero-vermelho-m.webp', 'image/webp'), '{{FECHADA}}': b64(A / 'boca-fechada.webp', 'image/webp'), '{{ABERTA}}': b64(A / 'boca-aberta.webp', 'image/webp'), '{{APONTA}}': b64(A / 'aponta.webp', 'image/webp'), '{{ROSTO}}': b64(A / 'boca-fechada.webp', 'image/webp'),
+       '{{FOTO}}': b64(F / 'luvas-banner-s.webp', 'image/webp'), '{{CARDS}}': cards,
        '{{FALAS}}': json.dumps(falas, ensure_ascii=False), '{{AUDIO}}': json.dumps(audio), '{{DESTINO}}': json.dumps(DEST, ensure_ascii=False),
        '{{WPP}}': 'https://wa.me/5531993294274?text=Shalom%2C%20vim%20pelo%20site%20e%20quero%20ajuda%20para%20escolher%20meu%20treino'}
 for k, v in rep.items(): h = h.replace(k, v)
