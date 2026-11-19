@@ -1,8 +1,10 @@
-// Agente WG · atendimento 24h do WhatsApp oficial (31) 97334-6056
+// Agente WG · atendimento 24h do WhatsApp oficial de suporte (31) 99329-4274 (desde 19/11; antes 97334-6056)
 // Cloudflare Worker. Recebe o webhook da Meta, responde com o Claude e envia pela API do WhatsApp.
 // Variáveis (Settings > Variables): PHONE_ID, WABA_ID, MODO ("teste" ou "ativo"), TESTE_FONES (lista com vírgula), ADMIN_FONE, MODELO, MODELO_CHEFE
 // Segredos (Settings > Variables > Encrypt): WA_TOKEN, APP_SECRET, ANTHROPIC_API_KEY, VERIFY_TOKEN, YC_KEY (ou MC_TOKEN)
-// Variável: YC_FROM = número que envia pela YCloud, ex. +5531973346056
+// Variável: YC_FROM = número que envia pela YCloud, ex. +553193294274
+// Segredo: YC_WEBHOOK_SECRET = segredo do endpoint de webhook criado na YCloud (URL .../yc).
+// Com YC_KEY, a leitura vem da YCloud (POST /yc) e eventos da Meta (/webhook) de outro número são ignorados.
 // Envio: o número está em coexistência e registrado no app do ManyChat. A Meta só deixa enviar pelo app que registrou
 // (erro 10/2593181). Por isso, com MC_TOKEN, a resposta sai pela API do ManyChat; a leitura continua pelo webhook da Meta.
 // KV (binding): WG
@@ -16,7 +18,7 @@ const HIST_MAX = 24;
 
 const CONHECIMENTO = __CONHECIMENTO__;
 
-const SISTEMA = `Você é o assistente virtual da equipe do Mestre Wesley Gimenez (Krav Magá Caveira) no WhatsApp oficial de suporte, (31) 97334-6056. Responda sempre em português do Brasil, como uma pessoa da equipe, em mensagens curtas de WhatsApp (1 a 4 linhas, no máximo 2 mensagens). Nunca use travessão (—). Primeira mensagem da conversa começa com "Shalom, tudo bem?". Linguagem simples, para qualquer idade. Garantia: 7 dias em todos os produtos. Todo link de compra leva utm_source=vc&utm_medium=whatsapp&utm_campaign=atendimento&utm_term=ag-atendimento. Nunca invente preço, link, prazo, bônus ou resultado: use só o que está no conhecimento abaixo. Se não souber, diga que vai confirmar com a equipe e use a ferramenta passar_para_humano.
+const SISTEMA = `Você é o assistente virtual da equipe do Mestre Wesley Gimenez (Krav Magá Caveira) no WhatsApp oficial de suporte, (31) 99329-4274. Este é o número de suporte; nunca indique outro número de WhatsApp para suporte. Responda sempre em português do Brasil, como uma pessoa da equipe, em mensagens curtas de WhatsApp (1 a 4 linhas, no máximo 2 mensagens). Nunca use travessão (—). Primeira mensagem da conversa começa com "Shalom, tudo bem?". Linguagem simples, para qualquer idade. Garantia: 7 dias em todos os produtos. Todo link de compra leva utm_source=vc&utm_medium=whatsapp&utm_campaign=atendimento&utm_term=ag-atendimento. Nunca invente preço, link, prazo, bônus ou resultado: use só o que está no conhecimento abaixo. Se não souber, diga que vai confirmar com a equipe e use a ferramenta passar_para_humano.
 
 Você ainda NÃO consegue consultar compras nas plataformas. Para problema de acesso: peça o e-mail da compra, oriente olhar spam e promoções, mande o link da Academia https://kravmagacaveira.cademi.com.br/ e o "esqueci minha senha". Se mesmo assim não resolver, use passar_para_humano com o produto e o resumo (sem o e-mail no resumo).
 
@@ -93,6 +95,16 @@ export default {
       return new Response(JSON.stringify({ ok: !!(id && tel) }), { headers: { 'content-type': 'application/json' } });
     }
     if (req.method === 'GET' && url.pathname === '/') return new Response('Agente WG no ar. Modo: ' + (env.MODO || 'teste'));
+    if (req.method === 'POST' && url.pathname === '/yc') {
+      const corpoYC = await req.text();
+      if (!(await assinaturaYC(corpoYC, req.headers.get('ycloud-signature'), env.YC_WEBHOOK_SECRET))) {
+        await env.WG.put('diag:yc_negado', new Date().toISOString(), { expirationTtl: 7 * 86400 });
+        return new Response('assinatura', { status: 401 });
+      }
+      let ev; try { ev = JSON.parse(corpoYC); } catch { return new Response('ok'); }
+      ctx.waitUntil(processarYC(ev, env).catch(e => console.log('erro yc', e && e.stack || e)));
+      return new Response('ok');
+    }
     if (req.method !== 'POST' || url.pathname !== '/webhook') return new Response('ok');
 
     const corpo = await req.text();
@@ -114,6 +126,8 @@ async function assinaturaOk(corpo, cab, segredo) {
 async function processar(dados, env) {
   for (const e of dados.entry || []) for (const ch of e.changes || []) {
     const v = ch.value || {};
+    // Com a YCloud ligada, a leitura vem por /yc. Evento da Meta de outro número (ex.: o antigo 97334-6056) é ignorado.
+    if (env.YC_KEY && !(v.metadata && mesmoFone(v.metadata.display_phone_number, env.YC_FROM))) continue;
     if (v.metadata) await env.WG.put('diag:meta', JSON.stringify({ quando: new Date().toISOString(), waba_do_evento: e.id, phone_number_id: v.metadata.phone_number_id, numero: v.metadata.display_phone_number, campo: ch.field }), { expirationTtl: 7 * 86400 });
     // Mensagem que um humano mandou pelo app do celular (coexistência)
     if (ch.field === 'smb_message_echoes') {
@@ -172,7 +186,7 @@ async function paraConteudo(m, env) {
   if (m.type === 'button') return m.button.text;
   if (m.type === 'interactive') return (m.interactive.button_reply || m.interactive.list_reply || {}).title || '';
   if (m.type === 'image') {
-    const img = await baixarMidia(m.image.id, env);
+    const img = m.image.link ? await baixarYC(m.image, env) : await baixarMidia(m.image.id, env);
     const partes = [];
     if (img) partes.push({ type: 'image', source: { type: 'base64', media_type: img.tipo, data: img.b64 } });
     partes.push({ type: 'text', text: m.image.caption || '[a pessoa mandou esta imagem]' });
@@ -313,10 +327,51 @@ async function enviarMC(para, texto, env) {
 // ---- Envio pela YCloud (parceira oficial da Meta; o número fica em coexistência com o app do celular) ----
 async function enviarYC(para, texto, env) {
   const to = '+' + String(para).replace(/\D/g, '');
-  const corpo = { from: env.YC_FROM || '+5531973346056', to, type: 'text', text: { body: texto, previewUrl: true } };
+  const corpo = { from: env.YC_FROM || '+553193294274', to, type: 'text', text: { body: texto, previewUrl: true } };
   const r = await fetch(`${YC}/whatsapp/messages/sendDirectly`, { method: 'POST', headers: { 'X-API-Key': env.YC_KEY, 'content-type': 'application/json' }, body: JSON.stringify(corpo) });
   const t = await r.text();
   let j = {}; try { j = JSON.parse(t); } catch {}
   if (!r.ok || j.status === 'failed') { console.log('envio yc', r.status, t.slice(0, 500)); return false; }
   return true;
+}
+
+// ---- Leitura pela YCloud (webhook POST /yc) ----
+// Cabeçalho YCloud-Signature: t=<timestamp>,s=<hex>; assinatura = HMAC-SHA256("<t>.<corpo>", segredo do endpoint).
+async function assinaturaYC(corpo, cab, segredo) {
+  if (!segredo || !cab) return false;
+  const p = Object.fromEntries(String(cab).split(',').map(x => x.trim().split('=')));
+  if (!p.t || !p.s) return false;
+  if (Math.abs(Date.now() / 1000 - Number(p.t)) > 600) return false;
+  const chave = await crypto.subtle.importKey('raw', new TextEncoder().encode(segredo), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
+  const sig = await crypto.subtle.sign('HMAC', chave, new TextEncoder().encode(p.t + '.' + corpo));
+  return [...new Uint8Array(sig)].map(b => b.toString(16).padStart(2, '0')).join('') === p.s;
+}
+
+async function processarYC(ev, env) {
+  await env.WG.put('diag:yc', JSON.stringify({ quando: new Date().toISOString(), tipo: ev.type }), { expirationTtl: 7 * 86400 });
+  const sem = s => String(s || '').replace(/\D/g, '');
+  if (ev.type === 'whatsapp.inbound_message.received') {
+    const m = ev.whatsappInboundMessage || {};
+    if (env.YC_FROM && !mesmoFone(m.to, env.YC_FROM)) return;
+    const msg = { ...m, id: m.wamid || m.id, from: sem(m.from) };
+    const nome = ((m.customerProfile || {}).name || '').split(' ')[0];
+    return receber(msg, nome, env);
+  }
+  if (ev.type === 'whatsapp.smb.message.echoes') {
+    // Mensagem que a equipe mandou pelo app do celular (coexistência)
+    const m = ev.whatsappMessage || {};
+    if (env.YC_FROM && !mesmoFone(m.from, env.YC_FROM)) return;
+    return ecoHumano({ ...m, to: sem(m.to) }, env);
+  }
+}
+
+async function baixarYC(midia, env) {
+  try {
+    const r = await fetch(midia.link, { headers: { 'X-API-Key': env.YC_KEY } });
+    if (!r.ok) return null;
+    const buf = await r.arrayBuffer();
+    if (buf.byteLength > 4_500_000) return null;
+    let s = ''; const b = new Uint8Array(buf); for (let i = 0; i < b.length; i += 32768) s += String.fromCharCode(...b.subarray(i, i + 32768));
+    return { tipo: midia.mime_type || r.headers.get('content-type') || 'image/jpeg', b64: btoa(s) };
+  } catch { return null; }
 }
