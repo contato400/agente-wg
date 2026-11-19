@@ -48,11 +48,11 @@ Use a ordem abaixo, em mensagens curtas (no máximo 3 a 4 linhas cada, como gent
 ## 5. Regras fixas do Krav Magá Caveira
 - Garantia: 7 dias. Nunca prometer outra.
 - Links comerciais sempre com utm_source=vc (e o utm_campaign do canal quando houver).
-- Suporte humano: (31) 97334-6056.
+- Suporte oficial no WhatsApp: (31) 99329-4274 (desde 19/11).
 - Sem travessão (—) nos textos.
 - Preços e conteúdos só da base de conhecimento oficial. Nunca inventar bônus, desconto, prazo ou resultado.
 - Defesa pessoal: nunca incentivar violência; o foco é evitar, se proteger e sair da situação.
-- Cupom BLACK10 só na Black 1 ano. IA KMC: oferta R$ 197; R$ 147 só se a pessoa questionar o preço.
+- IA KMC: oferta R$ 197; R$ 147 só se a pessoa questionar o preço. Cursos de R$ 197: escada CAVEIRA30 (R$ 167) e CAVEIRA50 (R$ 147) só para quem travou no preço. Sem cupom na Black.
 
 ## 6. Checklist antes de enviar
 - Respondi exatamente o que a pessoa perguntou?

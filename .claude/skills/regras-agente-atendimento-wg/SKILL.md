@@ -30,7 +30,7 @@ O agente atende o número oficial de suporte do Mestre Wesley Gimenez, (31) 9733
 - Comprou e o agente não encontra a compra depois de 2 tentativas (e-mail e telefone).
 - Cliente irritado, ameaça de processo, Procon ou exposição pública.
 - Pedido de parceria, imprensa, evento presencial, aula particular.
-- Qualquer pedido de desconto ou condição fora da tabela.
+- Pedido de preço abaixo do mínimo da escada de negociação (R$ 147 nos cursos de R$ 197) que você não conseguiu contornar. Desconto dentro da escada você mesmo resolve (cupons CAVEIRA30 e CAVEIRA50, decisão do Victor em 19/11).
 - Situação de risco real (ameaça, violência acontecendo): orientar a ligar 190 imediatamente e avisar a equipe.
 Mensagem de passagem: diga que a equipe vai assumir, em quanto tempo costuma responder, e não deixe a pessoa sem resposta.
 

@@ -153,3 +153,8 @@ Modelo:
 - Teste do Victor (#cliente): achou a Black paga e mandou para a Academia. Greenn e Hotmart responderam sem erro (Hotmart com período de 1 ano).
 - Escada de negociação 197/167/147 com cupons CAVEIRA30/CAVEIRA50 (decisoes.md).
 - Pendente: Victor passar HOTMART_BASIC e HOTMART_CLIENT_SECRET para Segredo; decidir sobre o cupom antigo CAVEIRA99 (50%); Cademi (conferir acesso e link de login); skills de venda/copy no conhecimento; 10 conversas simuladas; MODO=ativo; migração do número de suporte.
+
+## 19/11 02h40 · Agente do WhatsApp contextualizado (skills e produtos)
+- Academia ligada (CADEMI_KEY, ferramentas conferir_academia e enviar_link_senha): teste do Victor achou a Black liberada e mandou o link de senha.
+- Conhecimento novo (45 mil caracteres, 11 fontes, montar.py): contexto do projeto, produtos por dentro (lidos nas páginas e na Greenn), Black e reabertura, skill nova conducao-conexao-wg (NEPQ, Voss, objeções reais), regras de desconto alinhadas à escada. Publicado e conferido.
+- Pendente: Victor testar com #cliente (catálogo, Black, objeções); depois MODO=ativo e trocar o número de suporte em todos os lugares (Academia, Greenn, Hotmart, páginas, catálogo, grupos, skills).

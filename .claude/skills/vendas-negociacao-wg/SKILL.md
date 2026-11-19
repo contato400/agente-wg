@@ -32,7 +32,8 @@ Se a pessoa já chegou pedindo link ou preço, pule o diagnóstico: responda e p
 - IA KMC: oferta R$ 197; se a pessoa questionar o preço, oferecer R$ 147 (uma vez).
 - Cupom BLACK10 só na Black 1 ano, enquanto a campanha estiver ativa.
 - Garantia de 7 dias como redutor de risco.
-- Qualquer outro desconto, condição especial ou exceção: não prometer; passar para o humano.
+- Cursos avulsos de R$ 197: escada que o próprio agente conduz (decisão do Victor, 19/11): 1º valor (parcela, garantia, ganho); 2º cupom CAVEIRA30 (R$ 167); 3º e último cupom CAVEIRA50 (R$ 147). Nunca abaixo disso, nunca os dois cupons juntos, sem cupom na Black, mentoria, VIP e combos.
+- Qualquer outra condição especial ou exceção: não prometer; passar para o humano.
 
 ## 5. Fechamento
 - Quando a pessoa der sinal de compra ("como pago?", "tem Pix?", "vou querer"), pare de vender: mande o link certo com UTM e diga o que acontece depois do pagamento (acesso no e-mail, onde entrar).

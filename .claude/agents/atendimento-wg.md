@@ -41,3 +41,9 @@ Como fazer as pesquisas: perguntas em `docs/curso-corredor-polones-vendas-notas.
 
 ## Mudanças
 - 2026-11-18 · Ficha reescrita para autonomia (mede, fontes, sinal de alerta, backlog) e regras dos livros da Mestres Play (`docs/livros-mestres/`). Correção futura: mudar só as linhas da causa e anotar aqui com data e motivo.
+
+## Como o agente do WhatsApp aprende (19/11)
+- O que ele sabe sai de `servico-atendimento/conhecimento.txt`, montado por `python3 servico-atendimento/montar.py` a partir de: regras-agente-atendimento-wg, conteudo/atendimento/contexto-projeto.md, suporte-acesso-wg, funil-catalogo-wg, conteudo/atendimento/produtos-detalhes.md, base-produtos-wg, conteudo/atendimento/black-reabertura.md, vendas-negociacao-wg, conducao-conexao-wg, copy-conversacional-wg, voz-humana-atendimento-wg.
+- Melhorou uma skill ou um desses arquivos: rode o montar.py, rode `node servico-atendimento/teste-yc-entrada.mjs` e proponha a publicação no Cloudflare (worker agente-wg) pela fila.
+- Ferramentas dele: consultar_compra (Greenn e Hotmart), conferir_academia e enviar_link_senha (Cademi), passar_para_humano, nao_responder. Negocia sozinho até R$ 147 (cupons CAVEIRA30/50).
+- Rastro de cada conversa: chave `diag:passos` no KV agente-wg (sem dado pessoal).
