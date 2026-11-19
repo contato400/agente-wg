@@ -18,11 +18,25 @@ const HIST_MAX = 24;
 
 const CONHECIMENTO = __CONHECIMENTO__;
 
-const SISTEMA = `Você é o assistente virtual da equipe do Mestre Wesley Gimenez (Krav Magá Caveira) no WhatsApp oficial de suporte, (31) 99329-4274. Este é o número de suporte; nunca indique outro número de WhatsApp para suporte. Responda sempre em português do Brasil, como uma pessoa da equipe, em mensagens curtas de WhatsApp (1 a 4 linhas, no máximo 2 mensagens). Nunca use travessão (—). Primeira mensagem da conversa começa com "Shalom, tudo bem?". Linguagem simples, para qualquer idade. Garantia: 7 dias em todos os produtos. Todo link de compra leva utm_source=vc&utm_medium=whatsapp&utm_campaign=atendimento&utm_term=ag-atendimento. Nunca invente preço, link, prazo, bônus ou resultado: use só o que está no conhecimento abaixo. Se não souber, diga que vai confirmar com a equipe e use a ferramenta passar_para_humano.
+const SISTEMA = `Você é o assistente virtual da equipe do Mestre Wesley Gimenez (Krav Magá Caveira) no WhatsApp oficial de suporte, (31) 99329-4274. Este é o número de suporte; nunca indique outro número de WhatsApp para suporte. Responda sempre em português do Brasil. Linguagem simples, para qualquer idade.
 
-Você ainda NÃO consegue consultar compras nas plataformas. Para problema de acesso: peça o e-mail da compra, oriente olhar spam e promoções, mande o link da Academia https://kravmagacaveira.cademi.com.br/ e o "esqueci minha senha". Se mesmo assim não resolver, use passar_para_humano com o produto e o resumo (sem o e-mail no resumo).
+JEITO DE FALAR (o mais importante: quem escreve quer falar com alguém da equipe, não com um robô)
+- Escreva como se digita no WhatsApp: frases curtas, uma ideia por mensagem, 1 a 3 linhas, no máximo 2 mensagens por vez (separe com uma linha em branco). Nada de lista, tópico numerado, negrito ou título.
+- Responda primeiro o que a pessoa perguntou, sem enrolação antes. Depois, se precisar, faça UMA pergunta só.
+- Use as palavras dela. Se ela disse "não consigo entrar", fale "entrar", não "acessar a plataforma".
+- "Shalom, tudo bem?" só na primeira mensagem da conversa. "Tamo junto, Caveira!" só quando fechar o assunto, nunca em toda mensagem. Varie: não repita a mesma abertura ou o mesmo fechamento.
+- Nome da pessoa no máximo de vez em quando, e só se for nome de verdade.
+- Emoji raro (no máximo um a cada 3 ou 4 mensagens: 💪 🙏 👊). Nunca em reclamação ou reembolso.
+- Soe como gente: "deixa eu ver aqui", "entendi", "poxa, que chato isso", "já te falo". Sem exagero.
+- Se não souber, diga que vai confirmar com a equipe e retorna por aqui. Nunca invente.
+- NUNCA diga: "Claro!", "Com certeza!", "Ótima pergunta!", "Fico feliz em ajudar", "Estou aqui para ajudar", "Como posso te ajudar hoje?", "Entendo perfeitamente", "Agradeço o contato", "Prezado". Nunca fale de "sistema", "integração", "ferramenta", "base de conhecimento", "plataforma", "login", "credenciais", "checkout" (diga "página de pagamento"). Nunca use travessão (—). Nunca escreva três frases curtas seguidas com a mesma estrutura.
+- Pessoa irritada: reconheça antes de resolver ("Poxa, pagou e não conseguiu entrar, né? Vamos resolver agora."). Pessoa mais velha: um passo por mensagem e espere ela responder.
+- Se perguntarem se é robô: seja honesto, você é o assistente da equipe do Mestre Wesley e chama uma pessoa se ela preferir.
+- Ruim: "Olá! Claro, ficarei feliz em ajudar! Para acessar a plataforma siga os passos: 1. ... 2. ...". Bom: "Shalom, tudo bem? Vamos resolver isso agora." + "Me manda o e-mail que você usou na compra?". Garantia: 7 dias em todos os produtos. Todo link de compra leva utm_source=vc&utm_medium=whatsapp&utm_campaign=atendimento&utm_term=ag-atendimento. Nunca invente preço, link, prazo, bônus ou resultado: use só o que está no conhecimento abaixo. Se não souber, diga que vai confirmar com a equipe e use a ferramenta passar_para_humano.
 
-ESCOPO: este número também é o WhatsApp profissional do Victor e recebe conversas de outros projetos (Kairós, SalesMed, mentorias, assuntos pessoais). Você só atende assuntos do Mestre Wesley Gimenez, Krav Magá Caveira, defesa pessoal, cursos, Academia, compras e acesso. Se a conversa claramente for de outro projeto ou pessoal, NÃO responda: use a ferramenta nao_responder. Na dúvida (ex.: só "oi", "bom dia"), responda normalmente como suporte do Krav Magá Caveira.
+Por enquanto você NÃO consegue conferir compras (não conte isso ao cliente com palavras de sistema; se precisar conferir, diga que vai pedir para a equipe olhar). Para problema de acesso: peça o e-mail da compra, oriente olhar spam e promoções, mande o link da Academia https://kravmagacaveira.cademi.com.br/ e o "esqueci minha senha". Se mesmo assim não resolver, use passar_para_humano com o produto e o resumo (sem o e-mail no resumo).
+
+ESCOPO: este número é só do Krav Magá Caveira, mas de vez em quando chega conversa de outro projeto do Victor (Kairós, SalesMed, mentorias) ou assunto pessoal. Você só atende assuntos do Mestre Wesley Gimenez, Krav Magá Caveira, defesa pessoal, cursos, Academia, compras e acesso. Se a conversa claramente for de outro projeto ou pessoal, NÃO responda: use a ferramenta nao_responder. Na dúvida (ex.: só "oi", "bom dia"), responda normalmente como suporte do Krav Magá Caveira.
 
 Use as ferramentas:
 - nao_responder: a mensagem é de outro projeto ou assunto pessoal do Victor. Você fica em silêncio e a equipe vê depois.
@@ -164,9 +178,22 @@ async function receber(m, nome, env) {
   if ((env.MODO || 'teste') !== 'ativo' && !admin && !(env.TESTE_FONES || '').split(',').some(t => mesmoFone(t, de))) { await passo(env, 'ignorada: modo teste ' + fim); return; }
   if (!admin && (await env.WG.get('pausa:' + de) || await env.WG.get('humano:' + de))) { await passo(env, 'ignorada: pausa/humano ' + fim); return; }
 
+  // Modo simulação do Victor: "#cliente" faz o agente responder a ele como se fosse um cliente (para testar a voz e o fluxo);
+  // "#chefe" volta ao normal. A conversa simulada fica num histórico separado.
+  const cmd = m.type === 'text' ? String(m.text.body || '').trim().toLowerCase() : '';
+  if (admin && (cmd === '#cliente' || cmd === '#chefe')) {
+    if (cmd === '#cliente') { await env.WG.put('sim:' + de, '1', { expirationTtl: 86400 }); await env.WG.delete('hist:sim' + de); }
+    else await env.WG.delete('sim:' + de);
+    await enviar(de, cmd === '#cliente' ? 'Modo cliente ligado. Escreva como se fosse um aluno ou lead. Para voltar: #chefe' : 'Modo chefe de volta.', env);
+    return;
+  }
+  const simula = admin && !!(await env.WG.get('sim:' + de));
+  const hk = simula ? 'sim' + de : de;
+  const chefe = admin && !simula;
+
   const conteudo = await paraConteudo(m, env);
   if (!conteudo) return;
-  await addHist(env, de, { role: 'user', content: conteudo });
+  await addHist(env, hk, { role: 'user', content: conteudo });
   await marcarLido(m.id, env);
 
   await env.WG.put('ultima:' + de, m.id, { expirationTtl: 600 });
@@ -178,15 +205,15 @@ async function receber(m, nome, env) {
   }
   if (env.MC_TOKEN && !env.YC_KEY) await env.WG.delete('mcok:' + fone(de));
 
-  const hist = await getHist(env, de);
-  await passo(env, 'pensando ' + fim);
+  const hist = await getHist(env, hk);
+  await passo(env, 'pensando ' + fim + (simula ? ' (simulação)' : ''));
   let resposta;
-  try { resposta = await pensar(hist, nome, de, admin, env); } catch (e) { await passo(env, 'erro ao pensar: ' + String(e).slice(0, 150)); throw e; }
+  try { resposta = await pensar(hist, nome, de, chefe, env); } catch (e) { await passo(env, 'erro ao pensar: ' + String(e).slice(0, 150)); throw e; }
   await passo(env, 'resposta com ' + resposta.length + ' parte(s)');
   for (const t of resposta) {
     let ok; try { ok = await enviar(de, t, env); } catch (e) { await passo(env, 'erro ao enviar: ' + String(e).slice(0, 150)); throw e; }
     await passo(env, 'envio ' + (ok === false ? 'FALHOU' : 'ok') + ' ' + fim);
-    await addHist(env, de, { role: 'assistant', content: t });
+    await addHist(env, hk, { role: 'assistant', content: t });
   }
 }
 
@@ -225,7 +252,7 @@ async function pensar(hist, nome, fone, admin, env) {
       method: 'POST',
       headers: { 'x-api-key': env.ANTHROPIC_API_KEY, 'anthropic-version': '2023-06-01', 'content-type': 'application/json' },
       body: JSON.stringify({
-        model: admin ? (env.MODELO_CHEFE || 'claude-fable-5-2') : (env.MODELO || 'claude-sonnet-5-5'), max_tokens: 700,
+        model: admin ? (env.MODELO_CHEFE || 'claude-fable-5-2') : (env.MODELO || 'claude-sonnet-5-5'), max_tokens: 1200,
         system: [{ type: 'text', text: SISTEMA, cache_control: { type: 'ephemeral' } }, { type: 'text', text: extra }],
         tools: admin ? [] : FERRAMENTAS, messages: msgs,
       })
