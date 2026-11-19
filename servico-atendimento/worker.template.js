@@ -108,11 +108,73 @@ function agora() {
 }
 async function memoriaEquipe(env) { return (await env.WG.get('equipe:memoria')) || EQUIPE.memoria; }
 async function equipeBase(env) { try { const b = JSON.parse((await env.WG.get('equipe:base')) || 'null'); if (b && b.fichas) return b; } catch {} return EQUIPE; }
+// ---- Resposta em áudio para o Victor (voz da OpenAI). Sem OPENAI_API_KEY, tudo continua só em texto. ----
+const FORMATO_VOZ = `
+FORMATO (o Victor recebe em áudio): escreva SEMPRE em duas partes.
+FALA: o que você diria num áudio de WhatsApp para um colega, de 15 a 40 segundos, natural, em primeira pessoa, sem link, sem ler números longos, sem lista, sem emoji.
+TEXTO: no máximo 3 linhas curtas só com o que ele precisa ler ou copiar (links, IDs da fila, horários, decisões numeradas). Se não houver nada disso, escreva só "TEXTO: -".`;
+
+function separarFala(t) {
+  const m = String(t || '').match(/FALA:\s*([\s\S]*?)\s*TEXTO:\s*([\s\S]*)$/i);
+  if (!m) return null;
+  const texto = m[2].trim();
+  return { fala: m[1].trim(), texto: /^-?$/.test(texto) ? '' : texto };
+}
+
+async function condensar(texto, env) {
+  const { ok, d } = await chamarClaude(env, {
+    model: env.MODELO_AGENTES || 'claude-sonnet-5-5', max_tokens: 700,
+    system: 'Você transforma mensagens da equipe de agentes para o Victor ouvir. Português do Brasil, sem travessão, sem inventar nada que não esteja na mensagem.' + FORMATO_VOZ,
+    messages: [{ role: 'user', content: texto.slice(0, 8000) }]
+  });
+  if (!ok) return null;
+  return separarFala((d.content || []).filter(c => c.type === 'text').map(c => c.text).join('\n'));
+}
+
+async function falar(fala, env) {
+  const r = await fetch('https://api.openai.com/v1/audio/speech', {
+    method: 'POST', headers: { Authorization: 'Bearer ' + env.OPENAI_API_KEY, 'content-type': 'application/json' },
+    body: JSON.stringify({ model: env.MODELO_TTS || 'gpt-4o-mini-tts', voice: env.VOZ_TTS || 'ash', input: fala.slice(0, 1800), response_format: 'opus',
+      instructions: 'Fale em português do Brasil, sotaque brasileiro natural, como um colega de equipe mandando áudio no WhatsApp: direto, tranquilo, ritmo de conversa.' })
+  });
+  if (!r.ok) { await passo(env, 'voz erro ' + r.status + ' ' + (await r.text()).slice(0, 120)); return null; }
+  return r.arrayBuffer();
+}
+
+// Manda ao Victor: áudio com o resumo + texto curto. Se algo falhar, manda o texto completo como antes.
+async function mandarVictor(para, texto, env) {
+  const limpo = String(texto || '').replace(/^\[[^\]]{1,40}\]\s*/, '');
+  if (env.OPENAI_API_KEY) {
+    try {
+      let partes = separarFala(limpo);
+      if (!partes && limpo.length > 300) partes = await condensar(limpo, env);
+      if (partes && partes.fala) {
+        const audio = await falar(partes.fala, env);
+        if (audio) {
+          const id = crypto.randomUUID().replace(/-/g, '') + '.ogg';
+          await env.WG.put('midia:' + id, audio, { expirationTtl: 3 * 86400, metadata: { tipo: 'audio/ogg' } });
+          const base = env.BASE_URL || 'https://agente-wg.luiscorinthianoportoreal.workers.dev';
+          if (await enviarMidiaYC(para, { tipo: 'audio', url: base + '/m/' + id }, env)) {
+            await passo(env, 'audio enviado ' + partes.fala.length + ' letras');
+            if (partes.texto) for (const p of dividirLongo(partes.texto)) await enviar(para, p, env);
+            return true;
+          }
+        }
+      }
+    } catch (e) { await passo(env, 'voz falhou ' + String(e).slice(0, 120)); }
+  }
+  const semMarca = String(texto || '').replace(/^(\[[^\]]{1,40}\]\s*)?FALA:\s*/i, '$1').replace(/^\s*FALA:\s*/i, '').replace(/\n?\s*TEXTO:\s*-?\s*$/i, '').replace(/\n\s*TEXTO:\s*/i, '\n\n');
+  let ok = true;
+  for (const p of dividirLongo(semMarca)) if ((await enviar(para, p, env)) === false) ok = false;
+  return ok;
+}
+
 async function sistemaAgente(chave, env) {
   const base = await equipeBase(env);
   return `Você é o agente ${NOME_AGENTE[chave] || chave} da equipe de agentes que opera o negócio do Mestre Wesley Gimenez (Krav Magá Caveira). Quem fala com você agora é o Victor, o responsável, pelo WhatsApp de suporte. Ele escolheu falar com você digitando #${Object.keys(APELIDOS).find(k => APELIDOS[k] === chave)}.
 Responda como esse agente: direto, em português, curto, como mensagem de WhatsApp (sem tabelas; listas curtas só se ajudarem). Sem travessão.
 Você enxerga a memória da equipe abaixo (estado, decisões, backlog, conversas entre agentes e a última passagem): use para dizer o que você e os outros estão fazendo. Você NÃO mexe no trabalho dos outros. Para saber algo de outro agente, use a ferramenta perguntar_agente. Nenhuma ação externa (publicar, gastar, mandar mensagem para cliente, mexer em página, oferta ou campanha) sem aprovação do Victor ou do Wesley; se ele aprovar aqui (por texto ou áudio), registre CADA aprovação com registrar_recado (uma por item, com o ID da fila quando houver) e responda na hora com a lista do que ficou aprovado e quando roda: o executor da equipe é acionado na hora (ou na rodada de hora em hora, das 9h às 18h) e te avisa aqui o que fez. Diga exatamente o que a ferramenta registrar_recado devolver sobre quando ele roda; não invente horário. Se o áudio vier confuso, repita o que entendeu em lista numerada e peça só a confirmação. Nunca invente número: o que não estiver na memória ou nas consultas, diga que não tem.
+${env.OPENAI_API_KEY ? FORMATO_VOZ : ''}
 
 REGRAS DE TODOS OS AGENTES:
 ${base.regras}
@@ -185,8 +247,7 @@ export default {
         const chave = APELIDOS[semAcento(b.de || 'chefe')] || 'chefe-wg';
         const texto = `[${NOME_AGENTE[chave]}] ` + String(b.texto || '').trim();
         if (!env.ADMIN_FONE || texto.length < 5) return new Response('faltou texto', { status: 400 });
-        const partes = dividirLongo(texto); let enviados = 0;
-        for (const p of partes) { if ((await enviar(env.ADMIN_FONE, p, env)) !== false) enviados++; }
+        const partes = [texto]; let enviados = (await mandarVictor(env.ADMIN_FONE, texto, env)) ? 1 : 0;
         // Peças prontas para o Victor postar: {midia: [{tipo: 'video'|'image'|'document', url, legenda}]} (link público, até 16 MB para vídeo).
         let midias = 0;
         for (const m of (Array.isArray(b.midia) ? b.midia.slice(0, 10) : [])) { if (m && m.url && (await enviarMidiaYC(env.ADMIN_FONE, m, env))) midias++; }
@@ -205,7 +266,8 @@ export default {
         await addHist(env, hk, { role: 'user', content: '[Victor pelo Jarvis, no computador; a resposta vai ser lida em voz alta, então responda curto e sem tabela] ' + pergunta });
         const partes = await pensar((await getHist(env, hk)).slice(-12), 'Victor', env.ADMIN_FONE, chave, env, true);
         for (const t of partes) await addHist(env, hk, { role: 'assistant', content: t });
-        return Response.json({ agente: NOME_AGENTE[chave], resposta: partes.join('\n\n') });
+        const tudo = partes.join('\n\n'); const sf = separarFala(tudo);
+        return Response.json({ agente: NOME_AGENTE[chave], resposta: sf ? [sf.fala, sf.texto].filter(Boolean).join('\n\n') : tudo });
       }
       if (url.pathname === '/equipe' && req.method === 'POST') {
         // A rotina atualiza a memória que os agentes do WhatsApp enxergam (estado, decisões, backlog, conversas, passagem).
@@ -366,6 +428,13 @@ async function receber(m, nome, env) {
   let resposta;
   try { resposta = await pensar(hist, nome, de, chefe, env); } catch (e) { await passo(env, 'erro ao pensar: ' + String(e).slice(0, 150)); throw e; }
   await passo(env, 'resposta com ' + resposta.length + ' parte(s)');
+  if (agente && resposta.length) {
+    const tudo = resposta.join('\n\n');
+    const ok = await mandarVictor(de, tudo, env);
+    await passo(env, 'envio ' + (ok ? 'ok' : 'FALHOU') + ' ' + fim);
+    await addHist(env, hk, { role: 'assistant', content: tudo });
+    return;
+  }
   for (const t of resposta) {
     let ok; try { ok = await enviar(de, t, env); } catch (e) { await passo(env, 'erro ao enviar: ' + String(e).slice(0, 150)); throw e; }
     await passo(env, 'envio ' + (ok === false ? 'FALHOU' : 'ok') + ' ' + fim);

@@ -27,9 +27,8 @@
 - PENDENTE: 20261119-social-1, -2, -3; 20261118-social-1, -2, -3. Nenhum APROVADO esperando execução.
 
 ### memoria/passagem.md (últimas entradas)
-## 2026-11-19 11h15 · Executor criado e acionado na hora
-- O Victor criou a tarefa agendada "Agente WG - Executor" (roda de hora em hora no minuto 7, 9h às 18h, segunda a sábado). Ela existe e está ativa.
-- Teste real 11h02: áudio transcrito inteiro, chefe pensou 43 s, respondeu e registrou o recado. Funciona.
-- Novo: quando o chefe registra uma aprovação, o serviço aciona o executor na hora (acionador de API da tarefa), se o segredo EXECUTOR_TOKEN estiver no Cloudflare. Sem o segredo, vale o horário.
-- Decisão do Victor: todos os agentes em Sonnet, inclusive o chefe no WhatsApp (antes era Fable).
-- Pendente: o Victor gerar o token da API na tarefa do executor e colar como segredo EXECUTOR_TOKEN no worker agente-wg; trocar o modelo da tarefa do executor para Sonnet na tela da tarefa.
+## 2026-11-19 11h45 · Executor na hora
+- Pedido: Victor quer o agente executando na hora do áudio e só 2 tarefas agendadas.
+- Feito: tarefa nova "Agente WG - Executor" (Code, Sonnet, repo agente-wg, a cada hora + acionador API). Antiga (tipo Chat) apagada. Cloudflare: segredo EXECUTOR_TOKEN (colado pelo Victor) e variável EXECUTOR_URL. Rede do ambiente Default liberada pelo Victor para script.google.com, script.googleusercontent.com e o worker.
+- Verificado: execução de teste 11h41 leu recados e fila, conferiu Metricool, mandou WhatsApp e fez commit.
+- Pendente: testar o disparo na hora com um áudio real do Victor.

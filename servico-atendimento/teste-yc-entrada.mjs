@@ -54,5 +54,13 @@ const rr=await (await av('/recados?limpar=1','GET')).json();
 r.push(['/recados devolve e limpa', rr.length===1 && !kv.has('recado:1')]);
 const antes=yc.length; await yreq({type:'whatsapp.inbound_message.received',whatsappInboundMessage:{wamid:'wamid.dup',from:'+5531999999999',to:'+553193294274',type:'text',text:{body:'Oi'}}});
 r.push(['inbound_message.received ignorado (evita duplicar)', yc.length===antes]);
+env.OPENAI_API_KEY='oa'; const oa=[]; const f0=globalThis.fetch;
+globalThis.fetch=async(u,o)=>{ if(String(u).includes('openai')){oa.push(JSON.parse(o.body)); return {ok:true,arrayBuffer:async()=>new Uint8Array(200).buffer};}
+ if(String(u).includes('anthropic')){anth.push(JSON.parse(o.body)); return {ok:true,json:async()=>({content:[{type:'text',text:'FALA: Fala Victor, tá tudo certo por aqui.\nTEXTO: Fila: 20261119-social-2'}]})};} return f0(u,o);};
+const nv=yc.length; await yreq(ent(30,'+5531999999999','+553193294274','status'));
+r.push(['voz: chefe responde em áudio + texto curto', oa.length===1 && oa[0].input==='Fala Victor, tá tudo certo por aqui.' && yc[nv].type==='audio' && yc[nv].audio.link.includes('/m/') && yc[nv+1].text.body==='Fila: 20261119-social-2' && anth.at(-1).system[1].text.includes('FALA:')]);
+const nv2=yc.length; await av('/avisar','POST',{de:'executor',texto:'x'.repeat(400)});
+r.push(['voz: aviso longo do executor vira áudio resumido', oa.length===2 && yc[nv2].type==='audio']);
+globalThis.fetch=f0; delete env.OPENAI_API_KEY;
 for(const [n,ok] of r) console.log(ok?'OK    ':'FALHOU', n);
 process.exit(r.every(x=>x[1])?0:1);
