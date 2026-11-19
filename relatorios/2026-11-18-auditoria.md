@@ -48,3 +48,10 @@ Cada item com a prova lida hoje. OK = provado hoje. PROBLEMA = afeta venda ou op
 - **Aviso do ManyChat:** "O plano será alterado para Pro em 22 dias, e você perderá alguns recursos". Ver com o Victor o que sai no Pro.
 - **Decisão pendente:** na sexta 19h, os funis de comentário, story, live e novo seguidor continuam mandando para o grupo de espera ou viram para a página da Black (skill `wg-manychat-funis`, "viradas típicas")?
 - **Navegador:** o Chrome parou de responder às capturas de tela às 20h52 (computador provavelmente em repouso). Edição de fluxo no ManyChat ficou para quando o Victor voltar.
+
+## Rodada 3 · 21h55 · varredura das 23 páginas de venda (abertas com JS e ?utm_source=vc)
+- 22 de 23 páginas abrem (200), com garantia de 7 dias, link de checkout funcionando, utm_source=vc chegando no checkout e nenhuma macro `{{`.
+- **PROBLEMA (base de produtos desatualizada):** as páginas dos cursos mostram R$ 197 (12x R$ 20,25 ou R$ 19,78) e o e-book Vida Segura mostra R$ 19,90, mas a skill `base-produtos-wg` ainda lista outros valores (Briga de Rua R$ 97, Armlock R$ 147, APH R$ 297, e-book R$ 27,90 etc.). Risco: o atendente citar preço diferente da página. Dono: ofertas-paginas-wg atualizar a tabela pelo preço da página.
+- **DÚVIDA:** /guia/trilha-12-semanas abre quase vazia (sem preço, sem checkout, sem garantia). Conferir se é página de aluno ou se quebrou.
+- Detalhe: /catalogo tem 2 travessões no texto (regra da marca: nenhum).
+- Ainda não auditado: checkout do aluno R$ 347, order bumps da Greenn por produto, entrega na Academia por produto (precisa de login de aluno de teste), funis de comentário do Instagram por palavra (destino de cada um), catálogo do WhatsApp, grupos e régua do Gui, anúncios ativos.
