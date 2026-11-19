@@ -34,7 +34,7 @@ JEITO DE FALAR (o mais importante: quem escreve quer falar com alguém da equipe
 - Se perguntarem se é robô: seja honesto, você é o assistente da equipe do Mestre Wesley e chama uma pessoa se ela preferir.
 - Ruim: "Olá! Claro, ficarei feliz em ajudar! Para acessar a plataforma siga os passos: 1. ... 2. ...". Bom: "Shalom, tudo bem? Vamos resolver isso agora." + "Me manda o e-mail que você usou na compra?". Garantia: 7 dias em todos os produtos. Todo link de compra leva utm_source=vc&utm_medium=whatsapp&utm_campaign=atendimento&utm_term=ag-atendimento. Nunca invente preço, link, prazo, bônus ou resultado: use só o que está no conhecimento abaixo. Se não souber, diga que vai confirmar com a equipe e use a ferramenta passar_para_humano.
 
-Para conferir compra, use a ferramenta consultar_compra com o e-mail que a pessoa mandar (não fale de \"sistema\" com o cliente; diga \"deixa eu ver aqui\"). Para problema de acesso: peça o e-mail da compra, confira a compra, oriente olhar spam e promoções, mande o link da Academia https://kravmagacaveira.cademi.com.br/ e o "esqueci minha senha". Se mesmo assim não resolver, use passar_para_humano com o produto e o resumo (sem o e-mail no resumo).
+Para conferir compra, use a ferramenta consultar_compra com o e-mail que a pessoa mandar (não fale de \"sistema\" com o cliente; diga \"deixa eu ver aqui\"). Para problema de acesso: peça o e-mail da compra, confira a compra (consultar_compra) e a Academia (conferir_academia), mande o link de senha nova (enviar_link_senha) quando precisar, oriente olhar spam e promoções, mande o link da Academia https://kravmagacaveira.cademi.com.br/ e o "esqueci minha senha". Se mesmo assim não resolver, use passar_para_humano com o produto e o resumo (sem o e-mail no resumo).
 
 NEGOCIAÇÃO E FECHAMENTO (você negocia e fecha sozinho; NÃO passe para humano por causa de preço. Esta regra vale acima de qualquer outra regra de desconto do conhecimento abaixo)
 - Cursos avulsos de R$ 197 (DPC, Vida Segura, Contra Ataque, Feminina, Kids, Lâminas, Jiu Jitsu x Krav Maga, APH, Preparação Física, Prevenção de Confrontos etc.): o preço é o da página. Mande sempre a página de venda com o link certo.
@@ -69,6 +69,14 @@ const FERRAMENTAS = [{
   name: 'consultar_compra',
   description: 'Confere na Greenn e na Hotmart as compras feitas com um e-mail (produto, situação do pagamento, data). Use quando a pessoa disser que comprou e tem problema de acesso ou pagamento, depois que ela mandar o e-mail da compra. Só fale com a pessoa sobre as compras do e-mail que ELA mandou; nunca conte nome, CPF ou telefone que vierem na consulta.',
   input_schema: { type: 'object', properties: { email: { type: 'string', description: 'E-mail que a pessoa disse ter usado na compra.' } }, required: ['email'] }
+}, {
+  name: 'conferir_academia',
+  description: 'Confere na Academia (Cademi) se existe aluno com esse e-mail e quais cursos estão liberados para ele (e até quando). Use quando a pessoa diz que não consegue entrar ou que falta curso.',
+  input_schema: { type: 'object', properties: { email: { type: 'string' } }, required: ['email'] }
+}, {
+  name: 'enviar_link_senha',
+  description: 'Manda pela Academia um e-mail com o link para a pessoa criar uma senha nova. Use quando ela tem acesso na Academia mas não lembra a senha ou não recebeu o e-mail de acesso. No máximo uma vez a cada 10 minutos para a mesma pessoa.',
+  input_schema: { type: 'object', properties: { email: { type: 'string' } }, required: ['email'] }
 }, {
   name: 'nao_responder',
   description: 'A conversa não é do Krav Magá Caveira (outro projeto ou assunto pessoal). Não envia nada.',
@@ -297,7 +305,63 @@ async function executar(u, fone, nome, env) {
     return 'Equipe avisada. Diga à pessoa que a equipe vai assumir por aqui e responde em horário comercial (8h às 18h).';
   }
   if (u.name === 'consultar_compra') return consultarCompra(String((u.input || {}).email || '').trim().toLowerCase(), env);
+  if (u.name === 'conferir_academia') return conferirAcademia(String((u.input || {}).email || '').trim().toLowerCase(), env);
+  if (u.name === 'enviar_link_senha') return enviarLinkSenha(String((u.input || {}).email || '').trim().toLowerCase(), env);
   return 'ferramenta desconhecida';
+}
+
+// ---- Academia (Cademi API v3; chave com users.read, enrollments.read, products.read e users.send_access) ----
+const CADEMI = 'https://api.cademi.com.br/api/v3';
+async function cademi(env, caminho, opcoes = {}) {
+  const r = await fetch(CADEMI + caminho, { ...opcoes, headers: { Authorization: 'Bearer ' + env.CADEMI_KEY, accept: 'application/json', 'content-type': 'application/json', ...(opcoes.headers || {}) } });
+  let j = {}; try { j = await r.json(); } catch {}
+  return { ok: r.ok, status: r.status, j };
+}
+async function alunoCademi(email, env) {
+  const r = await cademi(env, '/users?limit=10&q=' + encodeURIComponent(email));
+  if (!r.ok) { await passo(env, 'cademi users ' + r.status + ' ' + JSON.stringify(r.j).slice(0, 120)); return { erro: r.status }; }
+  return { aluno: (r.j.data || []).find(u => String(u.email || '').toLowerCase() === email && !u.deleted) };
+}
+async function nomesCursos(env) {
+  const c = await env.WG.get('cademi:produtos');
+  if (c) return JSON.parse(c);
+  const nomes = {}; let cursor = '';
+  for (let i = 0; i < 5; i++) {
+    const r = await cademi(env, '/products?limit=200' + (cursor ? '&cursor=' + encodeURIComponent(cursor) : ''));
+    if (!r.ok) break;
+    for (const p of r.j.data || []) nomes[p.id] = p.name;
+    cursor = (r.j.page || {}).next_cursor; if (!cursor) break;
+  }
+  await env.WG.put('cademi:produtos', JSON.stringify(nomes), { expirationTtl: 86400 });
+  return nomes;
+}
+async function conferirAcademia(email, env) {
+  if (!env.CADEMI_KEY) return '(Interno: Academia ainda não conectada. Não afirme nada sobre o acesso; oriente o "esqueci minha senha" e, se não resolver, passe para humano.)';
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return 'E-mail inválido. Peça para conferir.';
+  const { aluno, erro } = await alunoCademi(email, env);
+  if (erro) return '(Interno: a Academia não respondeu agora. Não afirme nada; oriente o "esqueci minha senha".)';
+  if (!aluno) { await passo(env, 'academia: sem aluno'); return 'Não existe aluno na Academia com esse e-mail. Se a compra foi aprovada, pode ser outro e-mail na compra ou atraso na liberação: confira a compra com consultar_compra. Compra aprovada e sem aluno na Academia depois de alguns minutos: passe para humano (é falha de entrega).'; }
+  const r = await cademi(env, '/users/' + aluno.id + '/products?limit=200');
+  const nomes = await nomesCursos(env);
+  const lib = [], neg = [];
+  for (const a of (r.j.data || [])) {
+    const n = nomes[a.product_id] || 'curso ' + a.product_id;
+    if (a.has_access) lib.push(n + (a.ends_at ? ' (até ' + String(a.ends_at).slice(0, 10) + ')' : ' (vitalício)'));
+    else if (a.denial_reason) neg.push(n + ' (sem acesso: ' + a.denial_reason + ')');
+  }
+  await passo(env, 'academia: aluno ok, ' + lib.length + ' curso(s) liberado(s)');
+  return `Aluno encontrado na Academia (último acesso conta como ${aluno.status === 'active' ? 'ativo nos últimos 30 dias' : 'sem acesso recente'}).\nCursos liberados: ${lib.length ? lib.join('; ') : 'nenhum'}` + (neg.length ? `\nSem acesso: ${neg.slice(0, 10).join('; ')}` : '') +
+    '\nSe a pessoa não lembra a senha ou não achou o e-mail, use enviar_link_senha. Link da Academia: https://kravmagacaveira.cademi.com.br/ . Se falta um curso que ela comprou (confira com consultar_compra), passe para humano dizendo qual curso.';
+}
+async function enviarLinkSenha(email, env) {
+  if (!env.CADEMI_KEY) return '(Interno: Academia ainda não conectada. Oriente o "esqueci minha senha" na tela de entrada.)';
+  const { aluno, erro } = await alunoCademi(email, env);
+  if (erro || !aluno) return erro ? '(Interno: a Academia não respondeu. Oriente o "esqueci minha senha".)' : 'Não existe aluno com esse e-mail na Academia; não dá para mandar o link. Confira a compra e o e-mail.';
+  const r = await cademi(env, '/users/' + aluno.id + '/password-reset-emails', { method: 'POST', headers: { 'Idempotency-Key': crypto.randomUUID() }, body: '{}' });
+  await passo(env, 'academia: link de senha ' + (r.ok ? 'enviado' : 'erro ' + r.status));
+  if (r.ok) return 'Link para criar senha nova enviado para o e-mail da pessoa. Peça para olhar a caixa de entrada, spam e promoções (chega em poucos minutos) e depois entrar em https://kravmagacaveira.cademi.com.br/ .';
+  if (JSON.stringify(r.j).includes('email_recently_sent')) return 'O link já foi enviado há menos de 10 minutos. Peça para procurar no e-mail (inclusive spam e promoções) e esperar alguns minutos.';
+  return '(Interno: não consegui mandar o link agora. Oriente o "esqueci minha senha" na tela de entrada.)';
 }
 
 // ---- Consulta de compra (Greenn: token só com o escopo "Consultar vendas"; Hotmart: credenciais da conta) ----
