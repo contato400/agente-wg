@@ -1,11 +1,13 @@
 ---
 name: edicao-video-arte-wg
-description: Padrão de edição de vídeo (Reels, Stories, criativos) e de arte (carrossel, estático) do Mestre Wesley Gimenez, com área segura, rotina para gastar menos e como copiar um estilo de referência. Usar ao editar, cortar, legendar ou montar qualquer vídeo ou arte do WG.
+description: Padrão de edição de vídeo (Reels, Stories, criativos) e de arte (carrossel, estático) do Mestre Wesley Gimenez, com área segura, rotina para gastar menos e como copiar um estilo de referência. Usar ao editar, cortar, legendar ou montar qualquer vídeo ou arte do WG, e ao criar variações de criativo para o tráfego.
 ---
 
 # Edição de vídeo e arte WG
 
 Fontes: kit do grupo (Guias 01, 03 e 04, nov/2026) e o padrão usado nos vídeos da Black (`kairos/black-2026-videos-editados-03-nov.md`, `kairos/criativos-trafego-04-nov.md`). Tudo vai para aprovação antes de publicar. Sem travessão nos textos. Temas dentro de `marca-limites-wg`.
+
+**Criativo de anúncio ou variação para o tráfego:** leia também `criativos-trafego.md` (nesta pasta): briefing, cinco batidas, gancho em três camadas, uma mudança por versão, legenda de anúncio, checklist de 8 itens e receitas de ffmpeg e faster-whisper que funcionam aqui.
 
 ## Área segura (vale para todo vídeo e toda arte)
 | Peça | Tamanho | Área segura |

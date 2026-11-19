@@ -263,3 +263,9 @@ Modelo:
 - Modelo caveira_acesso_academia_v2 aprovado pela Meta e colocado na automação "WPP - Acesso pós-compra (Greenn e Hotmart)". Publicado.
 - Stories (social-media-wg): 4 artes em conteudo/2026-11-19/stories (sequencia.md), para 15h30, 17h30, 19h30 e 20h45. Não programadas: esperam OK do Victor. O 4 pede resposta CAVEIRA no story; confirmar se o funil de resposta a story do ManyChat leva ao grupo.
 - Atenção: o atendente ainda vende na hora para quem pede (decisão das 12h38); o e-mail não fala disso.
+
+## 19/11 14h20 · treino do editor de vídeo
+- Pedido: usar os cursos (principalmente Mestres da IA) para treinar o agente editor de vídeo.
+- Feito: método novo `.claude/skills/edicao-video-arte-wg/criativos-trafego.md` (briefing, cinco batidas, gancho em três camadas, uma mudança por versão, legenda de anúncio, checklist de 8 itens, receitas ffmpeg e faster-whisper testadas no ambiente); SKILL.md aponta para ele; `editor-video-wg.md` com a seção "Seu treino" e "Mudanças".
+- Pendente: variações do presente (agente rodando); registrar #editor no worker se o Victor quiser falar com ele pelo WhatsApp.
+- Verificado: ffmpeg, faster-whisper e fonte Inter disponíveis.
