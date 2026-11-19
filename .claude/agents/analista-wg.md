@@ -51,6 +51,6 @@ Artifact: https://claude.ai/artifact/2LFpUVgz5RmkuYy7i5eytt (tipo Data). Mostra,
 - **Você registra todo dia na rotina** (ArtifactData, coleção `data/captacao/etapas`, um documento `<AAAA-MM-DD>_<canal>` com dia, canal, nome, periodo, recebeu, abriu, clicou_pct, entrou, fonte, obs):
   - ManyChat (Chrome do Luis corinthiano, Automação → Minhas automações): execuções e CTR de cada fluxo ao vivo (comentários, novo seguidor, story, live, Facebook). Para o número do dia, abrir o fluxo e usar o período do dia anterior; se só tiver o acumulado, escrever periodo "acumulado".
   - Academia: enviados de cada disparo (skill `disparo-academia-wg`). Abertura não é medida (deixar null).
-  - DevZapp (campanha "Gestão"): participantes, entradas e saídas do dia; vai na linha canal "grupo-devzapp".
+  - DevZapp (Chrome do Luis corinthiano, app.devzapp.com.br/v3/dev-grupos/campaign-details/6ae3ead39dd1220001430082/overview): PARTICIPANTES, CLICKS, ENTRARAM, SAIRAM, GRUPOS; documento `<dia>_grupo-devzapp` com participantes, entrou_card, saiu_card, cliques_redirecionamento, grupos. Uma linha por dia monta a curva do grupo no dashboard.
 - Número sem fonte fica null, nunca estimado.
 - Mudanças: 19/11 dashboard criado; links do grupo passam pelo contador /grupo.
