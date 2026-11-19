@@ -112,7 +112,7 @@ async function sistemaAgente(chave, env) {
   const base = await equipeBase(env);
   return `Você é o agente ${NOME_AGENTE[chave] || chave} da equipe de agentes que opera o negócio do Mestre Wesley Gimenez (Krav Magá Caveira). Quem fala com você agora é o Victor, o responsável, pelo WhatsApp de suporte. Ele escolheu falar com você digitando #${Object.keys(APELIDOS).find(k => APELIDOS[k] === chave)}.
 Responda como esse agente: direto, em português, curto, como mensagem de WhatsApp (sem tabelas; listas curtas só se ajudarem). Sem travessão.
-Você enxerga a memória da equipe abaixo (estado, decisões, backlog, conversas entre agentes e a última passagem): use para dizer o que você e os outros estão fazendo. Você NÃO mexe no trabalho dos outros. Para saber algo de outro agente, use a ferramenta perguntar_agente. Nenhuma ação externa (publicar, gastar, mandar mensagem para cliente, mexer em página, oferta ou campanha) sem aprovação do Victor ou do Wesley; se ele aprovar aqui (por texto ou áudio), registre CADA aprovação com registrar_recado (uma por item, com o ID da fila quando houver) e responda na hora com a lista do que ficou aprovado e quando roda: o executor da equipe pega os recados de hora em hora, das 9h às 18h, e te avisa aqui o que fez. Se o áudio vier confuso, repita o que entendeu em lista numerada e peça só a confirmação. Nunca invente número: o que não estiver na memória ou nas consultas, diga que não tem.
+Você enxerga a memória da equipe abaixo (estado, decisões, backlog, conversas entre agentes e a última passagem): use para dizer o que você e os outros estão fazendo. Você NÃO mexe no trabalho dos outros. Para saber algo de outro agente, use a ferramenta perguntar_agente. Nenhuma ação externa (publicar, gastar, mandar mensagem para cliente, mexer em página, oferta ou campanha) sem aprovação do Victor ou do Wesley; se ele aprovar aqui (por texto ou áudio), registre CADA aprovação com registrar_recado (uma por item, com o ID da fila quando houver) e responda na hora com a lista do que ficou aprovado e quando roda: o executor da equipe é acionado na hora (ou na rodada de hora em hora, das 9h às 18h) e te avisa aqui o que fez. Diga exatamente o que a ferramenta registrar_recado devolver sobre quando ele roda; não invente horário. Se o áudio vier confuso, repita o que entendeu em lista numerada e peça só a confirmação. Nunca invente número: o que não estiver na memória ou nas consultas, diga que não tem.
 
 REGRAS DE TODOS OS AGENTES:
 ${base.regras}
@@ -422,6 +422,20 @@ function kvSeguro(env) {
     delete: async (...a) => { try { return await k.delete(...a); } catch (e) { console.log('kv delete falhou', String(e).slice(0, 80)); } } };
   return Object.assign(Object.create(Object.getPrototypeOf(env) || null), env, { WG });
 }
+// Aciona a tarefa agendada do executor na hora (acionador de API). Segredo EXECUTOR_TOKEN no Cloudflare; sem ele, fica o horário.
+// Trava de 3 minutos para não abrir uma execução por recado quando o Victor manda vários seguidos.
+async function dispararExecutor(env) {
+  if (!env.EXECUTOR_TOKEN) return false;
+  if (await env.WG.get('exec:disparo')) return true;
+  await env.WG.put('exec:disparo', '1', { expirationTtl: 180 });
+  try {
+    const r = await fetch(env.EXECUTOR_URL || 'https://api.anthropic.com/v1/claude_code/routines/trig_01Ew7uaaRRupMPDDkPZbEzM6/fire', { method: 'POST',
+      headers: { Authorization: 'Bearer ' + env.EXECUTOR_TOKEN, 'anthropic-beta': 'experimental-cc-routine-2026-04-01', 'anthropic-version': '2023-06-01', 'content-type': 'application/json' },
+      body: JSON.stringify({ text: 'Acionado pelo WhatsApp: há recado novo do Victor.' }) });
+    await passo(env, 'executor acionado ' + r.status);
+    return r.ok;
+  } catch (e) { await passo(env, 'executor falhou ' + String(e).slice(0, 80)); return false; }
+}
 function b64paraU8(b64) { const s = atob(b64); const u = new Uint8Array(s.length); for (let i = 0; i < s.length; i++) u[i] = s.charCodeAt(i); return u; }
 function u8paraB64(u) { let s = ''; for (let i = 0; i < u.length; i += 32768) s += String.fromCharCode(...u.subarray(i, i + 32768)); return btoa(s); }
 // Divide um Ogg/Opus (nota de voz do WhatsApp) em pedaços de ~seg segundos, repetindo as 2 páginas de cabeçalho em cada pedaço.
@@ -494,7 +508,7 @@ async function pensar(hist, nome, fone, agente, env, rapido = false) {
   for (let volta = 0; volta < 4; volta++) {
     const { ok, status, d } = await chamarClaude(env, {
       // rapido (voz pelo Jarvis): todos em Sonnet e resposta curta, para responder em segundos
-      model: rapido ? (env.MODELO_VOZ || env.MODELO_AGENTES || 'claude-sonnet-5-5') : agente === 'chefe-wg' ? (env.MODELO_CHEFE || 'claude-fable-5-2') : (agente ? (env.MODELO_AGENTES || 'claude-sonnet-5-5') : (env.MODELO || 'claude-sonnet-5-5')),
+      model: rapido ? (env.MODELO_VOZ || env.MODELO_AGENTES || 'claude-sonnet-5-5') : agente === 'chefe-wg' ? (env.MODELO_CHEFE || 'claude-sonnet-5-5') : (agente ? (env.MODELO_AGENTES || 'claude-sonnet-5-5') : (env.MODELO || 'claude-sonnet-5-5')),
       max_tokens: rapido ? 900 : agente ? 4000 : 1500, system: sistema, tools: agente ? FERRAMENTAS_EQUIPE : FERRAMENTAS, messages: msgs,
     });
     if (!ok) { console.log('anthropic', JSON.stringify(d)); await passo(env, 'anthropic erro ' + status + ' ' + JSON.stringify(d.error || d).slice(0, 150)); return ['Shalom! Recebi sua mensagem e já já te respondo. Tamo junto, Caveira!']; }
@@ -527,7 +541,9 @@ async function executar(u, fone, nome, env) {
   if (u.name === 'registrar_recado') {
     const i = u.input || {};
     await env.WG.put('recado:' + Date.now(), JSON.stringify({ quando: agora(), para: i.para, recado: String(i.recado || '').slice(0, 2000) }), { expirationTtl: 14 * 86400 });
-    return 'Recado registrado. O executor pega na próxima hora cheia (9h às 18h) e avisa o Victor aqui.';
+    const disparou = await dispararExecutor(env);
+    return disparou ? 'Recado registrado e o executor foi acionado agora: ele começa em 1 a 2 minutos e avisa o Victor aqui quando terminar (cada rodada leva uns 10 minutos).'
+      : 'Recado registrado. O executor pega na próxima rodada (de hora em hora, no minuto 7, das 9h às 18h, ou já está rodando) e avisa o Victor aqui.';
   }
   return 'ferramenta desconhecida';
 }

@@ -33,7 +33,7 @@ await yreq(ent(20,'+5531999999999','+553193294274','#cliente')); const nSim=yc.l
 await yreq(ent(21,'+5531999999999','+553193294274','nao consigo entrar'));
 r.push(['#cliente: responde como cliente (com ferramentas)', yc.length===nSim+1 && anth.at(-1).tools.length>0 && kv.has('hist:sim5531999999999')]);
 await yreq(ent(22,'+5531999999999','+553193294274','#chefe')); await yreq(ent(23,'+5531999999999','+553193294274','status'));
-r.push(['#chefe: volta ao modo chefe (ficha do chefe, ferramentas da equipe, data e hora)', anth.at(-1).tools.some(t=>t.name==='perguntar_agente') && anth.at(-1).system[1].text.includes('agente Chefe') && anth.at(-1).system[2].text.includes('AGORA:') && anth.at(-1).model.includes('fable')]);
+r.push(['#chefe: volta ao modo chefe (ficha do chefe, ferramentas da equipe, data e hora)', anth.at(-1).tools.some(t=>t.name==='perguntar_agente') && anth.at(-1).system[1].text.includes('agente Chefe') && anth.at(-1).system[2].text.includes('AGORA:') && anth.at(-1).model.includes('sonnet')]);
 await yreq(ent(24,'+5531999999999','+553193294274','#Financeiro')); await yreq(ent(25,'+5531999999999','+553193294274','quanto vendeu?'));
 r.push(['#financeiro: fala só com o financeiro, histórico próprio', anth.at(-1).system[1].text.includes('agente Financeiro') && kv.has('hist:ag:financeiro-wg:5531999999999') && yc.at(-2).text.body.includes('Falando com Financeiro')]);
 r.push(['cliente também vê data e hora', anth.find(a=>a.system.length===2).system[1].text.includes('AGORA:')]);
