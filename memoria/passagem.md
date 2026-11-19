@@ -148,3 +148,8 @@ Modelo:
 - Voz humana no prompt + skill voz-humana-atendimento-wg. Modo #cliente/#chefe para o Victor testar como cliente.
 - Ferramenta consultar_compra (Greenn API pública v1, GET /sales?filter[client_email]; Hotmart sales/history). Sem segredo ela avisa que a plataforma não está conectada e não afirma que a compra não existe.
 - Pendente (Victor): criar token na Greenn (Configurações > Integrações e Tokens > Criar token, só escopo "Consultar vendas") e colar como segredo GREENN_TOKEN; Hotmart: credenciais (HOTMART_CLIENT_ID, HOTMART_CLIENT_SECRET, HOTMART_BASIC); Cademi: ver a API no admin (perfil Victor Augusto). Depois: skills de venda/copy no conhecimento, 10 conversas simuladas, MODO=ativo, migração do número.
+
+## 19/11 01h55 · Consulta de compra funcionando (Greenn e Hotmart) e negociação autônoma
+- Teste do Victor (#cliente): achou a Black paga e mandou para a Academia. Greenn e Hotmart responderam sem erro (Hotmart com período de 1 ano).
+- Escada de negociação 197/167/147 com cupons CAVEIRA30/CAVEIRA50 (decisoes.md).
+- Pendente: Victor passar HOTMART_BASIC e HOTMART_CLIENT_SECRET para Segredo; decidir sobre o cupom antigo CAVEIRA99 (50%); Cademi (conferir acesso e link de login); skills de venda/copy no conhecimento; 10 conversas simuladas; MODO=ativo; migração do número de suporte.
