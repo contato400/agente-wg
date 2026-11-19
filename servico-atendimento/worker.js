@@ -126,6 +126,7 @@ ${await memoriaEquipe(env)}`;
 
 export default {
   async fetch(req, env, ctx) {
+    env = kvSeguro(env);
     const url = new URL(req.url);
     if (req.method === 'GET' && url.pathname === '/webhook') {
       const ok = url.searchParams.get('hub.mode') === 'subscribe' && url.searchParams.get('hub.verify_token') === env.VERIFY_TOKEN;
@@ -268,6 +269,7 @@ export default {
   },
   // Consumidor da fila: uma mensagem por vez, sem o limite de 30 s do waitUntil.
   async queue(batch, env) {
+    env = kvSeguro(env);
     for (const m of batch.messages) {
       try { if (m.body.tipo === 'yc') await processarYC(m.body.ev, env); else if (m.body.tipo === 'meta') await processar(m.body.dados, env); }
       catch (e) { await passo(env, 'erro na fila: ' + String(e).slice(0, 150)); }
@@ -347,9 +349,9 @@ async function receber(m, nome, env) {
   await addHist(env, hk, { role: 'user', content: conteudo });
   await marcarLido(m.id, env);
 
-  await env.WG.put('ultima:' + de, m.id, { expirationTtl: 600 });
+  const marcou = await env.WG.put('ultima:' + de, m.id, { expirationTtl: 600 });
   await new Promise(r => setTimeout(r, ESPERA_MS));
-  if ((await env.WG.get('ultima:' + de)) !== m.id) { await passo(env, 'juntou com mensagem mais nova ' + fim); return; }  // chegou mensagem mais nova: ela responde por todas
+  if (marcou !== false && (await env.WG.get('ultima:' + de)) !== m.id) { await passo(env, 'juntou com mensagem mais nova ' + fim); return; }  // chegou mensagem mais nova: ela responde por todas
   if (env.MC_TOKEN && !env.YC_KEY && !(await env.WG.get('mcok:' + fone(de)))) {
     // Nenhum aviso da resposta padrão do ManyChat: um fluxo dele (palavra-chave, carrinho) está cuidando. Agente fica quieto.
     console.log('sem sinal do manychat, final', String(de).slice(-4)); return;
@@ -357,6 +359,9 @@ async function receber(m, nome, env) {
   if (env.MC_TOKEN && !env.YC_KEY) await env.WG.delete('mcok:' + fone(de));
 
   const hist = await getHist(env, hk);
+  // Se o KV não gravou (limite diário), a mensagem atual não está no histórico: entra aqui para o agente responder a ela.
+  const ult = hist[hist.length - 1];
+  if (!ult || ult.role !== 'user' || (typeof conteudo === 'string' && ult.content !== conteudo)) hist.push({ role: 'user', content: conteudo });
   await passo(env, 'pensando ' + fim + (simula ? ' (simulação)' : ''));
   let resposta;
   try { resposta = await pensar(hist, nome, de, chefe, env); } catch (e) { await passo(env, 'erro ao pensar: ' + String(e).slice(0, 150)); throw e; }
@@ -407,6 +412,16 @@ async function transcrever(audio, env) {
   } catch (e) { await passo(env, 'audio falhou ' + String(e).slice(0, 120)); return null; }
 }
 
+// Se o KV recusar gravação (limite diário do plano grátis), o atendimento continua: a gravação falha em silêncio.
+function kvSeguro(env) {
+  if (!env.WG || env.WG.__seguro) return env;
+  const k = env.WG;
+  const WG = { __seguro: true,
+    get: (...a) => k.get(...a), getWithMetadata: (...a) => k.getWithMetadata(...a), list: (...a) => k.list(...a),
+    put: async (...a) => { try { await k.put(...a); return true; } catch (e) { console.log('kv put falhou', String(e).slice(0, 80)); return false; } },
+    delete: async (...a) => { try { return await k.delete(...a); } catch (e) { console.log('kv delete falhou', String(e).slice(0, 80)); } } };
+  return Object.assign(Object.create(Object.getPrototypeOf(env) || null), env, { WG });
+}
 function b64paraU8(b64) { const s = atob(b64); const u = new Uint8Array(s.length); for (let i = 0; i < s.length; i++) u[i] = s.charCodeAt(i); return u; }
 function u8paraB64(u) { let s = ''; for (let i = 0; i < u.length; i += 32768) s += String.fromCharCode(...u.subarray(i, i + 32768)); return btoa(s); }
 // Divide um Ogg/Opus (nota de voz do WhatsApp) em pedaços de ~seg segundos, repetindo as 2 páginas de cabeçalho em cada pedaço.
@@ -765,7 +780,9 @@ async function assinaturaYC(corpo, cab, segredo) {
 }
 
 async function processarYC(ev, env) {
-  if (ev.type !== 'contact.attributes_changed') await env.WG.put('diag:yc', JSON.stringify({ quando: new Date().toISOString(), tipo: ev.type }), { expirationTtl: 7 * 86400 });
+  // Avisos de status (entregue, lido) não gravam nada: o KV grátis tem limite de 1.000 gravações por dia e eles chegam aos montes.
+  if (ev.type === 'whatsapp.message.updated' || ev.type === 'contact.attributes_changed') return;
+  await env.WG.put('diag:yc', JSON.stringify({ quando: new Date().toISOString(), tipo: ev.type }), { expirationTtl: 7 * 86400 });
   if (/message/.test(ev.type || '')) await passo(env, 'yc evento ' + ev.type + (ev.inboxMessage ? ' ' + ev.inboxMessage.direction : ''));
   const sem = s => String(s || '').replace(/\D/g, '');
   // A YCloud manda CADA mensagem do cliente duas vezes ao mesmo tempo: whatsapp.inbound_message.received e

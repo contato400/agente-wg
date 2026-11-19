@@ -208,3 +208,10 @@ Modelo:
 - Victor aprovou ("Sim"). Backup da antiga raiz ([DPC] [FRONT] [ORG-DOMÍNIO], Jwn8mcsMcXmAzQX5WPBI) feito na Atomicat; ela foi republicada em /defesa-pessoal-caveira. Site v4 publicado na raiz www.wesleygimenez.com.br (o /inicio continua funcionando).
 - Verificado: / , /inicio, /defesa-pessoal-caveira e /dpc respondem 200; vídeo do avatar toca na raiz.
 - Atenção: wesleygimenez.com.br sem "www" não responde (problema de DNS que já existia, não mexi). Links antigos que apontavam para a raiz agora caem no site novo, que leva ao DPC.
+
+## 2026-11-19 10h50 · Aprovações do Victor executadas e canal do WhatsApp consertado
+- Pedido: os áudios de aprovação das 10h07 não viraram nada; Victor quer comandar os agentes pelo WhatsApp e ver executado.
+- Diagnóstico: (1) o serviço cortava em 30 s e o chefe não terminava de pensar depois do áudio; (2) o Whisper pegava só ~30 s e embolava; (3) aprovação só era lida na rotina do dia seguinte; (4) às 10h40 o KV grátis bateu o limite de 1.000 gravações/dia (os avisos de status do envio de mídia gravavam a cada evento) e as mensagens passaram a falhar.
+- Feito: fila Cloudflare "agente-wg-mensagens" (produtor e consumidor agente-wg, lote 1, sem espera); áudio em pedaços de 25 s (testado com 1min45, saiu inteiro); /midia e envio de vídeo/imagem ao Victor (rotinas/whatsapp.sh peca); avisos de status não gravam mais; KV que falha não derruba o atendimento; prompt do chefe registra cada aprovação e responde na hora.
+- Executado: ManyChat (boas-vindas do comentário), Parte 3 refeita, 10 reels programados no Metricool (normal e teste), 2 carrosséis (sexta e sábado 12h), 5 peças e 2 carrosséis enviados no WhatsApp do Victor, rascunho da Comunidade (20261119-sucesso-1).
+- Pendente: (a) o Victor criar a tarefa agendada do executor (a criação foi negada para mim; texto pronto em rotinas/executor.md); (b) KV grátis: 1.000 gravações/dia volta às 21h; plano pago da Cloudflare Workers (US$ 5/mês) tira o limite; (c) mandar a mensagem da Comunidade depois do "pode mandar"; (d) atualizar status na aba Fila de aprovação (ponte) com APROVADO/EXECUTADO.

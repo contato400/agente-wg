@@ -61,3 +61,15 @@
 ## 19/11 02h40 · Condução e links do atendimento (Victor)
 - Antes de explicar um curso: 2 ou 3 perguntas investigativas, uma por vez, com conexão (vale para quem vem do Catálogo). Depois explicar, perguntar "Faz sentido pra você?", esperar o sim e só então mandar o link, pedindo o comprovante ("assim que finalizar, me manda o comprovante aqui que eu confiro se o acesso foi liberado"). Exceção: quem pede o link recebe na hora.
 - Link de compra do atendimento = o mesmo do Catálogo, com os 3 order bumps (conteudo/atendimento/links-checkout.md). Nunca checkout sem bumps. Preço desses links: R$ 197 ou 12x de R$ 20,25.
+
+## 2026-11-19 · Comandos do Victor (manhã, por áudio e aqui)
+- Chargeback de R$ 3.697,64 (VIP Presencial): deixar correr; se for o caso, o reembolso acontece depois dos 7 dias. Agente não mexe em dinheiro.
+- Série Dona Maria: Parte 1 nova + Partes 2 a 5 aprovadas, nos DOIS formatos (Reels normal e Reels teste). Agenda no Metricool: P1 11h30/11h40, P2 14h/14h10, P3 17h/17h10, P4 19h teste e 21h normal, P5 sexta 7h/7h10. As 19h de quinta já têm um post do Victor no Reels normal.
+- Parte 3: frase trocada para "Polícia não prende ninguém por telefone. Nem manda fazer Pix."
+- ManyChat (comentário em qualquer post): a boas-vindas avisa que a próxima parte da Dona Maria está no perfil e chama para o grupo da condição de sexta 19h. Texto antigo em aprovacao/backups.
+- Carrossel 13º e INSS aprovado (sexta 12h). O reel do Wesley sobre o golpe depois da compra virou carrossel (sábado 12h), porque ele não consegue gravar.
+- CTA dos carrosséis: CAVEIRA (não SEGURA): o funil de comentário pega qualquer palavra e manda para o grupo; não existe funil SEGURA.
+- Tráfego: não mexer (é do Diogo). Cupom CAVEIRA99: o Victor já desligou.
+- Comunidade: pode preparar a mensagem para as 2 assinaturas com cartão recusado (proposta 20261119-sucesso-1).
+- Regra nova: toda peça pronta vai para o WhatsApp do Victor com vídeo, capa e legenda (rotinas/whatsapp.sh peca), mesmo quando já estiver programada.
+- Regra nova: o que o Victor aprova pelo WhatsApp tem de ser executado no mesmo dia (executor de hora em hora, rotinas/executor.md). Não espera a rotina do dia seguinte.
