@@ -72,14 +72,22 @@
    "text": "PAGAMENTO"
   },
   {
-   "layer": "fg",
+   "layer": "bg",
    "type": "gift",
    "t0": 9.62,
    "t1": 12.3,
-   "x": 120,
-   "y": 640,
-   "tx": 540,
-   "ty": 300,
+   "x": 130,
+   "y": 560,
+   "notext": true,
+   "size": 120,
+   "html": ""
+  },
+  {
+   "layer": "fg",
+   "type": "big",
+   "t0": 10.3,
+   "t1": 12.3,
+   "y": 300,
    "size": 120,
    "html": "PIX PARCELADO"
   },

@@ -50,13 +50,18 @@ const FX = {
  tilt(t,e){const p=t-e.t0, a=ease(p/0.6);
   return `<div class="el anton ${e.cls||'ext'}" style="left:${e.x}px;top:${e.y}px;font-size:${e.size}px;white-space:nowrap;opacity:${io(t,e,0.3,0.3)};transform:translateX(-50%) translateZ(${-700*(1-a)}px) rotateY(${e.ry||18}deg) rotateX(6deg) translateX(${-(p*e.drift||0)}px)">${e.html}</div>`},
  coin(t,e){const p=t-e.t0, a=back(p/0.5);
-  return `<div class="el" style="left:${e.x}px;top:${e.y}px;opacity:${io(t,e)};transform:translateZ(${-600*(1-a)}px) rotateY(${p*240}deg) scale(${0.5+0.5*a})"><div class="coin"><div class="anton" style="font-size:${e.size}px;text-align:center">${e.html}</div></div></div>`},
- gift(t,e){const p=t-e.t0, a=back(p/0.45), open=ease((p-0.6)/0.35), ry=-25+p*30;
-  const f=(tr)=>`<div class="face" style="transform:${tr}"></div>`;
-  return `<div class="el" style="left:${e.x}px;top:${e.y}px;width:170px;height:170px;opacity:${io(t,e)};transform:translateZ(${-700*(1-a)}px) rotateX(-18deg) rotateY(${ry}deg)">
-   ${f('translateZ(85px)')}${f('rotateY(180deg) translateZ(85px)')}${f('rotateY(90deg) translateZ(85px)')}${f('rotateY(-90deg) translateZ(85px)')}${f('rotateX(-90deg) translateZ(85px)')}
-   <div class="lid" style="transform:translateY(${-95-220*open}px) rotateX(90deg) rotateZ(${open*25}deg) translateZ(0)"></div></div>
-   <div class="el anton ext" style="left:${e.tx||540}px;top:${e.ty||300}px;font-size:${e.size}px;white-space:nowrap;opacity:${open*io(t,e)};transform:translateX(-50%) scale(${0.4+0.6*open})">${e.html}</div>`},
+  return `<div class="el" style="left:${e.x}px;top:${e.y}px;opacity:${io(t,e)};transform:translateZ(${-600*(1-a)}px) rotateY(${360*(1-ease(p/0.7))+18*Math.sin(t*2.2)}deg) scale(${0.5+0.5*a})"><div class="coin"><div class="anton" style="font-size:${e.size}px;text-align:center">${e.html}</div></div></div>`},
+ gift(t,e){const p=t-e.t0, a=back(p/0.45), open=ease((p-0.6)/0.35), ry=-35+p*22;
+  const f=(tr,sh)=>`<div class="face" style="transform:${tr};filter:brightness(${sh})"></div>`;
+  return `<div class="el" style="left:${e.x}px;top:${e.y}px;width:170px;height:170px;opacity:${io(t,e)};transform:translateZ(${-700*(1-a)}px) rotateX(-22deg) rotateY(${ry}deg)">
+   ${f('translateZ(85px)',1)}${f('rotateY(180deg) translateZ(85px)',.5)}${f('rotateY(90deg) translateZ(85px)',.65)}${f('rotateY(-90deg) translateZ(85px)',.8)}
+   <div class="el" style="left:0;top:0;width:170px;height:170px;transform:translateY(${-200*open}px) rotateZ(${open*-20}deg)">
+     <div class="lid" style="transform:rotateX(90deg) translateZ(95px)"></div>
+     <div class="lid" style="height:40px;top:-10px;transform:translateZ(95px);filter:brightness(1.1)"></div>
+     <div class="lid" style="height:40px;top:-10px;transform:rotateY(90deg) translateZ(95px);filter:brightness(.7)"></div>
+     <div class="lid" style="height:40px;top:-10px;transform:rotateY(-90deg) translateZ(95px);filter:brightness(.85)"></div>
+   </div></div>
+   ${e.notext?"":`<div class="el anton ext" style="left:${e.tx||540}px;top:${e.ty||300}px;font-size:${e.size}px;white-space:nowrap;opacity:${open*io(t,e)};transform:translateX(-50%) scale(${0.4+0.6*open})">${e.html}</div>`}`},
 };
 function band(){const b=CFG.band; if(!b) return '';
  const body = b.kind==='A' ? `<div class="box g"><div style="font-size:96px">PRESENTE LIBERADO!</div><div style="font-size:60px;color:#0a0a0a">ASSISTA ATÉ O FINAL</div></div>`
