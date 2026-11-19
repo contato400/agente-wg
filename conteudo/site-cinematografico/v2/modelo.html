@@ -1,0 +1,265 @@
+<title>Krav Magá Caveira</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;700&display=swap">
+<style>
+:root{--bg:#050405;--bg2:#0e0a0b;--fg:#f4ece9;--fg80:rgba(244,236,233,.8);--fg60:rgba(244,236,233,.62);--fg40:rgba(244,236,233,.4);--red:#c8141c;--red2:#e3262e;--line:rgba(244,236,233,.12);--card:#141011;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html,body{background:var(--bg);color:var(--fg)}
+body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:17px;line-height:1.6;overflow-x:hidden}
+a{color:inherit}
+h1,h2,h3{font-family:Anton,Impact,"Arial Narrow",sans-serif;font-weight:400;letter-spacing:.01em;text-wrap:balance;margin:0;text-transform:uppercase}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+:focus-visible{outline:3px solid var(--red2);outline-offset:3px}
+
+/* porta de entrada */
+#porta{position:fixed;inset:0;z-index:50;display:grid;place-items:center;background:radial-gradient(60% 60% at 50% 45%,#2a0507 0%,#050405 70%);transition:opacity .8s,visibility .8s}
+#porta.fora{opacity:0;visibility:hidden}
+#porta .caixa{text-align:center;padding:24px}
+#porta .marca{font-family:Anton,Impact,sans-serif;font-size:clamp(34px,7vw,64px);letter-spacing:.04em}
+#porta .marca b{color:var(--red2);font-weight:400}
+#porta p{color:var(--fg60);margin:8px 0 28px}
+#porta button{font:700 18px Inter,sans-serif;color:#fff;background:var(--red);border:0;border-radius:999px;padding:18px 34px;cursor:pointer;box-shadow:0 0 0 0 rgba(227,38,46,.6);animation:pulso 2s infinite}
+#porta small{display:block;margin-top:14px;color:var(--fg40);font-size:13px}
+@keyframes pulso{0%{box-shadow:0 0 0 0 rgba(227,38,46,.55)}70%{box-shadow:0 0 0 22px rgba(227,38,46,0)}100%{box-shadow:0 0 0 0 rgba(227,38,46,0)}}
+
+/* palco */
+.palco{position:relative;min-height:100svh;overflow:hidden;isolation:isolate;display:flex;align-items:center}
+.fundo{position:absolute;inset:-4%;z-index:-3;background:url({{FUNDO}}) 70% 30%/cover no-repeat;filter:blur(6px) brightness(.45);translate:calc(var(--mx,0)*-14px) calc(var(--my,0)*-10px);scale:1.06}
+.luz{position:absolute;inset:0;z-index:-2;background:radial-gradient(45% 60% at 72% 42%,rgba(227,38,46,.32),transparent 70%);animation:pisca 7s infinite}
+@keyframes pisca{0%,18%,22%,60%,63%,100%{opacity:1}19%,21%{opacity:.4}61%{opacity:.65}}
+.chao{position:absolute;left:0;right:0;bottom:0;height:38%;z-index:-1;background:linear-gradient(0deg,var(--bg) 10%,transparent)}
+#poeira{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.grade{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center;width:100%;padding-block:90px 40px}
+.grade>*{min-width:0}
+.nav{position:absolute;inset:0 0 auto;z-index:5;padding-block:18px}
+.nav .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.logo{font-family:Anton,Impact,sans-serif;font-size:20px;letter-spacing:.06em;text-decoration:none}
+.logo b{color:var(--red2);font-weight:400}
+.nav button{background:none;border:1px solid var(--fg40);color:var(--fg);border-radius:999px;padding:7px 14px;font:600 14px Inter,sans-serif;cursor:pointer}
+
+/* avatar */
+.avatar{position:relative;justify-self:center;width:min(100%,430px);aspect-ratio:498/868;perspective:900px}
+.avatar .corpo{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateY(calc(var(--mx,0)*8deg)) rotateX(calc(var(--my,0)*-4deg));transition:transform .2s}
+.avatar img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 22px rgba(227,38,46,.35)) drop-shadow(0 30px 30px rgba(0,0,0,.7));animation:respira 4.5s ease-in-out infinite;transform-origin:50% 100%}
+@keyframes respira{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-6px) scale(1.012)}}
+.avatar.fala img{animation:respira 4.5s ease-in-out infinite,fala .32s ease-in-out infinite alternate}
+@keyframes fala{to{filter:drop-shadow(0 0 34px rgba(227,38,46,.6)) drop-shadow(0 30px 30px rgba(0,0,0,.7))}}
+.avatar .onda{position:absolute;left:50%;bottom:2%;width:70%;height:14px;translate:-50% 0;border-radius:50%;background:radial-gradient(rgba(227,38,46,.5),transparent 70%);filter:blur(4px)}
+.avatar .entrada{opacity:0;transform:translateX(60px)}
+.vivo .avatar .entrada{opacity:1;transform:none;transition:opacity 1s .2s,transform 1.2s cubic-bezier(.2,.8,.2,1) .2s}
+
+/* conversa */
+.conversa{max-width:560px}
+.selo{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--fg80);border-left:3px solid var(--red2);padding-left:10px;margin-bottom:18px}
+.balao{position:relative;background:rgba(20,16,17,.82);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:18px 18px 18px 4px;padding:22px 24px;font-size:clamp(18px,1.9vw,22px);line-height:1.45;min-height:150px}
+.balao .quem{display:block;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red2);margin-bottom:8px}
+.cursor{display:inline-block;width:2px;height:1.1em;background:var(--red2);vertical-align:-3px;margin-left:2px;animation:pisc 1s steps(1) infinite}
+@keyframes pisc{50%{opacity:0}}
+form.pergunta{display:flex;gap:8px;margin-top:16px}
+form.pergunta input{flex:1;min-width:0;background:#0d0a0b;border:1px solid var(--fg40);color:var(--fg);border-radius:12px;padding:15px 16px;font:16px Inter,sans-serif}
+form.pergunta button,.btn{background:var(--red);color:#fff;border:0;border-radius:12px;padding:15px 20px;font:700 16px Inter,sans-serif;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chips button{background:transparent;border:1px solid var(--line);color:var(--fg80);border-radius:999px;padding:8px 14px;font:500 14px Inter,sans-serif;cursor:pointer}
+.chips button:hover{border-color:var(--red);color:#fff}
+.resultado{margin-top:16px;padding:18px 20px;border:1px solid var(--red);border-radius:14px;background:rgba(200,20,28,.1)}
+.resultado h3{font-size:24px;margin-bottom:6px}
+.resultado p{margin:0 0 14px;color:var(--fg80);font-size:16px}
+.desce{display:block;margin-top:22px;color:var(--fg60);font-size:14px;text-decoration:none}
+.desce i{display:inline-block;font-style:normal;animation:desce 1.6s infinite}
+@keyframes desce{50%{transform:translateY(5px)}}
+
+/* seções */
+section.bloco{padding-block:84px}
+.titulo{font-size:clamp(32px,4.4vw,52px);line-height:1.05;margin-bottom:12px}
+.lead{color:var(--fg60);max-width:40em;margin:0 0 36px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}
+.card{display:flex;flex-direction:column;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px;text-decoration:none;transition:border-color .2s,transform .2s;min-width:0}
+.card:hover{border-color:var(--red);transform:translateY(-3px)}
+.card h3{font-size:24px;line-height:1.1}
+.card p{margin:0;color:var(--fg60);font-size:16px;flex:1}
+.card .cta{font-weight:700;color:var(--red2);font-size:15px}
+.mestre{background:var(--bg2);border-block:1px solid var(--line)}
+.duas{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.duas>*{min-width:0}
+.foto{border-radius:12px;overflow:hidden;aspect-ratio:4/5;margin:0}
+.foto img{width:100%;height:100%;object-fit:cover;display:block}
+.lista{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px}
+.lista li{padding-left:28px;position:relative;color:var(--fg80)}
+.lista li::before{content:"";position:absolute;left:0;top:.6em;width:14px;height:3px;background:var(--red2)}
+.passos{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.passos div{background:var(--bg);padding:24px}
+.passos strong{display:block;font-family:Anton,Impact,sans-serif;font-weight:400;font-size:22px;text-transform:uppercase;margin-bottom:4px}
+.passos span{color:var(--fg60);font-size:15px}
+footer{padding-block:36px;border-top:1px solid var(--line);color:var(--fg40);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+.proto{position:fixed;right:max(12px,env(safe-area-inset-right,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:9;background:#000;border:1px solid var(--line);color:var(--fg60);font-size:12px;padding:6px 10px;border-radius:6px}
+
+@media (max-width:860px){
+  .grade{grid-template-columns:1fr;padding-block:78px 30px;gap:0}
+  .avatar{order:-1;width:min(56vw,250px);margin-bottom:10px}
+  .conversa .selo{display:none}
+  .duas{grid-template-columns:1fr;gap:30px}
+  .proto{display:none}
+  form.pergunta{flex-direction:column}
+}
+@media (prefers-reduced-motion:reduce){.luz,.avatar img,#porta button{animation:none}.fundo{translate:none}#poeira{display:none}.avatar .corpo{transform:none}}
+</style>
+
+<div id="porta" role="dialog" aria-label="Entrada">
+  <div class="caixa">
+    <div class="marca">KRAV MAGÁ <b>CAVEIRA</b></div>
+    <p>O Mestre Wesley Gimenez vai te guiar até o treino certo para você.</p>
+    <button id="entrar" type="button">Entrar e ouvir o Mestre</button>
+    <small><a href="#" id="semsom" style="color:inherit">Entrar sem som</a></small>
+  </div>
+</div>
+
+<main>
+<section class="palco" aria-label="Boas-vindas">
+  <div class="fundo" aria-hidden="true"></div>
+  <div class="luz" aria-hidden="true"></div>
+  <canvas id="poeira" aria-hidden="true"></canvas>
+  <div class="chao" aria-hidden="true"></div>
+  <header class="nav"><div class="wrap">
+    <a class="logo" href="#">KRAV MAGÁ <b>CAVEIRA</b></a>
+    <button type="button" id="som" aria-pressed="true">Som ligado</button>
+  </div></header>
+  <div class="wrap" style="width:100%">
+    <div class="grade">
+      <div class="conversa">
+        <span class="selo">Mestre Wesley Gimenez · Defesa pessoal online</span>
+        <div class="balao" aria-live="polite"><span class="quem">Mestre Wesley</span><span id="fala"></span><span class="cursor" aria-hidden="true"></span></div>
+        <form class="pergunta" id="form">
+          <label for="texto" style="position:absolute;left:-9999px">O que você está procurando?</label>
+          <input id="texto" autocomplete="off" placeholder="Ex.: nunca treinei e quero aprender a me defender">
+          <button type="submit">Responder</button>
+        </form>
+        <div class="chips" role="group" aria-label="Respostas rápidas">
+          <button data-c="iniciante">Nunca treinei</button>
+          <button data-c="mulher">Sou mulher</button>
+          <button data-c="assalto">Medo de assalto</button>
+          <button data-c="faca">Medo de faca</button>
+          <button data-c="bullying">Meu filho sofre bullying</button>
+        </div>
+        <div id="resultado"></div>
+        <a class="desce" href="#situacao">Prefere ver todas as opções? Role a tela <i aria-hidden="true">↓</i></a>
+      </div>
+      <div class="avatar" id="avatar">
+        <div class="corpo"><div class="entrada" style="position:absolute;inset:0"><img src="{{AVATAR}}" alt="Mestre Wesley Gimenez de uniforme do Krav Magá Caveira"></div></div>
+        <div class="onda" aria-hidden="true"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bloco" id="situacao"><div class="wrap">
+  <h2 class="titulo">Qual é a sua situação?</h2>
+  <p class="lead">Toque na opção que mais parece com você. Cada uma abre o treino feito para esse caso, com o vídeo do Mestre explicando e o preço na página.</p>
+  <div class="grid">
+{{CARDS}}
+  </div>
+</div></section>
+
+<section class="bloco mestre"><div class="wrap duas">
+  <figure class="foto"><img src="{{FOTO}}" alt="Mestre Wesley Gimenez treinando com luva da caveira" loading="lazy"></figure>
+  <div>
+    <h2 class="titulo">Quem vai te ensinar</h2>
+    <p class="lead" style="margin-bottom:0">O Mestre Wesley Gimenez é perito forense e ex-policial penal. Criou o Krav Magá Caveira para ensinar o que funciona na vida real: perceber o perigo antes, se proteger e sair inteiro.</p>
+    <ul class="lista">
+      <li>Defesa pessoal é evitar, se proteger e sair. Nada de briga.</li>
+      <li>Técnicas simples, para quem nunca treinou e para qualquer idade.</li>
+      <li>Aulas curtas, que você assiste pelo celular quando puder.</li>
+    </ul>
+  </div>
+</div></section>
+
+<section class="bloco"><div class="wrap">
+  <h2 class="titulo">Como funciona</h2>
+  <p class="lead">Sem mensalidade escondida e sem precisar sair de casa.</p>
+  <div class="passos">
+    <div><strong>1. Escolha</strong><span>Você escolhe o treino pela sua situação e vê o preço na página.</span></div>
+    <div><strong>2. Acesse</strong><span>O acesso chega no seu e-mail logo depois do pagamento.</span></div>
+    <div><strong>3. Treine</strong><span>Assista no celular, no seu ritmo, quantas vezes quiser.</span></div>
+    <div><strong>4. Certificado</strong><span>Concluiu, recebe o certificado. E tem 7 dias de garantia.</span></div>
+  </div>
+  <p style="margin-top:36px"><a class="btn" href="{{WPP}}" target="_blank" rel="noopener">Ficou com dúvida? Fale no WhatsApp (31) 99329-4274</a></p>
+</div></section>
+</main>
+<footer><div class="wrap"><span>Krav Magá Caveira · Mestre Wesley Gimenez</span><span>Suporte: (31) 99329-4274</span></div></footer>
+<div class="proto">Rascunho para aprovação</div>
+
+<script>
+const FALAS = {{FALAS}};
+const AUDIO = {{AUDIO}};
+const DESTINO = {{DESTINO}};
+let somLigado = true, audio = null, digitando = null;
+const el = id => document.getElementById(id);
+const avatar = el('avatar');
+
+function falar(chave){
+  const texto = FALAS[chave]; const alvo = el('fala');
+  clearInterval(digitando); alvo.textContent = '';
+  if (audio) { audio.pause(); }
+  let dur = Math.max(3, texto.length / 15);
+  if (somLigado) {
+    audio = new Audio(AUDIO[chave]);
+    audio.addEventListener('loadedmetadata', () => { if (isFinite(audio.duration)) dur = audio.duration; });
+    audio.addEventListener('ended', () => avatar.classList.remove('fala'));
+    audio.play().catch(() => {});
+    avatar.classList.add('fala');
+  }
+  let i = 0; const t0 = performance.now();
+  digitando = setInterval(() => {
+    const p = Math.min(1, (performance.now() - t0) / (dur * 1000 * .92));
+    const n = Math.floor(p * texto.length);
+    if (n > i) { i = n; alvo.textContent = texto.slice(0, i); }
+    if (p >= 1) { clearInterval(digitando); alvo.textContent = texto; if (!somLigado) avatar.classList.remove('fala'); }
+  }, 40);
+  if (!somLigado) { avatar.classList.add('fala'); setTimeout(() => avatar.classList.remove('fala'), dur * 1000); }
+}
+
+const REGRAS = [
+  ['bullying', /bull|filh|crian|escola|colega/],
+  ['mulher', /mulher|femin|assedi|agarr|cabelo|namorad|marido|ex\b|sou menina|garota/],
+  ['faca', /faca|lamina|lâmina|canivete|arma branca/],
+  ['assalto', /assalt|roub|ladr|rua|carro|casa|seguran|golpe/],
+  ['iniciante', /nunca|comec|começ|inici|zero|aprender|defender|treinar/]
+];
+function classificar(t){ t = t.toLowerCase(); for (const [c, r] of REGRAS) if (r.test(t)) return c; return 'duvida'; }
+
+function responder(chave){
+  falar(chave);
+  const d = DESTINO[chave];
+  el('resultado').innerHTML = d ? `<div class="resultado"><h3>${d.nome}</h3><p>${d.texto}</p><a class="btn" href="${d.url}" target="_blank" rel="noopener">${d.botao} →</a></div>` : '';
+  if (chave === 'duvida') el('resultado').innerHTML = `<div class="resultado"><h3>Vamos achar juntos</h3><p>Role a tela e escolha a situação mais parecida com a sua, ou fale com a equipe.</p><a class="btn" href="#situacao">Ver as opções ↓</a></div>`;
+}
+el('form').addEventListener('submit', e => { e.preventDefault(); const t = el('texto').value.trim(); if (t) responder(classificar(t)); });
+document.querySelectorAll('.chips button').forEach(b => b.addEventListener('click', () => responder(b.dataset.c)));
+
+function abrir(comSom){
+  somLigado = comSom; el('som').textContent = comSom ? 'Som ligado' : 'Som desligado'; el('som').setAttribute('aria-pressed', comSom);
+  el('porta').classList.add('fora'); document.body.classList.add('vivo');
+  setTimeout(() => falar('intro'), 900);
+}
+el('entrar').addEventListener('click', () => abrir(true));
+el('semsom').addEventListener('click', e => { e.preventDefault(); abrir(false); });
+el('som').addEventListener('click', () => { somLigado = !somLigado; if (!somLigado && audio) audio.pause(); el('som').textContent = somLigado ? 'Som ligado' : 'Som desligado'; el('som').setAttribute('aria-pressed', somLigado); });
+
+(function(){
+  const palco = document.querySelector('.palco');
+  const fino = matchMedia('(hover:hover) and (pointer:fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let mx=0,my=0,tx=0,ty=0;
+  if (fino) addEventListener('mousemove', e => { tx = e.clientX/innerWidth*2-1; ty = e.clientY/innerHeight*2-1; });
+  const cv = el('poeira'), cx = cv.getContext('2d'); let W,H; const P=[];
+  function tam(){ W = cv.width = palco.clientWidth; H = cv.height = palco.clientHeight; } tam(); addEventListener('resize', tam);
+  for (let i=0;i<60;i++) P.push({x:Math.random(),y:Math.random(),r:Math.random()*1.5+.3,v:Math.random()*.00025+.00008,a:Math.random()*.45+.15});
+  (function tick(){
+    mx += (tx-mx)*.06; my += (ty-my)*.06;
+    palco.style.setProperty('--mx', mx.toFixed(4)); palco.style.setProperty('--my', my.toFixed(4));
+    cx.clearRect(0,0,W,H);
+    for (const p of P){ p.y -= p.v; if (p.y < 0){ p.y = 1; p.x = Math.random(); } cx.fillStyle = 'rgba(255,210,200,'+p.a+')'; cx.beginPath(); cx.arc(p.x*W, p.y*H, p.r, 0, 6.283); cx.fill(); }
+    requestAnimationFrame(tick);
+  })();
+})();
+</script>
