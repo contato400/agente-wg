@@ -1,0 +1,54 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Anton;src:url(__ANTON__)}
+html,body{margin:0;background:transparent;overflow:hidden}
+#cv{position:absolute;left:0;top:0;width:1080px;height:1920px}
+#lay{position:absolute;left:0;top:0;width:1080px;height:1920px;perspective:1100px;overflow:hidden}
+.el{position:absolute;transform-style:preserve-3d;will-change:transform}
+.anton{font-family:Anton;text-transform:uppercase;line-height:1}
+.ext{color:#ffd21f;text-shadow:1px 1px 0 #c8141b,2px 2px 0 #c8141b,3px 3px 0 #b01016,4px 4px 0 #a00e14,5px 5px 0 #900c12,6px 6px 0 #800a10,7px 7px 0 #70080e,8px 8px 0 #60060c,10px 14px 30px rgba(0,0,0,.7)}
+.card{background:linear-gradient(160deg,#1b1b1b,#070707);border:5px solid #c8141b;border-radius:22px;box-shadow:0 30px 60px rgba(0,0,0,.7),0 0 40px rgba(200,20,27,.55);color:#fff;padding:18px 40px 22px;text-align:center;white-space:nowrap}
+.card.y{border-color:#ffd21f;box-shadow:0 30px 60px rgba(0,0,0,.7),0 0 40px rgba(255,210,31,.45)}
+.cap{position:absolute;left:110px;right:135px;text-align:center;font-family:'Inter Display';font-weight:900;font-size:68px;line-height:1.05;color:#fff;-webkit-text-stroke:12px #000;paint-order:stroke fill;text-transform:uppercase}
+.cap .k{color:#ffd21f}
+.band{position:absolute;left:0;right:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+ background:linear-gradient(180deg,#121212,#050505);border-top:6px solid #c8141b;box-shadow:0 -12px 40px rgba(200,20,27,.35)}
+.box{font-family:Anton;text-transform:uppercase;line-height:1.05;padding:8px 32px 12px;text-align:center}
+.g{background:#119a1d;color:#fff}.r{background:#c8141b;color:#fff}
+.outline{color:transparent;-webkit-text-stroke:5px rgba(255,255,255,.85)}
+</style></head><body>
+<div id="lay"></div>
+<script>
+const CFG = __CFG__;
+const lay = document.getElementById('lay');
+// ---------- utilidades
+function rnd(seed){let s=seed>>>0;return()=>{s=(s*1664525+1013904223)>>>0;return s/4294967296}}
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const ease=x=>{x=clamp(x,0,1);return 1-Math.pow(1-x,3)};
+const back=x=>{x=clamp(x,0,1);const c=1.9;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+// ---------- elementos 3D (bg = atrás do Wesley, fg = na frente)
+function prog(t,e){return (t-e.t0)/(e.t1-e.t0)}
+function vis(t,e){return t>=e.t0-0.001 && t<e.t1}
+const FX = {
+ // dois dígitos ladeando a cabeça, voando do fundo
+ split(t,e){const p=t-e.t0, a=ease(p/0.45), out=clamp((e.t1-t)/0.25,0,1);
+  return e.chars.map((c,i)=>`<div class="el anton ext" style="left:${e.x[i]}px;top:${e.y}px;font-size:${e.size}px;opacity:${Math.min(a*1.3,out)};transform:translateZ(${-900*(1-a)}px) rotateY(${(i?-1:1)*(28*(1-a)+6*Math.sin(t*1.5))}deg) rotateX(${8*Math.sin(t*1.1+i)}deg)">${c}</div>`).join('')},
+ marquee(t,e){const p=t-e.t0, out=clamp((e.t1-t)/0.3,0,1), inn=clamp(p/0.3,0,1);
+  return `<div class="el anton outline" style="left:${1100-p*e.speed}px;top:${e.y}px;font-size:${e.size}px;opacity:${inn*out};transform:rotateY(-22deg) rotateZ(-4deg)">${e.text} ${e.text}</div>`},
+ card(t,e){const p=t-e.t0, a=back(p/0.5), out=clamp((e.t1-t)/0.25,0,1);
+  return `<div class="el card ${e.cls||''}" style="left:50%;top:${e.y}px;opacity:${Math.min(1,p/0.15)*out};transform:translateX(-50%) translateZ(${-500*(1-a)}px) rotateX(${e.rx!=null?e.rx*(1-a):0}deg) rotateY(${(e.spin||0)*(1-a)+5*Math.sin(t*1.7)}deg) scale(${0.6+0.4*a})"><div class="anton" style="font-size:${e.size}px">${e.html}</div></div>`},
+};
+function band(){const b=CFG.band; if(!b) return '';
+ const body = b.kind==='A' ? `<div class="box g"><div style="font-size:96px">PRESENTE LIBERADO!</div><div style="font-size:60px;color:#0a0a0a">ASSISTA ATÉ O FINAL</div></div>`
+   : `<div class="box g" style="font-size:88px">PRESENTE LIBERADO</div><div class="box r" style="font-size:70px">PARCELE NO PIX OU NO CARTÃO</div>`;
+ return `<div class="band" style="top:${b.y0}px;height:${b.y1-b.y0}px;padding-bottom:${b.pad||0}px;box-sizing:border-box">${body}</div>`}
+function caption(t){for(const g of CFG.caps){if(t>=g[1]&&t<g[2]){return `<div class="cap" style="top:${CFG.capY}px;transform:translateY(-100%)">${g[0]}</div>`}} return ''}
+window.render = function(t, layer){
+  let h='';
+  if(layer==='mid'){ for(const e of CFG.fx) if(e.layer==='bg' && vis(t,e)) h+=FX[e.type](t,e); }
+  else { for(const e of CFG.fx) if(e.layer==='fg' && vis(t,e)) h+=FX[e.type](t,e); h+=caption(t)+band(); }
+  lay.innerHTML=h;
+  return h;
+};
+</script></body></html>

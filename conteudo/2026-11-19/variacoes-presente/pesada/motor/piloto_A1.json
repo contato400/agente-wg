@@ -1,0 +1,15 @@
+{"video":"/home/claude/agente-wg/conteudo/2026-11-19/variacoes-presente/pesada/motor/../base.mp4","words":"/home/claude/agente-wg/conteudo/2026-11-19/variacoes-presente/pesada/motor/../base.mp4.words.json","ss":0,"dur":7.35,
+ "trabalho":"/tmp/claude-0/-home-claude/18ecb643-e46a-54b4-bb6c-bb4a8009ab64/scratchpad/pres/w_pil","saida":"/home/claude/agente-wg/conteudo/2026-11-19/variacoes-presente/pesada/motor/../piloto_A1.mp4","folha_passo":1,
+ "scene":"tatame",
+ "keywords":["23","PROGRAMAS","TREINAMENTO","CURSO","URGENTE","INSCRIÇÕES","PIX","PARCELADO"],
+ "fx":[
+  {"layer":"fg","type":"card","t0":0.62,"t1":1.45,"y":300,"size":78,"rx":90,"html":"RECADO URGENTE"},
+  {"layer":"bg","type":"split","t0":1.42,"t1":3.78,"chars":["2","3"],"x":[70,770],"y":470,"size":400},
+  {"layer":"fg","type":"card","t0":2.82,"t1":3.78,"y":300,"size":62,"spin":360,"cls":"y","html":"PELO PREÇO DE UM CURSO"},
+  {"layer":"bg","type":"marquee","t0":3.81,"t1":7.35,"y":340,"size":300,"speed":620,"text":"INSCRIÇÕES"}
+ ],
+ "band":{"kind":"A","y0":1255,"y1":1595,"pad":110},"capY":1240,
+ "punches":[[0.94,0.05],[1.48,0.05],[3.04,0.03],[5.26,0.03]],
+ "whips":[1.42,3.81],
+ "sfx":[["pop",0.62,0.25],["whoosh",1.25,0.3],["hit",1.5,0.35],["pop",2.82,0.22],["whoosh",3.64,0.3]]
+}

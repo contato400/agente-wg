@@ -269,3 +269,10 @@ Modelo:
 - Feito: método novo `.claude/skills/edicao-video-arte-wg/criativos-trafego.md` (briefing, cinco batidas, gancho em três camadas, uma mudança por versão, legenda de anúncio, checklist de 8 itens, receitas ffmpeg e faster-whisper testadas no ambiente); SKILL.md aponta para ele; `editor-video-wg.md` com a seção "Seu treino" e "Mudanças".
 - Pendente: variações do presente (agente rodando); registrar #editor no worker se o Victor quiser falar com ele pelo WhatsApp.
 - Verificado: ffmpeg, faster-whisper e fonte Inter disponíveis.
+
+## 19/11 ~15h · editor-video-wg: variações do "Presente liberado" + piloto da edição pesada
+- Pedido: Victor 14h06 (variações para o Diogo), 14h13 (B sem boleto), 14h20 (edição pesada, piloto antes).
+- Feito: 7 variações em `conteudo/2026-11-19/variacoes-presente/` (A v1 a v4, B v1 a v3) com capa e folha, `variacoes.md` com transcrição, cortes e tabela de utm_content. Fala limpa de 19,9 s: sem boleto, sem "acesso vitalício", sem "últimas horas / vou fechar / ano que vem". Piloto da edição pesada `pesada/piloto_A1.mp4` (7,4 s) + folha; motor em `pesada/motor/` (LEIAME.md).
+- Decisões: as duas famílias usam a mesma fala limpa; não fiz versão com prêmio (o Wesley não fala do prêmio e ele só vale de sexta 19h até lotar).
+- Pendente: OK do Victor no piloto antes das 6 variações pesadas; decisões listadas em variacoes.md (cortes, originais no ar falando boleto, Pix parcelado no checkout do anúncio, "pelo preço de um curso").
+- Verificado: folhas olhadas uma a uma, faixa antiga não aparece, re-transcrição da fala cortada, pico -1,4 dB, I -14.
