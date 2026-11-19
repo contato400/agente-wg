@@ -5,7 +5,8 @@
 #   rotinas/whatsapp.sh avisar financeiro "Texto curto para o Victor"      # mensagem de um agente (aparece como [Financeiro])
 #   rotinas/whatsapp.sh avisar-arquivo chefe relatorios/2026-11-19-debrief.md  # manda um arquivo (debriefing) quebrado em partes
 #   rotinas/whatsapp.sh memoria                                              # atualiza a memória que os agentes do WhatsApp enxergam
-#   rotinas/whatsapp.sh recados                                              # lê (e limpa) recados e conversas feitos pelo WhatsApp
+#   rotinas/whatsapp.sh recados                                              # lê recados e conversas feitos pelo WhatsApp (não apaga)
+#   rotinas/whatsapp.sh recados-limpar                                       # lê e apaga (só o executor, depois de executar e registrar)
 #   rotinas/whatsapp.sh peca social "Parte 3 · hoje 17h" video.mp4 capa.jpg legenda.md   # manda a peça pronta: vídeo, capa e legenda
 #     (o vídeo é reduzido para caber no WhatsApp, até 16 MB; os arquivos ficam no link por 3 dias)
 # Observação: o WhatsApp só deixa mensagem livre até 24 h depois da última mensagem do Victor para o número de suporte.
@@ -50,6 +51,7 @@ m=[{"tipo":"video","url":uv,"legenda":tit}]
 if uc: m.append({"tipo":"image","url":uc,"legenda":"Capa · "+tit})
 print(json.dumps({"de":de,"texto":"Peça pronta para postar: "+tit+"\n\nLegenda (copie e cole):\n\n"+t.strip(),"midia":m}))' "$de" "$titulo" "$uv" "$uc" "$legenda")
     post /avisar "$corpo"; rm -rf "$tmp" ;;
-  recados) curl -sS -H "Authorization: Bearer ${WG_AVISO_TOKEN}" "${URL}/recados?limpar=1"; echo ;;
+  recados) curl -sS -H "Authorization: Bearer ${WG_AVISO_TOKEN}" "${URL}/recados"; echo ;;
+  recados-limpar) curl -sS -H "Authorization: Bearer ${WG_AVISO_TOKEN}" "${URL}/recados?limpar=1"; echo ;;
   *) echo "acao desconhecida: $acao" >&2; exit 1 ;;
 esac

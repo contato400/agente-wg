@@ -12,7 +12,7 @@ Objetivo: o que o Victor (ou o Wesley) aprova pelo WhatsApp é executado no mesm
    - execute com o agente dono (ficha em `.claude/agents/<nome>.md` e a skill do assunto);
    - marque EXECUTADO (ou ERRO com o motivo) na fila.
 6. Recado que não é aprovação (pedido, pergunta, tarefa): faça o trabalho interno e responda no WhatsApp.
-7. Depois de registrar tudo, limpe os recados: `rotinas/whatsapp.sh recados`.
+7. Depois de executar e registrar tudo, limpe os recados: `rotinas/whatsapp.sh recados-limpar` (só o executor limpa; a rotina diária só lê).
 8. Avise o Victor no WhatsApp em uma mensagem curta: o que foi feito, com horário de publicação quando houver, e o que ficou pendente e por quê (`rotinas/whatsapp.sh avisar chefe "..."`).
 9. Commit e push de memoria, aprovacao, conteudo e relatorios na main.
 
