@@ -52,3 +52,7 @@
 - 2026-11-18 · Victor · ManyChat vai do Advanced para o Pro por escolha (custo). DevZap não será renovado em dezembro.
 - 2026-11-18 · Victor · Preço base dos cursos avulsos é R$ 197; negociação pode descer (ex.: R$ 147) e usar order bumps. Citar sempre o preço da página.
 - 2026-11-18 · Victor · Guia de 12 semanas é prioridade: refazer com IA e com agente responsável (sucesso-aluno-wg).
+
+## 19/11 · Atendente negocia e fecha sozinho (Victor)
+- Cursos avulsos de R$ 197: escada de negociação feita pelo próprio agente, sem passar para humano: 1º valor (parcela, garantia, ganho); 2º cupom CAVEIRA30 (R$ 167); 3º e último cupom CAVEIRA50 (R$ 147). Nunca abaixo de R$ 147 nem cupons somados. Sem cupom na Black, mentoria, VIP e combos.
+- Cupons CAVEIRA30 (R$ 30) e CAVEIRA50 (R$ 50) criados na Greenn em 19/11 01h33, valor fixo, sem validade, todos os produtos. O cupom antigo CAVEIRA99 (50%, ilimitado) continua ativo: avaliar se deve ser desligado.
