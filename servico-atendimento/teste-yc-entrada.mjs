@@ -80,5 +80,14 @@ await Promise.all(pr); const msg=yc.slice(n0).map(x=>x.text.body);
 r.push(['venda: 3 avisos viram 1 mensagem com bumps e origem', msg.length===1 && msg[0].includes('Lucas') && msg[0].includes('Black 1 ano: R$ 397,00') && msg[0].includes('Vitalício R$ 197,00') && msg[0].includes('R$ 852,54') && msg[0].includes('Orgânico (VC): whatsapp / reabertura-black / link-victor')]);
 r.push(['venda sem e-mail = 400', (await w.fetch(new Request('https://x/venda',{method:'POST',body:'{"id":1}'}),env,{waitUntil:()=>{}})).status===400]);
 globalThis.fetch=f2; delete env.GREENN_TOKEN; console.log(msg[0]); }
+{ const f3=globalThis.fetch; Object.assign(env,{HOTMART_BASIC:'b',HOTMART_CLIENT_ID:'c',HOTMART_CLIENT_SECRET:'s'});
+globalThis.fetch=async(u,o)=>{ u=String(u); if(u.includes('oauth')) return {ok:true,json:async()=>({access_token:'tk',expires_in:3600})};
+ if(u.includes('sales/history')) return {ok:true,status:200,json:async()=>({items:[
+  {product:{name:'Black Caveira 2026 - Acesso de 1 ano'},buyer:{name:'MARIA SILVA'},purchase:{transaction:'HP111',status:'APPROVED',order_date:1795000000000,price:{value:397},payment:{type:'PIX',installments_number:1}}}]})};
+ if(u.includes('ycloud')){yc.push(JSON.parse(o.body)); return {ok:true,text:async()=>'{"status":"accepted"}'};} return f3(u,o);};
+const n0=yc.length; const pr=[]; await w.fetch(new Request('https://x/venda',{method:'POST',body:JSON.stringify({plataforma:'hotmart',id:'HP111',email:'m@x.y',utm_source:'vc',utm_content:'pv_black'})}),env,{waitUntil:x=>pr.push(x)}); await Promise.all(pr);
+const m=yc.slice(n0).map(x=>x.text.body);
+r.push(['venda hotmart vira aviso', m.length===1 && m[0].includes('Hotmart · Maria') && m[0].includes('R$ 397,00') && m[0].includes('Pix') && m[0].includes('src vc / sck pv_black')]);
+globalThis.fetch=f3; for(const k of ['HOTMART_BASIC','HOTMART_CLIENT_ID','HOTMART_CLIENT_SECRET']) delete env[k]; console.log(m[0]); }
 for(const [n,ok] of r) console.log(ok?'OK    ':'FALHOU', n);
 process.exit(r.every(x=>x[1])?0:1);

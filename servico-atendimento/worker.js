@@ -236,7 +236,7 @@ export default {
     // Aviso de venda aprovada (19/11): a ponte do Apps Script repassa cada venda paga da Greenn. Sem segredo: o serviço confere a venda direto na Greenn.
     if (url.pathname === '/venda' && req.method === 'POST') {
       let b = {}; try { b = await req.json(); } catch {}
-      if (!/^\d{5,12}$/.test(String(b.id || '')) || !b.email) return new Response('faltou', { status: 400 });
+      if (!/^[A-Za-z0-9]{5,24}$/.test(String(b.id || '')) || !b.email) return new Response('faltou', { status: 400 });
       if (env.FILA) await env.FILA.send({ tipo: 'venda', v: b }, { delaySeconds: 45 });
       else ctx.waitUntil(avisarVenda(b, env));
       return new Response('ok');
@@ -637,6 +637,7 @@ async function executar(u, fone, nome, env) {
 // Junta a venda principal e os order bumps do mesmo cliente (até 10 min) e avisa o Victor uma vez só, pela primeira venda do grupo.
 const BRL = n => 'R$ ' + Number(n || 0).toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 async function avisarVenda(v, env) {
+  if (v.plataforma === 'hotmart') return avisarVendaHotmart(v, env);
   if (!env.GREENN_TOKEN || !env.ADMIN_FONE) return;
   const r = await fetch('https://apiadm.greenn.com.br/api/v1/sales?per_page=20&sort=-created_at&filter%5Bclient_email%5D=' + encodeURIComponent(String(v.email).trim().toLowerCase()), { headers: { Authorization: 'Bearer ' + env.GREENN_TOKEN, accept: 'application/json' } });
   if (!r.ok) { await passo(env, 'venda: greenn ' + r.status); return; }
@@ -665,6 +666,48 @@ async function avisarVenda(v, env) {
   ];
   await enviar(env.ADMIN_FONE, linhas.join('\n'), env);
   await passo(env, 'venda avisada ' + grupo.length + ' item(ns)');
+}
+
+async function tokenHotmart(env) {
+  let tk = await env.WG.get('hotmart:token');
+  if (tk) return tk;
+  const a = await fetch(`https://api-sec-vlc.hotmart.com/security/oauth/token?grant_type=client_credentials&client_id=${encodeURIComponent(env.HOTMART_CLIENT_ID)}&client_secret=${encodeURIComponent(env.HOTMART_CLIENT_SECRET)}`, { method: 'POST', headers: { Authorization: 'Basic ' + env.HOTMART_BASIC, 'content-type': 'application/json' } });
+  const aj = await a.json().catch(() => ({}));
+  if (aj.access_token) { await env.WG.put('hotmart:token', aj.access_token, { expirationTtl: Math.max(300, (aj.expires_in || 3600) - 300) }); return aj.access_token; }
+  return null;
+}
+
+// Mesmo aviso para a Hotmart: confere a transação na API da Hotmart e junta as compras do mesmo cliente em até 10 min.
+async function avisarVendaHotmart(v, env) {
+  if (!env.HOTMART_BASIC || !env.ADMIN_FONE) return;
+  const tk = await tokenHotmart(env);
+  if (!tk) { await passo(env, 'venda hotmart: sem token'); return; }
+  const r = await fetch('https://developers.hotmart.com/payments/api/v1/sales/history?max_results=20&buyer_email=' + encodeURIComponent(String(v.email).trim().toLowerCase()) + '&start_date=' + (Date.now() - 2 * 86400000) + '&end_date=' + (Date.now() + 3600000), { headers: { Authorization: 'Bearer ' + tk } });
+  if (r.status === 401) await env.WG.delete('hotmart:token');
+  if (!r.ok) { await passo(env, 'venda hotmart: ' + r.status); return; }
+  const itens = ((await r.json()).items || []).filter(x => /APPROVED|COMPLETE/.test((x.purchase || {}).status || ''));
+  const esta = itens.find(x => String((x.purchase || {}).transaction) === String(v.id));
+  if (!esta) { await passo(env, 'venda hotmart: não confirmada'); return; }
+  const t = x => Number((x.purchase || {}).order_date || (x.purchase || {}).approved_date || 0);
+  const grupo = itens.filter(x => Math.abs(t(x) - t(esta)) < 10 * 60000).sort((a, b) => t(a) - t(b) || String(a.purchase.transaction).localeCompare(String(b.purchase.transaction)));
+  if (String(grupo[0].purchase.transaction) !== String(v.id)) return;
+  const [principal, ...bumps] = grupo;
+  const val = x => Number(((x.purchase || {}).price || {}).value || 0);
+  const pg = (principal.purchase || {}).payment || {};
+  const metodo = { CREDIT_CARD: 'cartão', PIX: 'Pix', BILLET: 'boleto', PAYPAL: 'PayPal' }[pg.type] || pg.type || '';
+  const parc = pg.installments_number > 1 ? ' em ' + pg.installments_number + 'x' : '';
+  const primeiro = String((principal.buyer || {}).name || '').trim().split(/\s+/)[0] || '';
+  const cap = primeiro ? primeiro.charAt(0).toUpperCase() + primeiro.slice(1).toLowerCase() : 'Cliente';
+  const rastro = [v.utm_source && 'src ' + v.utm_source, v.utm_content && 'sck ' + v.utm_content].filter(Boolean).join(' / ');
+  const linhas = [
+    `💰 Venda aprovada na Hotmart · ${cap}`,
+    `${(principal.product || {}).name || 'produto'}: ${BRL(val(principal))}`,
+    bumps.length ? 'Order bump: ' + bumps.map(x => `${(x.product || {}).name || 'produto'} ${BRL(val(x))}`).join(' + ') : 'Order bump: não levou',
+    `Pago: ${BRL(grupo.reduce((s, x) => s + val(x), 0))} no ${metodo}${parc}`,
+    `Origem: ${rastro ? 'Hotmart (' + rastro + ')' : 'Hotmart sem rastreio'}`
+  ];
+  await enviar(env.ADMIN_FONE, linhas.join('\n'), env);
+  await passo(env, 'venda hotmart avisada ' + grupo.length + ' item(ns)');
 }
 
 async function perguntarAgente(chave, pergunta, env) {

@@ -243,3 +243,10 @@ Modelo:
 - Não feito: leitura completa das páginas (a ferramenta devolve a lista inteira e é pesada; o acesso direto ao site é bloqueado nesta execução), checkout, régua do Gui, modelo Shalom na Meta, texto dos funis do ManyChat, bateria do atendente.
 - Recados NÃO limpos: ficam para o chefe e os agentes tratarem em sessão com acesso.
 - Verificado: cabeçalho da aba Vendas e fila pela ponte. Não verificado: tudo que depende de abrir a página.
+
+## 2026-11-19 13h10 · Reabertura até segunda, aviso de venda, atendente vende na hora
+- Pedido do Victor (12h38): atendente vende na hora (acesso antecipado), reabertura vai até segunda 23/11 19h, aviso de cada venda no WhatsApp dele (Greenn e Hotmart), revisar abertura.
+- Feito: worker (regra do atendente + FIM_BLACK, /venda com fila de 45 s que junta order bumps; Greenn e Hotmart conferidas na API); ponte Apps Script v8 repassa vendas (anotarVenda_ e anotarHotmart_). Página /black-caveira-2026: scripts agora no bottomHead (o bloco HTML da Atomicat apaga <script> quando editado por ferramenta): faixa de prazo, FAQ "Até quando vai", contagem até 23/11 19h, prêmios da reabertura às 19h de sexta, JSON-LD 397. Backup "Antes do prazo segunda 23/11".
+- Verificado: simulação no celular (agora, sex 19h05, sáb 00h10, seg 19h05), order bumps nos botões, teste de aviso com a venda do Lucão (12h42).
+- Teste Lucão no ManyChat: acesso enviado 12h42 (modelo caveira_acesso_academia); upsell IA agendado para 15h42 (atraso de 3h, janela 8h a 22h).
+- Pendente: número antigo (31) 97334-6056 no modelo de acesso (precisa modelo novo aprovado pela Meta) e na mensagem #2 do upsell IA (edição bloqueada para mim, Victor decide); relógio de 15 min do checkout Greenn; régua do Gui e funis do ManyChat com o prazo de segunda.
