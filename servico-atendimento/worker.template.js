@@ -90,11 +90,12 @@ const EQUIPE = __EQUIPE__;   // { regras, fichas: { 'chefe-wg': '...', ... }, me
 const APELIDOS = {
   chefe: 'chefe-wg', financeiro: 'financeiro-wg', social: 'social-media-wg', midia: 'social-media-wg', socialmedia: 'social-media-wg', instagram: 'social-media-wg',
   trafego: 'trafego-wg', anuncios: 'trafego-wg', juridico: 'juridico-wg', ofertas: 'ofertas-paginas-wg', paginas: 'ofertas-paginas-wg',
-  auditor: 'auditor-wg', analista: 'analista-wg', dados: 'analista-wg', sucesso: 'sucesso-aluno-wg', aluno: 'sucesso-aluno-wg', atendimento: 'atendimento-wg'
+  auditor: 'auditor-wg', analista: 'analista-wg', dados: 'analista-wg', sucesso: 'sucesso-aluno-wg', aluno: 'sucesso-aluno-wg', atendimento: 'atendimento-wg',
+  editor: 'editor-video-wg', video: 'editor-video-wg', edicao: 'editor-video-wg'
 };
 const NOME_AGENTE = { 'chefe-wg': 'Chefe', 'financeiro-wg': 'Financeiro', 'social-media-wg': 'Social', 'trafego-wg': 'Tráfego', 'juridico-wg': 'Jurídico',
-  'ofertas-paginas-wg': 'Ofertas', 'auditor-wg': 'Auditor', 'analista-wg': 'Analista', 'sucesso-aluno-wg': 'Sucesso do aluno', 'atendimento-wg': 'Atendimento' };
-const LISTA_HASH = '#chefe, #financeiro, #social, #trafego, #juridico, #ofertas, #auditor, #analista, #sucesso, #atendimento e #cliente';
+  'ofertas-paginas-wg': 'Ofertas', 'auditor-wg': 'Auditor', 'analista-wg': 'Analista', 'sucesso-aluno-wg': 'Sucesso do aluno', 'atendimento-wg': 'Atendimento', 'editor-video-wg': 'Editor de vídeo' };
+const LISTA_HASH = '#chefe, #financeiro, #social, #trafego, #juridico, #ofertas, #auditor, #analista, #sucesso, #atendimento, #editor e #cliente';
 function semAcento(s) { return String(s).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z]/g, ''); }
 
 // Data e hora de Brasília, para o agente saber em que momento da campanha está.
