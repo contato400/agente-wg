@@ -50,3 +50,5 @@
 - 2026-11-18 · Victor · Parte 1 (golpe da falsa central) aprovada e postada por ele como Reels de teste. CAVEIRA continua levando ao grupo de espera da reabertura ("vamos encher o grupo").
 - 2026-11-18 · Victor · Sexta 20/11 às 19h os funis do ManyChat (comentários, story, live, novo seguidor) passam do grupo de espera para a página da Black.
 - 2026-11-18 · Victor · ManyChat vai do Advanced para o Pro por escolha (custo). DevZap não será renovado em dezembro.
+- 2026-11-18 · Victor · Preço base dos cursos avulsos é R$ 197; negociação pode descer (ex.: R$ 147) e usar order bumps. Citar sempre o preço da página.
+- 2026-11-18 · Victor · Guia de 12 semanas é prioridade: refazer com IA e com agente responsável (sucesso-aluno-wg).

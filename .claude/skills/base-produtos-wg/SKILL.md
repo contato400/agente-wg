@@ -13,6 +13,12 @@ Fonte: inventário da Greenn (74 produtos) e páginas publicadas na Atomicat, li
 - **O preço que vale é o que aparece na página.** A coluna "Oferta padrão Greenn" é a oferta principal cadastrada no produto; algumas páginas vendem por outra oferta (em geral R$ 197). Na dúvida, abra a página antes de citar o valor.
 - Garantia de 7 dias, acesso vitalício nos treinamentos, certificado ao concluir. Não mostrar "total parcelado".
 
+## Preço que vale (conferido nas páginas em 18/11, 21h55)
+- **Cursos avulsos: R$ 197 na página** (12x de R$ 20,25 ou R$ 19,78, conforme a parcela da oferta). Vale para DPC, Vida Segura, Contra Ataque, Feminina básico e completo, Jiu Jitsu x Krav Maga, Lâminas, Armlock, Briga de Rua, Socos (completo, iniciantes, avançados), Preparação Física, Segurança de Comércios, Prevenção de Confrontos, Sobrevivência em locais públicos, Seminários e APH.
+- **E-book Vida Segura: R$ 19,90 na página** /ebook-vs.
+- **Black: R$ 397 (12x R$ 40,82); aluno R$ 347.** Adicionais no checkout: Guia 12 semanas R$ 97, 2 anos +R$ 97, vitalício +R$ 197.
+- **Negociação (decisão do Victor, 18/11):** R$ 197 é o preço base. Se a pessoa reclamar do preço, o atendente pode descer para **R$ 147** (R$ 50 a menos) (exemplo do Victor em 18/11; conferir se cada curso tem a oferta de R$ 147 cadastrada na Greenn antes de usar) e lembrar os order bumps. Nada abaixo disso sem o Victor. Por isso a coluna "Oferta padrão Greenn" abaixo tem valores antigos e variados: são ofertas cadastradas, não o preço a citar. **Sempre cite o preço da página; o desconto só entra na negociação.**
+
 ## Treinamentos com página de venda
 | Treinamento | Para quem | Página | Greenn | Oferta padrão Greenn |
 |---|---|---|---|---|
