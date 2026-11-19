@@ -112,7 +112,7 @@ async function sistemaAgente(chave, env) {
   const base = await equipeBase(env);
   return `Você é o agente ${NOME_AGENTE[chave] || chave} da equipe de agentes que opera o negócio do Mestre Wesley Gimenez (Krav Magá Caveira). Quem fala com você agora é o Victor, o responsável, pelo WhatsApp de suporte. Ele escolheu falar com você digitando #${Object.keys(APELIDOS).find(k => APELIDOS[k] === chave)}.
 Responda como esse agente: direto, em português, curto, como mensagem de WhatsApp (sem tabelas; listas curtas só se ajudarem). Sem travessão.
-Você enxerga a memória da equipe abaixo (estado, decisões, backlog, conversas entre agentes e a última passagem): use para dizer o que você e os outros estão fazendo. Você NÃO mexe no trabalho dos outros. Para saber algo de outro agente, use a ferramenta perguntar_agente. Nenhuma ação externa (publicar, gastar, mandar mensagem para cliente, mexer em página, oferta ou campanha) sem aprovação do Victor ou do Wesley; se ele aprovar aqui, registre com registrar_recado para a rotina executar. Nunca invente número: o que não estiver na memória ou nas consultas, diga que não tem.
+Você enxerga a memória da equipe abaixo (estado, decisões, backlog, conversas entre agentes e a última passagem): use para dizer o que você e os outros estão fazendo. Você NÃO mexe no trabalho dos outros. Para saber algo de outro agente, use a ferramenta perguntar_agente. Nenhuma ação externa (publicar, gastar, mandar mensagem para cliente, mexer em página, oferta ou campanha) sem aprovação do Victor ou do Wesley; se ele aprovar aqui (por texto ou áudio), registre CADA aprovação com registrar_recado (uma por item, com o ID da fila quando houver) e responda na hora com a lista do que ficou aprovado e quando roda: o executor da equipe pega os recados de hora em hora, das 9h às 18h, e te avisa aqui o que fez. Se o áudio vier confuso, repita o que entendeu em lista numerada e peça só a confirmação. Nunca invente número: o que não estiver na memória ou nas consultas, diga que não tem.
 
 REGRAS DE TODOS OS AGENTES:
 ${base.regras}
@@ -160,7 +160,22 @@ export default {
       return new Response(txt, { headers: { 'content-type': 'application/json' } });
     }
     // ---- Porta dos agentes (rotina agendada): só com o segredo AVISO_TOKEN no cabeçalho Authorization: Bearer ----
-    if (url.pathname === '/avisar' || url.pathname === '/equipe' || url.pathname === '/recados' || url.pathname === '/perguntar') {
+    // Arquivos das peças (vídeo, capa) para mandar ao Victor pelo WhatsApp: os agentes sobem aqui e recebem um link público por 3 dias.
+    if (url.pathname === '/midia' && req.method === 'POST') {
+      const tk = (req.headers.get('authorization') || '').replace(/^Bearer\s+/i, '');
+      if (!env.AVISO_TOKEN || tk !== env.AVISO_TOKEN) return new Response('negado', { status: 403 });
+      const buf = await req.arrayBuffer();
+      if (buf.byteLength < 100 || buf.byteLength > 24_000_000) return new Response('tamanho', { status: 400 });
+      const id = crypto.randomUUID().replace(/-/g, '') + '.' + (url.searchParams.get('ext') || 'bin').replace(/[^a-z0-9]/g, '').slice(0, 5);
+      await env.WG.put('midia:' + id, buf, { expirationTtl: 3 * 86400, metadata: { tipo: req.headers.get('content-type') || 'application/octet-stream' } });
+      return Response.json({ url: url.origin + '/m/' + id });
+    }
+    if (req.method === 'GET' && url.pathname.startsWith('/m/')) {
+      const { value, metadata } = await env.WG.getWithMetadata('midia:' + url.pathname.slice(3), { type: 'arrayBuffer' });
+      if (!value) return new Response('expirou', { status: 404 });
+      return new Response(value, { headers: { 'content-type': (metadata && metadata.tipo) || 'application/octet-stream', 'cache-control': 'public, max-age=86400' } });
+    }
+    if (url.pathname === '/avisar' || url.pathname === '/equipe' || url.pathname === '/recados' || url.pathname === '/perguntar' || url.pathname === '/transcrever') {
       const tk = (req.headers.get('authorization') || '').replace(/^Bearer\s+/i, '');
       if (!env.AVISO_TOKEN || tk !== env.AVISO_TOKEN) return new Response('negado', { status: 403 });
       let b = {}; if (req.method === 'POST') { try { b = await req.json(); } catch {} }
@@ -171,9 +186,12 @@ export default {
         if (!env.ADMIN_FONE || texto.length < 5) return new Response('faltou texto', { status: 400 });
         const partes = dividirLongo(texto); let enviados = 0;
         for (const p of partes) { if ((await enviar(env.ADMIN_FONE, p, env)) !== false) enviados++; }
+        // Peças prontas para o Victor postar: {midia: [{tipo: 'video'|'image'|'document', url, legenda}]} (link público, até 16 MB para vídeo).
+        let midias = 0;
+        for (const m of (Array.isArray(b.midia) ? b.midia.slice(0, 10) : [])) { if (m && m.url && (await enviarMidiaYC(env.ADMIN_FONE, m, env))) midias++; }
         const adm = String(env.ADMIN_FONE).replace(/\D/g, '');
         await addHist(env, chave === 'chefe-wg' ? adm : 'ag:' + chave + ':' + adm, { role: 'assistant', content: texto });
-        return Response.json({ ok: enviados === partes.length, partes: partes.length, enviados });
+        return Response.json({ ok: enviados === partes.length, partes: partes.length, enviados, midias });
       }
       if (url.pathname === '/perguntar' && req.method === 'POST') {
         // O Jarvis (assistente de voz no computador do Victor) fala com um agente: {agente: "financeiro", pergunta: "..."}.
@@ -194,6 +212,13 @@ export default {
         await env.WG.put('equipe:memoria', String(b.memoria).slice(0, 120000));
         if (b.fichas && typeof b.fichas === 'object') await env.WG.put('equipe:base', JSON.stringify({ regras: String(b.regras || EQUIPE.regras).slice(0, 20000), fichas: b.fichas }));
         return Response.json({ ok: true, tamanho: String(b.memoria).length });
+      }
+      if (url.pathname === '/transcrever' && req.method === 'POST') {
+        // Teste da transcrição: baixa um áudio público (b.url) e devolve o texto, sem guardar nada.
+        const r = await fetch(String(b.url || '')); if (!r.ok) return new Response('sem audio', { status: 400 });
+        const u8 = new Uint8Array(await r.arrayBuffer()); const ped = partesOgg(u8, 25); const tx = [];
+        for (const p of ped) { const o = await env.AI.run('@cf/openai/whisper-large-v3-turbo', { audio: u8paraB64(p), language: 'pt' }); tx.push(semRepeticao(String((o && o.text) || '').trim())); }
+        return Response.json({ pedacos: ped.length, texto: tx.join(' ') });
       }
       if (url.pathname === '/recados' && req.method === 'GET') {
         // A rotina busca recados e conversas entre agentes feitas pelo WhatsApp (e apaga com ?limpar=1 depois de registrar).
@@ -227,6 +252,8 @@ export default {
         return new Response('assinatura', { status: 401 });
       }
       let ev; try { ev = JSON.parse(corpoYC); } catch { return new Response('ok'); }
+      // Com a fila (FILA), cada mensagem é processada no consumidor, que tem até 15 minutos (o waitUntil corta em 30 s e o áudio não cabia).
+      if (env.FILA) { try { await env.FILA.send({ tipo: 'yc', ev }); return new Response('ok'); } catch (e) { await passo(env, 'fila falhou ' + String(e).slice(0, 80)); } }
       ctx.waitUntil(processarYC(ev, env).catch(e => console.log('erro yc', e && e.stack || e)));
       return new Response('ok');
     }
@@ -235,8 +262,17 @@ export default {
     const corpo = await req.text();
     if (!(await assinaturaOk(corpo, req.headers.get('x-hub-signature-256'), env.APP_SECRET))) return new Response('assinatura', { status: 401 });
     let dados; try { dados = JSON.parse(corpo); } catch { return new Response('ok'); }
+    if (env.FILA) { try { await env.FILA.send({ tipo: 'meta', dados }); return new Response('ok'); } catch (e) { await passo(env, 'fila falhou ' + String(e).slice(0, 80)); } }
     ctx.waitUntil(processar(dados, env).catch(e => console.log('erro', e && e.stack || e)));
     return new Response('ok');
+  },
+  // Consumidor da fila: uma mensagem por vez, sem o limite de 30 s do waitUntil.
+  async queue(batch, env) {
+    for (const m of batch.messages) {
+      try { if (m.body.tipo === 'yc') await processarYC(m.body.ev, env); else if (m.body.tipo === 'meta') await processar(m.body.dados, env); }
+      catch (e) { await passo(env, 'erro na fila: ' + String(e).slice(0, 150)); }
+      m.ack();
+    }
   }
 };
 
@@ -358,11 +394,49 @@ async function transcrever(audio, env) {
   try {
     const a = audio.link ? await baixarYC(audio, env) : await baixarMidia(audio.id, env);
     if (!a) return null;
-    const r = await env.AI.run('@cf/openai/whisper-large-v3-turbo', { audio: a.b64, language: 'pt' });
-    const t = String((r && r.text) || '').trim();
-    await passo(env, 'audio transcrito ' + t.length + ' letras');
+    // Áudio longo (ex.: 1min30 do Victor) era cortado e embolado: o Whisper vai em pedaços de ~25 s (páginas do Ogg/Opus).
+    const pedacos = partesOgg(b64paraU8(a.b64), 25);
+    const textos = [];
+    for (const p of pedacos) {
+      const r = await env.AI.run('@cf/openai/whisper-large-v3-turbo', { audio: u8paraB64(p), language: 'pt' });
+      textos.push(semRepeticao(String((r && r.text) || '').trim()));
+    }
+    const t = textos.filter(Boolean).join(' ').trim();
+    await passo(env, 'audio transcrito ' + t.length + ' letras em ' + pedacos.length + ' pedaço(s)');
     return t || null;
   } catch (e) { await passo(env, 'audio falhou ' + String(e).slice(0, 120)); return null; }
+}
+
+function b64paraU8(b64) { const s = atob(b64); const u = new Uint8Array(s.length); for (let i = 0; i < s.length; i++) u[i] = s.charCodeAt(i); return u; }
+function u8paraB64(u) { let s = ''; for (let i = 0; i < u.length; i += 32768) s += String.fromCharCode(...u.subarray(i, i + 32768)); return btoa(s); }
+// Divide um Ogg/Opus (nota de voz do WhatsApp) em pedaços de ~seg segundos, repetindo as 2 páginas de cabeçalho em cada pedaço.
+// Se não for Ogg, devolve o arquivo inteiro.
+function partesOgg(u8, seg) {
+  const ps = []; let i = 0;
+  while (i + 27 <= u8.length && u8[i] === 0x4f && u8[i + 1] === 0x67 && u8[i + 2] === 0x67 && u8[i + 3] === 0x53) {
+    const n = u8[i + 26]; let len = 0; for (let k = 0; k < n; k++) len += u8[i + 27 + k];
+    const dv = new DataView(u8.buffer, u8.byteOffset + i, 14);
+    const lo = dv.getUint32(6, true), hi = dv.getUint32(10, true);
+    ps.push({ ini: i, fim: i + 27 + n + len, gran: hi === 0xffffffff ? -1 : hi * 4294967296 + lo });
+    i += 27 + n + len;
+  }
+  if (ps.length < 4 || i !== u8.length) return [u8];
+  const cab = u8.subarray(0, ps[1].fim), out = [];
+  let ini = 2, base = 0;
+  for (let j = 2; j < ps.length; j++) {
+    const fimPedaco = j === ps.length - 1 || (ps[j].gran >= 0 && (ps[j].gran - base) / 48000 >= seg);
+    if (!fimPedaco) continue;
+    const corpo = u8.subarray(ps[ini].ini, ps[j].fim), p = new Uint8Array(cab.length + corpo.length);
+    p.set(cab); p.set(corpo, cab.length); out.push(p);
+    ini = j + 1; if (ps[j].gran >= 0) base = ps[j].gran;
+  }
+  return out.length ? out : [u8];
+}
+// O Whisper às vezes entra em loop ("Um carrossel. Um carrossel. ..."): corta frases repetidas seguidas.
+function semRepeticao(t) {
+  const fr = t.split(/(?<=[.!?])\s+/); const out = [];
+  for (const f of fr) { if (out.length && out[out.length - 1].toLowerCase() === f.toLowerCase()) continue; out.push(f); }
+  return out.join(' ');
 }
 
 async function baixarMidia(id, env) {
@@ -382,7 +456,7 @@ const FERRAMENTAS_EQUIPE = FERRAMENTAS.filter(f => ['consultar_compra', 'conferi
   input_schema: { type: 'object', properties: { agente: { type: 'string', enum: Object.keys(NOME_AGENTE) }, pergunta: { type: 'string' } }, required: ['agente', 'pergunta'] }
 }, {
   name: 'registrar_recado',
-  description: 'Deixa um recado ou pedido para a rotina diária da equipe (vai para memoria/conversas.md na próxima rotina): aprovação do Victor, pedido a outro agente, tarefa. Sem dados pessoais de cliente.',
+  description: 'Registra uma aprovação do Victor ou do Wesley (com o ID da fila quando houver e o que exatamente foi aprovado), um pedido a outro agente ou uma tarefa. O executor da equipe lê os recados de hora em hora (9h às 18h), executa o que foi aprovado e avisa o Victor aqui. Sem dados pessoais de cliente.',
   input_schema: { type: 'object', properties: { para: { type: 'string', description: 'agente de destino ou "rotina"' }, recado: { type: 'string' } }, required: ['para', 'recado'] }
 }]);
 
@@ -438,7 +512,7 @@ async function executar(u, fone, nome, env) {
   if (u.name === 'registrar_recado') {
     const i = u.input || {};
     await env.WG.put('recado:' + Date.now(), JSON.stringify({ quando: agora(), para: i.para, recado: String(i.recado || '').slice(0, 2000) }), { expirationTtl: 14 * 86400 });
-    return 'Recado registrado. A rotina diária leva para memoria/conversas.md.';
+    return 'Recado registrado. O executor pega na próxima hora cheia (9h às 18h) e avisa o Victor aqui.';
   }
   return 'ferramenta desconhecida';
 }
@@ -651,6 +725,18 @@ async function enviarMC(para, texto, env) {
 }
 
 // ---- Envio pela YCloud (parceira oficial da Meta; o número fica em coexistência com o app do celular) ----
+async function enviarMidiaYC(para, m, env) {
+  if (!env.YC_KEY) return false;
+  const tipo = ['video', 'image', 'document', 'audio'].includes(m.tipo) ? m.tipo : 'document';
+  const corpo = { from: env.YC_FROM || '+553193294274', to: '+' + String(para).replace(/\D/g, ''), type: tipo, [tipo]: { link: String(m.url) } };
+  if (m.legenda && tipo !== 'audio') corpo[tipo].caption = String(m.legenda).slice(0, 1024);
+  if (tipo === 'document' && m.nome) corpo.document.filename = String(m.nome).slice(0, 120);
+  const r = await fetch(`${YC}/whatsapp/messages/sendDirectly`, { method: 'POST', headers: { 'X-API-Key': env.YC_KEY, 'content-type': 'application/json' }, body: JSON.stringify(corpo) });
+  const t = await r.text(); let j = {}; try { j = JSON.parse(t); } catch {}
+  if (!r.ok || j.status === 'failed') { await passo(env, 'yc midia recusada ' + r.status + ' ' + t.replace(/\+?\d{10,}/g, '#').slice(0, 160)); return false; }
+  return true;
+}
+
 async function enviarYC(para, texto, env) {
   const to = '+' + String(para).replace(/\D/g, '');
   const corpo = { from: env.YC_FROM || '+553193294274', to, type: 'text', text: { body: texto, previewUrl: true } };

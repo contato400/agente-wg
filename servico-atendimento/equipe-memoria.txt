@@ -1,40 +1,33 @@
 ### memoria/estado.md
-# Estado atual (atualizado em 2026-11-18 20h30 pela auditoria)
+# Estado atual (atualizado em 2026-11-19 08h pela rotina diária)
 
 ## Meta de novembro
-- 150 vendas orgânicas e R$ 30 mil líquidos. Em 17/11: 115 vendas e R$ 25.361,74 (Greenn + Hotmart).
+- 150 vendas orgânicas e R$ 30 mil líquidos. Painel em 19/11: 115 vendas e R$ 25.361,74 (77% e 85%). Faltam 35 vendas em 12 dias (2,9 por dia).
+- 18/11: 0 venda orgânica na Greenn; 4 vendas de tráfego (R$ 1.230,22 líquido). Hotmart sem conector.
+- Tráfego no mês: 68 vendas, R$ 4.676,13, gasto Meta R$ 5.646,88 (ROAS 0,83, estimativa).
+
+## Alertas abertos
+- Chargeback R$ 3.697,64 (Caveira VIP Presencial, compra de 12/02) registrado na Greenn em 18/11 16h15. Decisão do Victor.
+- 2 assinaturas da Comunidade Caveira (R$ 97) com cartão recusado em 17 e 18/11.
+- Uma venda FB com `{{ad.name}}` sem substituir (parâmetro de URL quebrado em algum anúncio do Diogo).
 
 ## Campanha
-- Black Caveira 2026 encerrou em 16/11 às 19h. Página segue aberta a R$ 397.
-- Reabertura relâmpago sexta 20/11 às 19h (sem data de fechamento).
-- Foco até 30/11: Black (as vendas se arrastam depois da reabertura). Depois, o catálogo volta a ser o foco do atendimento.
-- Catálogo do WhatsApp: 23 cursos, sem e-book, está certo e vendendo. Não mexer.
+- Black encerrou 16/11 19h; página aberta a R$ 397. Reabertura sexta 20/11 às 19h (sem data de fechamento). CAVEIRA leva ao grupo de espera até sexta 19h.
+- Tráfego 100% do Diogo até a Black acabar: 3 campanhas da Black ativas + GREENN-62 nova (18/11). Gasto 18/11 R$ 555,81.
 
-## Prioridades combinadas em 18/11 (madrugada)
-1. Atendimento 24h no número oficial (falta o código do Samuel e a chave da API).
-2. Mensagem de acesso logo depois da compra (link da Academia, e-mail da compra, spam). Cerca de um quarto das conversas do suporte é gente que não consegue entrar.
-3. Anúncio direto para conversa no WhatsApp, R$ 20 a R$ 30 por dia, quando o atendimento estiver no ar.
-4. UTM por agente (utm_term=ag-<agente>).
-5. Canal único com o Victor pelo WhatsApp dele.
+## Instagram
+- Metricool lendo reels e evolution. Mediana 30 dias: 14.087 visualizações por reel. Seguidores 1.854.023 (18/11), saldo diário negativo desde 14/11.
+- Formato campeão: "Envie esse alerta para sua família" (24/10 4,7 mi; 17/11 16,5% de envio).
+- Parte 1 da Dona Maria como teste: 126 views, 85% de pulo. Parte 1 nova (gancho novo) e Partes 2 a 5 na fila.
 
-## O que está no ar
-- Ponte Greenn/Hotmart → ManyChat + planilha (Apps Script v2): todos os 74 produtos da Greenn e todos da Hotmart.
-- ManyChat: recuperação de carrinho automática (tag carrinho_pendente, cupom BLACK10) e upsell da IA KMC pós-compra (R$ 197).
-- Tráfego pago: em 17/11 ainda havia 3 campanhas da Black ATIVAS (GREENN 01, 04 e 05), gasto de R$ 845,62 no dia com 1 compra. Proposta de corte 20261118-trafego-1 na fila. Gasto desde 04/11: R$ 5.089,52.
-- Ponte gravando vendas desde 18/11 (4 vendas de tráfego no dia). Erro ao criar contato no ManyChat quando ele já existe (ver auditoria 18/11).
-- Instagram do Wesley ligado ao Metricool em 18/11 20h (importando). Windsor só com Meta Ads. Painel Financeiro WG criado.
+## Atendimento
+- Agente do WhatsApp no (31) 99329-4274 ativo desde a madrugada de 19/11 (YCloud). Aba Atendimento ainda vazia.
 
-## Agentes
-- Fase 1 ligada: atendimento (em construção) e debriefing diário.
-- Fase 2 (social media com aprovação) e Fase 3 (tráfego como assistente do Diogo, liberado em 18/11): prontos para ligar.
-- Expediente dos agentes: 8h às 18h. Atendimento do WhatsApp responde fora do horário.
-
-## Fila de aprovação em 18/11
-- PENDENTE: 20261118-trafego-1 (urgente), 20261118-trafego-2, 20261118-social-1, 20261118-social-2, 20261118-social-3.
+## Fila de aprovação em 19/11 08h
+- PENDENTE: 20261119-social-1, -2, -3; 20261118-social-1, -2, -3. Nenhum APROVADO esperando execução.
 
 ### memoria/passagem.md (últimas entradas)
-## 19/11 05h · Jarvis no computador do Victor
-- Feito: worker ganhou a porta POST /perguntar (Bearer AVISO_TOKEN; mesmo histórico do #nome). Jarvis instalado em C:\Users\Victor Augusto\Jarvis (Python 3.12 por winget, Claude Code CLI logado), com wg\wg.py, processo "Equipe do Wesley" em modelos\meus e memoria\sobre_mim.md. WG_AVISO_TOKEN gravado nas variáveis do Windows.
-- Verificado: `python wg\wg.py chefe ...` respondeu "[Chefe] OK. Quinta-feira, 19 de novembro de 2026."
-- Aprendizado: a Cloudflare devolve 403 (erro 1010) para o User-Agent padrão do Python; todo cliente Python do worker precisa de User-Agent próprio.
-- Pendente: Victor reiniciar e abrir o Jarvis pela primeira vez (baixa o modelo de voz).
+## 2026-11-19 07h20 · Site v4 virou a página principal
+- Victor aprovou ("Sim"). Backup da antiga raiz ([DPC] [FRONT] [ORG-DOMÍNIO], Jwn8mcsMcXmAzQX5WPBI) feito na Atomicat; ela foi republicada em /defesa-pessoal-caveira. Site v4 publicado na raiz www.wesleygimenez.com.br (o /inicio continua funcionando).
+- Verificado: / , /inicio, /defesa-pessoal-caveira e /dpc respondem 200; vídeo do avatar toca na raiz.
+- Atenção: wesleygimenez.com.br sem "www" não responde (problema de DNS que já existia, não mexi). Links antigos que apontavam para a raiz agora caem no site novo, que leva ao DPC.

@@ -19,7 +19,7 @@ História baseada em golpes reais.
 Arquivo: parte3.mp4 · capa: parte3_capa.jpg
 "Se desligar, vai ser presa." A ameaça do falso delegado para fazer a Dona Maria mandar um Pix com todo o dinheiro da conta 😰
 
-Polícia não pede Pix e não prende ninguém por telefone. Se alguém ligar pedindo transferência para uma "conta segura", é golpe.
+Polícia não prende ninguém por telefone e não manda fazer Pix. Se alguém ligar pedindo transferência para uma "conta segura", é golpe.
 
 👉 Comente CAVEIRA para ver a PARTE 4. A campainha tocou, e a história está longe de acabar.
 

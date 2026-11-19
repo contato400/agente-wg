@@ -86,7 +86,7 @@ const FERRAMENTAS = [{
 }];
 
 // ---- Equipe de agentes (19/11): o Victor fala com cada um pelo "#nome"; todos leem a memória da operação e podem perguntar a outro agente ----
-const EQUIPE = {"regras": "Nada externo sem aprovação do Victor ou do Wesley (publicar, gastar, mandar mensagem a cliente, mexer em página, oferta, campanha). Reembolso e pagamento nunca por agente. Só o negócio do Wesley. Suporte oficial (31) 99329-4274. Sem travessão. Sucesso é venda, não atividade; separar comprovado de estimado. Sem dado pessoal de cliente em memória ou relatório. Expediente dos agentes 8h às 18h (o atendimento do WhatsApp responde 24 h).", "fichas": {"analista-wg": "Responde por: O que vende e o que não vende. Mede: Vendas por origem, grupo, post, anúncio, produto e agente; saúde dos dados. Pode sozinho: Sim (só leitura)", "financeiro-wg": "Responde por: Quanto sobra de verdade. Mede: Líquido, projeção, custo global, custo por comprador por produto, recompra, reembolso. Pode sozinho: Sim (só leitura)", "atendimento-wg": "Responde por: Qualidade do WhatsApp e voz do cliente. Mede: Conversão das conversas, passagens para humano, erros, objeções; pesquisas. Pode sozinho: Só propõe", "social-media-wg": "Responde por: Conversa que vira venda no Instagram. Mede: Comentário com palavra-chave e venda por post; termômetro do direct. Pode sozinho: Só propõe", "ofertas-paginas-wg": "Responde por: Oferta, página, checkout e esteira. Mede: Conversão por página, bump, upsell, recuperação; PPN, esteira, trilhas. Pode sozinho: Só propõe (rascunho sim)", "trafego-wg": "Responde por: Assistente do Diogo. Mede: Custo por venda, funil do anúncio. Pode sozinho: Só relatório até o fim da Black", "juridico-wg": "Responde por: Risco. Mede: Itens revisados e motivos de ajuste. Pode sozinho: Sim (só revisão)", "sucesso-aluno-wg": "Responde por: Aluno depois da compra. Mede: Acesso liberado, \"não recebi acesso\", Guia 12 semanas. Pode sozinho: Sim (interno); externo pela fila", "auditor-wg": "Responde por: Rota certa. Mede: O que está funcionando de verdade, com prova do dia. Pode sozinho: Sim (só leitura)", "chefe-wg": "Coordenador da equipe (Agente WG): debriefing diário, decide qual agente faz o quê, consolida propostas na fila de aprovação e responde ao Victor."}, "memoria": "### memoria/estado.md\n# Estado atual (atualizado em 2026-11-18 20h30 pela auditoria)\n\n## Meta de novembro\n- 150 vendas orgânicas e R$ 30 mil líquidos. Em 17/11: 115 vendas e R$ 25.361,74 (Greenn + Hotmart).\n\n## Campanha\n- Black Caveira 2026 encerrou em 16/11 às 19h. Página segue aberta a R$ 397.\n- Reabertura relâmpago sexta 20/11 às 19h (sem data de fechamento).\n- Foco até 30/11: Black (as vendas se arrastam depois da reabertura). Depois, o catálogo volta a ser o foco do atendimento.\n- Catálogo do WhatsApp: 23 cursos, sem e-book, está certo e vendendo. Não mexer.\n\n## Prioridades combinadas em 18/11 (madrugada)\n1. Atendimento 24h no número oficial (falta o código do Samuel e a chave da API).\n2. Mensagem de acesso logo depois da compra (link da Academia, e-mail da compra, spam). Cerca de um quarto das conversas do suporte é gente que não consegue entrar.\n3. Anúncio direto para conversa no WhatsApp, R$ 20 a R$ 30 por dia, quando o atendimento estiver no ar.\n4. UTM por agente (utm_term=ag-<agente>).\n5. Canal único com o Victor pelo WhatsApp dele.\n\n## O que está no ar\n- Ponte Greenn/Hotmart → ManyChat + planilha (Apps Script v2): todos os 74 produtos da Greenn e todos da Hotmart.\n- ManyChat: recuperação de carrinho automática (tag carrinho_pendente, cupom BLACK10) e upsell da IA KMC pós-compra (R$ 197).\n- Tráfego pago: em 17/11 ainda havia 3 campanhas da Black ATIVAS (GREENN 01, 04 e 05), gasto de R$ 845,62 no dia com 1 compra. Proposta de corte 20261118-trafego-1 na fila. Gasto desde 04/11: R$ 5.089,52.\n- Ponte gravando vendas desde 18/11 (4 vendas de tráfego no dia). Erro ao criar contato no ManyChat quando ele já existe (ver auditoria 18/11).\n- Instagram do Wesley ligado ao Metricool em 18/11 20h (importando). Windsor só com Meta Ads. Painel Financeiro WG criado.\n\n## Agentes\n- Fase 1 ligada: atendimento (em construção) e debriefing diário.\n- Fase 2 (social media com aprovação) e Fase 3 (tráfego como assistente do Diogo, liberado em 18/11): prontos para ligar.\n- Expediente dos agentes: 8h às 18h. Atendimento do WhatsApp responde fora do horário.\n\n## Fila de aprovação em 18/11\n- PENDENTE: 20261118-trafego-1 (urgente), 20261118-trafego-2, 20261118-social-1, 20261118-social-2, 20261118-social-3.\n\n### memoria/passagem.md (últimas entradas)\n## 19/11 05h · Jarvis no computador do Victor\n- Feito: worker ganhou a porta POST /perguntar (Bearer AVISO_TOKEN; mesmo histórico do #nome). Jarvis instalado em C:\\Users\\Victor Augusto\\Jarvis (Python 3.12 por winget, Claude Code CLI logado), com wg\\wg.py, processo \"Equipe do Wesley\" em modelos\\meus e memoria\\sobre_mim.md. WG_AVISO_TOKEN gravado nas variáveis do Windows.\n- Verificado: `python wg\\wg.py chefe ...` respondeu \"[Chefe] OK. Quinta-feira, 19 de novembro de 2026.\"\n- Aprendizado: a Cloudflare devolve 403 (erro 1010) para o User-Agent padrão do Python; todo cliente Python do worker precisa de User-Agent próprio.\n- Pendente: Victor reiniciar e abrir o Jarvis pela primeira vez (baixa o modelo de voz)."};   // { regras, fichas: { 'chefe-wg': '...', ... }, memoria: '...' } montado por montar.py
+const EQUIPE = {"regras": "Nada externo sem aprovação do Victor ou do Wesley (publicar, gastar, mandar mensagem a cliente, mexer em página, oferta, campanha). Reembolso e pagamento nunca por agente. Só o negócio do Wesley. Suporte oficial (31) 99329-4274. Sem travessão. Sucesso é venda, não atividade; separar comprovado de estimado. Sem dado pessoal de cliente em memória ou relatório. Expediente dos agentes 8h às 18h (o atendimento do WhatsApp responde 24 h).", "fichas": {"analista-wg": "Responde por: O que vende e o que não vende. Mede: Vendas por origem, grupo, post, anúncio, produto e agente; saúde dos dados. Pode sozinho: Sim (só leitura)", "financeiro-wg": "Responde por: Quanto sobra de verdade. Mede: Líquido, projeção, custo global, custo por comprador por produto, recompra, reembolso. Pode sozinho: Sim (só leitura)", "atendimento-wg": "Responde por: Qualidade do WhatsApp e voz do cliente. Mede: Conversão das conversas, passagens para humano, erros, objeções; pesquisas. Pode sozinho: Só propõe", "social-media-wg": "Responde por: Conversa que vira venda no Instagram. Mede: Comentário com palavra-chave e venda por post; termômetro do direct. Pode sozinho: Só propõe", "ofertas-paginas-wg": "Responde por: Oferta, página, checkout e esteira. Mede: Conversão por página, bump, upsell, recuperação; PPN, esteira, trilhas. Pode sozinho: Só propõe (rascunho sim)", "trafego-wg": "Responde por: Assistente do Diogo. Mede: Custo por venda, funil do anúncio. Pode sozinho: Só relatório até o fim da Black", "juridico-wg": "Responde por: Risco. Mede: Itens revisados e motivos de ajuste. Pode sozinho: Sim (só revisão)", "sucesso-aluno-wg": "Responde por: Aluno depois da compra. Mede: Acesso liberado, \"não recebi acesso\", Guia 12 semanas. Pode sozinho: Sim (interno); externo pela fila", "auditor-wg": "Responde por: Rota certa. Mede: O que está funcionando de verdade, com prova do dia. Pode sozinho: Sim (só leitura)", "chefe-wg": "Coordenador da equipe (Agente WG): debriefing diário, decide qual agente faz o quê, consolida propostas na fila de aprovação e responde ao Victor."}, "memoria": "### memoria/estado.md\n# Estado atual (atualizado em 2026-11-19 08h pela rotina diária)\n\n## Meta de novembro\n- 150 vendas orgânicas e R$ 30 mil líquidos. Painel em 19/11: 115 vendas e R$ 25.361,74 (77% e 85%). Faltam 35 vendas em 12 dias (2,9 por dia).\n- 18/11: 0 venda orgânica na Greenn; 4 vendas de tráfego (R$ 1.230,22 líquido). Hotmart sem conector.\n- Tráfego no mês: 68 vendas, R$ 4.676,13, gasto Meta R$ 5.646,88 (ROAS 0,83, estimativa).\n\n## Alertas abertos\n- Chargeback R$ 3.697,64 (Caveira VIP Presencial, compra de 12/02) registrado na Greenn em 18/11 16h15. Decisão do Victor.\n- 2 assinaturas da Comunidade Caveira (R$ 97) com cartão recusado em 17 e 18/11.\n- Uma venda FB com `{{ad.name}}` sem substituir (parâmetro de URL quebrado em algum anúncio do Diogo).\n\n## Campanha\n- Black encerrou 16/11 19h; página aberta a R$ 397. Reabertura sexta 20/11 às 19h (sem data de fechamento). CAVEIRA leva ao grupo de espera até sexta 19h.\n- Tráfego 100% do Diogo até a Black acabar: 3 campanhas da Black ativas + GREENN-62 nova (18/11). Gasto 18/11 R$ 555,81.\n\n## Instagram\n- Metricool lendo reels e evolution. Mediana 30 dias: 14.087 visualizações por reel. Seguidores 1.854.023 (18/11), saldo diário negativo desde 14/11.\n- Formato campeão: \"Envie esse alerta para sua família\" (24/10 4,7 mi; 17/11 16,5% de envio).\n- Parte 1 da Dona Maria como teste: 126 views, 85% de pulo. Parte 1 nova (gancho novo) e Partes 2 a 5 na fila.\n\n## Atendimento\n- Agente do WhatsApp no (31) 99329-4274 ativo desde a madrugada de 19/11 (YCloud). Aba Atendimento ainda vazia.\n\n## Fila de aprovação em 19/11 08h\n- PENDENTE: 20261119-social-1, -2, -3; 20261118-social-1, -2, -3. Nenhum APROVADO esperando execução.\n\n### memoria/passagem.md (últimas entradas)\n## 2026-11-19 07h20 · Site v4 virou a página principal\n- Victor aprovou (\"Sim\"). Backup da antiga raiz ([DPC] [FRONT] [ORG-DOMÍNIO], Jwn8mcsMcXmAzQX5WPBI) feito na Atomicat; ela foi republicada em /defesa-pessoal-caveira. Site v4 publicado na raiz www.wesleygimenez.com.br (o /inicio continua funcionando).\n- Verificado: / , /inicio, /defesa-pessoal-caveira e /dpc respondem 200; vídeo do avatar toca na raiz.\n- Atenção: wesleygimenez.com.br sem \"www\" não responde (problema de DNS que já existia, não mexi). Links antigos que apontavam para a raiz agora caem no site novo, que leva ao DPC."};   // { regras, fichas: { 'chefe-wg': '...', ... }, memoria: '...' } montado por montar.py
 const APELIDOS = {
   chefe: 'chefe-wg', financeiro: 'financeiro-wg', social: 'social-media-wg', midia: 'social-media-wg', socialmedia: 'social-media-wg', instagram: 'social-media-wg',
   trafego: 'trafego-wg', anuncios: 'trafego-wg', juridico: 'juridico-wg', ofertas: 'ofertas-paginas-wg', paginas: 'ofertas-paginas-wg',
@@ -112,7 +112,7 @@ async function sistemaAgente(chave, env) {
   const base = await equipeBase(env);
   return `Você é o agente ${NOME_AGENTE[chave] || chave} da equipe de agentes que opera o negócio do Mestre Wesley Gimenez (Krav Magá Caveira). Quem fala com você agora é o Victor, o responsável, pelo WhatsApp de suporte. Ele escolheu falar com você digitando #${Object.keys(APELIDOS).find(k => APELIDOS[k] === chave)}.
 Responda como esse agente: direto, em português, curto, como mensagem de WhatsApp (sem tabelas; listas curtas só se ajudarem). Sem travessão.
-Você enxerga a memória da equipe abaixo (estado, decisões, backlog, conversas entre agentes e a última passagem): use para dizer o que você e os outros estão fazendo. Você NÃO mexe no trabalho dos outros. Para saber algo de outro agente, use a ferramenta perguntar_agente. Nenhuma ação externa (publicar, gastar, mandar mensagem para cliente, mexer em página, oferta ou campanha) sem aprovação do Victor ou do Wesley; se ele aprovar aqui, registre com registrar_recado para a rotina executar. Nunca invente número: o que não estiver na memória ou nas consultas, diga que não tem.
+Você enxerga a memória da equipe abaixo (estado, decisões, backlog, conversas entre agentes e a última passagem): use para dizer o que você e os outros estão fazendo. Você NÃO mexe no trabalho dos outros. Para saber algo de outro agente, use a ferramenta perguntar_agente. Nenhuma ação externa (publicar, gastar, mandar mensagem para cliente, mexer em página, oferta ou campanha) sem aprovação do Victor ou do Wesley; se ele aprovar aqui (por texto ou áudio), registre CADA aprovação com registrar_recado (uma por item, com o ID da fila quando houver) e responda na hora com a lista do que ficou aprovado e quando roda: o executor da equipe pega os recados de hora em hora, das 9h às 18h, e te avisa aqui o que fez. Se o áudio vier confuso, repita o que entendeu em lista numerada e peça só a confirmação. Nunca invente número: o que não estiver na memória ou nas consultas, diga que não tem.
 
 REGRAS DE TODOS OS AGENTES:
 ${base.regras}
@@ -160,7 +160,22 @@ export default {
       return new Response(txt, { headers: { 'content-type': 'application/json' } });
     }
     // ---- Porta dos agentes (rotina agendada): só com o segredo AVISO_TOKEN no cabeçalho Authorization: Bearer ----
-    if (url.pathname === '/avisar' || url.pathname === '/equipe' || url.pathname === '/recados' || url.pathname === '/perguntar') {
+    // Arquivos das peças (vídeo, capa) para mandar ao Victor pelo WhatsApp: os agentes sobem aqui e recebem um link público por 3 dias.
+    if (url.pathname === '/midia' && req.method === 'POST') {
+      const tk = (req.headers.get('authorization') || '').replace(/^Bearer\s+/i, '');
+      if (!env.AVISO_TOKEN || tk !== env.AVISO_TOKEN) return new Response('negado', { status: 403 });
+      const buf = await req.arrayBuffer();
+      if (buf.byteLength < 100 || buf.byteLength > 24_000_000) return new Response('tamanho', { status: 400 });
+      const id = crypto.randomUUID().replace(/-/g, '') + '.' + (url.searchParams.get('ext') || 'bin').replace(/[^a-z0-9]/g, '').slice(0, 5);
+      await env.WG.put('midia:' + id, buf, { expirationTtl: 3 * 86400, metadata: { tipo: req.headers.get('content-type') || 'application/octet-stream' } });
+      return Response.json({ url: url.origin + '/m/' + id });
+    }
+    if (req.method === 'GET' && url.pathname.startsWith('/m/')) {
+      const { value, metadata } = await env.WG.getWithMetadata('midia:' + url.pathname.slice(3), { type: 'arrayBuffer' });
+      if (!value) return new Response('expirou', { status: 404 });
+      return new Response(value, { headers: { 'content-type': (metadata && metadata.tipo) || 'application/octet-stream', 'cache-control': 'public, max-age=86400' } });
+    }
+    if (url.pathname === '/avisar' || url.pathname === '/equipe' || url.pathname === '/recados' || url.pathname === '/perguntar' || url.pathname === '/transcrever') {
       const tk = (req.headers.get('authorization') || '').replace(/^Bearer\s+/i, '');
       if (!env.AVISO_TOKEN || tk !== env.AVISO_TOKEN) return new Response('negado', { status: 403 });
       let b = {}; if (req.method === 'POST') { try { b = await req.json(); } catch {} }
@@ -171,9 +186,12 @@ export default {
         if (!env.ADMIN_FONE || texto.length < 5) return new Response('faltou texto', { status: 400 });
         const partes = dividirLongo(texto); let enviados = 0;
         for (const p of partes) { if ((await enviar(env.ADMIN_FONE, p, env)) !== false) enviados++; }
+        // Peças prontas para o Victor postar: {midia: [{tipo: 'video'|'image'|'document', url, legenda}]} (link público, até 16 MB para vídeo).
+        let midias = 0;
+        for (const m of (Array.isArray(b.midia) ? b.midia.slice(0, 10) : [])) { if (m && m.url && (await enviarMidiaYC(env.ADMIN_FONE, m, env))) midias++; }
         const adm = String(env.ADMIN_FONE).replace(/\D/g, '');
         await addHist(env, chave === 'chefe-wg' ? adm : 'ag:' + chave + ':' + adm, { role: 'assistant', content: texto });
-        return Response.json({ ok: enviados === partes.length, partes: partes.length, enviados });
+        return Response.json({ ok: enviados === partes.length, partes: partes.length, enviados, midias });
       }
       if (url.pathname === '/perguntar' && req.method === 'POST') {
         // O Jarvis (assistente de voz no computador do Victor) fala com um agente: {agente: "financeiro", pergunta: "..."}.
@@ -194,6 +212,13 @@ export default {
         await env.WG.put('equipe:memoria', String(b.memoria).slice(0, 120000));
         if (b.fichas && typeof b.fichas === 'object') await env.WG.put('equipe:base', JSON.stringify({ regras: String(b.regras || EQUIPE.regras).slice(0, 20000), fichas: b.fichas }));
         return Response.json({ ok: true, tamanho: String(b.memoria).length });
+      }
+      if (url.pathname === '/transcrever' && req.method === 'POST') {
+        // Teste da transcrição: baixa um áudio público (b.url) e devolve o texto, sem guardar nada.
+        const r = await fetch(String(b.url || '')); if (!r.ok) return new Response('sem audio', { status: 400 });
+        const u8 = new Uint8Array(await r.arrayBuffer()); const ped = partesOgg(u8, 25); const tx = [];
+        for (const p of ped) { const o = await env.AI.run('@cf/openai/whisper-large-v3-turbo', { audio: u8paraB64(p), language: 'pt' }); tx.push(semRepeticao(String((o && o.text) || '').trim())); }
+        return Response.json({ pedacos: ped.length, texto: tx.join(' ') });
       }
       if (url.pathname === '/recados' && req.method === 'GET') {
         // A rotina busca recados e conversas entre agentes feitas pelo WhatsApp (e apaga com ?limpar=1 depois de registrar).
@@ -227,6 +252,8 @@ export default {
         return new Response('assinatura', { status: 401 });
       }
       let ev; try { ev = JSON.parse(corpoYC); } catch { return new Response('ok'); }
+      // Com a fila (FILA), cada mensagem é processada no consumidor, que tem até 15 minutos (o waitUntil corta em 30 s e o áudio não cabia).
+      if (env.FILA) { try { await env.FILA.send({ tipo: 'yc', ev }); return new Response('ok'); } catch (e) { await passo(env, 'fila falhou ' + String(e).slice(0, 80)); } }
       ctx.waitUntil(processarYC(ev, env).catch(e => console.log('erro yc', e && e.stack || e)));
       return new Response('ok');
     }
@@ -235,8 +262,17 @@ export default {
     const corpo = await req.text();
     if (!(await assinaturaOk(corpo, req.headers.get('x-hub-signature-256'), env.APP_SECRET))) return new Response('assinatura', { status: 401 });
     let dados; try { dados = JSON.parse(corpo); } catch { return new Response('ok'); }
+    if (env.FILA) { try { await env.FILA.send({ tipo: 'meta', dados }); return new Response('ok'); } catch (e) { await passo(env, 'fila falhou ' + String(e).slice(0, 80)); } }
     ctx.waitUntil(processar(dados, env).catch(e => console.log('erro', e && e.stack || e)));
     return new Response('ok');
+  },
+  // Consumidor da fila: uma mensagem por vez, sem o limite de 30 s do waitUntil.
+  async queue(batch, env) {
+    for (const m of batch.messages) {
+      try { if (m.body.tipo === 'yc') await processarYC(m.body.ev, env); else if (m.body.tipo === 'meta') await processar(m.body.dados, env); }
+      catch (e) { await passo(env, 'erro na fila: ' + String(e).slice(0, 150)); }
+      m.ack();
+    }
   }
 };
 
@@ -358,11 +394,49 @@ async function transcrever(audio, env) {
   try {
     const a = audio.link ? await baixarYC(audio, env) : await baixarMidia(audio.id, env);
     if (!a) return null;
-    const r = await env.AI.run('@cf/openai/whisper-large-v3-turbo', { audio: a.b64, language: 'pt' });
-    const t = String((r && r.text) || '').trim();
-    await passo(env, 'audio transcrito ' + t.length + ' letras');
+    // Áudio longo (ex.: 1min30 do Victor) era cortado e embolado: o Whisper vai em pedaços de ~25 s (páginas do Ogg/Opus).
+    const pedacos = partesOgg(b64paraU8(a.b64), 25);
+    const textos = [];
+    for (const p of pedacos) {
+      const r = await env.AI.run('@cf/openai/whisper-large-v3-turbo', { audio: u8paraB64(p), language: 'pt' });
+      textos.push(semRepeticao(String((r && r.text) || '').trim()));
+    }
+    const t = textos.filter(Boolean).join(' ').trim();
+    await passo(env, 'audio transcrito ' + t.length + ' letras em ' + pedacos.length + ' pedaço(s)');
     return t || null;
   } catch (e) { await passo(env, 'audio falhou ' + String(e).slice(0, 120)); return null; }
+}
+
+function b64paraU8(b64) { const s = atob(b64); const u = new Uint8Array(s.length); for (let i = 0; i < s.length; i++) u[i] = s.charCodeAt(i); return u; }
+function u8paraB64(u) { let s = ''; for (let i = 0; i < u.length; i += 32768) s += String.fromCharCode(...u.subarray(i, i + 32768)); return btoa(s); }
+// Divide um Ogg/Opus (nota de voz do WhatsApp) em pedaços de ~seg segundos, repetindo as 2 páginas de cabeçalho em cada pedaço.
+// Se não for Ogg, devolve o arquivo inteiro.
+function partesOgg(u8, seg) {
+  const ps = []; let i = 0;
+  while (i + 27 <= u8.length && u8[i] === 0x4f && u8[i + 1] === 0x67 && u8[i + 2] === 0x67 && u8[i + 3] === 0x53) {
+    const n = u8[i + 26]; let len = 0; for (let k = 0; k < n; k++) len += u8[i + 27 + k];
+    const dv = new DataView(u8.buffer, u8.byteOffset + i, 14);
+    const lo = dv.getUint32(6, true), hi = dv.getUint32(10, true);
+    ps.push({ ini: i, fim: i + 27 + n + len, gran: hi === 0xffffffff ? -1 : hi * 4294967296 + lo });
+    i += 27 + n + len;
+  }
+  if (ps.length < 4 || i !== u8.length) return [u8];
+  const cab = u8.subarray(0, ps[1].fim), out = [];
+  let ini = 2, base = 0;
+  for (let j = 2; j < ps.length; j++) {
+    const fimPedaco = j === ps.length - 1 || (ps[j].gran >= 0 && (ps[j].gran - base) / 48000 >= seg);
+    if (!fimPedaco) continue;
+    const corpo = u8.subarray(ps[ini].ini, ps[j].fim), p = new Uint8Array(cab.length + corpo.length);
+    p.set(cab); p.set(corpo, cab.length); out.push(p);
+    ini = j + 1; if (ps[j].gran >= 0) base = ps[j].gran;
+  }
+  return out.length ? out : [u8];
+}
+// O Whisper às vezes entra em loop ("Um carrossel. Um carrossel. ..."): corta frases repetidas seguidas.
+function semRepeticao(t) {
+  const fr = t.split(/(?<=[.!?])\s+/); const out = [];
+  for (const f of fr) { if (out.length && out[out.length - 1].toLowerCase() === f.toLowerCase()) continue; out.push(f); }
+  return out.join(' ');
 }
 
 async function baixarMidia(id, env) {
@@ -382,7 +456,7 @@ const FERRAMENTAS_EQUIPE = FERRAMENTAS.filter(f => ['consultar_compra', 'conferi
   input_schema: { type: 'object', properties: { agente: { type: 'string', enum: Object.keys(NOME_AGENTE) }, pergunta: { type: 'string' } }, required: ['agente', 'pergunta'] }
 }, {
   name: 'registrar_recado',
-  description: 'Deixa um recado ou pedido para a rotina diária da equipe (vai para memoria/conversas.md na próxima rotina): aprovação do Victor, pedido a outro agente, tarefa. Sem dados pessoais de cliente.',
+  description: 'Registra uma aprovação do Victor ou do Wesley (com o ID da fila quando houver e o que exatamente foi aprovado), um pedido a outro agente ou uma tarefa. O executor da equipe lê os recados de hora em hora (9h às 18h), executa o que foi aprovado e avisa o Victor aqui. Sem dados pessoais de cliente.',
   input_schema: { type: 'object', properties: { para: { type: 'string', description: 'agente de destino ou "rotina"' }, recado: { type: 'string' } }, required: ['para', 'recado'] }
 }]);
 
@@ -438,7 +512,7 @@ async function executar(u, fone, nome, env) {
   if (u.name === 'registrar_recado') {
     const i = u.input || {};
     await env.WG.put('recado:' + Date.now(), JSON.stringify({ quando: agora(), para: i.para, recado: String(i.recado || '').slice(0, 2000) }), { expirationTtl: 14 * 86400 });
-    return 'Recado registrado. A rotina diária leva para memoria/conversas.md.';
+    return 'Recado registrado. O executor pega na próxima hora cheia (9h às 18h) e avisa o Victor aqui.';
   }
   return 'ferramenta desconhecida';
 }
@@ -651,6 +725,18 @@ async function enviarMC(para, texto, env) {
 }
 
 // ---- Envio pela YCloud (parceira oficial da Meta; o número fica em coexistência com o app do celular) ----
+async function enviarMidiaYC(para, m, env) {
+  if (!env.YC_KEY) return false;
+  const tipo = ['video', 'image', 'document', 'audio'].includes(m.tipo) ? m.tipo : 'document';
+  const corpo = { from: env.YC_FROM || '+553193294274', to: '+' + String(para).replace(/\D/g, ''), type: tipo, [tipo]: { link: String(m.url) } };
+  if (m.legenda && tipo !== 'audio') corpo[tipo].caption = String(m.legenda).slice(0, 1024);
+  if (tipo === 'document' && m.nome) corpo.document.filename = String(m.nome).slice(0, 120);
+  const r = await fetch(`${YC}/whatsapp/messages/sendDirectly`, { method: 'POST', headers: { 'X-API-Key': env.YC_KEY, 'content-type': 'application/json' }, body: JSON.stringify(corpo) });
+  const t = await r.text(); let j = {}; try { j = JSON.parse(t); } catch {}
+  if (!r.ok || j.status === 'failed') { await passo(env, 'yc midia recusada ' + r.status + ' ' + t.replace(/\+?\d{10,}/g, '#').slice(0, 160)); return false; }
+  return true;
+}
+
 async function enviarYC(para, texto, env) {
   const to = '+' + String(para).replace(/\D/g, '');
   const corpo = { from: env.YC_FROM || '+553193294274', to, type: 'text', text: { body: texto, previewUrl: true } };
