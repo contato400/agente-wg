@@ -222,3 +222,10 @@ Modelo:
 - Novo: quando o chefe registra uma aprovação, o serviço aciona o executor na hora (acionador de API da tarefa), se o segredo EXECUTOR_TOKEN estiver no Cloudflare. Sem o segredo, vale o horário.
 - Decisão do Victor: todos os agentes em Sonnet, inclusive o chefe no WhatsApp (antes era Fable).
 - Pendente: o Victor gerar o token da API na tarefa do executor e colar como segredo EXECUTOR_TOKEN no worker agente-wg; trocar o modelo da tarefa do executor para Sonnet na tela da tarefa.
+
+## 2026-11-19 11h45 · Executor: conferência do Metricool
+- Pedido: Victor (11h02) pediu leitura da agenda do Metricool, sem corrigir.
+- Feito: 11 itens lidos (P1 a P5 em reel e teste, 2 carrosséis). Sem duplicado, sem item antigo, ordem e CTA corretos. Avisado no WhatsApp.
+- Pendente: Victor decide se move P3 (17h) e P4 normal (21h) por causa do post dele às 19h (2h de intervalo, regra é 2h30); ouvir a Parte 3 para conferir a frase nova.
+- Verificado: legendas e horários pelo Metricool. Não verificado: conteúdo falado dos vídeos.
+- Fila: nenhuma linha APROVADO pendente; 20261119-sucesso-1 segue PENDENTE.

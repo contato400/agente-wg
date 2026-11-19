@@ -26,3 +26,4 @@ Formato (uma linha por pedido, sem dado pessoal):
 | 2026-11-19 | financeiro-wg | trafego-wg | Algum anúncio acima de R$ 120 por venda ontem? | Total R$ 138,95 por venda real; GREENN-04 R$ 111; GREENN-05 e 62 sem venda (R$ 130); 1 venda com {{ad.name}} | RESPONDIDO |
 | 2026-11-19 | juridico-wg | social-media-wg | Funil CAVEIRA promete parte 2 e entrega o grupo | Proposta 20261119-social-3 | NA FILA |
 | 2026-11-19 | chefe-wg | WhatsApp | recados do Victor | nenhum recado | FECHADO |
+| 2026-11-19 | Victor (WhatsApp) | executor | Conferir tudo que está programado no Metricool, só leitura | 11 itens conferidos, sem duplicado nem reel antigo; alertas: post do Victor 19h a 2h do P3 e do P4 normal; frase da Parte 3 não conferida no vídeo | RESPONDIDO, aguarda OK do Victor |
