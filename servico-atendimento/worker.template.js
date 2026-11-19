@@ -343,10 +343,26 @@ async function paraConteudo(m, env) {
     partes.push({ type: 'text', text: m.image.caption || '[a pessoa mandou esta imagem]' });
     return partes;
   }
-  if (m.type === 'audio') return '[a pessoa mandou um áudio que você não consegue ouvir; peça com carinho para escrever em texto]';
+  if (m.type === 'audio') {
+    // Áudio vira texto pelo Whisper da Cloudflare (Workers AI, associação AI). Sem a associação ou se falhar, pede texto.
+    const txt = await transcrever(m.audio, env);
+    return txt ? '[áudio transcrito] ' + txt : '[a pessoa mandou um áudio que você não consegue ouvir; peça com carinho para escrever em texto]';
+  }
   if (m.type === 'order') return '[a pessoa enviou um pedido pelo catálogo do WhatsApp: ' + JSON.stringify(m.order.product_items || []) + ']';
   if (m.type === 'document') return '[a pessoa mandou um documento: ' + (m.document.filename || '') + ']';
   return null;
+}
+
+async function transcrever(audio, env) {
+  if (!env.AI || !audio) return null;
+  try {
+    const a = audio.link ? await baixarYC(audio, env) : await baixarMidia(audio.id, env);
+    if (!a) return null;
+    const r = await env.AI.run('@cf/openai/whisper-large-v3-turbo', { audio: a.b64, language: 'pt' });
+    const t = String((r && r.text) || '').trim();
+    await passo(env, 'audio transcrito ' + t.length + ' letras');
+    return t || null;
+  } catch (e) { await passo(env, 'audio falhou ' + String(e).slice(0, 120)); return null; }
 }
 
 async function baixarMidia(id, env) {
