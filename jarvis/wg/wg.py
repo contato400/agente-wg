@@ -18,7 +18,7 @@ def main():
         print("Falta a senha da equipe (variável WG_AVISO_TOKEN). Rode de novo o INSTALAR-VICTOR.bat."); return 1
     agente, pergunta = sys.argv[1], " ".join(sys.argv[2:])
     req = urllib.request.Request(URL, data=json.dumps({"agente": agente, "pergunta": pergunta}).encode("utf-8"),
-                                 headers={"Authorization": "Bearer " + token, "Content-Type": "application/json"}, method="POST")
+                                 headers={"Authorization": "Bearer " + token, "Content-Type": "application/json", "User-Agent": "Jarvis-WG/1.0"}, method="POST")
     try:
         with urllib.request.urlopen(req, timeout=180) as r:
             d = json.loads(r.read().decode("utf-8"))
