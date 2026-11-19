@@ -10,6 +10,7 @@ FONTES = [
     '.claude/skills/suporte-acesso-wg/SKILL.md',
     '.claude/skills/funil-catalogo-wg/SKILL.md',
     'conteudo/atendimento/produtos-detalhes.md',
+    'conteudo/atendimento/links-checkout.md',
     '.claude/skills/base-produtos-wg/SKILL.md',
     'conteudo/atendimento/black-reabertura.md',
     '.claude/skills/vendas-negociacao-wg/SKILL.md',

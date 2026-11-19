@@ -1,6 +1,6 @@
 # Produtos por dentro (o que a pessoa aprende) · lido nas páginas e na Greenn em 19/11
 
-Use para explicar o curso com conteúdo real. Fale do que importa para a dor da pessoa; não despeje a lista inteira. Preço que vale é o da página (cursos avulsos: R$ 197 à vista ou 12x de R$ 19,78).
+Use para explicar o curso com conteúdo real. Fale do que importa para a dor da pessoa; não despeje a lista inteira. Preço nos links do Catálogo: R$ 197 à vista ou 12x de R$ 20,25 no cartão. Mande sempre o link da tabela de links de compra (com os order bumps).
 
 ## Defesa Pessoal Caveira 2.0 (DPC) · /dpc · o curso mais completo para começar do zero
 - Para iniciantes, praticantes e quem protege a família (pais, mães, mulheres, motoristas de aplicativo, seguranças). Indicado pelo Wesley para policiais e militares.
@@ -15,7 +15,7 @@ Use para explicar o curso com conteúdo real. Fale do que importa para a dor da 
 - Mulheres de todas as idades, mães, quem volta tarde ou anda sozinha; bom presente para esposa, filha, irmã. Não exige força nem experiência.
 - 29 módulos, mais de 120 aulas: distância; cotoveladas e socos; defesa de socos e chutes; ataques no chão e empurrões; pegadas pelo braço; agarramentos pela frente e pelas costas; estrangulamentos (frontal, lateral, no chão); pontos vulneráveis.
 
-## Defesa Pessoal Kids · checkout https://payfast.greenn.com.br/59654/offer/2tuAIn · sem página própria
+## Defesa Pessoal Kids · sem página própria (link na tabela de links de compra)
 - Para pais que querem um filho mais seguro, confiante e disciplinado. Vai além da luta: postura, confiança, voz firme, pedir ajuda, como agir em risco na rua, como evitar problemas do dia a dia (inclusive bullying). Os pais aprendem a ensinar e treinar junto. Acesso vitalício, linguagem simples.
 - Limite de marca: nunca falar em "vencer um adulto" nem "revidar o colega".
 

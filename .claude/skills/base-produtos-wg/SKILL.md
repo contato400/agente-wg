@@ -8,7 +8,7 @@ description: Catálogo de produtos do Mestre Wesley Gimenez (Krav Magá Caveira)
 Fonte: inventário da Greenn (74 produtos) e páginas publicadas na Atomicat, lidos em 18/11/2026.
 
 ## Regra de ouro do link
-- **Mande a página de venda**, não o checkout direto, a não ser que a pessoa já tenha decidido comprar. A página tem o preço certo, o vídeo e o checkout com os order bumps.
+- **Regra do Victor (19/11):** o link de compra tem que ser o MESMO do Catálogo, com os order bumps (tabela "Links de compra do atendimento", em `conteudo/atendimento/links-checkout.md`). Nunca mande checkout sem os bumps. Produto fora da tabela: mande a página de venda.
 - Toda página: `https://www.wesleygimenez.com.br/<página>?utm_source=vc&utm_medium=whatsapp&utm_campaign=<origem>` (orgânico). Tráfego pago usa `utm_source=FB` e a página do tráfego.
 - **O preço que vale é o que aparece na página.** A coluna "Oferta padrão Greenn" é a oferta principal cadastrada no produto; algumas páginas vendem por outra oferta (em geral R$ 197). Na dúvida, abra a página antes de citar o valor.
 - Garantia de 7 dias, acesso vitalício nos treinamentos, certificado ao concluir. Não mostrar "total parcelado".
@@ -53,7 +53,7 @@ Fonte: inventário da Greenn (74 produtos) e páginas publicadas na Atomicat, li
 | E-book Vida Segura | 182127 | R$ 27,90 | Página /ebook-vs. Porta de entrada |
 | E-book Como Treinar seu Filho contra o Bullying | 59652 | R$ 29,90 | |
 | Combo com os 6 livros digitais | 64419 | R$ 97 | Livros físicos não são mais vendidos |
-| Combo Família Segura | 140616 | R$ 197 | |
+| Combo Família Segura | 140616 | R$ 197 | No Catálogo sai por R$ 497 (oferta Qa2CJn com bump do Vida Segura) |
 | Combo 4x1 (DPC 2.0 + Modo Caveira + ...) | 67014 | R$ 197 | |
 | Comunidade Caveira | 28506 / 31884 / 73212 | R$ 297 | Assinatura e vitalícia; cancelamento vai para humano |
 | Mentalidade Caveira (lives) | 64412 / 64571 | R$ 97 / R$ 9,90 por mês | |

@@ -56,3 +56,7 @@
 ## 19/11 · Atendente negocia e fecha sozinho (Victor)
 - Cursos avulsos de R$ 197: escada de negociação feita pelo próprio agente, sem passar para humano: 1º valor (parcela, garantia, ganho); 2º cupom CAVEIRA30 (R$ 167); 3º e último cupom CAVEIRA50 (R$ 147). Nunca abaixo de R$ 147 nem cupons somados. Sem cupom na Black, mentoria, VIP e combos.
 - Cupons CAVEIRA30 (R$ 30) e CAVEIRA50 (R$ 50) criados na Greenn em 19/11 01h33, valor fixo, sem validade, todos os produtos. O cupom antigo CAVEIRA99 (50%, ilimitado) continua ativo: avaliar se deve ser desligado.
+
+## 19/11 02h40 · Condução e links do atendimento (Victor)
+- Antes de explicar um curso: 2 ou 3 perguntas investigativas, uma por vez, com conexão (vale para quem vem do Catálogo). Depois explicar, perguntar "Faz sentido pra você?", esperar o sim e só então mandar o link, pedindo o comprovante ("assim que finalizar, me manda o comprovante aqui que eu confiro se o acesso foi liberado"). Exceção: quem pede o link recebe na hora.
+- Link de compra do atendimento = o mesmo do Catálogo, com os 3 order bumps (conteudo/atendimento/links-checkout.md). Nunca checkout sem bumps. Preço desses links: R$ 197 ou 12x de R$ 20,25.

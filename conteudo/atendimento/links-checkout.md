@@ -1,0 +1,23 @@
+# Links de compra do atendimento (iguais aos do Catálogo, com os order bumps) · conferidos na Greenn em 19/11
+
+Regra do Victor (19/11): o link que você manda tem que ser o MESMO do Catálogo, com os order bumps (cursos extras opcionais com desconto na página de pagamento). Nunca mande link de checkout sem os bumps.
+- Produto da tabela: mande exatamente o link da tabela (troque só utm_campaign: atendimento, catalogo ou o que fizer sentido).
+- Produto fora da tabela: mande a página de venda (https://www.wesleygimenez.com.br/<página>?utm_source=vc&utm_medium=whatsapp&utm_campaign=atendimento&utm_term=ag-atendimento). Black: a página da Black.
+- Preço nesses links: R$ 197 à vista ou 12x de R$ 20,25 no cartão (Combo Família Segura: R$ 497). Com cupom, o valor certinho aparece na página de pagamento depois de aplicar.
+- Os bumps (cursos extras na página de pagamento) saem por 12x de R$ 9,97 cada (R$ 97). Conferido no DPC em 19/11.
+- Pode explicar os bumps assim: "na página de pagamento aparecem uns cursos extras com desconto especial, é opcional, marca só se quiser".
+
+| Curso | Preço | Bumps na página de pagamento | Link |
+|---|---|---|---|
+| Defesa Pessoal Caveira 2.0 (DPC) | R$ 197 | APH, Preparação Física, Vida Segura | https://payfast.greenn.com.br/31865/offer/p7SB1C?utm_source=vc&utm_medium=whatsapp&utm_campaign=atendimento&utm_term=ag-atendimento&b_id_1=30239&b_offer_1=rrlR3h&b_id_2=31868&b_offer_2=4pJdzw&b_id_3=158493&b_offer_3=tv1ni7 |
+| Protocolo Vida Segura | R$ 197 | Contra Ataque, DPC, Kids | https://payfast.greenn.com.br/158493/offer/AoiclJ?utm_source=vc&utm_medium=whatsapp&utm_campaign=atendimento&utm_term=ag-atendimento&ch_id=7103&b_id_1=28504&b_offer_1=S7G0Wz&b_id_2=31865&b_offer_2=AndtNk&b_id_3=59654&b_offer_3=j3vYkS |
+| Contra Ataque Feminino | R$ 197 | APH, Preparação Física, Vida Segura | https://payfast.greenn.com.br/28504/offer/bX2z5J?utm_source=vc&utm_medium=whatsapp&utm_campaign=atendimento&utm_term=ag-atendimento&b_id_1=30239&b_offer_1=rrlR3h&b_id_2=31868&b_offer_2=4pJdzw&b_id_3=158493&b_offer_3=tv1ni7 |
+| Defesa Pessoal Kids | R$ 197 | Preparação Física Kids, Primeiros Socorros Kids, E-book Bullying | https://payfast.greenn.com.br/59654/offer/3sNyVo?utm_source=vc&utm_medium=whatsapp&utm_campaign=atendimento&utm_term=ag-atendimento&ch_id=11305&b_id_1=59651&b_offer_1=DRpFLV&b_id_2=59649&b_offer_2=wIA4He&b_id_3=59652&b_offer_3=osVRq8 |
+| Defesa de Socos Completo | R$ 197 | APH, Preparação Física, Vida Segura | https://payfast.greenn.com.br/28513/offer/KjGO9s?utm_source=vc&utm_medium=whatsapp&utm_campaign=atendimento&utm_term=ag-atendimento&b_id_1=30239&b_offer_1=rrlR3h&b_id_2=31868&b_offer_2=4pJdzw&b_id_3=158493&b_offer_3=tv1ni7 |
+| Socos para Iniciantes | R$ 197 | APH, Preparação Física, Vida Segura | https://payfast.greenn.com.br/28503/offer/TALKGo?utm_source=vc&utm_medium=whatsapp&utm_campaign=atendimento&utm_term=ag-atendimento&b_id_1=30239&b_offer_1=rrlR3h&b_id_2=31868&b_offer_2=4pJdzw&b_id_3=158493&b_offer_3=tv1ni7 |
+| Jiu Jitsu x Krav Magá para Rua | R$ 197 | APH, Preparação Física, Vida Segura | https://payfast.greenn.com.br/28491/offer/5mbJS9?utm_source=vc&utm_medium=whatsapp&utm_campaign=atendimento&utm_term=ag-atendimento&b_id_1=30239&b_offer_1=rrlR3h&b_id_2=31868&b_offer_2=4pJdzw&b_id_3=158493&b_offer_3=tv1ni7 |
+| Primeiros Socorros Caveira (APH) | R$ 197 | Preparação Física, Vida Segura | https://payfast.greenn.com.br/30239/offer/P07NiK?utm_source=vc&utm_medium=whatsapp&utm_campaign=atendimento&utm_term=ag-atendimento&b_id_1=31868&b_offer_1=4pJdzw&b_id_2=158493&b_offer_2=tv1ni7 |
+| Preparação Física Caveira | R$ 197 | APH, Vida Segura | https://payfast.greenn.com.br/31868/offer/c9k4cS?utm_source=vc&utm_medium=whatsapp&utm_campaign=atendimento&utm_term=ag-atendimento&b_id_1=30239&b_offer_1=rrlR3h&b_id_2=158493&b_offer_2=tv1ni7 |
+| Os Segredos do Armlock | R$ 197 | APH, Preparação Física, Vida Segura | https://payfast.greenn.com.br/28495/offer/DMBQS8?utm_source=vc&utm_medium=whatsapp&utm_campaign=atendimento&utm_term=ag-atendimento&b_id_1=30239&b_offer_1=rrlR3h&b_id_2=31868&b_offer_2=4pJdzw&b_id_3=158493&b_offer_3=tv1ni7 |
+| Segurança de Comércios | R$ 197 | APH, Preparação Física, Vida Segura | https://payfast.greenn.com.br/31873/offer/jHKSTU?utm_source=vc&utm_medium=whatsapp&utm_campaign=atendimento&utm_term=ag-atendimento&b_id_1=30239&b_offer_1=rrlR3h&b_id_2=31868&b_offer_2=4pJdzw&b_id_3=158493&b_offer_3=tv1ni7 |
+| Combo Família Segura | R$ 497 | Vida Segura | https://payfast.greenn.com.br/140616/offer/Qa2CJn?utm_source=vc&utm_medium=whatsapp&utm_campaign=atendimento&utm_term=ag-atendimento&ch_id=7103&b_id_1=158493&b_offer_1=tv1ni7 |
