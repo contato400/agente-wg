@@ -429,7 +429,7 @@ async function dispararExecutor(env) {
   if (await env.WG.get('exec:disparo')) return true;
   await env.WG.put('exec:disparo', '1', { expirationTtl: 180 });
   try {
-    const r = await fetch(env.EXECUTOR_URL || 'https://api.anthropic.com/v1/claude_code/routines/trig_01Ew7uaaRRupMPDDkPZbEzM6/fire', { method: 'POST',
+    const r = await fetch(env.EXECUTOR_URL || 'https://api.anthropic.com/v1/claude_code/routines/trig_01NFRU3YjRf6TciDYo9L8b2H/fire', { method: 'POST',
       headers: { Authorization: 'Bearer ' + env.EXECUTOR_TOKEN, 'anthropic-beta': 'experimental-cc-routine-2026-04-01', 'anthropic-version': '2023-06-01', 'content-type': 'application/json' },
       body: JSON.stringify({ text: 'Acionado pelo WhatsApp: há recado novo do Victor.' }) });
     await passo(env, 'executor acionado ' + r.status);
