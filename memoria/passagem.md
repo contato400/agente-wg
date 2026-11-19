@@ -181,3 +181,8 @@ Modelo:
 - Verificado: `python wg\wg.py chefe ...` respondeu "[Chefe] OK. Quinta-feira, 19 de novembro de 2026."
 - Aprendizado: a Cloudflare devolve 403 (erro 1010) para o User-Agent padrão do Python; todo cliente Python do worker precisa de User-Agent próprio.
 - Pendente: Victor reiniciar e abrir o Jarvis pela primeira vez (baixa o modelo de voz).
+
+## 19/11 05h50 · voz e áudio
+- Feito: /perguntar em modo rápido (Sonnet, 900 tokens); áudio no WhatsApp agora vira texto (Workers AI whisper-large-v3-turbo, associação AI). Testes 21/21. No ar conferido.
+- Computador do Victor: Asus X515JF, i5-1035G1, 8 GB (1,7 GB livres), SSD 238 GB. Gargalo é memória; sugerido pente de 16 GB e tirar programas da inicialização.
+- Pendente troca de número: textos da régua dos grupos (Gui) e fluxos do ManyChat ainda não revisados; Hotmart (lista de produtos vazia na conta logada); Greenn aguarda o Wesley confirmar o e-mail.
