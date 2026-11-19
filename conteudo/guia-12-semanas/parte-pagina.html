@@ -1,0 +1,127 @@
+<style>
+#g12{--bg:#0b0b0c;--card:#151517;--line:#2a2a2e;--red:#d71920;--red2:#ff3b30;--tx:#f4f4f4;--mut:#b4b4b9;--ok:#22a35a;--yel:#ffd27a}
+#g12{background:radial-gradient(900px 500px at 50% -160px,#3a0a0c 0,transparent 70%),var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.55;min-height:100vh}
+#g12 *{box-sizing:border-box}
+#g12 .w{max-width:640px;margin:0 auto;padding:22px 16px 90px}
+#g12 h1{font-weight:800;font-size:clamp(26px,7vw,36px);line-height:1.12;margin:12px 0 10px}
+#g12 h1 em,#g12 h2 em{color:var(--red2);font-style:normal}
+#g12 h2{font-weight:800;font-size:clamp(20px,5.4vw,24px);line-height:1.2;margin:30px 0 10px}
+#g12 .tag{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:12px;letter-spacing:.08em;padding:5px 12px;border-radius:999px;text-transform:uppercase}
+#g12 p{margin:0 0 12px}
+#g12 .lead{font-size:18px;color:#e2e2e6}
+#g12 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin:14px 0}
+#g12 .warn{border-color:#5a1a1d;background:linear-gradient(135deg,#2a0b0d,#151517)}
+#g12 .mut{color:var(--mut);font-size:15px}
+#g12 .btn{display:block;width:100%;background:var(--red);color:#fff;border:0;border-radius:14px;padding:17px 16px;font-weight:800;font-size:17px;cursor:pointer;font-family:inherit;text-align:center;text-decoration:none;margin-top:10px}
+#g12 .btn:hover{background:var(--red2)}
+#g12 .btn.gh{background:transparent;border:1.5px solid var(--line);color:var(--tx);font-weight:700;font-size:15px;padding:14px}
+#g12 .btn.ok{background:var(--ok)}
+#g12 .opts{display:grid;gap:10px;margin-top:8px}
+#g12 .opt{display:flex;gap:12px;align-items:center;width:100%;text-align:left;background:#101012;border:1.5px solid var(--line);color:var(--tx);border-radius:14px;padding:16px;font-size:17px;font-family:inherit;cursor:pointer}
+#g12 .opt b{display:block}
+#g12 .opt small{display:block;color:var(--mut);font-size:14px;font-weight:400}
+#g12 .opt i{font-style:normal;font-size:26px;flex:none}
+#g12 .opt:hover{border-color:var(--red2);background:#2a0b0d}
+#g12 .qn{color:var(--mut);font-size:14px;letter-spacing:.06em;text-transform:uppercase}
+#g12 .bar{height:7px;background:#232327;border-radius:99px;overflow:hidden;margin:8px 0 18px}
+#g12 .bar span{display:block;height:100%;background:var(--red);transition:width .3s}
+#g12 .q{font-size:22px;font-weight:800;line-height:1.25;margin:4px 0 6px}
+#g12 .today{border:2px solid var(--red);background:linear-gradient(160deg,#2a0b0d,#151517)}
+#g12 .today .big{font-size:22px;font-weight:800;line-height:1.25;margin:6px 0}
+#g12 .pill{display:inline-block;font-size:12px;font-weight:700;border-radius:999px;padding:3px 10px;margin:4px 6px 0 0}
+#g12 .pill.p{background:#3a2a05;color:var(--yel);border:1px solid #6b5210}
+#g12 .pill.c{background:#10261a;color:#9be7bd;border:1px solid #1f5a36}
+#g12 .wk{background:var(--card);border:1px solid var(--line);border-radius:16px;margin:12px 0;overflow:hidden}
+#g12 .wk summary{list-style:none;cursor:pointer;padding:15px 16px;display:flex;justify-content:space-between;align-items:center;font-weight:800;font-size:17px}
+#g12 .wk summary::-webkit-details-marker{display:none}
+#g12 .wk summary small{color:var(--mut);font-weight:600;font-size:14px}
+#g12 .wk.now{border-color:var(--red)}
+#g12 .day{display:flex;gap:12px;align-items:flex-start;padding:13px 16px;border-top:1px solid var(--line)}
+#g12 .day input{width:24px;height:24px;accent-color:var(--ok);flex:none;margin-top:2px}
+#g12 .day .d{color:var(--mut);font-size:13px;text-transform:uppercase;letter-spacing:.05em}
+#g12 .day a{color:#fff;font-weight:700;text-decoration:underline;text-decoration-color:#6a6a70}
+#g12 .day.done{opacity:.55}
+#g12 .day.done a{text-decoration:line-through}
+#g12 .gain{border-left:3px solid var(--red);padding:2px 0 2px 14px;margin:14px 0}
+#g12 .gain b{display:block;font-size:17px}
+#g12 ul{padding-left:20px;margin:8px 0}
+#g12 li{margin:6px 0}
+#g12 .hide{display:none!important}
+#g12 .foot{text-align:center;color:var(--mut);font-size:14px;margin-top:34px}
+#g12 .foot a{color:#7be3a6}
+#g12 .prog{font-size:15px;color:var(--mut);margin:4px 0 0}
+#g12 .prog b{color:#fff}
+#g12 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#1f9d55;color:#fff;padding:12px 18px;border-radius:12px;font-weight:700;z-index:99}
+</style>
+
+<div id="g12"><div class="w">
+
+<section id="v-start">
+  <span class="tag">Guia de Treino Caveira</span>
+  <h1>Seu treino de <em>12 semanas</em>, dia a dia</h1>
+  <p class="lead">Shalom! Este guia diz qual aula da Academia você assiste em cada dia de treino, do primeiro dia até a semana 12. Você abre o guia, toca na aula do dia, treina e marca que fez. Simples assim.</p>
+  <div class="card">
+    <b>Como funciona</b>
+    <ul>
+      <li>Você responde 3 perguntas rápidas (menos de 1 minuto).</li>
+      <li>O guia monta o seu plano com as aulas que já estão liberadas para você na Academia.</li>
+      <li>Toda vez que voltar aqui, aparece em cima o <b>treino de hoje</b>, com o botão para abrir a aula.</li>
+    </ul>
+  </div>
+  <button class="btn" id="b-go">Montar o meu plano</button>
+  <p class="mut" style="margin-top:14px">Precisa estar logado na Academia para a aula abrir. Se pedir senha, entre com o e-mail da sua compra.</p>
+</section>
+
+<section id="v-quiz" class="hide">
+  <div class="qn" id="q-n">Pergunta 1 de 3</div>
+  <div class="bar"><span id="q-bar" style="width:33%"></span></div>
+  <div class="q" id="q-t"></div>
+  <p class="mut" id="q-h"></p>
+  <div class="opts" id="q-o"></div>
+  <button class="btn gh" id="b-back">Voltar</button>
+</section>
+
+<section id="v-plan" class="hide">
+  <span class="tag" id="p-tag">Seu plano</span>
+  <h1 id="p-title"></h1>
+  <p class="lead" id="p-why"></p>
+
+  <div class="card today" id="t-card">
+    <div class="qn" id="t-when">Treino de hoje</div>
+    <div class="big" id="t-name"></div>
+    <div id="t-pills"></div>
+    <p class="mut" id="t-tip" style="margin-top:10px"></p>
+    <a class="btn" id="t-open" target="_blank" rel="noopener">Abrir a aula na Academia</a>
+    <button class="btn ok" id="t-done">Fiz o treino de hoje</button>
+    <p class="prog" id="t-prog"></p>
+  </div>
+
+  <h2>O que você vai <em>treinar</em> em cada mês</h2>
+  <div id="p-gains"></div>
+
+  <h2>Sua <em>semana a semana</em></h2>
+  <p class="mut">Toque na semana para abrir. Toque no nome da aula para assistir. Marque o quadradinho quando fizer.</p>
+  <div id="p-weeks"></div>
+
+  <h2>Regras de <em>segurança</em></h2>
+  <div class="card warn"><ul>
+    <li>Aula com a marca <b>com parceiro</b>: se você treina sozinho, assista e faça só o movimento no ar, devagar. Com alguém, combine antes, vá devagar e solte na hora que o outro bater a mão.</li>
+    <li>Nunca treine com faca de verdade.</li>
+    <li>Sentiu dor, tontura ou falta de ar? Pare na hora. Se tem problema de saúde, fale com seu médico antes de começar.</li>
+    <li>Defesa pessoal de verdade é evitar, se proteger e sair. Em perigo, ligue 190.</li>
+  </ul></div>
+
+  <div class="card">
+    <b>Perdeu um dia? Tudo bem.</b>
+    <p class="mut" style="margin:6px 0 0">O guia não anda sozinho com o calendário. Ele sempre mostra a próxima aula que você ainda não fez. Se a semana apertou, continue de onde parou. Terminar em 14 ou 16 semanas também vale.</p>
+  </div>
+
+  <button class="btn gh" id="b-copy">Copiar o link do meu plano</button>
+  <a class="btn gh" href="https://kravmagacaveira.cademi.com.br/" target="_blank" rel="noopener">Abrir a Academia</a>
+  <button class="btn gh" id="b-redo">Mudar minhas respostas</button>
+  <p class="mut" style="margin-top:12px">Seu progresso fica salvo neste celular. Se trocar de aparelho, abra o link do seu plano e marque de novo onde parou.</p>
+
+  <p class="foot">Não consegue entrar na Academia? Chame o suporte no WhatsApp <a href="https://wa.me/5531973346056?text=Shalom%2C%20preciso%20de%20ajuda%20com%20o%20Guia%20de%2012%20semanas" target="_blank" rel="noopener">(31) 97334-6056</a>.<br>Tamo junto, Caveira! · Mestre Wesley Gimenez</p>
+</section>
+
+</div></div>

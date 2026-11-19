@@ -20,3 +20,5 @@ Formato (uma linha por pedido, sem dado pessoal):
 |---|---|---|---|---|---|
 | 2026-11-18 | chefe-wg | sucesso-aluno-wg | Cruzar produtos que venderam em novembro (MCP da Greenn) com `docs/mapa-entregas-cademi.md` e achar produto vendido sem entrega; ver por que o Guia 12 semanas tem só 3 acessos | Feito pelo chefe em 18/11 23h: nenhum produto vendido sem entrega; Guia vendeu 2 em novembro (3 acessos está certo). Ver `docs/mapa-entregas-cademi.md` | RESPONDIDO |
 | 2026-11-18 | chefe-wg | social-media-wg | Lista de posts da Black para arquivar em `relatorios/2026-11-18-posts-black-arquivar.md`: esperar o OK do Victor e passar para quem tem o celular do Wesley | | ABERTO |
+| 2026-11-18 | chefe-wg | social-media-wg | Vídeo de 60 s no motor de vídeo narrado mostrando como usar o Guia novo (abrir, 3 perguntas, treino de hoje, marcar feito) | | ABERTO |
+| 2026-11-18 | chefe-wg | sucesso-aluno-wg | Mensagem para quem tem o Guia (compradores do order bump e alunos da Black): "o guia ficou novo, é assim que usa"; levar para a fila | | ABERTO |

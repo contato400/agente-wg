@@ -1,0 +1,248 @@
+<style>
+#g12{--bg:#0b0b0c;--card:#151517;--line:#2a2a2e;--red:#d71920;--red2:#ff3b30;--tx:#f4f4f4;--mut:#b4b4b9;--ok:#22a35a;--yel:#ffd27a}
+#g12{background:radial-gradient(900px 500px at 50% -160px,#3a0a0c 0,transparent 70%),var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.55;min-height:100vh}
+#g12 *{box-sizing:border-box}
+#g12 .w{max-width:640px;margin:0 auto;padding:22px 16px 90px}
+#g12 h1{font-weight:800;font-size:clamp(26px,7vw,36px);line-height:1.12;margin:12px 0 10px}
+#g12 h1 em,#g12 h2 em{color:var(--red2);font-style:normal}
+#g12 h2{font-weight:800;font-size:clamp(20px,5.4vw,24px);line-height:1.2;margin:30px 0 10px}
+#g12 .tag{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:12px;letter-spacing:.08em;padding:5px 12px;border-radius:999px;text-transform:uppercase}
+#g12 p{margin:0 0 12px}
+#g12 .lead{font-size:18px;color:#e2e2e6}
+#g12 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin:14px 0}
+#g12 .warn{border-color:#5a1a1d;background:linear-gradient(135deg,#2a0b0d,#151517)}
+#g12 .mut{color:var(--mut);font-size:15px}
+#g12 .btn{display:block;width:100%;background:var(--red);color:#fff;border:0;border-radius:14px;padding:17px 16px;font-weight:800;font-size:17px;cursor:pointer;font-family:inherit;text-align:center;text-decoration:none;margin-top:10px}
+#g12 .btn:hover{background:var(--red2)}
+#g12 .btn.gh{background:transparent;border:1.5px solid var(--line);color:var(--tx);font-weight:700;font-size:15px;padding:14px}
+#g12 .btn.ok{background:var(--ok)}
+#g12 .opts{display:grid;gap:10px;margin-top:8px}
+#g12 .opt{display:flex;gap:12px;align-items:center;width:100%;text-align:left;background:#101012;border:1.5px solid var(--line);color:var(--tx);border-radius:14px;padding:16px;font-size:17px;font-family:inherit;cursor:pointer}
+#g12 .opt b{display:block}
+#g12 .opt small{display:block;color:var(--mut);font-size:14px;font-weight:400}
+#g12 .opt i{font-style:normal;font-size:26px;flex:none}
+#g12 .opt:hover{border-color:var(--red2);background:#2a0b0d}
+#g12 .qn{color:var(--mut);font-size:14px;letter-spacing:.06em;text-transform:uppercase}
+#g12 .bar{height:7px;background:#232327;border-radius:99px;overflow:hidden;margin:8px 0 18px}
+#g12 .bar span{display:block;height:100%;background:var(--red);transition:width .3s}
+#g12 .q{font-size:22px;font-weight:800;line-height:1.25;margin:4px 0 6px}
+#g12 .today{border:2px solid var(--red);background:linear-gradient(160deg,#2a0b0d,#151517)}
+#g12 .today .big{font-size:22px;font-weight:800;line-height:1.25;margin:6px 0}
+#g12 .pill{display:inline-block;font-size:12px;font-weight:700;border-radius:999px;padding:3px 10px;margin:4px 6px 0 0}
+#g12 .pill.p{background:#3a2a05;color:var(--yel);border:1px solid #6b5210}
+#g12 .pill.c{background:#10261a;color:#9be7bd;border:1px solid #1f5a36}
+#g12 .wk{background:var(--card);border:1px solid var(--line);border-radius:16px;margin:12px 0;overflow:hidden}
+#g12 .wk summary{list-style:none;cursor:pointer;padding:15px 16px;display:flex;justify-content:space-between;align-items:center;font-weight:800;font-size:17px}
+#g12 .wk summary::-webkit-details-marker{display:none}
+#g12 .wk summary small{color:var(--mut);font-weight:600;font-size:14px}
+#g12 .wk.now{border-color:var(--red)}
+#g12 .day{display:flex;gap:12px;align-items:flex-start;padding:13px 16px;border-top:1px solid var(--line)}
+#g12 .day input{width:24px;height:24px;accent-color:var(--ok);flex:none;margin-top:2px}
+#g12 .day .d{color:var(--mut);font-size:13px;text-transform:uppercase;letter-spacing:.05em}
+#g12 .day a{color:#fff;font-weight:700;text-decoration:underline;text-decoration-color:#6a6a70}
+#g12 .day.done{opacity:.55}
+#g12 .day.done a{text-decoration:line-through}
+#g12 .gain{border-left:3px solid var(--red);padding:2px 0 2px 14px;margin:14px 0}
+#g12 .gain b{display:block;font-size:17px}
+#g12 ul{padding-left:20px;margin:8px 0}
+#g12 li{margin:6px 0}
+#g12 .hide{display:none!important}
+#g12 .foot{text-align:center;color:var(--mut);font-size:14px;margin-top:34px}
+#g12 .foot a{color:#7be3a6}
+#g12 .prog{font-size:15px;color:var(--mut);margin:4px 0 0}
+#g12 .prog b{color:#fff}
+#g12 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#1f9d55;color:#fff;padding:12px 18px;border-radius:12px;font-weight:700;z-index:99}
+</style>
+
+<div id="g12"><div class="w">
+
+<section id="v-start">
+  <span class="tag">Guia de Treino Caveira</span>
+  <h1>Seu treino de <em>12 semanas</em>, dia a dia</h1>
+  <p class="lead">Shalom! Este guia diz qual aula da Academia você assiste em cada dia de treino, do primeiro dia até a semana 12. Você abre o guia, toca na aula do dia, treina e marca que fez. Simples assim.</p>
+  <div class="card">
+    <b>Como funciona</b>
+    <ul>
+      <li>Você responde 3 perguntas rápidas (menos de 1 minuto).</li>
+      <li>O guia monta o seu plano com as aulas que já estão liberadas para você na Academia.</li>
+      <li>Toda vez que voltar aqui, aparece em cima o <b>treino de hoje</b>, com o botão para abrir a aula.</li>
+    </ul>
+  </div>
+  <button class="btn" id="b-go">Montar o meu plano</button>
+  <p class="mut" style="margin-top:14px">Precisa estar logado na Academia para a aula abrir. Se pedir senha, entre com o e-mail da sua compra.</p>
+</section>
+
+<section id="v-quiz" class="hide">
+  <div class="qn" id="q-n">Pergunta 1 de 3</div>
+  <div class="bar"><span id="q-bar" style="width:33%"></span></div>
+  <div class="q" id="q-t"></div>
+  <p class="mut" id="q-h"></p>
+  <div class="opts" id="q-o"></div>
+  <button class="btn gh" id="b-back">Voltar</button>
+</section>
+
+<section id="v-plan" class="hide">
+  <span class="tag" id="p-tag">Seu plano</span>
+  <h1 id="p-title"></h1>
+  <p class="lead" id="p-why"></p>
+
+  <div class="card today" id="t-card">
+    <div class="qn" id="t-when">Treino de hoje</div>
+    <div class="big" id="t-name"></div>
+    <div id="t-pills"></div>
+    <p class="mut" id="t-tip" style="margin-top:10px"></p>
+    <a class="btn" id="t-open" target="_blank" rel="noopener">Abrir a aula na Academia</a>
+    <button class="btn ok" id="t-done">Fiz o treino de hoje</button>
+    <p class="prog" id="t-prog"></p>
+  </div>
+
+  <h2>O que você vai <em>treinar</em> em cada mês</h2>
+  <div id="p-gains"></div>
+
+  <h2>Sua <em>semana a semana</em></h2>
+  <p class="mut">Toque na semana para abrir. Toque no nome da aula para assistir. Marque o quadradinho quando fizer.</p>
+  <div id="p-weeks"></div>
+
+  <h2>Regras de <em>segurança</em></h2>
+  <div class="card warn"><ul>
+    <li>Aula com a marca <b>com parceiro</b>: se você treina sozinho, assista e faça só o movimento no ar, devagar. Com alguém, combine antes, vá devagar e solte na hora que o outro bater a mão.</li>
+    <li>Nunca treine com faca de verdade.</li>
+    <li>Sentiu dor, tontura ou falta de ar? Pare na hora. Se tem problema de saúde, fale com seu médico antes de começar.</li>
+    <li>Defesa pessoal de verdade é evitar, se proteger e sair. Em perigo, ligue 190.</li>
+  </ul></div>
+
+  <div class="card">
+    <b>Perdeu um dia? Tudo bem.</b>
+    <p class="mut" style="margin:6px 0 0">O guia não anda sozinho com o calendário. Ele sempre mostra a próxima aula que você ainda não fez. Se a semana apertou, continue de onde parou. Terminar em 14 ou 16 semanas também vale.</p>
+  </div>
+
+  <button class="btn gh" id="b-copy">Copiar o link do meu plano</button>
+  <a class="btn gh" href="https://kravmagacaveira.cademi.com.br/" target="_blank" rel="noopener">Abrir a Academia</a>
+  <button class="btn gh" id="b-redo">Mudar minhas respostas</button>
+  <p class="mut" style="margin-top:12px">Seu progresso fica salvo neste celular. Se trocar de aparelho, abra o link do seu plano e marque de novo onde parou.</p>
+
+  <p class="foot">Não consegue entrar na Academia? Chame o suporte no WhatsApp <a href="https://wa.me/5531973346056?text=Shalom%2C%20preciso%20de%20ajuda%20com%20o%20Guia%20de%2012%20semanas" target="_blank" rel="noopener">(31) 97334-6056</a>.<br>Tamo junto, Caveira! · Mestre Wesley Gimenez</p>
+</section>
+
+</div></div>
+
+<script>
+(function(){
+var BASE='https://kravmagacaveira.cademi.com.br/area/conteudo/aula/';
+// [id, nome que o aluno entende, curso, parceiro?]
+var A={
+ mc1:['2513170','Seja bem-vindo, Caveira','Modo Caveira'],
+ mc2:['2397546','A aula que você precisa assistir antes de tudo','Modo Caveira'],
+ base:['2397560','Base e movimentação: como ficar firme e se mexer','Modo Caveira'],
+ guarda:['2397565','Guarda: como proteger o rosto','Modo Caveira'],
+ sf:['2397566','Socos frontais','Modo Caveira'],
+ dsf:['2397570','Defesa contra soco de frente','Modo Caveira',1],
+ sl:['2397567','Socos laterais (cruzados)','Modo Caveira'],
+ dsl:['2397569','Defesa contra soco de lado na cabeça','Modo Caveira',1],
+ cf:['2397572','Chutes frontais','Modo Caveira'],
+ dcf:['2397575','Defesa contra chute de frente','Modo Caveira',1],
+ cl:['2397571','Chutes laterais','Modo Caveira'],
+ dcl:['2397574','Defesa contra chute de lado','Modo Caveira',1],
+ est:['2397577','Defesa contra estrangulamento de frente','Modo Caveira',1],
+ peg:['2397578','Defesa contra pegada no braço','Modo Caveira',1],
+ estc:['2397581','Defesa contra estrangulamento por trás','Modo Caveira',1],
+ grav:['2397582','Defesa contra gravata','Modo Caveira',1],
+ pesc:['2397583','Defesa contra duas mãos no pescoço por trás','Modo Caveira',1],
+ cab:['2397584','Defesa contra pegada no ombro e puxão de cabelo','Modo Caveira',1],
+ reag:['2397619','Reagir ou não reagir: como decidir','Modo Caveira'],
+ cores:['2397611','As 6 cores de alerta','Modo Caveira'],
+ ativ:['2513162','Ativando o Modo Caveira','Modo Caveira'],
+ vs1:['6942642','Seja bem-vindo: como funciona o Vida Segura','Protocolo Vida Segura'],
+ vs2:['6942645','O que é um protocolo de segurança','Protocolo Vida Segura'],
+ vs3:['6942649','As 6 cores de alerta','Protocolo Vida Segura'],
+ vs5:['6942652','Prestar atenção no ambiente sem viver com medo','Protocolo Vida Segura'],
+ r1:['6943092','Segurança da casa: começo do módulo','Protocolo Vida Segura'],
+ r2:['6943093','Protocolo VETO (casa)','Protocolo Vida Segura'],
+ r3:['6943096','O círculo de segurança da sua casa','Protocolo Vida Segura'],
+ r4:['6943128','Protocolo SILO (casa)','Protocolo Vida Segura'],
+ r5:['6944010','Fronteira humana: quem entra e quem não entra','Protocolo Vida Segura'],
+ r6:['6944011','Erros comuns e o que fazer em invasão de casa','Protocolo Vida Segura'],
+ e1:['6946456','Escudo familiar: começo do módulo','Protocolo Vida Segura'],
+ e2:['6946458','Como a família se comunica numa crise','Protocolo Vida Segura'],
+ e3:['6946464','Plano de saída da família','Protocolo Vida Segura'],
+ tr:['6946483','Família segura no trânsito','Protocolo Vida Segura'],
+ k1:['6946469','Criança: como evitar abordagem e sequestro','Protocolo Vida Segura'],
+ k2:['6946470','Criança: protocolo anti sumiço','Protocolo Vida Segura'],
+ k3:['6946473','Bullying: como seu filho se protege (parte 1)','Protocolo Vida Segura'],
+ k4:['6946475','Bullying: como seu filho se protege (parte 2)','Protocolo Vida Segura'],
+ ru1:['6946409','Ligando o seu radar na rua','Protocolo Vida Segura'],
+ ru2:['6946413','Postura que afasta o perigo','Protocolo Vida Segura'],
+ ru3:['6946454','O que fazer num assalto na rua','Protocolo Vida Segura'],
+ d0:['3371683','Desafio 30 Dias: comece por aqui','Desafio 30 Dias'],
+ cf0:['2513145','Corpo forte: começo','Modo Caveira'],
+ ab1:['2397622','Abdominal curto','Modo Caveira'],
+ ag:['2397643','Agachamento','Modo Caveira'],
+ av:['2397646','Avanço (perna)','Modo Caveira'],
+ fl1:['2397628','Flexão com braços abertos','Modo Caveira'],
+ ab2:['2397623','Abdominal com socos','Modo Caveira'],
+ ab3:['2397624','Abdominal com defesas','Modo Caveira'],
+ tch:['2397645','Treino para chutes','Modo Caveira'],
+ fl2:['2397631','Flexão de mão fechada','Modo Caveira'],
+ ab4:['2397625','Abdominal com chute','Modo Caveira'],
+ fl3:['2397629','Flexões combinadas','Modo Caveira'],
+ fl4:['2397627','Flexão diamante','Modo Caveira']
+};
+var DT=[['0','3371684'],['1','3371685'],['2','3404348'],['3','3404356'],['4','3404357'],['5','3404358'],['6','3428251'],['8','3431168'],['9','3431171'],['10','3441823'],['11','3441839'],['12','3441901'],['13','3441925'],['14','3495524'],['15','3495526'],['16','3495527'],['17','3518963'],['18','3520224'],['19','3520237'],['20','3520239'],['21','3520240'],['22','3520241'],['23','3540462'],['24','3540463'],['25','3540464'],['26','3546368'],['27','3546480'],['28','3559008'],['29','3559024'],['30','3559025']];
+DT.forEach(function(t){A['t'+t[0]]=[t[1],'Desafio 30 Dias: treino '+t[0],'Desafio 30 Dias']});
+
+var T={
+ rua:{nome:'Me defender na rua',
+  why:'Você vai aprender a ficar firme, proteger o rosto, se defender de soco, chute e agarrão, e principalmente a perceber o perigo antes e sair dele.',
+  main:[['mc1','mc2'],['base','guarda'],['sf','dsf'],['sl','dsl'],['cf','dcf'],['cl','dcl'],['ru1','ru2'],['est','peg'],['estc','grav'],['cab','pesc'],['reag','ru3'],['cores','ativ']],
+  extra:['d0','t0','t1','t2','t3','t4','t5','t6','t8','t9','t10','t11','t12','t13','t14','t15','t16','t17','t18','t19','t20','t21','t22','t23','t24','t25','t26','t27','t28','t29','t30'],
+  gains:[['Mês 1 · Semanas 1 a 4','Postura firme, guarda para proteger o rosto e defesa contra soco de frente e de lado.'],['Mês 2 · Semanas 5 a 8','Defesa contra chute, como perceber o perigo na rua antes que ele chegue e as primeiras defesas de agarrão.'],['Mês 3 · Semanas 9 a 12','Defesas quando te pegam por trás, gravata e puxão de cabelo, e como decidir entre reagir ou não num assalto.']]},
+ fam:{nome:'Proteger minha família e minha casa',
+  why:'Você vai montar a segurança da sua casa, combinar com a família o que cada um faz numa emergência, ensinar as crianças a se proteger e treinar as defesas básicas.',
+  main:[['vs1','vs2'],['vs3','vs5'],['r1','r3'],['r2','r5'],['r4','r6'],['e1','e2'],['e3','tr'],['k1','k2'],['k3','k4'],['base','guarda'],['peg','est'],['reag','ru3']],
+  extra:['d0','t0','t1','t2','t3','t4','t5','t6','t8','t9','t10','t11','t12','t13','t14','t15','t16','t17','t18','t19','t20','t21','t22','t23','t24','t25','t26','t27','t28','t29','t30'],
+  gains:[['Mês 1 · Semanas 1 a 4','Como prestar atenção no ambiente sem viver com medo e os primeiros cuidados da sua casa.'],['Mês 2 · Semanas 5 a 8','O plano da família para emergências, segurança no trânsito e como proteger as crianças de abordagem e sumiço.'],['Mês 3 · Semanas 9 a 12','Bullying, postura firme, defesa contra pegada e estrangulamento, e o que fazer num assalto.']]},
+ fis:{nome:'Ganhar preparo e confiança no corpo',
+  why:'Você vai treinar um pouco quase todo dia com o Desafio 30 Dias e com os exercícios do Corpo Forte. Mais fôlego e mais força deixam qualquer defesa mais fácil.',
+  main:[['d0','t0'],['t1','t2'],['t3','t4'],['t5','t6'],['t8','t9'],['t10','t11'],['t12','t13'],['t14','t15'],['t16','t17'],['t18','t19'],['t20','t21'],['t22','t23']],
+  extra:['cf0','ab1','ag','av','fl1','ab2','ab3','tch','fl2','ab4','fl3','fl4','t24','t25','t26','t27','t28','t29','t30','base','guarda','sf','dsf','sl','dsl','cf','dcf','cl','dcl','est','peg','estc','grav','pesc','cab','reag'],
+  gains:[['Mês 1 · Semanas 1 a 4','Criar o costume de treinar: os primeiros treinos do Desafio e os exercícios básicos de abdômen e perna.'],['Mês 2 · Semanas 5 a 8','Mais treinos do Desafio e flexões, para ganhar força nos braços e no tronco.'],['Mês 3 · Semanas 9 a 12','Fechar o Desafio 30 Dias e começar a juntar o preparo com socos, chutes e defesas.']]}
+};
+var DIAS={2:['Dia 1','Dia 2'],3:['Dia 1','Dia 2','Dia 3'],5:['Dia 1','Dia 2','Dia 3','Dia 4','Dia 5']};
+var Q=[
+ {t:'O que você quer primeiro?',h:'Escolha o mais importante agora. Depois dá para mudar.',k:'o',o:[['rua','🛡️','Me defender na rua','Soco, chute, agarrão e assalto'],['fam','🏠','Proteger minha família e minha casa','Casa, crianças e emergências'],['fis','💪','Ganhar preparo físico','Fôlego, força e o costume de treinar']]},
+ {t:'Quantos dias por semana você consegue treinar?',h:'Seja sincero. É melhor 2 dias certos do que 5 dias que não acontecem.',k:'d',o:[['2','2️⃣','2 dias','Cerca de 20 minutos por dia'],['3','3️⃣','3 dias','Cerca de 20 a 30 minutos por dia'],['5','5️⃣','5 dias','Para quem quer acelerar']]},
+ {t:'Você vai treinar sozinho ou com alguém?',h:'Muda só o jeito de fazer as defesas de agarrão.',k:'s',o:[['s','🙋','Sozinho','Faço os movimentos no ar'],['a','🤝','Com alguém','Marido, esposa, filho, amigo']]}
+];
+var st={o:null,d:null,s:null},qi=0,KEY='g12_v2';
+function $(i){return document.getElementById(i)}
+function show(v){['v-start','v-quiz','v-plan'].forEach(function(x){$(x).classList.toggle('hide',x!==v)});window.scrollTo(0,0)}
+function load(){try{return JSON.parse(localStorage.getItem(KEY))||{}}catch(e){return {}}}
+function save(o){try{localStorage.setItem(KEY,JSON.stringify(o))}catch(e){}}
+function toast(m){var d=document.createElement('div');d.className='toast';d.textContent=m;$('g12').appendChild(d);setTimeout(function(){d.remove()},2200)}
+function renderQ(){var q=Q[qi];$('q-n').textContent='Pergunta '+(qi+1)+' de 3';$('q-bar').style.width=((qi+1)*33.4)+'%';$('q-t').textContent=q.t;$('q-h').textContent=q.h;var box=$('q-o');box.innerHTML='';q.o.forEach(function(op){var b=document.createElement('button');b.className='opt';b.innerHTML='<i>'+op[1]+'</i><span><b>'+op[2]+'</b><small>'+op[3]+'</small></span>';b.onclick=function(){st[q.k]=op[0];if(qi<2){qi++;renderQ()}else{finish()}};box.appendChild(b)});$('b-back').textContent=qi?'Voltar':'Voltar ao início'}
+function plan(){var tr=T[st.o],n=+st.d,ex=0,weeks=[];for(var w=0;w<12;w++){var items=tr.main[w].slice();for(var j=2;j<n;j++){items.push(tr.extra[ex]||tr.main[w][j%2]);ex++}weeks.push(items)}return weeks}
+function finish(){var s=load();s.o=st.o;s.d=st.d;s.s=st.s;s.done=s.done&&s.plan===(st.o+st.d)?s.done:{};s.plan=st.o+st.d;save(s);try{history.replaceState(null,'','#'+st.o+'-'+st.d+'-'+st.s)}catch(e){}renderPlan()}
+function key(w,i){return w+'_'+i}
+function renderPlan(){var s=load(),tr=T[st.o],weeks=plan(),dn=s.done||{},labels=DIAS[st.d],total=0,doneN=0,next=null;
+ $('p-title').textContent=tr.nome;$('p-why').textContent=tr.why;$('p-tag').textContent='Seu plano · '+st.d+' dias por semana';
+ var g='';tr.gains.forEach(function(x){g+='<div class="gain"><b>'+x[0]+'</b><span class="mut">'+x[1]+'</span></div>'});$('p-gains').innerHTML=g;
+ var html='';weeks.forEach(function(items,w){var wd=0,rows='';items.forEach(function(a,i){var L=A[a];total++;var k=key(w,i),d=!!dn[k];if(d){doneN++;wd++}else if(!next){next={w:w,i:i,a:a,label:labels[i]}}
+   rows+='<label class="day'+(d?' done':'')+'"><input type="checkbox" data-k="'+k+'"'+(d?' checked':'')+'><span><span class="d">'+labels[i]+' · '+L[2]+'</span><br><a href="'+BASE+L[0]+'" target="_blank" rel="noopener">'+L[1]+'</a>'+(L[3]?' <span class="pill p">com parceiro</span>':'')+'</span></label>'});
+  var isNow=next&&next.w===w;html+='<details class="wk'+(isNow?' now':'')+'"'+(isNow?' open':'')+'><summary><span>Semana '+(w+1)+'</span><small>'+wd+' de '+items.length+(wd===items.length?' ✓':'')+'</small></summary>'+rows+'</details>'});
+ $('p-weeks').innerHTML=html;
+ [].forEach.call(document.querySelectorAll('#p-weeks input'),function(c){c.onchange=function(){var s2=load();s2.done=s2.done||{};if(c.checked)s2.done[c.dataset.k]=1;else delete s2.done[c.dataset.k];save(s2);renderPlan()}});
+ $('t-prog').innerHTML='Você já fez <b>'+doneN+' de '+total+'</b> treinos.';
+ if(next){var L=A[next.a];$('t-when').textContent='Treino de hoje · Semana '+(next.w+1)+', '+next.label;$('t-name').textContent=L[1];$('t-pills').innerHTML='<span class="pill c">'+L[2]+'</span>'+(L[3]?'<span class="pill p">com parceiro</span>':'');
+  $('t-tip').textContent=L[3]?(st.s==='s'?'Você treina sozinho: assista a aula inteira e faça só o movimento no ar, devagar, umas 10 vezes de cada lado.':'Com alguém: combine antes, faça bem devagar e solte na hora que o outro bater a mão. Troquem de lado.'):(L[2]==='Protocolo Vida Segura'?'Assista com calma e, se puder, com a família. No fim, combinem uma coisa da aula para fazer já esta semana.':'Assista e faça junto com o Mestre. Se ficar difícil, faça menos repetições, mas faça.');
+  $('t-open').href=BASE+L[0];$('t-open').classList.remove('hide');$('t-done').classList.remove('hide');$('t-done').onclick=function(){var s3=load();s3.done=s3.done||{};s3.done[key(next.w,next.i)]=1;save(s3);toast('Boa, Caveira! Treino marcado.');renderPlan()}}
+ else{$('t-when').textContent='Plano concluído';$('t-name').textContent='Você fez as 12 semanas. Parabéns, Caveira!';$('t-pills').innerHTML='';$('t-tip').textContent='Se ainda não pegou, conclua os cursos na Academia para emitir o certificado. Quer mais? Toque em "Mudar minhas respostas" e faça outro objetivo.';$('t-open').classList.add('hide');$('t-done').classList.add('hide')}
+ show('v-plan')}
+$('b-go').onclick=function(){qi=0;show('v-quiz');renderQ()};
+$('b-back').onclick=function(){if(qi){qi--;renderQ()}else show('v-start')};
+$('b-redo').onclick=function(){qi=0;show('v-quiz');renderQ()};
+$('b-copy').onclick=function(){var u=location.href.split('#')[0]+'#'+st.o+'-'+st.d+'-'+st.s;function ok(){toast('Link copiado. Salve no seu WhatsApp.')}try{navigator.clipboard.writeText(u).then(ok,function(){prompt('Copie o link:',u)})}catch(e){prompt('Copie o link:',u)}};
+var h=(location.hash||'').replace('#','').split('-'),s=load();
+if(T[h[0]]&&DIAS[h[1]]&&/^[sa]$/.test(h[2]||'')){st={o:h[0],d:h[1],s:h[2]};if(s.plan!==h[0]+h[1]){s={o:h[0],d:h[1],s:h[2],plan:h[0]+h[1],done:{}};save(s)}renderPlan()}
+else if(s.o&&T[s.o]){st={o:s.o,d:s.d,s:s.s||'s'};renderPlan()}
+})();
+</script>

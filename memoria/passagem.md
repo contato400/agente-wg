@@ -116,3 +116,10 @@ Modelo:
 - Decisões: atendente do WhatsApp faz o suporte de acesso (Victor); agentes conversam pelo chefe; MCP da Greenn só leitura, mudança pela fila.
 - Pendente: OK do Victor na lista de posts; construir o Guia novo (sucesso-aluno 19/11); passo do modelo na automação de recuperação; Hotmart; atendente 24h; chaves da tarefa agendada.
 - Verificado: Metricool e Greenn responderam com dados; página do guia testada clicando; modelo "Aprovado" na tela do ManyChat.
+
+## 18/11 23h55 · Guia de 12 semanas novo no ar
+- Pedido: criar o guia novo e trocar (OK do Victor: "Tem o meu ok").
+- Feito: li as aulas reais na Cademi (Modo Caveira 175622, Protocolo Vida Segura 480036, Desafio 30 Dias 246346; link do aluno `/area/conteudo/aula/<id>`). Guia com 3 perguntas (objetivo, dias por semana, sozinho ou com alguém), "treino de hoje" com botão da aula, 3 trilhas (rua, família, físico) x 2, 3 ou 5 dias, ganho de cada mês, regras de segurança. Publicado na mesma URL /guia/trilha-12-semanas; script antigo do rodapé trocado; descrição da página atualizada; backup do antigo na Atomicat.
+- Decisões: posts para apagar só os da Black (Victor), depois; Hotmart sem conector (seguimos pelo navegador).
+- Pendente: vídeo de 60 s (social), mensagem para quem tem o guia (fila), conferir o botão do guia dentro da Academia (Chrome desconectou), lista de posts só com os da Black.
+- Verificado: teste em celular simulado (3 trilhas e ritmos, sem erro, sem link vazio); página no ar renderizada pela Atomicat com plano família 2 dias.
