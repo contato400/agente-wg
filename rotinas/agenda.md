@@ -32,6 +32,8 @@ Além do debriefing, do tráfego e da pauta, a rotina diária faz uma **rodada d
 
 **Todo dia:** o auditor-wg roda o checklist rápido (8 itens da ficha) antes do debriefing.
 
+**Todo dia, logo depois do checklist:** o chefe-wg roda as conversas entre agentes (`memoria/conversas.md`): fecha os pedidos abertos chamando o agente de destino e roda as conversas fixas do dia (ex.: financeiro conta ao social quais posts venderam). Vem do CLAUDE.md e da ficha do chefe, então vale para a tarefa agendada sem mexer no texto dela.
+
 Datas de campanha passam na frente: em dia de abertura ou reabertura, a rodada é do analista (medição) e do chefe (ajuste da régua).
 
 ## Como agendar (escolher um)
