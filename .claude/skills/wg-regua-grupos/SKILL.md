@@ -21,7 +21,7 @@ Carregue antes a skill wg-regras-operacao.
 ## Regras de narrativa
 - Mesmo tom do e-mail aos alunos da Academia: indireto, informal, linguagem do Wesley.
 - Grupos antigos: o link sai primeiro no grupo oficial de espera; nos antigos, chamar para entrar no grupo novo (link devzapp).
-- Reabertura: nunca dizer data de fechamento. Mostrar a parcela como valor principal, nunca o total parcelado, nunca boleto.
+- Reabertura: prazo só o decidido pelo Victor (20/11: vai até segunda 23/11 às 19h). Mostrar a parcela como valor principal, nunca o total parcelado, nunca boleto.
 - Garantia 7 dias; suporte (31) 99329-4274.
 
 ## Imagens

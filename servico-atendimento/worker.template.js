@@ -99,10 +99,14 @@ function semAcento(s) { return String(s).normalize('NFD').replace(/[\u0300-\u036
 
 // Data e hora de Brasília, para o agente saber em que momento da campanha está.
 const REABERTURA = Date.parse('2026-11-20T19:00:00-03:00');
+const FIM_BLACK = Date.parse('2026-11-23T19:00:00-03:00');
 function agora() {
   const d = new Date();
   const f = new Intl.DateTimeFormat('pt-BR', { timeZone: 'America/Sao_Paulo', weekday: 'long', day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }).format(d);
-  const fase = d.getTime() < REABERTURA ? 'A reabertura da Black (sexta 20/11, 19h) AINDA NÃO ABRIU: convide a pessoa a voltar sexta às 19h.' : 'A reabertura da Black (sexta 20/11, 19h) JÁ ESTÁ ABERTA: mande o link da página quando fizer sentido, sem citar data de fechamento.';
+  const t = d.getTime();
+  const fase = t < REABERTURA ? 'A reabertura oficial da Black é sexta 20/11 às 19h, mas a página JÁ ESTÁ NO AR: quem quer comprar agora recebe o link na hora, como um favor ("vou te dar uma moral e liberar seu acesso antecipado"). Nunca empurre para sexta quem já quer comprar. Só convide para sexta 19h quem ainda está só olhando. Antes das 19h de sexta não prometa os presentes da reabertura.'
+    : t < FIM_BLACK ? 'A reabertura da Black ESTÁ ABERTA e vai até segunda 23/11 às 19h (horário de Brasília). Mande o link quando fizer sentido e pode usar esse prazo real para dar urgência.'
+    : 'A Black ENCERROU segunda 23/11 às 19h. Não mande o link da Black; ofereça o curso da dor da pessoa (ex.: DPC 2.0).';
   const h = Number(new Intl.DateTimeFormat('pt-BR', { timeZone: 'America/Sao_Paulo', hour: '2-digit', hour12: false }).format(d));
   return `AGORA: ${f} (horário de Brasília). ${fase} Horário comercial da equipe: 8h às 18h (${h >= 8 && h < 18 ? 'estamos dentro' : 'estamos fora'} dele agora).`;
 }

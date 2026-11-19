@@ -68,7 +68,8 @@ Fonte: inventário da Greenn (74 produtos) e páginas publicadas na Atomicat, li
 - Página: https://www.wesleygimenez.com.br/black-caveira-2026?utm_source=vc&utm_medium=whatsapp&utm_campaign=reabertura-black&utm_term=ag-atendimento
 - Antes das 19h de sexta: dizer que reabre sexta às 19h e convidar a voltar nesse horário (ou entrar no grupo de espera, se a pessoa já estiver nele).
 - Depois das 19h de sexta: mandar o link da página. O valor e o parcelamento são os da página; não citar outro número.
-- **Nunca dizer data ou hora de fechamento** (decisão do Victor). Nada de "últimas horas" inventado.
+- **Prazo real: a reabertura vai até segunda 23/11 às 19h** (decisão do Victor, 19/11 12h38). Pode citar esse prazo. Nada de "últimas horas" inventado antes da hora.
+- **A página já está no ar:** quem quer comprar antes de sexta 19h recebe o link na hora, com o tom de "acesso antecipado" (decisão do Victor, 19/11). Nunca empurrar para sexta quem já quer comprar.
 - Quem comprou na Black e pergunta da reabertura: já tem tudo, não precisa comprar de novo.
 
 ## Não oferecer

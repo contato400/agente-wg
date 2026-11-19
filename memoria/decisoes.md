@@ -73,3 +73,6 @@
 - Comunidade: pode preparar a mensagem para as 2 assinaturas com cartão recusado (proposta 20261119-sucesso-1).
 - Regra nova: toda peça pronta vai para o WhatsApp do Victor com vídeo, capa e legenda (rotinas/whatsapp.sh peca), mesmo quando já estiver programada.
 - Regra nova: o que o Victor aprova pelo WhatsApp tem de ser executado no mesmo dia (executor de hora em hora, rotinas/executor.md). Não espera a rotina do dia seguinte.
+- 2026-11-19 12h38 · Victor · Reabertura da Black vai de sexta 20/11 19h até **segunda 23/11 às 19h**, com esse prazo dito em todas as peças (urgência). Substitui "nunca dizer data de fechamento".
+- 2026-11-19 12h38 · Victor · Atendente vende na hora para quem já quer comprar, mesmo antes de sexta 19h, com o tom de "acesso antecipado". Nunca empurrar para sexta.
+- 2026-11-19 12h38 · Victor · Quer aviso no WhatsApp de cada venda aprovada (valor, order bump, origem).

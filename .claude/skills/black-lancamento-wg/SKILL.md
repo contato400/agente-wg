@@ -5,7 +5,7 @@ description: Método de Black Friday, reabertura e lançamento para base quente 
 
 # Black e lançamento WG · método
 
-Fonte: `docs/curso-black-debriefing-3-4mi-notas.md`. Tudo passa pela fila de aprovação. Regras fixas: garantia de 7 dias, nunca inventar preço ou bônus (só `base-produtos-wg` e memória), nunca dizer data de fechamento numa reabertura, sem travessão.
+Fonte: `docs/curso-black-debriefing-3-4mi-notas.md`. Tudo passa pela fila de aprovação. Regras fixas: garantia de 7 dias, nunca inventar preço ou bônus (só `base-produtos-wg` e memória), prazo de fechamento só o decidido pelo Victor (reabertura de 20/11: até segunda 23/11 às 19h), sem travessão.
 
 ## Antes de propor qualquer Black ou reabertura, responda
 1. **Público:** é base quente? Separe em listas: alunos da Academia, compradores sem a oferta, carrinho abandonado, grupo de espera, compradores do e-book, engajados recentes.

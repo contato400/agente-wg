@@ -24,7 +24,7 @@ Carregue antes a skill wg-regras-operacao.
 5. Publicar e testar comentando de outra conta quando possível.
 
 ## Viradas típicas
-- **Grupo de espera → página de vendas** (ex.: reabertura sexta 19h): trocar em todos os funis o texto "entra no grupo" pelo texto de carrinho aberto e o botão ENTRAR NO GRUPO pelo link da página da Black com UTM. Nunca dizer data de fechamento.
+- **Grupo de espera → página de vendas** (ex.: reabertura sexta 19h): trocar em todos os funis o texto "entra no grupo" pelo texto de carrinho aberto e o botão ENTRAR NO GRUPO pelo link da página da Black com UTM. Prazo só o decidido pelo Victor (reabertura de 20/11: até segunda 23/11 às 19h).
 - **Carrinho relâmpago na live:** texto "Fala, caveira, tô em live... carrinho relâmpago, só enquanto durar essa live" + link direto da página com UTM da live. Depois da live, reverter para o texto anterior.
 - **Página de vendas → grupo de espera** (fechamento): voltar o botão para o link do grupo (devzapp) e o texto de fila de espera.
 
