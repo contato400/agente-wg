@@ -155,12 +155,14 @@ const mesmoFone = (a, b) => !!a && !!b && fone(a) === fone(b);
 
 async function receber(m, nome, env) {
   const de = m.from;
-  if (await env.WG.get('visto:' + m.id)) return;            // a Meta pode reenviar o mesmo evento
+  const fim = String(de).slice(-4);
+  if (await env.WG.get('visto:' + m.id)) { await passo(env, 'repetida ' + fim); return; }            // a Meta pode reenviar o mesmo evento
   await env.WG.put('visto:' + m.id, '1', { expirationTtl: 86400 });
 
   const admin = mesmoFone(de, env.ADMIN_FONE);
-  if ((env.MODO || 'teste') !== 'ativo' && !admin && !(env.TESTE_FONES || '').split(',').some(t => mesmoFone(t, de))) return;
-  if (!admin && (await env.WG.get('pausa:' + de) || await env.WG.get('humano:' + de))) return;
+  await passo(env, 'recebida ' + fim + ' tipo ' + m.type + (admin ? ' (admin)' : ''));
+  if ((env.MODO || 'teste') !== 'ativo' && !admin && !(env.TESTE_FONES || '').split(',').some(t => mesmoFone(t, de))) { await passo(env, 'ignorada: modo teste ' + fim); return; }
+  if (!admin && (await env.WG.get('pausa:' + de) || await env.WG.get('humano:' + de))) { await passo(env, 'ignorada: pausa/humano ' + fim); return; }
 
   const conteudo = await paraConteudo(m, env);
   if (!conteudo) return;
@@ -169,7 +171,7 @@ async function receber(m, nome, env) {
 
   await env.WG.put('ultima:' + de, m.id, { expirationTtl: 600 });
   await new Promise(r => setTimeout(r, ESPERA_MS));
-  if ((await env.WG.get('ultima:' + de)) !== m.id) return;  // chegou mensagem mais nova: ela responde por todas
+  if ((await env.WG.get('ultima:' + de)) !== m.id) { await passo(env, 'juntou com mensagem mais nova ' + fim); return; }  // chegou mensagem mais nova: ela responde por todas
   if (env.MC_TOKEN && !env.YC_KEY && !(await env.WG.get('mcok:' + fone(de)))) {
     // Nenhum aviso da resposta padrão do ManyChat: um fluxo dele (palavra-chave, carrinho) está cuidando. Agente fica quieto.
     console.log('sem sinal do manychat, final', String(de).slice(-4)); return;
@@ -177,8 +179,15 @@ async function receber(m, nome, env) {
   if (env.MC_TOKEN && !env.YC_KEY) await env.WG.delete('mcok:' + fone(de));
 
   const hist = await getHist(env, de);
-  const resposta = await pensar(hist, nome, de, admin, env);
-  for (const t of resposta) { await enviar(de, t, env); await addHist(env, de, { role: 'assistant', content: t }); }
+  await passo(env, 'pensando ' + fim);
+  let resposta;
+  try { resposta = await pensar(hist, nome, de, admin, env); } catch (e) { await passo(env, 'erro ao pensar: ' + String(e).slice(0, 150)); throw e; }
+  await passo(env, 'resposta com ' + resposta.length + ' parte(s)');
+  for (const t of resposta) {
+    let ok; try { ok = await enviar(de, t, env); } catch (e) { await passo(env, 'erro ao enviar: ' + String(e).slice(0, 150)); throw e; }
+    await passo(env, 'envio ' + (ok === false ? 'FALHOU' : 'ok') + ' ' + fim);
+    await addHist(env, de, { role: 'assistant', content: t });
+  }
 }
 
 async function paraConteudo(m, env) {
@@ -222,7 +231,7 @@ async function pensar(hist, nome, fone, admin, env) {
       })
     });
     const d = await r.json();
-    if (!r.ok) { console.log('anthropic', JSON.stringify(d)); return ['Shalom! Recebi sua mensagem e já já te respondo. Tamo junto, Caveira!']; }
+    if (!r.ok) { console.log('anthropic', JSON.stringify(d)); await passo(env, 'anthropic erro ' + r.status + ' ' + JSON.stringify(d.error || d).slice(0, 150)); return ['Shalom! Recebi sua mensagem e já já te respondo. Tamo junto, Caveira!']; }
     const usos = (d.content || []).filter(c => c.type === 'tool_use');
     const textos = (d.content || []).filter(c => c.type === 'text').map(c => c.text.trim()).filter(Boolean);
     if (!usos.length) return dividir(textos.join('\n\n'));
@@ -331,8 +340,13 @@ async function enviarYC(para, texto, env) {
   const r = await fetch(`${YC}/whatsapp/messages/sendDirectly`, { method: 'POST', headers: { 'X-API-Key': env.YC_KEY, 'content-type': 'application/json' }, body: JSON.stringify(corpo) });
   const t = await r.text();
   let j = {}; try { j = JSON.parse(t); } catch {}
-  if (!r.ok || j.status === 'failed') { console.log('envio yc', r.status, t.slice(0, 500)); return false; }
+  if (!r.ok || j.status === 'failed') { console.log('envio yc', r.status, t.slice(0, 500)); await passo(env, 'yc recusou ' + r.status + ' ' + t.replace(/\+?\d{10,}/g, '#').slice(0, 200)); return false; }
   return true;
+}
+
+// Rastro de diagnóstico (sem telefone completo nem texto do cliente): lista em diag:passos, últimos 40.
+async function passo(env, txt) {
+  try { const l = JSON.parse((await env.WG.get('diag:passos')) || '[]'); l.push(new Date().toISOString().slice(11, 19) + ' ' + txt); await env.WG.put('diag:passos', JSON.stringify(l.slice(-40)), { expirationTtl: 7 * 86400 }); } catch {}
 }
 
 // ---- Leitura pela YCloud (webhook POST /yc) ----
@@ -348,12 +362,13 @@ async function assinaturaYC(corpo, cab, segredo) {
 }
 
 async function processarYC(ev, env) {
-  await env.WG.put('diag:yc', JSON.stringify({ quando: new Date().toISOString(), tipo: ev.type }), { expirationTtl: 7 * 86400 });
+  if (ev.type !== 'contact.attributes_changed') await env.WG.put('diag:yc', JSON.stringify({ quando: new Date().toISOString(), tipo: ev.type }), { expirationTtl: 7 * 86400 });
+  if (/message/.test(ev.type || '')) await passo(env, 'yc evento ' + ev.type + (ev.inboxMessage ? ' ' + ev.inboxMessage.direction : ''));
   const sem = s => String(s || '').replace(/\D/g, '');
-  // A YCloud entrega a mensagem do cliente como whatsapp.inbound_message.received ou, com a Caixa de entrada dela ligada,
-  // como inbox.message.created (direction inbound). As duas têm o mesmo formato; o 'visto' pelo wamid evita resposta dupla.
-  const entrada = ev.type === 'whatsapp.inbound_message.received' ? ev.whatsappInboundMessage
-    : (ev.type === 'inbox.message.created' && ev.inboxMessage && ev.inboxMessage.direction === 'inbound') ? ev.inboxMessage.inbound : null;
+  // A YCloud manda CADA mensagem do cliente duas vezes ao mesmo tempo: whatsapp.inbound_message.received e
+  // inbox.message.created. O KV não é instantâneo, então o 'visto' não segura as duas e a resposta saía duplicada (19/11).
+  // Por isso só a inbox.message.created (direction inbound) é usada; a outra é ignorada.
+  const entrada = (ev.type === 'inbox.message.created' && ev.inboxMessage && ev.inboxMessage.direction === 'inbound') ? ev.inboxMessage.inbound : null;
   if (entrada) {
     const m = entrada || {};
     if (env.YC_FROM && !mesmoFone(m.to, env.YC_FROM)) return;

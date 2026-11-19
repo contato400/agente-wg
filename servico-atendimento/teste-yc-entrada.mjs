@@ -11,7 +11,7 @@ const st=globalThis.setTimeout; globalThis.setTimeout=f=>st(f,1);
 const hex=async(seg,txt)=>{const k=await crypto.subtle.importKey('raw',new TextEncoder().encode(seg),{name:'HMAC',hash:'SHA-256'},false,['sign']);return [...new Uint8Array(await crypto.subtle.sign('HMAC',k,new TextEncoder().encode(txt)))].map(x=>x.toString(16).padStart(2,'0')).join('');};
 async function yreq(obj,seg='whsec'){const b=JSON.stringify(obj);const t=Math.floor(Date.now()/1000);const p=[];
  const r=await w.fetch(new Request('https://x/yc',{method:'POST',body:b,headers:{'YCloud-Signature':`t=${t},s=${await hex(seg,t+'.'+b)}`}}),env,{waitUntil:x=>p.push(x)});await Promise.all(p);return r.status;}
-const ent=(id,from,to,txt)=>({type:'whatsapp.inbound_message.received',whatsappInboundMessage:{id:'x'+id,wamid:'wamid.'+id,from,to,customerProfile:{name:'Joao Silva'},type:'text',text:{body:txt}}});
+const ent=(id,from,to,txt)=>({type:'inbox.message.created',inboxMessage:{direction:'inbound',inbound:{id:'x'+id,wamid:'wamid.'+id,from,to,customerProfile:{name:'Joao Silva'},type:'text',text:{body:txt}}}});
 const r=[];
 r.push(['assinatura errada = 401', await yreq(ent(1,'+553190000000','+553193294274','oi'),'errado')===401 && yc.length===0]);
 r.push(['msg de teste responde pela YCloud', await yreq(ent(2,'+553190000000','+553193294274','oi'))===200 && yc.length===1 && yc[0].from==='+553193294274' && yc[0].to==='+553190000000' && anth.at(-1).system[1].text.includes('Joao')]);
@@ -29,5 +29,7 @@ r.push(['inbox.message.created responde', yc.length===3]);
 await yreq({type:'inbox.message.created',inboxMessage:{direction:'inbound',inbound:{wamid:'wamid.i7',from:'+5531999999999',to:'+553193294274',type:'text',text:{body:'Oi'}}}});
 await yreq({type:'inbox.message.created',inboxMessage:{direction:'outbound',outbound:{from:'+553193294274',to:'+5531999999999'}}});
 r.push(['repetido e saída ignorados', yc.length===3 && !kv.get('humano:5531999999999')]);
+const antes=yc.length; await yreq({type:'whatsapp.inbound_message.received',whatsappInboundMessage:{wamid:'wamid.dup',from:'+5531999999999',to:'+553193294274',type:'text',text:{body:'Oi'}}});
+r.push(['inbound_message.received ignorado (evita duplicar)', yc.length===antes]);
 for(const [n,ok] of r) console.log(ok?'OK    ':'FALHOU', n);
 process.exit(r.every(x=>x[1])?0:1);
