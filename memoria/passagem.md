@@ -186,3 +186,10 @@ Modelo:
 - Feito: /perguntar em modo rápido (Sonnet, 900 tokens); áudio no WhatsApp agora vira texto (Workers AI whisper-large-v3-turbo, associação AI). Testes 21/21. No ar conferido.
 - Computador do Victor: Asus X515JF, i5-1035G1, 8 GB (1,7 GB livres), SSD 238 GB. Gargalo é memória; sugerido pente de 16 GB e tirar programas da inicialização.
 - Pendente troca de número: textos da régua dos grupos (Gui) e fluxos do ManyChat ainda não revisados; Hotmart (lista de produtos vazia na conta logada); Greenn aguarda o Wesley confirmar o e-mail.
+
+## 2026-11-19 06h55 · Site v4 publicado (/inicio)
+- Pedido: Victor pediu a minha melhor versão do site (crítica + melhorias), capas dos treinamentos flutuando como na Black, vídeo do avatar no Flow/Gemini.
+- Feito: site v4 em `conteudo/site-cinematografico/v4/` (index.html local, index.pub.html publicado). No ar em https://www.wesleygimenez.com.br/inicio (Atomicat, página html wgs2F03vzPFIPaY4oRGf). Sem porta de entrada (conteúdo aparece na hora), avatar 3D com boca sincronizada, capas voando no hero, anel 3D com as 22 capas, grade com filtros (página de venda com UTM ou WhatsApp quando não tem página), como funciona com print da Academia, Mestre, depoimentos reais, garantia, FAQ, barra fixa no celular, narração em 13 falas num só mp3 (CloudFront Higgsfield, CORS liberado).
+- Decisões: raiz "/" continua a página antiga até o Victor mandar trocar. Código Caveira avulso fora (lista "não oferecer"). Sem preço no site.
+- Vídeo do avatar acenando: gerado no Gemini (10 s, 720x1280), mas não deu para tirar do navegador (CSP bloqueia, acesso à pasta Downloads negado). Falta o Victor anexar o arquivo ou liberar a pasta.
+- Verificado: Playwright no ar, celular 390 e desktop 1440 sem rolagem lateral, boca abre com o áudio, sem erro no console. Número antigo: 30 páginas da Atomicat ainda têm 97334-6056 no HTML bruto, mas todas têm o script que troca para 99329-4274 ao carregar.
