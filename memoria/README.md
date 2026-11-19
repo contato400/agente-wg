@@ -9,6 +9,7 @@ Três arquivos, cada um com prazo de validade diferente (memória que nunca expi
 | `passagem.md` | Registro curto do que cada sessão fez (pedido, feito, decisões, pendente) | 30 dias; depois resumido | quem trabalhou |
 | `backlog.md` | Iniciativas com dono, prazo e status | Viva; o chefe reordena aos sábados | chefe-wg e o dono do item |
 | `voz-do-cliente.md` | Frases reais de dor, desejo, objeção e motivo de compra, sem dado pessoal | 90 dias | atendimento-wg (quarta) e qualquer agente |
+| `conversas.md` | Pedidos de um agente para outro e as conversas fixas do dia (o chefe distribui e cola a resposta) | Pedido fechado sai em 7 dias | qualquer agente; o chefe fecha |
 | `aprendizados.md` | O que funcionou e o que não funcionou, com número | 60 dias; o que se confirmar 3 vezes vira [FIXA] | qualquer agente |
 
 Regras:
