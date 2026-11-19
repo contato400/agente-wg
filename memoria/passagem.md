@@ -170,3 +170,8 @@ Modelo:
 - Feito: varredura das 321 páginas da Academia (cursos e aulas) com sessão de aluno: 0 ocorrências do número antigo. Menu "Fale com o suporte", assinatura dos e-mails e bloco "MEUS TREINAMENTOS NO TOPO" já trocados.
 - Pendente: Greenn (Configurações > Suporte pede e-mail de suporte; aguardando o Victor), Hotmart (contato de suporte do produtor) e bio do Instagram: o navegador não está logado no Instagram nem na Hotmart e agente não digita senha. Victor faz ou loga e avisa.
 - Verificado: 30/30 páginas do site com o número novo; worker com hash 7248c71b...
+
+## 19/11 04h · site cinematográfico, Greenn, rotina
+- Feito: rotina agendada conferida e correta (chaves do passo 2 e WhatsApp no passo 8). Greenn > Configurações > Suporte salvo com o e-mail que já aparece no checkout + WhatsApp 31 99329-4274 (aguarda o Wesley clicar no link de confirmação). Instagram: bio e links sem número. Hotmart: lista de produtos aparece vazia na conta logada, contato de suporte não alcançado.
+- Site (B43): debate com ofertas-paginas-wg; conceito escolhido = foto real em loop sutil (lanterna descartada: escondia conteúdo no celular e exigiria agressor feito por IA). Rascunho publicado como página privada para o Victor ver. Fotos do ensaio em Drive ARQUIVOS WG/FOTOS WG (76 fotos).
+- Pendente: Victor terminar o login do Higgsfield (conector adicionado, conexão incompleta); Hotmart por outro caminho.
