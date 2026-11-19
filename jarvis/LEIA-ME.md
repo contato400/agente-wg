@@ -1,42 +1,22 @@
 # Jarvis + Agente WG
 
-O Jarvis (github.com/edirsooo/jarvis) é um assistente de voz para **Windows**. Você fala "Jarvis, ..." e ele abre o Claude Code no seu computador para fazer o pedido, mostrando na tela o que está acontecendo. Aqui estão os processos que fazem ele conversar com a equipe de agentes do Wesley.
+O Jarvis (github.com/edirsooo/jarvis) é um assistente de voz para **Windows**. No computador do Victor ele é a ponta: o Victor fala "Jarvis, como está o financeiro?" e o Jarvis pergunta à equipe de agentes, que roda na nuvem (os mesmos agentes do WhatsApp com #nome, com a mesma memória e a mesma conversa), e responde em voz alta.
 
-## 1. Instalar o Jarvis (no seu computador Windows)
+## Como funciona
 
-Abra o Claude Code numa pasta onde você guarda programas (ex.: `Documentos\Programas`) e cole:
+- `wg/wg.py`: manda a pergunta para a porta `/perguntar` do serviço `agente-wg` na Cloudflare e imprime a resposta. A senha é a mesma do segredo `AVISO_TOKEN` e fica na variável `WG_AVISO_TOKEN` do Windows.
+- `processos/agente_wg.md`: o processo "Equipe do Wesley" que o cérebro do Jarvis usa quando o assunto é a operação. Vai para `Jarvis\modelos\meus\`.
+- `sobre_mim.md`: quem é o Victor e como usar a equipe. Vai para `Jarvis\memoria\`.
+- `INSTALAR-VICTOR.bat`: confere Python e Claude Code, instala o Jarvis com o nome Victor, grava as regras da operação em `regras_extras`, guarda a senha e testa a conversa com o chefe.
+- `regras_extras.txt`: as mesmas regras, para quem preferir colar na mão.
 
-```
-Instale o Jarvis deste repositório: https://github.com/edirsooo/jarvis
-Clone numa pasta chamada Jarvis, leia o INSTALAR.md e siga o passo a passo de instalação. Meu nome é Victor.
-```
+## Instalar
 
-Precisa de Python 3.10 ou mais novo (python.org, marcando "Add python.exe to PATH") e do Claude Code logado na sua conta.
+1. Baixar o `Jarvis-Victor.zip` (Jarvis já com tudo isso dentro) e extrair em `Documentos`.
+2. Dar dois cliques em `INSTALAR-VICTOR.bat` e seguir o que ele pedir (Python e Claude Code, se faltarem; depois a senha).
+3. Abrir o Jarvis pelo atalho da área de trabalho e dizer "Jarvis, como está o financeiro?".
 
-## 2. Pôr a equipe do Wesley dentro do Jarvis
+## Segurança
 
-Na mesma pasta onde ficou a pasta `Jarvis`, cole no Claude Code:
-
-```
-Clone o repositório contato400/agente-wg numa pasta chamada agente-wg, ao lado da pasta Jarvis.
-Copie os arquivos de agente-wg\jarvis\processos\ para Jarvis\modelos\meus\.
-No Jarvis\config.json, acrescente em "regras_extras" as três regras do arquivo agente-wg\jarvis\regras_extras.txt.
-```
-
-Depois, cadastre no Windows as variáveis de ambiente `WG_PONTE_URL`, `WG_PONTE_K`, `WG_PONTE_A` e `WG_AVISO_TOKEN` com os mesmos valores da tarefa agendada. Sem elas, os agentes leem o repositório, mas não a planilha nem o WhatsApp.
-
-## 3. Como falar
-
-| Você fala | O que acontece |
-|---|---|
-| "Jarvis, financeiro: quanto entrou ontem?" | o agente financeiro responde (processo "falar com um agente") |
-| "Jarvis, social: me dá 3 ideias de reels sobre golpe do Pix" | o social-media-wg responde e põe na fila o que for post |
-| "Jarvis, como foi ontem?" | debriefing do chefe |
-| "Jarvis, faz a pauta do Instagram" | pauta do dia para aprovar |
-| "Jarvis, quanto falta para a meta?" | bloco Dinheiro |
-
-## 4. Segurança (leia)
-
-- O Jarvis roda o Claude Code **sem pedir confirmação a cada passo** (`bypassPermissions`). Ele pode criar e mudar arquivos e rodar comandos no seu computador.
-- As regras do Agente WG continuam valendo: nada sai sem aprovação. Mas, no Jarvis, isso é instrução para a IA, não uma trava. Por isso as regras extras abaixo vão em toda missão.
-- Cada pedido gasta a cota da sua assinatura do Claude.
+- O Jarvis roda o Claude Code sem pedir confirmação a cada passo. Aqui ele só pergunta à equipe; quem age é a equipe na nuvem, com a regra de aprovação de sempre.
+- Cada pergunta gasta a cota da assinatura do Claude no computador (cérebro do Jarvis) e a chave da API da equipe na nuvem.
