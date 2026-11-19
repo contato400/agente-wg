@@ -219,3 +219,120 @@ class Estudio:
 
 
 SCENES.update({"rua": Rua, "estudio": Estudio})
+
+
+class Garagem:
+    """Estacionamento à noite: teto de concreto com lâmpadas tubulares em perspectiva, pilares, faixas amarelas no chão, carros parados com reflexo, luz esverdeada piscando."""
+    def __init__(self):
+        rng = np.random.default_rng(31); WW = W + 2 * MARG
+        img = np.zeros((H, WW, 3), np.float32)
+        for y in range(H):
+            f = y / H; img[y] = np.array([30, 34, 30]) * (1 - f) + np.array([18, 20, 18]) * f
+        vx, vy = WW // 2, 760
+        # teto e chão em perspectiva (linhas de fuga)
+        for k in range(-10, 11):
+            cv2.line(img, (vx, vy), (vx + k * 260, 0), (40, 44, 40), 3)
+            cv2.line(img, (vx, vy), (vx + k * 260, H), (34, 36, 34), 2)
+        for k in (-3, 3):  # faixas amarelas
+            cv2.line(img, (vx + k * 12, vy + 20), (vx + k * 330, H), (30, 190, 230), 12)
+        for r in range(1, 9):  # pilares
+            d = (r / 9) ** 1.6; h_ = int(40 + 900 * d); w_ = int(14 + 120 * d)
+            for sgn in (-1, 1):
+                x = int(vx + sgn * (90 + 640 * d)); cv2.rectangle(img, (x - w_ // 2, vy - h_ // 2), (x + w_ // 2, vy + h_ // 2 + int(200 * d)), (52, 56, 54), -1)
+                cv2.rectangle(img, (x - w_ // 2, vy + int(h_ * 0.15)), (x + w_ // 2, vy + int(h_ * 0.22)), (30, 170, 220), -1)
+        cars = [(-1, 0.75), (1, 0.8), (-1, 0.45), (1, 0.5)]
+        for sgn, d in cars:  # carros: silhueta escura com lanterna
+            cx_ = int(vx + sgn * 560 * d); cy = int(vy + 520 * d); cw = int(520 * d); ch = int(230 * d)
+            cv2.rectangle(img, (cx_ - cw // 2, cy - ch // 2), (cx_ + cw // 2, cy + ch // 2), (16, 16, 18), -1)
+            cv2.rectangle(img, (cx_ - cw // 2 + int(30 * d), cy - ch // 2 - int(90 * d)), (cx_ + cw // 2 - int(40 * d), cy - ch // 2), (12, 12, 14), -1)
+            for k in (-1, 1): cv2.circle(img, (cx_ + k * int(cw * 0.38), cy - int(ch * 0.1)), int(16 * d) + 2, (40, 40, 230), -1)
+        self.base = cv2.GaussianBlur(img, (0, 0), 7)
+        tubes = np.zeros((H, WW, 3), np.float32)
+        self.tpos = []
+        for r in range(1, 8):
+            d = (r / 8) ** 1.7; y = int(vy - 700 * d); w_ = int(30 + 330 * d)
+            for sgn in (-1, 0, 1):
+                x = int(vx + sgn * 520 * d); cv2.rectangle(tubes, (x - w_ // 2, y - int(3 + 8 * d)), (x + w_ // 2, y + int(3 + 8 * d)), (225, 255, 230), -1)
+        self.tubes = cv2.GaussianBlur(tubes, (0, 0), 3) + cv2.GaussianBlur(tubes, (0, 0), 40) * 2.5
+        refl = cv2.flip(self.tubes[0:vy], 0) * 0.25
+        self.tubes[vy:vy + refl.shape[0]] += refl[:H - vy]
+        self.vig = vignette(0.8); self.pt = Particulas(n=80, cor=(200, 230, 210), seed=4)
+
+    def frame(self, t):
+        cx = math.sin(t * 0.33)
+        img = shift(self.base, cx * 20).copy()
+        fl = 1.0 if (int(t * 7) % 23) else 0.55  # uma lâmpada falhando de vez em quando
+        img += shift(self.tubes, cx * 30) * fl
+        img = self.pt.draw(img, t, cx * 60)
+        return np.clip(img * self.vig, 0, 255)
+
+
+class Sala:
+    """Sala de casa à noite: abajur com luz quente, TV com luz azul piscando, sofá, janela com a cidade desfocada, planta."""
+    def __init__(self):
+        rng = np.random.default_rng(41); WW = W + 2 * MARG
+        img = np.zeros((H, WW, 3), np.float32)
+        for y in range(H):
+            f = y / H; img[y] = np.array([22, 26, 36]) * (1 - f) + np.array([14, 16, 22]) * f
+        # janela com cidade
+        wx0, wy0, wx1, wy1 = 640, 160, 1120, 900
+        cv2.rectangle(img, (wx0, wy0), (wx1, wy1), (50, 26, 14), -1)
+        for _ in range(160):
+            x = int(rng.uniform(wx0, wx1)); y = int(rng.uniform(wy0 + 200, wy1))
+            cv2.circle(img, (x, y), int(rng.uniform(3, 8)), tuple(float(v) for v in rng.choice([(80, 180, 255), (230, 220, 200), (60, 120, 250)])), -1)
+        for x in range(wx0, wx1, 160): cv2.line(img, (x, wy0), (x, wy1), (18, 18, 22), 14)
+        cv2.rectangle(img, (wx0, wy0), (wx1, wy1), (18, 18, 22), 18)
+        # quadro na parede, estante
+        cv2.rectangle(img, (170, 300), (470, 520), (30, 40, 60), -1); cv2.rectangle(img, (170, 300), (470, 520), (20, 22, 26), 12)
+        # sofá
+        cv2.rectangle(img, (-50, 980), (WW + 50, 1400), (34, 38, 52), -1); cv2.rectangle(img, (-50, 900), (WW + 50, 1020), (40, 46, 62), -1)
+        cv2.rectangle(img, (0, 1400), (WW, H), (16, 20, 30), -1)
+        # abajur: cúpula e pé
+        cv2.fillConvexPoly(img, np.array([[230, 620], [370, 620], [400, 760], [200, 760]], np.int32), (110, 190, 245))
+        cv2.line(img, (300, 760), (300, 960), (30, 40, 50), 10)
+        # planta
+        for k in range(14):
+            a = -1.2 + k * 0.18; cv2.ellipse(img, (110, 840), (30, 150), math.degrees(a), 0, 360, (30, 70, 34), -1)
+        self.base = cv2.GaussianBlur(img, (0, 0), 9)
+        lamp = np.zeros((H, WW, 3), np.float32)
+        cv2.ellipse(lamp, (300, 700), (90, 60), 0, 0, 360, (110, 190, 255), -1)
+        self.lamp = cv2.GaussianBlur(lamp, (0, 0), 25) * 1.2 + cv2.GaussianBlur(lamp, (0, 0), 160) * 6
+        tv = np.zeros((H, W, 3), np.float32); cv2.ellipse(tv, (900, 1150), (420, 700), 0, 0, 360, (255, 170, 90), -1)
+        self.tv = cv2.GaussianBlur(tv, (0, 0), 120) * 0.2
+        self.vig = vignette(0.75); self.pt = Particulas(n=60, cor=(150, 200, 255), seed=8)
+
+    def frame(self, t):
+        cx = math.sin(t * 0.3)
+        img = shift(self.base, cx * 15).copy() + shift(self.lamp, cx * 30)
+        fl = 0.6 + 0.4 * (0.5 + 0.5 * math.sin(t * 7.3) * math.sin(t * 2.9 + 1))  # TV piscando
+        img += self.tv * fl
+        img = self.pt.draw(img, t, cx * 40)
+        return np.clip(img * self.vig, 0, 255)
+
+
+class Perigo:
+    """Fundo gráfico amarelo e preto: listras de perigo andando, grade em perspectiva, retícula, faixas pretas."""
+    def __init__(self):
+        self.yy, self.xx = np.mgrid[0:H, 0:W].astype(np.float32)
+        g = np.zeros((H, W, 3), np.float32); g[:] = (20, 200, 250)  # amarelo
+        hor = 980
+        for k in range(-14, 15):
+            cv2.line(g, (540, hor), (540 + k * 220, H), (10, 120, 170), 3)
+        for r in range(1, 12):
+            y = int(hor + (H - hor) * (r / 12) ** 1.8); cv2.line(g, (0, y), (W, y), (10, 120, 170), 3)
+        dots = ((np.sin(self.xx * 0.35) * np.sin(self.yy * 0.35)) > 0.75).astype(np.float32)
+        g -= dots[..., None] * np.array([12, 60, 70]) * (self.yy[..., None] < hor)
+        self.base = cv2.GaussianBlur(g, (0, 0), 1.5)
+        self.vig = vignette(0.55)
+
+    def frame(self, t):
+        img = self.base.copy()
+        for y0, y1, sp in ((0, 150, 120), (1780, H, -120)):  # faixas de perigo andando
+            band = ((((self.xx[y0:y1] + self.yy[y0:y1]) + t * sp) % 120) < 60)
+            img[y0:y1][band] = (12, 12, 14); img[y0:y1][~band] = (20, 205, 255)
+        k = 0.5 + 0.5 * math.sin(t * 1.4)  # luz que respira no centro
+        img += np.exp(-(((self.xx - 540) / 500) ** 2 + ((self.yy - 700) / 600) ** 2))[..., None] * np.array([40, 60, 60], np.float32) * k
+        return np.clip(img * self.vig, 0, 255)
+
+
+SCENES.update({"garagem": Garagem, "sala": Sala, "perigo": Perigo})

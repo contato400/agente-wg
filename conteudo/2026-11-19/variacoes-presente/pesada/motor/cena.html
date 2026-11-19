@@ -19,12 +19,18 @@ html,body{margin:0;background:transparent;overflow:hidden}
 .box{font-family:Anton;text-transform:uppercase;line-height:1.05;padding:8px 32px 12px;text-align:center}
 .g{background:#119a1d;color:#fff}.r{background:#c8141b;color:#fff}
 .outline{color:transparent;-webkit-text-stroke:5px rgba(255,255,255,.85)}
+.outline.k{-webkit-text-stroke:6px rgba(10,10,10,.9)}
 .outline.r{-webkit-text-stroke:5px rgba(255,60,60,.9);background:none}
 .face{position:absolute;left:0;top:0;width:170px;height:170px;background:linear-gradient(135deg,#e01b22,#8f0c10);border:2px solid #5a0508;box-sizing:border-box}
 .face:after{content:'';position:absolute;left:70px;top:0;width:30px;height:100%;background:#ffd21f}
 .lid{position:absolute;left:-10px;top:-10px;width:190px;height:190px;background:linear-gradient(135deg,#ff2a30,#a50e13);border:2px solid #5a0508;box-sizing:border-box}
 .lid:after{content:'';position:absolute;left:80px;top:0;width:30px;height:100%;background:#ffd21f}
 .coin{width:210px;height:210px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff3a0,#ffd21f 45%,#c89400);border:8px solid #c8141b;box-shadow:0 20px 40px rgba(0,0,0,.6),0 0 40px rgba(255,210,31,.5);display:flex;align-items:center;justify-content:center;color:#0a0a0a}
+.extk{color:#0a0a0a;text-shadow:1px 1px 0 #ffd21f,2px 2px 0 #e0b800,3px 3px 0 #c8a000,4px 4px 0 #a88400,6px 10px 22px rgba(0,0,0,.45)}
+.cc{width:360px;height:226px;border-radius:22px;background:linear-gradient(135deg,#2a2f3a,#0d0f14 60%,#1c2230);border:2px solid #5a6170;box-shadow:0 25px 50px rgba(0,0,0,.7);position:relative;overflow:hidden}
+.cc .chip{position:absolute;left:36px;top:70px;width:62px;height:46px;border-radius:8px;background:linear-gradient(135deg,#f7d66b,#b8902a)}
+.cc .ln{position:absolute;left:36px;height:14px;border-radius:7px;background:#4a5262}
+.xx{position:absolute;left:50%;top:50%;width:300px;height:30px;background:#e0141c;border-radius:15px;box-shadow:0 0 20px rgba(224,20,28,.8)}
 .endcard{position:absolute;inset:0;background:#0a0a0a}
 </style></head><body>
 <div id="lay"></div>
@@ -50,7 +56,10 @@ const FX = {
  tilt(t,e){const p=t-e.t0, a=ease(p/0.6);
   return `<div class="el anton ${e.cls||'ext'}" style="left:${e.x}px;top:${e.y}px;font-size:${e.size}px;white-space:nowrap;opacity:${io(t,e,0.3,0.3)};transform:translateX(-50%) translateZ(${-700*(1-a)}px) rotateY(${e.ry||18}deg) rotateX(6deg) translateX(${-(p*e.drift||0)}px)">${e.html}</div>`},
  coin(t,e){const p=t-e.t0, a=back(p/0.5);
-  return `<div class="el" style="left:${e.x}px;top:${e.y}px;opacity:${io(t,e)};transform:translateZ(${-600*(1-a)}px) rotateY(${360*(1-ease(p/0.7))+18*Math.sin(t*2.2)}deg) scale(${0.5+0.5*a})"><div class="coin"><div class="anton" style="font-size:${e.size}px;text-align:center">${e.html}</div></div></div>`},
+  return `<div class="el" style="left:${e.x}px;top:${e.y}px;opacity:${io(t,e)};transform:translateZ(${-600*(1-a)}px) rotateY(${-80*(1-ease(p/0.5))+18*Math.sin(t*2.2)}deg) scale(${0.5+0.5*a})"><div class="coin"><div class="anton" style="font-size:${e.size}px;text-align:center">${e.html}</div></div></div>`},
+ ccard(t,e){const p=t-e.t0, a=back(p/0.5), x=ease((t-e.tx)/0.2);
+  return `<div class="el" style="left:540px;top:${e.y}px;opacity:${io(t,e)};transform:translateX(-50%) translateZ(${-600*(1-a)}px) rotateY(${-70*(1-a)-12+8*Math.sin(t*1.8)}deg) rotateX(14deg) scale(${e.sc||0.75})"><div class="cc"><div class="chip"></div><div class="ln" style="top:150px;width:240px"></div><div class="ln" style="top:178px;width:140px"></div>
+   ${t>=e.tx?`<div class="xx" style="transform:translate(-50%,-50%) rotate(35deg) scaleX(${x})"></div><div class="xx" style="transform:translate(-50%,-50%) rotate(-35deg) scaleX(${x})"></div>`:''}</div></div>`},
  gift(t,e){const p=t-e.t0, a=back(p/0.45), open=ease((p-0.6)/0.35), ry=-35+p*22;
   const f=(tr,sh)=>`<div class="face" style="transform:${tr};filter:brightness(${sh})"></div>`;
   return `<div class="el" style="left:${e.x}px;top:${e.y}px;width:170px;height:170px;opacity:${io(t,e)};transform:translateZ(${-700*(1-a)}px) rotateX(-22deg) rotateY(${ry}deg)">

@@ -52,7 +52,7 @@ if not os.path.exists(os.path.join(prep, f"p_{NV-1:05d}.png")):
     log("prep ok")
 
 # ---------- legenda fiel à fala
-FIX = {"vara": "Fala,", "clic": "Clique", "pique": "Clique"}
+FIX = {"vara": "Fala,", "clic": "Clique", "pique": "Clique", "clica": "Clique", "internamento": "treinamento"}
 KEY = set(C.get("keywords", []))
 def groups(words):
     out, cur = [], []

@@ -12,6 +12,6 @@ def build(order,out):
         d=b-a
         fc.append(f"[0:a]atrim={a}:{b},asetpts=PTS-STARTPTS,afade=t=in:d=0.02,afade=t=out:st={d-0.03:.3f}:d=0.03[a{i}]")
     fc.append("".join(f"[v{i}][a{i}]" for i in range(n))+f"concat=n={n}:v=1:a=1[v][a]")
-    subprocess.run(["ffmpeg","-v","error","-y","-i",SRC,"-filter_complex",";".join(fc),"-map","[v]","-map","[a]","-c:v","libx264","-preset","veryfast","-crf","16","-c:a","aac","-b:a","160k","-ar","48000",out],check=True)
+    subprocess.run(["ffmpeg","-nostdin","-v","error","-y","-i",SRC,"-filter_complex",";".join(fc),"-map","[v]","-map","[a]","-c:v","libx264","-preset","veryfast","-crf","16","-c:a","aac","-b:a","160k","-ar","48000",out],check=True)
 if __name__=="__main__":
     build(sys.argv[2].split(","),sys.argv[1])
