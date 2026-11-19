@@ -350,8 +350,12 @@ async function assinaturaYC(corpo, cab, segredo) {
 async function processarYC(ev, env) {
   await env.WG.put('diag:yc', JSON.stringify({ quando: new Date().toISOString(), tipo: ev.type }), { expirationTtl: 7 * 86400 });
   const sem = s => String(s || '').replace(/\D/g, '');
-  if (ev.type === 'whatsapp.inbound_message.received') {
-    const m = ev.whatsappInboundMessage || {};
+  // A YCloud entrega a mensagem do cliente como whatsapp.inbound_message.received ou, com a Caixa de entrada dela ligada,
+  // como inbox.message.created (direction inbound). As duas têm o mesmo formato; o 'visto' pelo wamid evita resposta dupla.
+  const entrada = ev.type === 'whatsapp.inbound_message.received' ? ev.whatsappInboundMessage
+    : (ev.type === 'inbox.message.created' && ev.inboxMessage && ev.inboxMessage.direction === 'inbound') ? ev.inboxMessage.inbound : null;
+  if (entrada) {
+    const m = entrada || {};
     if (env.YC_FROM && !mesmoFone(m.to, env.YC_FROM)) return;
     const msg = { ...m, id: m.wamid || m.id, from: sem(m.from) };
     const nome = ((m.customerProfile || {}).name || '').split(' ')[0];

@@ -24,5 +24,10 @@ const mb=JSON.stringify({entry:[{changes:[{field:'messages',value:{metadata:{dis
 env.TESTE_FONES+=',553177777777'; const p=[]; await w.fetch(new Request('https://x/webhook',{method:'POST',body:mb,headers:{'x-hub-signature-256':await sig(mb)}}),env,{waitUntil:x=>p.push(x)}); await Promise.all(p);
 r.push(['Meta do 97334-6056 ignorada', yc.length===1]);
 r.push(['admin conversa com o chefe', (await yreq(ent(6,'+5531999999999','+553193294274','status')),yc.length===2 && yc[1].to==='+5531999999999')]);
+await yreq({type:'inbox.message.created',inboxMessage:{direction:'inbound',inbound:{wamid:'wamid.i7',from:'+5531999999999',to:'+553193294274',customerProfile:{name:'Victor'},type:'text',text:{body:'Oi'}}}});
+r.push(['inbox.message.created responde', yc.length===3]);
+await yreq({type:'inbox.message.created',inboxMessage:{direction:'inbound',inbound:{wamid:'wamid.i7',from:'+5531999999999',to:'+553193294274',type:'text',text:{body:'Oi'}}}});
+await yreq({type:'inbox.message.created',inboxMessage:{direction:'outbound',outbound:{from:'+553193294274',to:'+5531999999999'}}});
+r.push(['repetido e saída ignorados', yc.length===3 && !kv.get('humano:5531999999999')]);
 for(const [n,ok] of r) console.log(ok?'OK    ':'FALHOU', n);
 process.exit(r.every(x=>x[1])?0:1);
