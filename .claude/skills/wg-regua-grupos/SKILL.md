@@ -34,3 +34,14 @@ Carregue antes a skill wg-regras-operacao.
 
 ## Link do grupo de espera (desde 19/11)
 Todo link para o grupo passa pelo contador: `https://www.wesleygimenez.com.br/grupo?utm_source=vc&utm_medium=<canal>&utm_campaign=<campanha>&utm_content=<peca>&utm_term=ag-<agente>`. A página conta o clique pelo canal (Atomicat) e manda para o DevZapp (s9mRreup). Canais: email-academia, instagram-comentario, instagram-novo-seguidor, instagram-story, instagram-live, facebook-comentario, grupos-regua, whatsapp-atendimento. Nunca mandar o link do DevZapp direto: sem o contador o clique não aparece no dashboard Captação Caveira.
+
+## Programar a régua direto no DevZapp (desde 19/11, sem passar pelo Gui)
+Quem programa: `ofertas-paginas-wg` (dono da régua), com os textos aprovados pelo Victor. Chrome Luis corinthiano, app.devzapp.com.br, campanha "Gestão" (6ae3ead39dd1220001430082).
+1. Texto aprovado na régua (artifact). Todo link da Black com `utm_source=vc&utm_medium=whatsapp-grupo&utm_campaign=<campanha>&utm_term=ag-ofertas&utm_content=<dia+hora>`; link de grupo pelo contador.
+2. Abrir `/v3/dev-grupos/new-message/<campanha>`, título `<dia> <hora> vN`, colar o texto e marcar **Mencionar todos os usuários do grupo** (é o 4º checkbox da tela; clicar no input, não no label).
+3. Salvar → no cartão que abre, escolher **Agendar envio** (não "Enviar agora") → data e hora (input nativo date/time, valor `AAAA-MM-DD` e `HH:MM`) → Continuar → **Selecionar todos os grupos** (80) → Continuar → conferir "Total de grupos" e "Data e hora" → Criar agendamento.
+4. Automação pronta: `devzapp-criar-agendar.js` (lê a lista `localStorage.__jobs` com title, date, time, text; troque IDX). Rodar uma mensagem por carregamento da página (o app recarrega ao criar o agendamento), com 4 s de espera entre uma e outra.
+5. Conferir no fim em Agendamentos: total "Programado" e a lista de títulos e horários. API de leitura das mensagens: `GET devzapp.com.br/api-mensagem/mensagem/listbycampanha/<campanha>` com `Authorization: Bearer localStorage.access_token` (campo `mensionarGrupo`).
+- Editar uma mensagem já agendada muda o agendamento dela (não precisa reagendar). Abrir a edição pelo botão da linha dentro do app, não pela URL direta (carrega formulário velho).
+- Mensagem nova não substitui agendamento antigo: antes de criar, listar os "Programado" para não duplicar.
+- Imagem: anexar na mesma tela (input de arquivo) antes de salvar; se a imagem chegar depois, editar a mensagem e anexar.
