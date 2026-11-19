@@ -130,3 +130,9 @@ Modelo:
 - Decisões: só uma tarefa agendada (a das 7h35); apagar em vez de arquivar os posts da Black.
 - Pendente: quando o modelo caveira_guia_novo for aprovado, mandar para os 2 compradores (precisa do Chrome; pedir na conversa); PDFs antigos na aula do guia (tirar com OK).
 - Verificado: fetch de cada post depois de apagar; vídeo conferido em folha de quadros e volume.
+
+## 18/11 23h55 · PDFs antigos fora + aviso do guia enviado
+- Pedido: tirar os PDFs antigos da aula do guia; mandar o aviso do guia se o modelo estiver aprovado.
+- Feito: 9 PDFs tirados da aula 9840709 (Cademi), dica reescrita, conferido como aluno (0 PDFs). Modelo caveira_guia_novo aprovado pela Meta como Marketing; transmissão enviada para 1 comprador (contato achado pelo telefone, etiqueta aviso_guia_novo_1811, público conferido = 1, ~US$ 0,07).
+- Pendente: o 2º comprador (pagou em euro) não está no ManyChat e a Greenn não mostrou o telefone dele; fica sem aviso (ele vê o guia novo na Academia).
+- Aprendizado: no ManyChat, a caixa de entrada não manda sem licença; para mandar a 1 pessoa fora da janela, etiqueta só nela + Mensagem em massa com o modelo, conferindo que o público é 1 antes de enviar.
