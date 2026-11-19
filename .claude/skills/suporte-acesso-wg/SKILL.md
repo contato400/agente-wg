@@ -9,6 +9,8 @@ Versão inicial, montada com o que já sabemos da operação. Será completada c
 
 ## Como o acesso funciona
 - Todos os cursos ficam na **Academia Krav Magá Caveira** (plataforma Cademi): https://kravmagacaveira.cademi.com.br/
+- Link direto de uma aula: https://kravmagacaveira.cademi.com.br/area/conteudo/aula/<id> (a pessoa precisa estar logada).
+- Guia de Treino de 12 semanas: https://www.wesleygimenez.com.br/guia/trilha-12-semanas (3 perguntas, mostra o treino de hoje com o link da aula).
 - O acesso chega **no e-mail usado na compra**, com login e senha, minutos depois do pagamento aprovado.
 - Compra pela **Greenn** ou pela **Hotmart**: as duas entregam na mesma Academia.
 - **IA KMC:** só quem comprou acessa, por um link no vídeo dentro da Academia.

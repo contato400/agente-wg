@@ -92,6 +92,15 @@ Notas: `docs/livros-mestres/` (10 Máquina de Edição, 13 Publicidade em Vídeo
 - **Variações:** base aprovada + uma mudança por versão. Nome: `wg_peça_formato_vN-variavel_AAAA-MM-DD`, nunca "final".
 - **Trilha só com licença comercial** (biblioteca do CapCut para uso comercial ou da Meta) ou sem trilha.
 
+## Vídeo "como usar" com a tela real (aprovado pelo Victor em 18/11: "ficou brabo demais")
+Para explicar uma página, um guia ou um passo a passo da Academia, mostre a tela de verdade num celular, com narração e legenda grande. Modelo pronto: `conteudo/guia-12-semanas/video/` (`captura.js` tira as telas, `roteiro.json` tem as falas e legendas, `montar.py` narra, monta e exporta).
+1. **Telas reais:** Playwright no celular (390x620, dpr 2). Em cada passo, role até o elemento, tire a tela e guarde onde o dedo toca (centro do botão). Espere o aviso verde sumir antes da próxima tela.
+2. **Roteiro:** uma cena por passo, fala curta que diz o que fazer e o que a pessoa ganha; legenda com `*vermelho*`, `^amarelo` e `+verde` (só no fim da frase).
+3. **Montagem:** fundo escuro do WG, selo "GUIA DE TREINO CAVEIRA" em Y 300, legenda em Y 370, celular de 580x922 em X 250 e Y 560 (dentro da área segura), círculo amarelo de toque na segunda metade da cena, zoom lento, cartão final com o pedido de ação.
+4. **Voz:** piper `pt_BR-faber-medium` (`--length-scale 0.95`); áudio com loudnorm (pico perto de -1,5 dB).
+5. **Conferir:** folha de quadros a cada 5 s (`ffmpeg -vf fps=1/5,tile=6x2`) antes de mandar; procurar asterisco sobrando, aviso fora de hora e texto fora da área segura.
+6. **Entregar:** MP4 de 45 a 60 s e capa (título de 2 a 3 palavras enormes + faixa amarela).
+
 ## Ferramentas (começar pelo que já temos)
 O Victor tem o **Google AI Pro** assinado (até 2027). Não há conector do Gemini aqui: o Claude usa pelo Chrome do Victor (gemini.google.com e Flow), com a conta dele já logada, e baixa o resultado para editar. Gerar com IA nunca substitui o Wesley real em vídeo de venda; serve para cena de apoio, fundo, capa e ilustração.
 

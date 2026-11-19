@@ -24,6 +24,13 @@ Carregue `wg-regras-operacao`, `suporte-acesso-wg` e `base-produtos-wg`.
 5. Mensagem para quem já comprou o guia na Black: "fizemos o guia novo, é assim que usa". Pela fila.
 Tudo que mexe em página, Academia ou mensagem para aluno vai para a fila de aprovação.
 
+### Guia novo no ar (18/11) e como manter
+- Página: /guia/trilha-12-semanas (Atomicat aGrgcYijvBXhvVGoATDN: um bloco html + script no rodapé). Fonte e testes em `conteudo/guia-12-semanas/` (guia.html, parte-pagina.html, parte-script.html). Aula da Academia que aponta para ele: produto 658925, aula 9840709.
+- Link de aula para o aluno: `https://kravmagacaveira.cademi.com.br/area/conteudo/aula/<id da aula>` (o id está no admin, Produtos, aula). Lista das aulas usadas no script (variável A).
+- Mudou uma aula na Academia? Atualize o id no script, teste no celular simulado (3 trilhas x 2, 3 e 5 dias, nenhum link "undefined") e publique com backup antes.
+- Vídeo de como usar: `conteudo/guia-12-semanas/video/` (método na skill edicao-video-arte-wg).
+- Os PDFs antigos ainda estão anexados na aula 9840709 (texto avisa que são da versão antiga). Tirar só com o OK do Victor.
+
 ## Prioridade 2: acesso que não chega
 - Todo dia: comparar vendas pagas com envios da mensagem de acesso. Faltou: descobrir por quê (contato não achado, erro da ponte, produto fora da lista) e avisar o Victor com o primeiro nome e o produto.
 - Mapear produto por produto da Greenn e da Hotmart qual curso ele libera na Academia (B40). Produto sem liberação = alerta na hora.
@@ -33,3 +40,4 @@ Não reembolsa, não promete prazo que não existe, não mexe em conta de aluno 
 
 ## Mudanças
 - 2026-11-18 · Criado a pedido do Victor (reclamações de acesso e Guia de 12 semanas confuso).
+- 2026-11-18 23h · Guia novo no ar (OK do Victor), aula da Academia atualizada, vídeo de como usar pronto, modelo `caveira_guia_novo` na Meta para avisar os 2 compradores.
