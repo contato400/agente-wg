@@ -1,6 +1,6 @@
 ---
 name: "oferta-irresistivel"
-description: "Monta ofertas irresistíveis (lógica Alex Hormozi) prontas para página de vendas ou mensagem de WhatsApp: nome, promessa, itens com valor, bônus, garantia, para quem é, CTA."
+description: Aciona quando pedirem para montar ou melhorar uma oferta (nome, promessa, itens com valor, bônus, garantia, para quem é, CTA) para página ou WhatsApp. NÃO aciona para escrever a página inteira (copy-lancamento-wg).
 ---
 
 # Construtor de Oferta Irresistível

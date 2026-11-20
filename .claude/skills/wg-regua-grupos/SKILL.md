@@ -1,6 +1,6 @@
 ---
 name: "wg-regua-grupos"
-description: "Montar a régua de mensagens dos grupos de WhatsApp do WG para o Gui programar (grupo novo de espera x grupos antigos), com imagens e links com UTM. Use quando pedirem régua, disparo nos grupos ou mensagens para o Gui."
+description: Aciona quando pedirem régua, disparo ou mensagens para os grupos de WhatsApp do WG (grupo de espera e grupos antigos), com imagens, links com UTM e programação no DevZapp ou na Comunidade. NÃO aciona para mensagem 1 a 1.
 ---
 
 # Régua dos grupos WG (para o Gui)

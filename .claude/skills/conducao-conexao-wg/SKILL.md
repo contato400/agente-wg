@@ -1,6 +1,6 @@
 ---
 name: conducao-conexao-wg
-description: Como conduzir a conversa no WhatsApp do Krav Magá Caveira do primeiro "oi" ao pagamento, com conexão de verdade, perguntas que fazem a pessoa se convencer sozinha e respostas prontas para as objeções reais. Usar no agente de atendimento e ao revisar conversas de venda.
+description: Aciona quando for conduzir ou revisar conversa de venda no WhatsApp do Krav Magá Caveira, do primeiro "oi" ao pagamento, com perguntas e respostas às objeções. NÃO aciona para suporte de acesso (suporte-acesso-wg) nem para texto de post ou anúncio.
 ---
 
 # Condução e conexão · Krav Magá Caveira

@@ -1,6 +1,6 @@
 ---
 name: "copy-conversacional-wg"
-description: "Copy de alto nível para vender e atender por WhatsApp e DM (método dos grandes copywriters adaptado a conversa); usar ao escrever respostas, roteiros, quebras de objeção ou ofertas do Krav Magá Caveira."
+description: Aciona quando for escrever resposta, roteiro, quebra de objeção ou oferta para conversa 1 a 1 (WhatsApp, Direct) do Krav Magá Caveira. NÃO aciona para anúncio, página ou peça de campanha (copy-lancamento-wg).
 ---
 
 # Copy conversacional · Krav Magá Caveira

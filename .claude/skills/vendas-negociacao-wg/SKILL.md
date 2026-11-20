@@ -1,6 +1,6 @@
 ---
 name: "vendas-negociacao-wg"
-description: "Conduzir venda e negociação por conversa (diagnóstico, objeções, fechamento, follow-up) no atendimento do Krav Magá Caveira; usar quando um lead pergunta preço, hesita ou some."
+description: Aciona quando um lead pergunta preço, hesita, some ou pede desconto no atendimento do Krav Magá Caveira (diagnóstico, objeções, fechamento, follow-up). NÃO aciona para suporte de acesso.
 ---
 
 # Vendas e negociação por conversa · Krav Magá Caveira

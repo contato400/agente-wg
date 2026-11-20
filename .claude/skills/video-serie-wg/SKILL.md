@@ -1,6 +1,6 @@
 ---
 name: video-serie-wg
-description: Cria Reels narrados em série (história em partes com suspense) para o Mestre Wesley, do roteiro ao MP4 com capa, pelo motor do WG. Não use para post estático ou carrossel.
+description: Aciona quando pedirem Reels narrado em série (história em partes com suspense) do roteiro ao MP4 com capa, pelo motor do WG. NÃO aciona para post estático, carrossel ou corte de live.
 ---
 
 # Série de Reels narrados · motor do WG

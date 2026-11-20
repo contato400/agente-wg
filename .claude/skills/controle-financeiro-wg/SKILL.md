@@ -1,6 +1,6 @@
 ---
 name: controle-financeiro-wg
-description: Mantém o Painel Financeiro WG (planilha do agente financeiro) em dia: vendas do dia, gasto da Meta, custos, produtos, reembolsos, meta e ROAS, e entrega o bloco "Dinheiro" pronto. Usar no passo do financeiro da rotina diária e quando pedirem quanto entrou, quanto gastou ou quanto falta.
+description: Aciona quando pedirem quanto entrou, quanto gastou, quanto falta para a meta, ROAS, reembolsos, ou ao atualizar o Painel Financeiro no passo do financeiro da rotina. NÃO aciona para relatório de vendas por origem com comissão (wg-relatorio-vendas).
 ---
 
 # Controle financeiro WG · o painel do agente financeiro

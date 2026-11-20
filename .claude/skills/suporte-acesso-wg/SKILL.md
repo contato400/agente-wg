@@ -1,6 +1,6 @@
 ---
 name: suporte-acesso-wg
-description: Passo a passo para resolver problemas de acesso e compra dos alunos do Mestre Wesley Gimenez (Academia Caveira na Cademi, Greenn, Hotmart, IA KMC). Usar no atendimento do WhatsApp oficial quando alguém comprou e não consegue entrar.
+description: Aciona quando aluno comprou e não consegue entrar (Academia/Cademi, Greenn, Hotmart, IA KMC), esqueceu senha ou não recebeu acesso. NÃO aciona para venda ou dúvida de produto.
 ---
 
 # Suporte de acesso · Academia Caveira

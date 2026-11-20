@@ -1,6 +1,6 @@
 ---
 name: "wg-regras-operacao"
-description: "Regras fixas da operação WG (Krav Magá Caveira / Mestre Wesley Gimenez): use antes de qualquer copy, link, página, disparo, ManyChat, Greenn, Hotmart ou relatório da operação WG."
+description: Aciona antes de qualquer copy, link, página, disparo, ManyChat, Greenn, Hotmart ou relatório da operação WG (Krav Magá Caveira / Mestre Wesley Gimenez). NÃO aciona para projetos fora do Wesley (Kairós, Samuel, SalesMed).
 ---
 
 # Regras da operação WG (Krav Magá Caveira)

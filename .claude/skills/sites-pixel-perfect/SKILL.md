@@ -1,6 +1,6 @@
 ---
 name: sites-pixel-perfect
-description: Monta landing pages com efeito que viraliza (personagem que segue o mouse, lanterna que revela o que tem por dentro, fundo em loop com parallax) gerando as imagens e o vídeo com o MCP do Higgsfield, escrevendo um prompt pixel perfect em oito partes e conferindo o resultado por print. Use quando pedirem um site, uma landing page ou um hero "com efeito", "cinematográfico", "pixel perfect", ou um desses três efeitos.
+description: Aciona quando pedirem site, landing page ou hero "com efeito", "cinematográfico", "pixel perfect", personagem que segue o mouse, lanterna ou fundo em loop com parallax. NÃO aciona para página de vendas comum na Atomicat sem efeito.
 ---
 
 # Sites pixel perfect

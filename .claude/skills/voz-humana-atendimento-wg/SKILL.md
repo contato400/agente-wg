@@ -1,6 +1,6 @@
 ---
 name: voz-humana-atendimento-wg
-description: Jeito de falar do atendente do WhatsApp do Krav Magá Caveira para parecer gente da equipe e não robô (tom, tamanho, o que nunca dizer, exemplos bons e ruins). Usar em toda resposta do agente de atendimento e ao revisar conversas dele.
+description: Aciona em toda resposta do agente de atendimento do WhatsApp e ao revisar conversas dele, para soar como gente da equipe e não robô. NÃO aciona para copy de anúncio ou página.
 ---
 
 # Voz humana do atendimento · Krav Magá Caveira

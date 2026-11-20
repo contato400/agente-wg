@@ -4,6 +4,11 @@ Este projeto é a equipe de agentes que opera o negócio digital do **Mestre Wes
 
 Leia este arquivo inteiro antes de qualquer tarefa. Ele vale para todos os agentes em `.claude/agents/`.
 
+## 0. Memória e skills (regra fixa do Victor, 20/11)
+- **Antes de qualquer tarefa, ler `memoria/BASE.md`** e conferir se já foi feito; depois de cada tarefa e no fim do dia, atualizar a BASE, a passagem, as decisões, os aprendizados e a ficha do agente responsável. Skill: `memoria-wg`. Nada pode se perder.
+- **Todo pedido do Victor puxa a skill certa.** Identificar o assunto e carregar a skill correspondente antes de agir (lista em `.claude/skills/`).
+- **Padrão de descrição de toda skill:** `description: Aciona quando <situações e palavras do pedido>. NÃO aciona para <o que fica de fora>.` Skill nova ou revisada segue esse padrão.
+
 ## 1. A regra que manda em todas as outras: nada sai sem aprovação
 
 Toda ação **externa** passa pela **fila de aprovação** (`aprovacao/README.md`) e só é executada quando a linha estiver como `APROVADO` por Victor ou Wesley.

@@ -1,6 +1,6 @@
 ---
 name: lancamento-pago-wg
-description: Método de lançamento pago (aulão ou imersão com ingresso, VIP, virada de lote, comparecimento) aprendido nos cursos do Leandro Ferrari, adaptado ao Krav Magá Caveira. Usar ao planejar aulão pago, evento com ingresso, webinário pago ou calendário de lançamentos do Wesley.
+description: Aciona quando o pedido for aulão pago, evento com ingresso, VIP, webinário pago, comparecimento ou calendário de lançamentos do Wesley. NÃO aciona para Black ou reabertura (black-lancamento-wg).
 ---
 
 # Lançamento pago WG · método

@@ -1,6 +1,6 @@
 ---
 name: pauta-conteudo-wg
-description: Como transformar notícia e tendência do dia em post do Mestre Wesley Gimenez que gera comentário com palavra-chave e venda pelo ManyChat. Usar ao montar a pauta diária do Instagram do WG.
+description: Aciona quando for montar a pauta diária do Instagram do WG a partir de notícia ou tendência, com palavra-chave de comentário e funil do ManyChat. NÃO aciona para edição do vídeo nem para estratégia de perfil.
 ---
 
 # Pauta de conteúdo · Instagram do Mestre Wesley

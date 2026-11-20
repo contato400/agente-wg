@@ -1,6 +1,6 @@
 ---
 name: black-lancamento-wg
-description: Método de Black Friday, reabertura e lançamento para base quente (aprendido no debriefing de R$ 3,7 mi do Leandro Ferrari), adaptado ao Krav Magá Caveira. Usar ao planejar Black, reabertura, oferta relâmpago, régua de grupos ou pitch de live do Wesley.
+description: Aciona quando o pedido for planejar Black Friday, reabertura, oferta relâmpago, régua de grupos, pitch de live ou campanha para base quente do Wesley. NÃO aciona para lançamento pago com ingresso (lancamento-pago-wg) nem para escrever a copy de cada peça (copy-lancamento-wg).
 ---
 
 # Black e lançamento WG · método

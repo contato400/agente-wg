@@ -1,6 +1,6 @@
 ---
 name: "regras-agente-atendimento-wg"
-description: "Regras de comportamento, segurança e passagem para humano do agente de WhatsApp do Krav Magá Caveira (número oficial de suporte); carregar em toda conversa do agente."
+description: Aciona em toda conversa do agente do WhatsApp oficial de suporte do Krav Magá Caveira (comportamento, segurança, quando passar para humano). NÃO aciona para conversas pelo ManyChat ou Direct do Instagram.
 ---
 
 # Regras do agente de atendimento · Krav Magá Caveira

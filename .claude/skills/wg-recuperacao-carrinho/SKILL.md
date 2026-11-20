@@ -1,6 +1,6 @@
 ---
 name: "wg-recuperacao-carrinho"
-description: "Recupera carrinho abandonado, Pix não pago e cartão recusado da Greenn do WG e dispara pelo WhatsApp do ManyChat com cupom; use quando pedirem para chamar quem não finalizou a compra."
+description: Aciona quando pedirem para chamar quem não finalizou a compra: carrinho abandonado, Pix não pago, cartão recusado da Greenn, disparo pelo WhatsApp do ManyChat com cupom. NÃO aciona para clientes que já pagaram.
 ---
 
 # Recuperação de carrinho WG

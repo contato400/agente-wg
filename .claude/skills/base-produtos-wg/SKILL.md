@@ -1,6 +1,6 @@
 ---
 name: base-produtos-wg
-description: Catálogo de produtos do Mestre Wesley Gimenez (Krav Magá Caveira) com página de venda, ID da Greenn e preço, para atendimento, posts, anúncios e ofertas do WG. Usar antes de citar qualquer produto, preço ou link.
+description: Aciona quando for citar produto, preço, link de página, ID da Greenn ou indicar qual curso serve para alguém do Krav Magá Caveira (atendimento, post, anúncio, oferta, e-mail). NÃO aciona para números de venda ou relatório (usar wg-relatorio-vendas).
 ---
 
 # Base de produtos · Krav Magá Caveira

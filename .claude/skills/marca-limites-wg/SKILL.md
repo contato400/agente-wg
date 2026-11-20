@@ -1,6 +1,6 @@
 ---
 name: marca-limites-wg
-description: Limites de tema, voz e imagem da marca do Mestre Wesley Gimenez (Krav Magá Caveira). Usar antes de aprovar qualquer post, anúncio, página ou mensagem do WG que toque em crime, violência, crianças, mulheres ou notícias.
+description: Aciona antes de aprovar post, anúncio, página ou mensagem do WG que toque em crime, violência, crianças, mulheres ou notícias. NÃO aciona para assuntos neutros de produto ou preço.
 ---
 
 # Limites da marca · Mestre Wesley Gimenez

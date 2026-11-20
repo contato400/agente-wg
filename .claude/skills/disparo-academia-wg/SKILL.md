@@ -1,6 +1,6 @@
 ---
 name: disparo-academia-wg
-description: Disparo de e-mail para toda a base de alunos da Academia Caveira (Cademi) usando o modelo "Boas-vindas de compra" e o reenvio de acesso em 3 guias. Usar quando pedirem e-mail para os alunos, disparo na Academia ou recado para a base.
+description: Aciona quando pedirem e-mail para todos os alunos, disparo na Academia (Cademi) ou recado para a base de alunos. NÃO aciona para e-mail automático pós-compra (rotinas/pos-compra) nem para mensagem de WhatsApp.
 ---
 
 # Disparo de e-mail para a base da Academia (Cademi)

@@ -1,6 +1,6 @@
 ---
 name: "wg-manychat-funis"
-description: "Trocar destino, texto ou UTM dos funis do ManyChat do WG (Instagram, Facebook e live com CAVEIRA/BC): grupo de espera, carrinho relâmpago, reabertura. Use quando pedirem para mexer, virar ou reverter funil do ManyChat."
+description: Aciona quando pedirem para mexer, virar ou reverter funil do ManyChat do WG (Instagram, Facebook, live, palavras CAVEIRA/BC): grupo de espera, carrinho relâmpago, reabertura. NÃO aciona para disparo de WhatsApp em massa (wg-recuperacao-carrinho).
 ---
 
 # Funis do ManyChat WG

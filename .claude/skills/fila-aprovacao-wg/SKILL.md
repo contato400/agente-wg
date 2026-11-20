@@ -1,6 +1,6 @@
 ---
 name: fila-aprovacao-wg
-description: Como colocar uma proposta na fila de aprovação do WG e como executar só o que foi aprovado. Usar sempre que um agente do WG quiser publicar, agendar, mandar, criar campanha, mudar página ou qualquer ação externa.
+description: Aciona quando um agente quiser publicar, agendar, mandar mensagem, criar campanha, mudar página ou qualquer ação externa do WG, e quando for executar o que foi APROVADO. NÃO aciona para trabalho interno (ler, analisar, rascunhar).
 ---
 
 # Fila de aprovação WG

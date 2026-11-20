@@ -1,6 +1,6 @@
 ---
 name: edicao-video-arte-wg
-description: Padrão de edição de vídeo (Reels, Stories, criativos) e de arte (carrossel, estático) do Mestre Wesley Gimenez, com área segura, rotina para gastar menos e como copiar um estilo de referência. Usar ao editar, cortar, legendar ou montar qualquer vídeo ou arte do WG, e ao criar variações de criativo para o tráfego.
+description: Aciona quando for editar, cortar, legendar ou montar vídeo (Reels, Stories, criativo) ou arte (carrossel, estático, story) do Wesley, ou criar variação de criativo para o tráfego. NÃO aciona para decidir o que postar (estrategia-instagram-wg) nem para série narrada (video-serie-wg).
 ---
 
 # Edição de vídeo e arte WG

@@ -1,6 +1,6 @@
 ---
 name: front-ebook-wg
-description: Método do produto de entrada barato (e-book ou minicurso de R$ 9,90 a R$ 97) para comprar alunos todo dia e lucrar na recompra, aprendido no curso Low Ticket com IA, adaptado ao Krav Magá Caveira. Usar ao criar, vender, medir ou melhorar o e-book Vida Segura ou qualquer front do Wesley.
+description: Aciona quando o assunto for produto de entrada barato (e-book ou minicurso de R$ 9,90 a R$ 97): criar, vender, medir ou melhorar o e-book Vida Segura ou outro front. NÃO aciona para os cursos de R$ 197 nem para a Black.
 ---
 
 # Front (e-book) WG · método

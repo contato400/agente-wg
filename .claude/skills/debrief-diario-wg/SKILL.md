@@ -1,6 +1,6 @@
 ---
 name: debrief-diario-wg
-description: Formato e regras do debriefing diário do Agente WG para o Victor (vendas, meta, atendimento, Instagram, anúncios e plano do dia). Usar ao montar o relatório da manhã da operação do Mestre Wesley Gimenez.
+description: Aciona quando for montar o debriefing da manhã ou responder "como foi ontem" e "o que fazemos hoje" na operação WG. NÃO aciona para relatório semanal (/semana) nem para relatório de comissão.
 ---
 
 # Debriefing diário · Agente WG

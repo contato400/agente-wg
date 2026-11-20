@@ -1,6 +1,6 @@
 ---
 name: "wg-relatorio-vendas"
-description: "Relatório de vendas WG da Greenn e Hotmart com taxas, UTMs e divisão Orgânico (Victor/VC) x Tráfego (Diogo); use quando pedirem relatório de vendas, comissão, quanto vendeu ou de onde veio a venda."
+description: Aciona quando pedirem relatório de vendas, comissão, quanto vendeu ou de onde veio a venda (Greenn e Hotmart, taxas, UTMs, Orgânico VC x Tráfego Diogo). NÃO aciona para painel financeiro de custos (controle-financeiro-wg).
 ---
 
 # Relatório de vendas WG (Greenn + Hotmart)

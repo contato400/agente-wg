@@ -1,6 +1,6 @@
 ---
 name: funil-catalogo-wg
-description: Como atender e vender para quem chega no WhatsApp do WG pelo Catálogo Caveira (já com o objetivo escolhido). Usar em toda conversa que começa com "Vim pelo catálogo" ou com um produto do catálogo do WhatsApp Business.
+description: Aciona em toda conversa que começa com "Vim pelo catálogo" ou com produto do catálogo do WhatsApp Business do WG. NÃO aciona para leads de anúncio ou de grupo sem catálogo.
 ---
 
 # Funil do catálogo · Krav Magá Caveira

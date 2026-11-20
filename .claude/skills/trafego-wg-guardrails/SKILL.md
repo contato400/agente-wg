@@ -1,6 +1,6 @@
 ---
 name: trafego-wg-guardrails
-description: Limites, métricas e método para o tráfego pago do WG (Meta Ads) com verba pequena de R$ 20 a R$ 50 por dia. Usar antes de analisar, propor ou alterar qualquer campanha do Mestre Wesley Gimenez.
+description: Aciona antes de analisar, propor ou alterar qualquer campanha de tráfego pago (Meta Ads) do WG, verba de R$ 20 a R$ 50 por dia. NÃO aciona para conteúdo orgânico.
 ---
 
 # Tráfego pago WG · limites e método

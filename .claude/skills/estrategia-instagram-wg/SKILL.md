@@ -1,6 +1,6 @@
 ---
 name: estrategia-instagram-wg
-description: Decide o que o Wesley posta: radar de notícias e de formatos virais (Instagram e TikTok), leitura dos posts do próprio Wesley, escolha do público e entrega da manhã pronta. Não use para editar vídeo (video-serie-wg).
+description: Aciona quando o pedido for decidir o que o Wesley posta: radar de notícias e formatos virais, leitura dos posts, escolha do público, entrega da manhã do social. NÃO aciona para editar vídeo (edicao-video-arte-wg) nem para série narrada (video-serie-wg).
 ---
 
 # Estratégia de Instagram do Mestre Wesley · o cérebro do agente de social

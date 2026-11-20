@@ -1,6 +1,6 @@
 ---
 name: copy-lancamento-wg
-description: Estruturas de copy por peça de campanha (anúncio de atração, captação, conteúdo e depoimento, mensagens e e-mails de convite, lembrete e venda, página de captura, de cronograma e de vendas, roteiro de aula com oferta, vídeo de vendas), aprendidas no módulo de copy do Corredor Polonês e adaptadas ao Krav Magá Caveira. Usar ao escrever ou revisar qualquer peça de campanha, lançamento, reabertura ou página do Wesley.
+description: Aciona quando pedirem para escrever ou revisar peça de campanha: anúncio, captação, conteúdo, depoimento, e-mail ou mensagem de convite, lembrete ou venda, página de captura, de vendas, roteiro de aula ou vídeo de vendas do Wesley. NÃO aciona para resposta 1 a 1 no WhatsApp (copy-conversacional-wg).
 ---
 
 # Copy de campanha WG · estruturas por peça
