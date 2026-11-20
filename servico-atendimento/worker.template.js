@@ -47,7 +47,7 @@ NEGOCIAÇÃO E FECHAMENTO (você negocia e fecha sozinho; NÃO passe para humano
 - IA KMC: R$ 197; se a pessoa reclamar do preço, R$ 147 (regra do conhecimento).
 - Fechou? Mande o link e, na mesma mensagem: "Assim que finalizar, me manda o comprovante aqui, que eu confiro se o seu acesso foi liberado." Quando ela mandar, confira com consultar_compra e conferir_academia.
 
-CONDUÇÃO DA VENDA (decisão do Victor, 19/11): não seja direto demais. Antes de explicar um curso, faça 2 ou 3 perguntas investigativas, UMA por mensagem, esperando cada resposta e acolhendo com uma frase (o que aconteceu, para quem é, se já treinou, o que espera). Isso vale também para quem chega do Catálogo. Depois explique ligando ao que a pessoa contou, termine com "Faz sentido pra você?" e espere. Só depois do sim mande o link. Exceção: quem pede o link ou diz que quer comprar recebe o link na hora.
+CONDUÇÃO DA VENDA (decisão do Victor, 20/11 18h22, substitui a de 19/11): seja direto e objetivo, sem enrolar. Quem pergunta preço, forma de pagamento ou pede link recebe a resposta e o link na hora. Quem ainda está em dúvida recebe UMA pergunta só (para quem é, ou se já treinou) e depois o caminho. Nunca faça 2 ou 3 perguntas seguidas. Na saudação mande UMA mensagem só, por exemplo: "Shalom! Aqui é o suporte do Mestre Wesley. Me conta: você precisa de ajuda com acesso ou quer conhecer os treinamentos?". Nunca repita a mesma pergunta ou a mesma frase duas vezes na conversa.
 
 ESCOPO: este número é só do Krav Magá Caveira, mas de vez em quando chega conversa de outro projeto do Victor (Kairós, SalesMed, mentorias) ou assunto pessoal. Você só atende assuntos do Mestre Wesley Gimenez, Krav Magá Caveira, defesa pessoal, cursos, Academia, compras e acesso. Se a conversa claramente for de outro projeto ou pessoal, NÃO responda: use a ferramenta nao_responder. Na dúvida (ex.: só "oi", "bom dia"), responda normalmente como suporte do Krav Magá Caveira.
 
@@ -456,12 +456,12 @@ async function receber(m, nome, env) {
   const hk = simula ? 'sim' + de : (agente ? (agente === 'chefe-wg' ? base : 'ag:' + agente + ':' + base) : de);
   const chefe = agente;
 
+  const marcou = await env.WG.put('ultima:' + de, m.id, { expirationTtl: 600 });   // 20/11 18h40: marca antes de transcrever áudio, para juntar áudios seguidos
   const conteudo = await paraConteudo(m, env);
   if (!conteudo) return;
   await addHist(env, hk, { role: 'user', content: conteudo });
   await marcarLido(m.id, env);
 
-  const marcou = await env.WG.put('ultima:' + de, m.id, { expirationTtl: 600 });
   await new Promise(r => setTimeout(r, ESPERA_MS));
   if (marcou !== false && (await env.WG.get('ultima:' + de)) !== m.id) { await passo(env, 'juntou com mensagem mais nova ' + fim); return; }  // chegou mensagem mais nova: ela responde por todas
   if (env.MC_TOKEN && !env.YC_KEY && !(await env.WG.get('mcok:' + fone(de)))) {
@@ -478,6 +478,7 @@ async function receber(m, nome, env) {
   let resposta;
   try { resposta = await pensar(hist, nome, de, chefe, env); } catch (e) { await passo(env, 'erro ao pensar: ' + String(e).slice(0, 150)); throw e; }
   await passo(env, 'resposta com ' + resposta.length + ' parte(s)');
+  if (!agente && !simula && (await env.WG.get('ultima:' + de)) !== m.id) { await passo(env, 'descartou resposta: chegou mensagem nova ' + fim); return; }  // 20/11: evita resposta repetida quando a pessoa manda outra mensagem enquanto o agente pensa
   if (agente && resposta.length) {
     const tudo = resposta.join('\n\n');
     const ok = await mandarVictor(de, tudo, env);
