@@ -386,3 +386,11 @@ Modelo:
 - Pendente: 1º calendário na segunda 23/11 10h (semana de ter 24/11 a seg 30/11, ainda com a reabertura fechando às 19h de 23/11); inventário dos cortes (`conteudo/cortes/inventario.md`) e acesso à pasta do Drive do Wesley; 1ª leitura de concorrentes no Metricool e conferir o limite do plano grátis.
 - Verificado: nenhum travessão nos arquivos novos e alterados; descrições das skills no padrão "Aciona quando... NÃO aciona para...". Nada externo feito.
 
+
+## 20/11 15h30 a 16h25 · correções da auditoria (bora do Victor 15h24)
+- Pedido: Closer.AI, página do tráfego, exclusão de conta, A6 a A9, S1/S3/S4/S6, marcar Feito no doc "Auditoria completa WG 20/11", juntar tarefas agendadas.
+- Feito: tarefas agendadas da reabertura juntadas numa só (18h40: ManyChat, banner, e-mail ABRIU). Closer.AI: 15 respostas corrigidas (Black 1 ano, IA KMC, Contra Ataque Feminino x2, Socos Avançados) e 8 páginas varridas. Página do tráfego: bloco 3700e3ed (boleto, prazo seg 23/11 19h, FAQ), backup antes, publicado e conferido. Conta da aluna B.A. (ticket #785368) excluída e tirada de kmc_d20b_all (23.143); Victor: não responder o ticket. Plano B do atendente: Gemini primeiro, depois Workers AI, com regras de não inventar. A7 resumo a cada 2 h. A8 dois formulários publicados (links na proposta). A9 regra do "o que eu treino hoje" no conhecimento do atendente.
+- Causa do atendente ruim: crédito da Anthropic acabou de novo (Victor recarrega).
+- Pendente: S1 (pasta do Drive), S6 (nenhum concorrente cadastrado no Metricool), A6 (rotina copiar resumo-hist para a aba Atendimento), conferir "reserva gemini ok" no diag:passos.
+- Notion: central criada (página raiz 41e2dbf7-e5ca-81f0-97ec-c4d4224fcf61 + 9 setores). Skill de mapeamento: próximo passo, depois das correções.
+- Aprendizado: no worker, o conhecimento fica numa string JSON (aspas escapadas); inserir texto com JSON.stringify. Google Forms: botão Adicionar pergunta por aria-label e foco na "Opção 1" por JS deixam a montagem rápida.
