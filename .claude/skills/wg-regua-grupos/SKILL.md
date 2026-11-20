@@ -45,3 +45,4 @@ Quem programa: `ofertas-paginas-wg` (dono da régua), com os textos aprovados pe
 - Editar uma mensagem já agendada muda o agendamento dela (não precisa reagendar). Abrir a edição pelo botão da linha dentro do app, não pela URL direta (carrega formulário velho).
 - Mensagem nova não substitui agendamento antigo: antes de criar, listar os "Programado" para não duplicar.
 - Imagem: anexar na mesma tela (input de arquivo) antes de salvar; se a imagem chegar depois, editar a mensagem e anexar.
+- **Página contador (/grupo, Atomicat WoX65DbV5lhDM2oJgcty):** em 19/11 21h o redirecionamento automático tinha sumido (a página só mostrava o botão e ficava "carregando"). Corrigido com `<script id="ir">` que leva para o DevZapp 0,4 s depois do load (máx. 1,5 s), repassando a query. Conferir sempre com Playwright depois de publicar: tem de terminar em chat.whatsapp.com. Atenção: o editor da Atomicat já estragou `content=` das metas uma vez; ler o arquivo depois de editar.

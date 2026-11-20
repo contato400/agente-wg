@@ -20,3 +20,4 @@
 - 19/11 · Áudio para o Victor: sem crédito na OpenAI, o serviço manda texto curto. Voltar a ver quando houver crédito.
 - 19/11 · Vídeo: A e B pesadas com a mesma fala e cenários parecidos "pareciam um vídeo só" (Victor). Refeito o B com outra ordem (gancho de condição primeiro), 15 s e cenários próprios. Regra registrada na skill de edição.
 - 19/11 · Captação: o DevZapp não separa entradas por canal; os cliques por canal vêm da página contador /grupo (Atomicat). Abertura de e-mail a Cademi não mede.
+- 19/11 21h · Página contador do grupo (/grupo) estava sem o script de redirecionamento: a pessoa via "carregando" e só entrava se tocasse no botão (Victor notou). Regra: toda página de redirecionamento é testada no ar até o destino final (Playwright) logo depois de publicar e de novo antes de um disparo grande.
