@@ -598,7 +598,7 @@ async function pensar(hist, nome, fone, agente, env, rapido = false) {
       model: rapido ? (env.MODELO_VOZ || env.MODELO_AGENTES || 'claude-sonnet-5-5') : agente === 'chefe-wg' ? (env.MODELO_CHEFE || 'claude-sonnet-5-5') : (agente ? (env.MODELO_AGENTES || 'claude-sonnet-5-5') : (env.MODELO || 'claude-sonnet-5-5')),
       max_tokens: rapido ? 900 : agente ? 4000 : 1500, system: sistema, tools: agente ? FERRAMENTAS_EQUIPE : FERRAMENTAS, messages: msgs,
     });
-    if (!ok) { console.log('anthropic', JSON.stringify(d)); await passo(env, 'anthropic erro ' + status + ' ' + JSON.stringify(d.error || d).slice(0, 150)); await alertaFalhaIA(env, status, d); return ['Shalom! Recebi sua mensagem e já já te respondo. Tamo junto, Caveira!']; }
+    if (!ok) { console.log('anthropic', JSON.stringify(d)); await passo(env, 'anthropic erro ' + status + ' ' + JSON.stringify(d.error || d).slice(0, 150)); await alertaFalhaIA(env, status, d); const res = agente ? null : await iaReserva(env, msgs); return res || ['Shalom! Recebi sua mensagem e já já te respondo. Tamo junto, Caveira!']; }
     const usos = (d.content || []).filter(c => c.type === 'tool_use');
     const textos = (d.content || []).filter(c => c.type === 'text').map(c => c.text.trim()).filter(Boolean);
     if (!usos.length) { if (d.stop_reason === 'max_tokens') await passo(env, 'resposta cortada no limite'); return agente ? dividirLongo(textos.join('\n\n')) : dividir(textos.join('\n\n')); }
@@ -944,13 +944,27 @@ async function enviarYC(para, texto, env) {
 // Rastro de diagnóstico (sem telefone completo nem texto do cliente): lista em diag:passos, últimos 40.
 // 19/11: o crédito da API acabou às 15h09 e o agente passou 6 horas só mandando a resposta de reserva sem ninguém saber.
 // Agora avisa o Victor no WhatsApp na primeira falha e no máximo 1 vez a cada 30 min.
+// Plano B grátis (19/11, OK do Victor): se a API da Anthropic falhar (crédito, fora do ar), o cliente é respondido
+// pela IA do próprio Cloudflare (Workers AI, cota grátis diária). Sem ferramentas: responde, orienta e manda link da base.
+async function iaReserva(env, msgs) {
+  try {
+    if (!env.AI) return null;
+    const sistema = SISTEMA.slice(0, 20000) + '\n\nMODO RESERVA: responda curto (até 4 linhas), em português do Brasil, sem travessão. Se não tiver certeza de preço, acesso ou compra, diga que a equipe confirma em seguida. Nunca invente preço, prazo ou link.';
+    const hist = msgs.slice(-8).map(m => ({ role: m.role, content: (Array.isArray(m.content) ? m.content : [{ type: 'text', text: String(m.content) }]).filter(c => c.type === 'text').map(c => c.text).join('\n') || '(mídia)' }));
+    const r = await env.AI.run('@cf/meta/llama-3.3-70b-instruct-fp8-fast', { messages: [{ role: 'system', content: sistema }, ...hist], max_tokens: 400 });
+    const t = String((r && (r.response || (r.choices && r.choices[0] && r.choices[0].message && r.choices[0].message.content) || (r.result && r.result.response))) || '').trim();
+    await passo(env, 'reserva workers-ai ' + (t ? 'ok' : 'vazio'));
+    return t ? dividir(t) : null;
+  } catch (e) { await passo(env, 'reserva erro ' + String(e).slice(0, 120)); return null; }
+}
+
 async function alertaFalhaIA(env, status, d) {
   try {
     if (!env.ADMIN_FONE || (await env.WG.get('alerta:ia'))) return;
     await env.WG.put('alerta:ia', '1', { expirationTtl: 1800 });
     const msg = String((d && d.error && d.error.message) || '');
     const motivo = /credit balance/i.test(msg) ? 'acabou o crédito da API da Anthropic (console.anthropic.com > Plans & Billing)' : 'a API da Anthropic respondeu erro ' + status;
-    await mandarVictor(env.ADMIN_FONE, '⚠️ Agente do WhatsApp sem cérebro agora: ' + motivo + '. Os clientes estão recebendo só "já já te respondo". Responda na mão até resolver.', env);
+    await mandarVictor(env.ADMIN_FONE, '⚠️ Agente do WhatsApp sem cérebro agora: ' + motivo + '. O plano B grátis (IA do Cloudflare) está respondendo no lugar, com respostas mais simples. Recarregue quando puder.', env);
   } catch {}
 }
 
