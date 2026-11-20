@@ -47,3 +47,9 @@ Como fazer as pesquisas: perguntas em `docs/curso-corredor-polones-vendas-notas.
 - Melhorou uma skill ou um desses arquivos: rode o montar.py, rode `node servico-atendimento/teste-yc-entrada.mjs` e proponha a publicação no Cloudflare (worker agente-wg) pela fila.
 - Ferramentas dele: consultar_compra (Greenn e Hotmart), conferir_academia e enviar_link_senha (Cademi), passar_para_humano, nao_responder. Negocia sozinho até R$ 147 (cupons CAVEIRA30/50).
 - Rastro de cada conversa: chave `diag:passos` no KV agente-wg (sem dado pessoal).
+
+## Aprendido em 20/11
+- Hotmart conectada ao agente (segredos HOTMART_* testados; rota /hotmart-teste).
+- Roteiro de 20 testes em `servico-atendimento/roteiro-de-teste.md`, rodar quando o crédito voltar.
+- O agente vai receber do sucesso-aluno-wg a lista semanal de alunos para contato (parabéns, recuperação, primeiro acesso). Ver `docs/agente-cs-desenho.md`.
+- Mensagens que a equipe manda pelo WhatsApp Web do suporte: abrir `web.whatsapp.com/send?phone=<número>&text=<texto>`, conferir o texto na caixa e só então enviar.

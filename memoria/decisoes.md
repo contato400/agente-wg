@@ -111,3 +111,5 @@
 - 2026-11-20 12h · Victor · Régua pós-compra: só e-mail (grátis), montada na Cademi e no Hotmart Send. WhatsApp pago fica fora.
 - 2026-11-20 12h27 · Victor · "Meu bora sempre vai ser ok": "bora" do Victor vale como aprovação do que foi proposto na mensagem anterior.
 - 2026-11-20 12h27 · Victor · E-mail pós-compra pelo Gmail/Apps Script (grátis). Victor já postou a mensagem da reabertura na Comunidade de Alunos (agente não posta às 19h05).
+- 2026-11-20 12h36 · Victor · A8 pesquisas: aprovadas para segunda 23/11. SA2: e-mails aprovados COM a linha da garantia. SA4: mandar aos 30 alunos mais ativos pedindo vídeo ou mensagem; quem mandar ganha um e-book de presente.
+- 2026-11-20 12h36 · Victor · Ideia: agente de sucesso do aluno (CS) que a cada 4 a 7 dias cruza Greenn, Hotmart e Academia (comprou, acessou, quanto assistiu, parou, terminou) e passa a lista ao agente do WhatsApp, que manda mensagem de parabéns, de recuperação ("parou de assistir, segue o acesso") e de próximo passo. Desenho em docs/agente-cs-desenho.md.

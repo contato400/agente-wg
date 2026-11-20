@@ -42,3 +42,10 @@ Bloco "Dinheiro" no debriefing diário; às quintas, `relatorios/AAAA-MM-DD-fina
 ## Mudanças
 - 2026-11-18 · Ficha reescrita para autonomia (mede, fontes, sinal de alerta, backlog) e regras dos livros da Mestres Play (`docs/livros-mestres/`). Correção futura: mudar só as linhas da causa e anotar aqui com data e motivo.
 - 2026-11-18 19h50 · Victor pediu o financeiro no nível do social. Ganhou a planilha própria (Painel Financeiro WG) e a skill `controle-financeiro-wg` com rotina diária, bloco Dinheiro e sinais de ação. Teste feito com as vendas de 18/11.
+
+## Aprendido em 20/11
+- **Recompra (F4):** de 01/01 a 20/11/2026, Greenn: 1.618 vendas pagas, 1.258 compradores; só 23 compraram de novo em outro dia (R$ 2.572,93) e 20 repetiram o mesmo produto (parcela ou assinatura). Recompra de outro curso: 3. Código da conta: `rotinas/recompra-rota-worker.js` (rota temporária no worker; apagar depois porque fica pública).
+- **Chargeback VIP (F6):** venda 7893931, R$ 3.697,64, estorno em 18/11 (9 meses depois), líquido -R$ 70,78. Samuel libera comissão ao Victor se recuperar; mensagem de recuperação enviada 20/11 12h15.
+- **ManyChat (F2):** 5.082 contatos; a conta muda de Advanced para Pro em 20 dias. Cortar contatos inativos sem tag de comprador baixa a faixa. Nada se apaga sem OK do Victor.
+- **Custo WhatsApp por modelo:** cerca de US$ 0,07 por pessoa por mensagem (marketing). Meta do Victor: até US$ 15 por mês nisso.
+- **Gemini TTS:** cota grátis acaba em cerca de 15 a 20 falas por dia.

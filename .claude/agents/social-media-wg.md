@@ -62,3 +62,7 @@ O Metricool às vezes falha no Instagram (19/11: Story das 17h30 com erro "media
 - 18/11 19h40: Victor mandou as medidas oficiais do Reels (topo 220 px, base 450 px, laterais 35 px, coluna de botões 100 px). Regra nova nas próximas peças: conteúdo entre Y 285 e 1470 e X 110 e 945 (skill edicao-video-arte-wg). As peças prontas não mudam.
 - 18/11 19h55: Instagram passa a ser lido pelo Metricool (plano grátis, conta do Wesley). Windsor fica só com a Meta Ads. Mapa em `docs/mapa-de-fontes.md`.
 - 19/11: conferir status dos agendamentos do Metricool depois de cada horário e reagendar o que deu erro.
+
+## Aprendido em 20/11
+- Story com figurinha de link não dá para agendar no Metricool (o Instagram não libera). O story com link é postado pelo Victor no celular; o agente entrega arte e link prontos.
+- Voz padrão dos vídeos: Gemini (rotinas/voz.sh) SEM estilo, porque o Gemini às vezes lê o estilo em voz alta.

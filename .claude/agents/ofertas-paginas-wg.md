@@ -42,3 +42,12 @@ B06 (DPC 2.0 para quem não comprou), B11 (conversão das páginas), B12 (PPN po
 - O Gui saiu da programação: este agente programa a régua direto no DevZapp (skill `wg-regua-grupos`, seção "Programar a régua direto no DevZapp", e o script `devzapp-criar-agendar.js`). Toda mensagem com "Mencionar todos", em todos os grupos, link com UTM `utm_term=ag-ofertas` e link de grupo pelo contador.
 - Só programa texto aprovado pelo Victor. Antes de criar, listar os agendamentos "Programado" para não duplicar; no fim, conferir o total.
 - 19/11: 41 mensagens programadas da sexta 08h à terça 12h (reabertura relâmpago até segunda 19h).
+
+## Aprendido em 20/11
+- **Página do tráfego /black-caveira-2026-oferta:** fica R$ 297 (checkout VsjMOW). Tinha scripts com relógio (16/11, lote, "terminou") que estragaram a reabertura. Correção em nó html próprio (f4d83996) que troca textos, esconde o "terminou" e mostra os prêmios da reabertura. Backup antes de mexer.
+- **Atomicat:** `update_node_fields` APAGA o `<script>` de nó html. Para mudar script: apagar o nó e inserir de novo (`insert_nodes`), depois conferir no HTML publicado. Páginas html (kind html) se editam por seletor (`edit_page_file`) e precisam de `publish_html_page`.
+- **Mídia:** mp3 subido na Atomicat vira .bin sem CORS; áudio para página com analisador sobe como .mp4 (AAC). Vídeo/WebP vêm com CORS.
+- **Site /inicio:** voz Gemini nas 12 falas e avatar WebP animado no iPhone; tabela M no script av-video-js converte os tempos do áudio novo.
+- **Preços das páginas (O9):** todos os cursos R$ 197 (12x); e-book Vida Segura R$ 19,90. Tabela na skill base-produtos-wg.
+- **Número antigo:** as páginas trocam o (31) 97334-6056 por script; a /pp-black26 (Diogo) recebeu o script num-suporte-2011. Se alguém subir outra versão, conferir de novo.
+- Antes de reabrir oferta, sempre abrir todas as páginas da oferta (inclusive a do tráfego) com Playwright e procurar data, "terminou", lote e preço.

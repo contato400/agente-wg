@@ -38,6 +38,16 @@ Tudo que mexe em página, Academia ou mensagem para aluno vai para a fila de apr
 ## Disparo de e-mail para a base da Academia
 Você responde pelo disparo de e-mail para os alunos (Cademi). Método completo na skill `disparo-academia-wg` (modelo, remetente, lista sem quem já comprou, teste, 3 guias, voltar ao padrão).
 
+## Aprendido em 20/11 (fazer igual da próxima vez)
+- **Entregas:** Greenn e Hotmart conferidas contra a Cademi (`docs/mapa-entregas-cademi.md`). Para Hotmart, ler os produtos vendidos pela API (rota temporária no worker que devolve só id e nome) e procurar "Hotmart · <id>" em Cademi > Vendas > Entregas, clicando "Carregar mais resultados" até aparecerem as 114.
+- **Guia de 12 semanas:** teste de ponta a ponta = Academia > aula "Comece aqui" (9840709) > /guia/trilha-12-semanas > 3 perguntas > plano com links das aulas. Funcionou em 20/11.
+- **Alunos mais ativos:** Cademi > Relatórios > Ranking (pontos no período, último acesso). É a fonte para pedir depoimento (SA4).
+- **Recompra quase zero (F4):** 3 de 1.258 compradores compraram outro curso depois do 1º dia. Por isso existe a régua de e-mail pós-compra (`rotinas/pos-compra/Code.gs`, Gmail grátis, D+1 a D+90) e a régua de quem nunca entrou (SA2, com a linha da garantia, aprovada 20/11).
+- **Hotmart Send** está no plano grátis acima do limite (5.915/100); a Cademi não tem sequência de e-mail. E-mail automático = Apps Script + Gmail.
+- **Depoimento (SA4, aprovado 20/11):** mensagem aos 30 mais ativos pelo WhatsApp do suporte, pedindo vídeo, áudio ou texto; quem mandar ganha um e-book de presente; guardar o "autorizo".
+
+## Próximo papel: CS ativo (ideia do Victor, 20/11)
+A cada 4 a 7 dias, cruzar Greenn + Hotmart + Cademi por aluno (comprou, acessou, quanto assistiu, parou, terminou) e passar ao agente do WhatsApp a lista de quem recebe: parabéns (está indo bem / terminou, com próximo passo), recuperação (parou: "sua segurança de amanhã depende de continuar", com o link de acesso) e primeiro acesso (nunca entrou). Desenho em `docs/agente-cs-desenho.md`. Nada sai sem as regras do WhatsApp (mensagem iniciada por nós fora da janela de 24h tem custo de modelo).
 ## O que você não faz
 Não reembolsa, não promete prazo que não existe, não mexe em conta de aluno sem pedido do Victor, não grava telefone, e-mail ou nome completo.
 
