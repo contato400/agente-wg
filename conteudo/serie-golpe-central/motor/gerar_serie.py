@@ -1,3 +1,4 @@
+from pathlib import Path
 # Motor de Reels narrados do WG. Uso:
 #   python3 gerar_serie.py parte.json            -> MP4 completo
 #   python3 gerar_serie.py parte.json --quadros  -> só a folha de conferência (8 quadros)
@@ -35,8 +36,14 @@ falas = []
 for i, seg in enumerate(S['trechos']):
     raw = f'{TMP}/s{i:02d}.wav'
     voz = seg.get('voz', 'narrador')
-    subprocess.run(['python3', '-m', 'piper', '-m', VOZ, '-f', raw, '--length-scale', str(seg.get('ritmo', 1.0))],
-                   input=seg['fala'].encode(), check=True, capture_output=True)
+    # Voz Gemini (padrão desde 20/11) pelo serviço /voz; se falhar, cai na Piper e avisa.
+    g = subprocess.run([str(Path(__file__).resolve().parents[3] / 'rotinas' / 'voz.sh'), seg['fala'], raw + '.g.wav', seg.get('voz_gemini', 'Koda'), seg.get('estilo', '')], capture_output=True)
+    if g.returncode == 0:
+        subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', raw + '.g.wav', '-ar', '22050', '-ac', '1', raw], check=True)
+    else:
+        print('AVISO: voz Gemini falhou, usando Piper:', g.stderr.decode()[:200])
+        subprocess.run(['python3', '-m', 'piper', '-m', VOZ, '-f', raw, '--length-scale', str(seg.get('ritmo', 1.0))],
+                       input=seg['fala'].encode(), check=True, capture_output=True)
     if voz in FILTRO:
         f2 = f'{TMP}/s{i:02d}_{voz}.wav'
         subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', raw, '-af', FILTRO[voz], f2], check=True); raw = f2

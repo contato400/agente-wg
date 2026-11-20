@@ -327,6 +327,20 @@ export default {
       return new Response(JSON.stringify({ ok: !!(id && tel) }), { headers: { 'content-type': 'application/json' } });
     }
     if (req.method === 'GET' && url.pathname === '/') return new Response('Agente WG no ar. Modo: ' + (env.MODO || 'teste'));
+    if (url.pathname === '/voz' && req.method === 'POST') {
+      if (!env.AVISO_TOKEN || req.headers.get('authorization') !== 'Bearer ' + env.AVISO_TOKEN) return new Response('negado', { status: 403 });
+      const b = await req.json().catch(() => ({}));
+      if (!b.texto) return new Response('faltou texto', { status: 400 });
+      const v = await vozGemini(env, String(b.texto).slice(0, 4000), b.voz, b.estilo);
+      return v.ok ? new Response(v.wav, { headers: { 'content-type': 'audio/wav' } }) : new Response(JSON.stringify(v), { status: 502, headers: { 'content-type': 'application/json' } });
+    }
+    if (url.pathname === '/voz-teste' && req.method === 'GET') {
+      if (await env.WG.get('voz:teste')) return new Response('aguarde 30 s', { status: 429 });
+      await env.WG.put('voz:teste', '1', { expirationTtl: 60 });
+      const v = await vozGemini(env, 'Se alguém te abordasse hoje na rua, você saberia o que fazer? Com o Método Caveira do Mestre Wesley Gimenez, você aprende a evitar o perigo, se proteger e sair da situação.', url.searchParams.get('voz') || undefined);
+      if (v.ok && url.searchParams.get('ouvir')) return new Response(v.wav, { headers: { 'content-type': 'audio/wav' } });
+      return new Response(JSON.stringify(v.ok ? { ok: true, bytes: v.wav.length, taxa: v.taxa } : v), { headers: { 'content-type': 'application/json' } });
+    }
     if (req.method === 'POST' && url.pathname === '/yc') {
       const corpoYC = await req.text();
       if (!(await assinaturaYC(corpoYC, req.headers.get('ycloud-signature'), env.YC_WEBHOOK_SECRET))) {
@@ -973,6 +987,27 @@ async function monitorQueda(env) {
   await env.WG.put(chave, '1', { expirationTtl: 3600 });
   await passo(env, 'monitor falha ' + falhas.join('; ').slice(0, 150));
   try { await mandarVictor(env.ADMIN_FONE, '🚨 Monitor: fora do ar ou com problema agora: ' + falhas.join('; ') + '. Confira antes de mandar mais gente para lá.', env); } catch {}
+}
+
+// Voz Gemini (20/11): POST /voz com Authorization: Bearer AVISO_TOKEN e corpo {texto, voz, estilo}; devolve audio/wav.
+async function vozGemini(env, texto, voz, estilo) {
+  const modelo = env.MODELO_VOZ_GEMINI || 'gemini-3.8-flash-tts';
+  const prompt = (estilo ? estilo + ': ' : '') + texto;
+  const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${modelo}:generateContent?key=${env.GEMINI_KEY}`, {
+    method: 'POST', headers: { 'content-type': 'application/json' },
+    body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }], generationConfig: { responseModalities: ['AUDIO'], speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: voz || env.VOZ_GEMINI || 'Koda' } } } } }),
+  });
+  const j = await r.json().catch(() => ({}));
+  const parte = (((j.candidates || [])[0] || {}).content || {}).parts || [];
+  const dado = (parte.find(p => p.inlineData) || {}).inlineData;
+  if (!r.ok || !dado) return { ok: false, status: r.status, erro: JSON.stringify(j.error || j).slice(0, 300) };
+  const pcm = Uint8Array.from(atob(dado.data), c => c.charCodeAt(0));
+  const taxa = Number((String(dado.mimeType).match(/rate=(\d+)/) || [])[1] || 24000);
+  const h = new DataView(new ArrayBuffer(44)); const w = (o, s) => { for (let i = 0; i < s.length; i++) h.setUint8(o + i, s.charCodeAt(i)); };
+  w(0, 'RIFF'); h.setUint32(4, 36 + pcm.length, true); w(8, 'WAVE'); w(12, 'fmt '); h.setUint32(16, 16, true); h.setUint16(20, 1, true); h.setUint16(22, 1, true);
+  h.setUint32(24, taxa, true); h.setUint32(28, taxa * 2, true); h.setUint16(32, 2, true); h.setUint16(34, 16, true); w(36, 'data'); h.setUint32(40, pcm.length, true);
+  const wav = new Uint8Array(44 + pcm.length); wav.set(new Uint8Array(h.buffer), 0); wav.set(pcm, 44);
+  return { ok: true, wav, taxa };
 }
 
 async function iaReserva(env, msgs) {
