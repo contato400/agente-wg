@@ -367,3 +367,4 @@ Modelo:
 - Greenn → ManyChat: a ponte recebe os eventos. Recusas de 13h09 são cobranças mensais da Comunidade (2 assinantes, 3º dia). Nenhum cartão recusado da Black hoje.
 - 14h45: boleto concluído em 195 ofertas avulsas (todas as ativas da Greenn menos 22 assinaturas, Closer Diamond e 45 ofertas do Kit DPC, produto físico que não é oferecido). Victor confirmou deixar assinaturas e Closer Diamond de fora.
 - Arte das 17h30 (DevZapp) pedida ao ChatGPT com "Pix ou boleto à vista" e a condição facilitada. A arte das 19h não tem formas de pagamento (não precisa mudar).
+- 14h48: arte nova da régua 17h30 (ChatGPT, com "Pix ou boleto à vista" e condição facilitada) trocada no DevZapp "sex 17h30" (lixeira no anexo antigo, upload, Salvar). Conferido pela API: 1 arquivo novo, legenda com boleto, @todos mantido.
