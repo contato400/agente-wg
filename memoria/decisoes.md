@@ -104,3 +104,6 @@
 - F2: agente conta inativos; Victor dá o OK para apagar.
 - F3: Comunidade fora. F5: Victor não entendeu, explicar.
 - F6: ideia do Victor: oferecer ao cliente do chargeback outra entrega (ex.: call online com o Wesley no lugar do VIP presencial). Só proposta, pela fila.
+- 2026-11-20 · Victor · G3: substituto do DevZapp em dezembro é a Comunidade do WhatsApp (passo a passo em docs/comunidade-whatsapp-dezembro.md).
+- 2026-11-20 · Victor · F6 chargeback VIP: fazer os dois caminhos (contestar na Greenn e oferecer call online com o Wesley; Wesley topa). Mandar mensagem ao cliente no WhatsApp (texto com OK do Victor).
+- 2026-11-20 · Victor · Recompra quase zero: montar régua pós-compra (ManyChat/WhatsApp e e-mail) por semanas e meses, oferecendo o próximo curso.
