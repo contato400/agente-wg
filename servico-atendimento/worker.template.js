@@ -334,6 +334,17 @@ export default {
       const v = await vozGemini(env, String(b.texto).slice(0, 4000), b.voz, b.estilo);
       return v.ok ? new Response(v.wav, { headers: { 'content-type': 'audio/wav' } }) : new Response(JSON.stringify(v), { status: 502, headers: { 'content-type': 'application/json' } });
     }
+    // Teste da Hotmart (20/11): confere se as credenciais funcionam e conta as vendas de 7 dias. Não devolve chave nem dado de cliente.
+    if (url.pathname === '/hotmart-teste' && req.method === 'GET') {
+      if (await env.WG.get('hm:teste')) return new Response('aguarde 60 s', { status: 429 });
+      await env.WG.put('hm:teste', '1', { expirationTtl: 60 });
+      await env.WG.delete('hotmart:token');
+      const tk = await tokenHotmart(env);
+      if (!tk) return new Response(JSON.stringify({ token_ok: false }), { headers: { 'content-type': 'application/json' } });
+      const r = await fetch('https://developers.hotmart.com/payments/api/v1/sales/history?max_results=5&start_date=' + (Date.now() - 7 * 86400000) + '&end_date=' + Date.now(), { headers: { Authorization: 'Bearer ' + tk } });
+      const j = await r.json().catch(() => ({}));
+      return new Response(JSON.stringify({ token_ok: true, vendas_status: r.status, vendas_7d: (j.page_info || {}).total_results != null ? j.page_info.total_results : (j.items || []).length }), { headers: { 'content-type': 'application/json' } });
+    }
     if (url.pathname === '/voz-teste' && req.method === 'GET') {
       if (await env.WG.get('voz:teste')) return new Response('aguarde 30 s', { status: 429 });
       await env.WG.put('voz:teste', '1', { expirationTtl: 60 });
