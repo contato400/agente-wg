@@ -658,7 +658,7 @@ async function pensar(hist, nome, fone, agente, env, rapido = false) {
       model: rapido ? (env.MODELO_VOZ || env.MODELO_AGENTES || 'claude-sonnet-5-5') : agente === 'chefe-wg' ? (env.MODELO_CHEFE || 'claude-sonnet-5-5') : (agente ? (env.MODELO_AGENTES || 'claude-sonnet-5-5') : (env.MODELO || 'claude-sonnet-5-5')),
       max_tokens: rapido ? 900 : agente ? 4000 : 1500, system: sistema, tools: agente ? FERRAMENTAS_EQUIPE : FERRAMENTAS, messages: msgs,
     });
-    if (!ok) { console.log('anthropic', JSON.stringify(d)); await passo(env, 'anthropic erro ' + status + ' ' + JSON.stringify(d.error || d).slice(0, 150)); const res = agente ? null : await iaReserva(env, msgs); await alertaFalhaIA(env, status, d, agente ? null : { fone, nome, hist, planoB: !!res }); return res || ['Shalom! Recebi sua mensagem e já já te respondo. Tamo junto, Caveira!']; }
+    if (!ok) { console.log('anthropic', JSON.stringify(d)); await passo(env, 'anthropic erro ' + status + ' ' + JSON.stringify(d.error || d).slice(0, 150)); const res = agente ? null : await iaReserva(env, msgs, { fone, nome, extra }); await alertaFalhaIA(env, status, d, agente ? null : { fone, nome, hist, planoB: !!res }); return res || ['Shalom! Recebi sua mensagem e já já te respondo. Tamo junto, Caveira!']; }
     if (!agente && volta === 0) { try { await env.WG.delete('aberta:' + fone); } catch {} }
     const usos = (d.content || []).filter(c => c.type === 'tool_use');
     const textos = (d.content || []).filter(c => c.type === 'text').map(c => c.text.trim()).filter(Boolean);
@@ -1056,13 +1056,21 @@ async function vozGemini(env, texto, voz, estilo) {
   return { ok: true, wav, taxa };
 }
 
-// 20/11 15h55 (pedido do Victor: plano B "paia"): reserva agora tenta primeiro o Gemini (chave GEMINI_KEY, cota grátis, prompt inteiro)
-// e só depois o Workers AI. Regras extras para soar como a equipe e nunca inventar preço, link ou prazo.
-const REGRAS_RESERVA = '\n\nMODO RESERVA (a IA principal caiu e você responde no lugar dela): siga TODAS as regras acima, inclusive o jeito de falar. Responda como gente da equipe digitando no WhatsApp: curto (até 5 linhas), português do Brasil, sem travessão, sem lista longa. Responda exatamente o que a pessoa perguntou, na primeira linha. Preço, parcela, link e prazo só os que estão escritos acima, copiados igual; se não estiver escrito, diga que a equipe confirma já já. Quando a pessoa quiser comprar ou pedir o link, mande o link da página que está acima. Nunca diga que é IA reserva nem fale de erro.';
-async function iaReserva(env, msgs) {
+// 20/11 15h55 (pedido do Victor: plano B "paia"): reserva tenta primeiro o Gemini (chave GEMINI_KEY, cota grátis, prompt inteiro)
+// e só depois o Workers AI. 16h30: o Gemini recebe as MESMAS ferramentas do atendente (consultar compra, conferir Academia,
+// link de senha, passar para humano), o nome e a hora, para responder como o agente principal enquanto o crédito da Anthropic não volta.
+const REGRAS_RESERVA = '\n\nMODO RESERVA (você responde no lugar da IA principal, com as mesmas regras e ferramentas): siga TODAS as regras acima, inclusive o jeito de falar e quando usar cada ferramenta. Responda como gente da equipe digitando no WhatsApp: curto (até 5 linhas), português do Brasil, sem travessão, sem lista longa. Responda exatamente o que a pessoa perguntou, na primeira linha. Preço, parcela, link e prazo só os que estão escritos acima, copiados igual; se não estiver escrito, diga que a equipe confirma já já. Quando a pessoa quiser comprar ou pedir o link, mande o link da página que está acima. Nunca diga que é IA reserva nem fale de erro.';
+function esquemaGemini(s) {
+  if (Array.isArray(s)) return s.map(esquemaGemini);
+  if (!s || typeof s !== 'object') return s;
+  const o = {};
+  for (const [k, v] of Object.entries(s)) o[k] = k === 'type' && typeof v === 'string' ? v.toUpperCase() : k === 'properties' ? Object.fromEntries(Object.entries(v).map(([pk, pv]) => [pk, esquemaGemini(pv)])) : esquemaGemini(v);
+  return o;
+}
+async function iaReserva(env, msgs, ctx = {}) {
   const hist = [];
-  for (const m of msgs.slice(-10)) {
-    const t = (Array.isArray(m.content) ? m.content : [{ type: 'text', text: String(m.content) }]).filter(c => c.type === 'text').map(c => c.text).join('\n').trim();
+  for (const m of msgs.slice(-12)) {
+    const t = (Array.isArray(m.content) ? m.content : [{ type: 'text', text: String(m.content) }]).map(c => c.type === 'text' ? c.text : c.type === 'tool_result' ? '[resultado da consulta: ' + String(typeof c.content === 'string' ? c.content : JSON.stringify(c.content)).slice(0, 600) + ']' : '').filter(Boolean).join('\n').trim();
     if (!t) continue;
     const role = m.role === 'assistant' ? 'assistant' : 'user';
     if (hist.length && hist[hist.length - 1].role === role) hist[hist.length - 1].content += '\n' + t; else hist.push({ role, content: t });
@@ -1070,18 +1078,30 @@ async function iaReserva(env, msgs) {
   while (hist.length && hist[0].role !== 'user') hist.shift();
   if (!hist.length) return null;
   const limpa = t => dividir(String(t).replace(/\s*—\s*/g, ', ').trim());
+  const sistema = SISTEMA + (ctx.extra || '') + REGRAS_RESERVA;
   if (env.GEMINI_KEY) {
-    for (const modelo of [env.MODELO_RESERVA, 'gemini-flash-latest', 'gemini-2.5-flash'].filter(Boolean)) {
+    const conteudo = hist.map(h => ({ role: h.role === 'assistant' ? 'model' : 'user', parts: [{ text: h.content }] }));
+    const ferramentas = [{ functionDeclarations: FERRAMENTAS.map(f => ({ name: f.name, description: f.description, parameters: esquemaGemini(f.input_schema) })) }];
+    let modelo = env.MODELO_RESERVA || 'gemini-flash-latest';
+    for (let volta = 0; volta < 4; volta++) {
       try {
         const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${modelo}:generateContent?key=${env.GEMINI_KEY}`, {
           method: 'POST', headers: { 'content-type': 'application/json' },
-          body: JSON.stringify({ systemInstruction: { parts: [{ text: SISTEMA + REGRAS_RESERVA }] }, contents: hist.map(h => ({ role: h.role === 'assistant' ? 'model' : 'user', parts: [{ text: h.content }] })), generationConfig: { maxOutputTokens: 2048, temperature: 0.4 } })
+          body: JSON.stringify({ systemInstruction: { parts: [{ text: sistema }] }, contents: conteudo, tools: ctx.fone ? ferramentas : undefined, generationConfig: { maxOutputTokens: 2048, temperature: 0.4 } })
         });
         const d = await r.json().catch(() => ({}));
-        const t = ((d.candidates && d.candidates[0] && d.candidates[0].content && d.candidates[0].content.parts) || []).map(p => p.text || '').join('').trim();
-        await passo(env, 'reserva gemini ' + modelo + ' ' + r.status + (t ? ' ok' : ' vazio ' + JSON.stringify(d.error || '').slice(0, 80)));
-        if (t) return limpa(t);
-        if (r.status !== 404) break;
+        if (r.status === 404 && modelo !== 'gemini-2.5-flash') { modelo = 'gemini-2.5-flash'; volta--; continue; }
+        const parts = (d.candidates && d.candidates[0] && d.candidates[0].content && d.candidates[0].content.parts) || [];
+        const chamadas = parts.filter(p => p.functionCall);
+        const t = parts.map(p => p.text || '').join('').trim();
+        await passo(env, 'reserva gemini ' + modelo + ' ' + r.status + (chamadas.length ? ' ferramenta ' + chamadas.map(c => c.functionCall.name).join(',') : t ? ' ok' : ' vazio ' + JSON.stringify(d.error || '').slice(0, 80)));
+        if (!r.ok) break;
+        if (!chamadas.length) { if (t) return limpa(t); break; }
+        if (chamadas.some(c => c.functionCall.name === 'nao_responder')) return [];
+        conteudo.push({ role: 'model', parts });
+        const respostas = [];
+        for (const c of chamadas) respostas.push({ functionResponse: { name: c.functionCall.name, response: { resultado: String(await executar({ name: c.functionCall.name, input: c.functionCall.args || {} }, ctx.fone, ctx.nome, env)) } } });
+        conteudo.push({ role: 'user', parts: respostas });
       } catch (e) { await passo(env, 'reserva gemini erro ' + String(e).slice(0, 100)); break; }
     }
   }
