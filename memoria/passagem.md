@@ -322,3 +322,10 @@ Modelo:
 - Decisões: peça narrada no formato alerta (não série), porque a série rendeu 0,17x; voz Piper (sem chave Gemini na nuvem).
 - Pendente: decisões 1 a 6 do debriefing; rodar a medição às 20h, 22h, 23h59 e sábado 9h; B35 às 18h50.
 - Verificado: Painel lido de volta sem #ERROR!; folha de conferência e quadros do MP4 olhados; pico -0,8 dB.
+## 20/11 09h50 · conferência da manhã
+- DevZapp: sex 08h saiu às 08h02 com imagem no grupo de espera (visto no WhatsApp). O DevZapp tinha deslogado; o Victor logou de novo.
+- Instagram (Metricool): todos os Reels e stories de 19/11 e os Reels de 07h e 07h10 de hoje PUBLICADOS; carrossel 13º de hoje 12h pendente (normal). Não há stories agendados para hoje (dia da reabertura): lacuna.
+- Plano B respondeu clientes à noite e de manhã, mas inventou nomes de módulos para uma aluna (Segurança de Comércios). Corrigido na mão com os temas reais e o prompt do plano B foi apertado (proibido citar módulo que não está na base).
+- Monitor: 4 páginas OK às 09h31.
+- Netlify: link do FAQ da /black-caveira-2026 agora reescrito para a Atomicat (script sem-netlify, publicado).
+- Hotmart: garantia de 7 dias nos 3 produtos da Black (1 ano, 2 anos, vitalício). Item O5 fechado.

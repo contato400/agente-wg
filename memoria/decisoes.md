@@ -79,3 +79,7 @@
 - 2026-11-19 · Victor · [FIXA] Voz de narração (vídeos e páginas): Gemini TTS (Google AI Studio, conta Luis corinthiano, Gemini pago), no lugar da Piper. Primeira voz testada: Koda.
 - 2026-11-19 · Victor · A página de tráfego /black-caveira-2026-oferta fica em R$ 297 de propósito (decisão do Diogo e do tráfego). Não "corrigir" o 297. O resíduo de contagem até 16/11 ainda deve ser conferido.
 - 2026-11-19 · Victor · OK geral para os 43 itens da auditoria que dependiam dele (memoria/auditoria-travados-2026-11-19.md). Alcance combinado: os agentes executam o que é interno, só leitura ou reversível; o que precisa de login dele, senha, pagamento, apagar coisa ou disparo em massa sai antes numa lista curta para ele ver.
+- 2026-11-20 · Victor · Continuar postando os Reels também como versão de teste (trial reel) para ver se algum viraliza. Não parar a duplicação.
+- 2026-11-20 · Victor · Comunidade Caveira: deixar como está, não mexer.
+- 2026-11-20 · Victor · Desempate dos prêmios pela hora do pagamento (Greenn) com a Hotmart conferida na mão: OK. Venda de 19/11 12h42 não entra nos prêmios (só quem comprar a partir das 19h de sexta).
+- 2026-11-20 · Victor · Rotina deve usar a voz Gemini (Koda); falta a chave da API do Gemini na variável da tarefa.
