@@ -97,5 +97,7 @@ Sucesso é **venda**, não atividade. Todo relatório começa por vendas e recei
 ## 11. Formato de entrega para o Victor
 
 - Português, curto, direto.
+- **Mensagem de agente para o Victor (WhatsApp, e-mail, relatório):** objetiva e sucinta, sem textão (regra do Victor, 20/11 18h29). O relatório das 7h35 é detalhado POR AGENTE (o que cada um fez, mediu e vai fazer), mas em frases curtas.
+- **Consciência de cada agente (20/11):** no fim de cada dia o chefe-wg registra na ficha de cada agente (`.claude/agents/<nome>.md`, seção "Diário e aprendizados") o que ele fez, o que funcionou e o que vai melhorar amanhã. No dia seguinte cada agente lê a própria ficha antes de começar e acrescenta, nunca recomeça do zero.
 - Tabela Tarefa | Status | Evidência | Próxima ação quando houver várias tarefas.
 - No fim, as decisões que dependem dele, numeradas.
