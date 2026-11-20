@@ -18,7 +18,7 @@ Cada ficha diz o que o agente mede, de onde lê, as skills, a rotina, o sinal qu
 - Produtos e vendas: `base-produtos-wg`, `oferta-irresistivel`, `copy-conversacional-wg`, `vendas-negociacao-wg`, `funil-catalogo-wg`.
 - Atendimento: `regras-agente-atendimento-wg`, `suporte-acesso-wg`.
 - Campanhas: `copy-lancamento-wg` (estruturas de copy por peça), `black-lancamento-wg`, `lancamento-pago-wg`, `front-ebook-wg`, `wg-regua-grupos`, `wg-manychat-funis`, `wg-recuperacao-carrinho`.
-- Conteúdo e edição: `pauta-conteudo-wg`, `edicao-video-arte-wg`, `video-serie-wg` (motor de Reels narrados em série), `estrategia-instagram-wg` (radar, leitura dos posts e entrega da manhã do social).
+- Conteúdo e edição: `pauta-conteudo-wg`, `edicao-video-arte-wg`, `video-serie-wg` (motor de Reels narrados em série), `estrategia-instagram-wg` (radar, leitura dos posts e entrega da manhã do social), `calendario-conteudo-wg` (calendário semanal do estrategista), `cortes-conteudo-wg` (cortes do Wesley e conteúdo diário dos grupos, da mídia).
 - Tráfego e números: `trafego-wg-guardrails`, `wg-relatorio-vendas`, `debrief-diario-wg`.
 
 ## memoria/

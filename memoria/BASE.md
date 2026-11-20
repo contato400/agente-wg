@@ -68,4 +68,5 @@ Registro detalhado de cada sessão: `memoria/passagem.md`. Decisões com data: `
 ### 20/11
 - Feito: A2, A3, A5 (roteiro), D2, G2, G3 (passo a passo), G4, V1, V4, O1, O2 (+ prêmios da reabertura), O3, O5, O9, F4, F6 (mensagem enviada), SA1, SA3, número novo nas páginas e na /pp-black26, régua de e-mail pós-compra (código), textos A8/SA2/SA4, SA4 enviado a 18 alunos (Agner respondeu com áudio), desenho do agente CS, fichas dos agentes atualizadas, BASE e skill de memória.
 - Plano pós-Black entregue (17h): `docs/estrategia-pos-black-2026-11-20.md`; agente novo `estrategista-wg`; backlog B57.
+- 15h40: conteúdo com dois donos: `estrategista-wg` (plano e calendário semanal, revisão de segunda) e `social-media-wg` (mídia: produção, grupos, cortes, concorrentes). Skills novas `calendario-conteudo-wg` e `cortes-conteudo-wg`; backlog B58 a B61 (S1, S3, S4, S6).
 - Observado: a aba do DevZapp no Chrome do Luis corinthiano está na tela de login (a régua programada roda no servidor, mas para mexer precisa entrar de novo).
