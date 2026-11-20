@@ -128,7 +128,7 @@ function separarFala(t) {
 
 async function condensar(texto, env) {
   const { ok, d } = await chamarClaude(env, {
-    model: env.MODELO_AGENTES || 'claude-haiku-5-5', max_tokens: 700,
+    model: env.MODELO_AGENTES || 'claude-sonnet-5-5', max_tokens: 700,
     system: 'Você transforma mensagens da equipe de agentes para o Victor ouvir. Português do Brasil, sem travessão, sem inventar nada que não esteja na mensagem.' + FORMATO_VOZ,
     messages: [{ role: 'user', content: texto.slice(0, 8000) }]
   });
@@ -655,7 +655,7 @@ async function pensar(hist, nome, fone, agente, env, rapido = false) {
   for (let volta = 0; volta < 4; volta++) {
     const { ok, status, d } = await chamarClaude(env, {
       // rapido (voz pelo Jarvis): todos em Sonnet e resposta curta, para responder em segundos
-      model: rapido ? (env.MODELO_VOZ || env.MODELO_AGENTES || 'claude-haiku-5-5') : agente === 'chefe-wg' ? (env.MODELO_CHEFE || 'claude-haiku-5-5') : (agente ? (env.MODELO_AGENTES || 'claude-haiku-5-5') : (env.MODELO || 'claude-haiku-5-5')),
+      model: rapido ? (env.MODELO_VOZ || env.MODELO_AGENTES || 'claude-sonnet-5-5') : agente === 'chefe-wg' ? (env.MODELO_CHEFE || 'claude-sonnet-5-5') : (agente ? (env.MODELO_AGENTES || 'claude-sonnet-5-5') : (env.MODELO || 'claude-sonnet-5-5')),
       max_tokens: rapido ? 700 : agente ? 2000 : 700, system: sistema, tools: agente ? FERRAMENTAS_EQUIPE : FERRAMENTAS, messages: msgs,
     });
     if (!ok) { console.log('anthropic', JSON.stringify(d)); await passo(env, 'anthropic erro ' + status + ' ' + JSON.stringify(d.error || d).slice(0, 150)); const res = agente ? null : await iaReserva(env, msgs, { fone, nome, extra }); await alertaFalhaIA(env, status, d, agente ? null : { fone, nome, hist, planoB: !!res }); return res || ['Shalom! Recebi sua mensagem e já já te respondo. Tamo junto, Caveira!']; }
@@ -775,7 +775,7 @@ async function avisarVendaHotmart(v, env) {
 async function perguntarAgente(chave, pergunta, env) {
   if (!EQUIPE.fichas[chave]) return 'Agente não encontrado.';
   const { ok, d } = await chamarClaude(env, {
-    model: env.MODELO_AGENTES || 'claude-haiku-5-5', max_tokens: 1200,
+    model: env.MODELO_AGENTES || 'claude-sonnet-5-5', max_tokens: 1200,
     system: [{ type: 'text', text: await sistemaAgente(chave, env), cache_control: { type: 'ephemeral' } }, { type: 'text', text: agora() + '\nQuem pergunta agora é outro agente da equipe, não o Victor. Responda curto, só com o que você sabe pela memória e pela sua ficha.' }],
     messages: [{ role: 'user', content: pergunta }]
   });
