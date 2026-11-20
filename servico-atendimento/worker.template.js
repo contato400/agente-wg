@@ -197,7 +197,7 @@ ${await memoriaEquipe(env)}`;
 }
 
 export default {
-  async scheduled(ev, env, ctx) { ctx.waitUntil(monitorQueda(env)); },
+  async scheduled(ev, env, ctx) { ctx.waitUntil(monitorQueda(env)); ctx.waitUntil(resumoAtendimento(env)); },
   async fetch(req, env, ctx) {
     env = kvSeguro(env);
     const url = new URL(req.url);
@@ -484,6 +484,40 @@ async function receber(m, nome, env) {
     await passo(env, 'envio ' + (ok === false ? 'FALHOU' : 'ok') + ' ' + fim);
     await addHist(env, hk, { role: 'assistant', content: t });
   }
+  if (!admin && !simula) await anotarResumo(env, de, nome, conteudo, resposta.join(' '));
+}
+
+// A7 (20/11, pedido do Victor): em vez de um aviso por conversa, um resumo a cada 2 h (8h às 22h) com todas as conversas do período.
+// "Passar para humano" continua avisando na hora. Cada resumo também fica 7 dias em KV resumo-hist:<data hora> (A6: a rotina copia para a aba Atendimento).
+async function anotarResumo(env, de, nome, conteudo, resposta) {
+  try {
+    const k = 'resumo:' + de;
+    const a = JSON.parse((await env.WG.get(k)) || 'null') || { nome: nome || 'sem nome', final: String(de).slice(-4), n: 0, desde: agora() };
+    const txt = typeof conteudo === 'string' ? conteudo : JSON.stringify(conteudo);
+    a.n++; a.quando = agora(); a.pergunta = txt.replace(/\s+/g, ' ').slice(0, 120); a.resposta = String(resposta || '').replace(/\s+/g, ' ').slice(0, 120);
+    a.link = a.link || /wesleygimenez\.com\.br|greenn|hotmart/i.test(resposta || '');
+    await env.WG.put(k, JSON.stringify(a), { expirationTtl: 6 * 3600 });
+  } catch {}
+}
+
+async function resumoAtendimento(env) {
+  try {
+    const h = new Date(Date.now() - 3 * 3600000); const hora = h.getUTCHours();
+    if (hora % 2 !== 0 || hora < 8 || hora > 22 || h.getUTCMinutes() > 20 || !env.ADMIN_FONE) return;
+    const marca = 'resumofeito:' + h.toISOString().slice(0, 13);
+    if (await env.WG.get(marca)) return;
+    await env.WG.put(marca, '1', { expirationTtl: 3 * 3600 });
+    const l = await env.WG.list({ prefix: 'resumo:' });
+    if (!l.keys.length) return;
+    const itens = [];
+    for (const k of l.keys.slice(0, 30)) { try { itens.push(JSON.parse(await env.WG.get(k.name))); } catch {} await env.WG.delete(k.name); }
+    const humanos = (await env.WG.list({ prefix: 'pausa:' })).keys.length;
+    let texto = `📋 Atendimento das últimas 2 h: ${l.keys.length} conversa(s)` + (humanos ? `, ${humanos} com a equipe (humano)` : '') + '.\n';
+    texto += itens.map((a, i) => `${i + 1}. ${a.nome} (final ${a.final}) · ${a.n} msg · ${a.quando}${a.link ? ' · recebeu link' : ''}\n   Pediu: "${a.pergunta}"\n   Agente: "${a.resposta}"`).join('\n');
+    texto += '\n\nQuem precisa de gente já chegou na hora como "passar para humano".';
+    await env.WG.put('resumo-hist:' + h.toISOString().slice(0, 13), JSON.stringify(itens), { expirationTtl: 7 * 86400 });
+    await mandarVictor(env.ADMIN_FONE, texto, env);
+  } catch (e) { await passo(env, 'resumo erro ' + String(e).slice(0, 100)); }
 }
 
 async function paraConteudo(m, env) {
@@ -1022,15 +1056,41 @@ async function vozGemini(env, texto, voz, estilo) {
   return { ok: true, wav, taxa };
 }
 
+// 20/11 15h55 (pedido do Victor: plano B "paia"): reserva agora tenta primeiro o Gemini (chave GEMINI_KEY, cota grátis, prompt inteiro)
+// e só depois o Workers AI. Regras extras para soar como a equipe e nunca inventar preço, link ou prazo.
+const REGRAS_RESERVA = '\n\nMODO RESERVA (a IA principal caiu e você responde no lugar dela): siga TODAS as regras acima, inclusive o jeito de falar. Responda como gente da equipe digitando no WhatsApp: curto (até 5 linhas), português do Brasil, sem travessão, sem lista longa. Responda exatamente o que a pessoa perguntou, na primeira linha. Preço, parcela, link e prazo só os que estão escritos acima, copiados igual; se não estiver escrito, diga que a equipe confirma já já. Quando a pessoa quiser comprar ou pedir o link, mande o link da página que está acima. Nunca diga que é IA reserva nem fale de erro.';
 async function iaReserva(env, msgs) {
+  const hist = [];
+  for (const m of msgs.slice(-10)) {
+    const t = (Array.isArray(m.content) ? m.content : [{ type: 'text', text: String(m.content) }]).filter(c => c.type === 'text').map(c => c.text).join('\n').trim();
+    if (!t) continue;
+    const role = m.role === 'assistant' ? 'assistant' : 'user';
+    if (hist.length && hist[hist.length - 1].role === role) hist[hist.length - 1].content += '\n' + t; else hist.push({ role, content: t });
+  }
+  while (hist.length && hist[0].role !== 'user') hist.shift();
+  if (!hist.length) return null;
+  const limpa = t => dividir(String(t).replace(/\s*—\s*/g, ', ').trim());
+  if (env.GEMINI_KEY) {
+    for (const modelo of [env.MODELO_RESERVA, 'gemini-flash-latest', 'gemini-2.5-flash'].filter(Boolean)) {
+      try {
+        const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${modelo}:generateContent?key=${env.GEMINI_KEY}`, {
+          method: 'POST', headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ systemInstruction: { parts: [{ text: SISTEMA + REGRAS_RESERVA }] }, contents: hist.map(h => ({ role: h.role === 'assistant' ? 'model' : 'user', parts: [{ text: h.content }] })), generationConfig: { maxOutputTokens: 2048, temperature: 0.4 } })
+        });
+        const d = await r.json().catch(() => ({}));
+        const t = ((d.candidates && d.candidates[0] && d.candidates[0].content && d.candidates[0].content.parts) || []).map(p => p.text || '').join('').trim();
+        await passo(env, 'reserva gemini ' + modelo + ' ' + r.status + (t ? ' ok' : ' vazio ' + JSON.stringify(d.error || '').slice(0, 80)));
+        if (t) return limpa(t);
+        if (r.status !== 404) break;
+      } catch (e) { await passo(env, 'reserva gemini erro ' + String(e).slice(0, 100)); break; }
+    }
+  }
   try {
     if (!env.AI) return null;
-    const sistema = SISTEMA.slice(0, 20000) + '\n\nMODO RESERVA: responda curto (até 4 linhas), em português do Brasil, sem travessão. Se não tiver certeza de preço, acesso ou compra, diga que a equipe confirma em seguida. Nunca invente preço, prazo ou link.';
-    const hist = msgs.slice(-8).map(m => ({ role: m.role, content: (Array.isArray(m.content) ? m.content : [{ type: 'text', text: String(m.content) }]).filter(c => c.type === 'text').map(c => c.text).join('\n') || '(mídia)' }));
-    const r = await env.AI.run('@cf/meta/llama-3.3-70b-instruct-fp8-fast', { messages: [{ role: 'system', content: sistema }, ...hist], max_tokens: 400 });
+    const r = await env.AI.run(env.MODELO_RESERVA_CF || '@cf/meta/llama-3.3-70b-instruct-fp8-fast', { messages: [{ role: 'system', content: SISTEMA.slice(0, 20000) + REGRAS_RESERVA }, ...hist], max_tokens: 400 });
     const t = String((r && (r.response || (r.choices && r.choices[0] && r.choices[0].message && r.choices[0].message.content) || (r.result && r.result.response))) || '').trim();
     await passo(env, 'reserva workers-ai ' + (t ? 'ok' : 'vazio'));
-    return t ? dividir(t) : null;
+    return t ? limpa(t) : null;
   } catch (e) { await passo(env, 'reserva erro ' + String(e).slice(0, 120)); return null; }
 }
 
@@ -1049,7 +1109,7 @@ async function alertaFalhaIA(env, status, d, conversa) {
     const l = await env.WG.list({ prefix: 'aberta:' });
     const abertas = [];
     for (const k of l.keys.slice(0, 15)) { try { abertas.push(JSON.parse(await env.WG.get(k.name))); } catch {} }
-    let texto = '⚠️ Agente do WhatsApp sem cérebro agora.\nPor quê: ' + motivo + '.\nO plano B grátis (IA do Cloudflare) responde no lugar, mais simples.';
+    let texto = '⚠️ Agente do WhatsApp sem cérebro agora.\nPor quê: ' + motivo + '.\nO plano B grátis (Gemini e, se ele falhar, a IA do Cloudflare) responde no lugar.';
     if (abertas.length) {
       texto += '\n\nConversas em aberto (' + l.keys.length + '):\n' + abertas.map((a, n) => `${n + 1}. ${a.nome} (final ${a.final}) · ${a.quando}\n   Mandou: "${a.pergunta}"\n   Situação: ${a.resposta}`).join('\n');
       texto += '\n\nResponda pelo celular no (31) 99329-4274 procurando pelo final do número. A conversa sai da lista quando a IA principal voltar a responder a pessoa.';
