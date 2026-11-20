@@ -1,6 +1,9 @@
 # Textos para o Victor aprovar de uma vez (20/11): pesquisas, aluno sem acesso e depoimentos
 
-Nada foi enviado. Depois do "bora", o agente monta os formulários (Google Forms no Gmail do Luis corinthiano) e agenda os envios.
+Nada foi enviado. Formulários prontos e publicados em 20/11 16h20 (Google Forms, conta Luis corinthiano):
+- Pesquisa 1 (quem NÃO comprou): https://docs.google.com/forms/d/e/1FAIpQLScPLk1Xr1942Fxw8yErEPMhdBgMOXX2cfwdnVcVajYfLYZcFA/viewform
+- Pesquisa 2 (quem COMPROU): https://docs.google.com/forms/d/e/1FAIpQLSf3p6cHVgLfPG4MGpqu-SyDwxqpewadAHGIvNM08TS7bvKNtw/viewform
+Envio: segunda 23/11 (grupo de espera depois das 19h; compradores por e-mail e Comunidade), com UTM no link.
 
 ---
 
