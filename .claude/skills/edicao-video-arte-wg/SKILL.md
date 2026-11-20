@@ -113,3 +113,9 @@ O Victor tem o **Google AI Pro** assinado (até 2027). Não há conector do Gemi
 | Imagem nova (foto, cena) | **Google AI Pro do Victor (já assinado):** Nano Banana no Gemini; ChatGPT grátis para imagem com texto | |
 | Vídeo gerado por IA | **Google AI Pro do Victor:** Veo no Gemini e no Flow (créditos do plano) | |
 | Voz e avatar | não usar: o WG vende o Wesley real | |
+
+
+## Voz Gemini: cuidados (20/11)
+- Não mandar "estilo" no pedido de voz: o Gemini às vezes lê a instrução em voz alta no começo do áudio. Mandar só o texto.
+- A cota grátis acaba depois de 10 a 15 falas no dia (erro 429). Gerar só o que vai ser usado e guardar os arquivos.
+- Conferir cada áudio com faster-whisper antes de publicar (procurar frase que não é do roteiro no começo).

@@ -25,3 +25,7 @@
 - 2026-11-20 · social · Série narrada (Dona Maria) no Reels normal: 2.414 visualizações (0,17x a mediana), 70% de pulo; Reels de teste: 11 a 128. O que rende é o Wesley falando "Alerta de segurança" (18/11: 43.530, 3,04x, 40% de pulo) e o "Envie esse alerta para sua família" (16% de envio). Narrado só no formato de alerta, não em série, até prova em contrário.
 - 2026-11-20 · analista · O Metricool entrega a hora dos reels em UTC; o relatório de 19/11 saiu com a hora errada (3 h a mais).
 - 2026-11-20 · financeiro · O pixel da Meta contou como compra da GREENN-01 uma venda que veio do link orgânico do Victor (mesma página com pixel). Venda de tráfego só vale com utm_source=FB na planilha.
+
+- 20/11 · Gemini TTS lê o "estilo" em voz alta em parte das falas; usar só o texto. Cota grátis do dia acabou em ~19 falas (429).
+- 20/11 · Página de tráfego tinha scripts com data (contador, lote, 16/11) que viram "terminou" depois da data. Toda página com relógio precisa ser revisada antes de reabrir oferta.
+- 20/11 · Arquivo .mp3 subido na mídia da Atomicat vira .bin sem CORS; áudio para página com analisador de voz deve subir como .mp4 (AAC), que vem com CORS.

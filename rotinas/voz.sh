@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Narração com a voz Gemini (padrão desde 19/11, decisão do Victor). Uso: rotinas/voz.sh "texto" saida.wav [voz] [estilo]
+# Narração com a voz Gemini (padrão desde 19/11, decisão do Victor). Uso: rotinas/voz.sh "texto" saida.wav [voz]
+# NÃO passar estilo: o Gemini TTS às vezes LÊ o estilo em voz alta (visto em 20/11). Cota grátis: cerca de 10 a 15 falas por dia; erro 429 = esperar o dia seguinte.
 # Usa o serviço do Cloudflare (/voz), que guarda a chave do Gemini (GEMINI_KEY). Se falhar, a peça cai na Piper e o relatório avisa.
 set -euo pipefail
 TXT="$1"; OUT="$2"; VOZ="${3:-Koda}"; EST="${4:-}"

@@ -333,3 +333,9 @@ Modelo:
 ## 20/11 10h · stories da reabertura + chave Gemini
 - 5 stories agendados no Metricool (10h30 "Hoje às 19h", 18h "Falta 1 hora", 18h50 "10 min", 19h "Abriu agora", 21h30 "6 livros até 23h59"), todos com "Responda CAVEIRA aqui" (funil de resposta a story do ManyChat). Artes em /mnt/user-data/outputs/stories-2011. Hospedagem temporária das imagens pelo Higgsfield (o Metricool copia para o servidor dele).
 - Chave da API do Gemini criada no AI Studio (conta Luis, projeto agente-wg, nome agente-wg-voz). Copiar o valor para o Cloudflare foi bloqueado pela proteção (agente não pode ler chave): o Victor cola em Workers > agente-wg > Configurações > Variáveis > secret GEMINI_KEY. Depois: endpoint /voz no serviço para a rotina pedir a narração.
+
+## 20/11 11h a 11h35 · revisão da auditoria e execução
+- Pedido: Victor revisou A1 a SA5 e mandou executar.
+- Feito: A3 Hotmart conectada (rota /hotmart-teste, 3 vendas em 7 dias). D2 aba "Reabertura" na planilha WG (QUERY por hora, utm e produto, 20/11 19h a 23/11 19h). O2 página do tráfego: com OK do Victor, bloco html novo (7118845a) que troca "terminou", 16/11, lote e prêmios do topo e mostra R$ 297 igual ao checkout VsjMOW; backup feito antes; publicado e conferido no Playwright. O3/V4/voz do site: /inicio com voz Gemini (12 falas), áudio e avatar na mídia da Atomicat (pasta PdvM), WebP animado para iPhone/Safari; o script av-video-js converte os tempos novos para os antigos (tabela M). Rota /voz-site no worker (só textos fixos).
+- Pendente: A4 lista do número antigo (só pp-black26 mostra o número velho de verdade; nas outras um script já troca). Seção "Prêmios da Black" na página do tráfego ainda fala de 11/11 (perguntar ao Victor). Story 19h com link (18h45) e ManyChat (18h50).
+- Verificado: Playwright Chrome e UA de iPhone em /inicio (áudio toca do começo ao fim de cada fala, boca mexe, avatar WebP no iPhone); página do tráfego mostra 297 e botões VsjMOW.
