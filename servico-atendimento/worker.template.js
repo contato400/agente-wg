@@ -598,7 +598,7 @@ async function pensar(hist, nome, fone, agente, env, rapido = false) {
       model: rapido ? (env.MODELO_VOZ || env.MODELO_AGENTES || 'claude-sonnet-5-5') : agente === 'chefe-wg' ? (env.MODELO_CHEFE || 'claude-opus-5-5') : (agente ? (env.MODELO_AGENTES || 'claude-sonnet-5-5') : (env.MODELO || 'claude-sonnet-5-5')),
       max_tokens: rapido ? 900 : agente ? 4000 : 1500, system: sistema, tools: agente ? FERRAMENTAS_EQUIPE : FERRAMENTAS, messages: msgs,
     });
-    if (!ok) { console.log('anthropic', JSON.stringify(d)); await passo(env, 'anthropic erro ' + status + ' ' + JSON.stringify(d.error || d).slice(0, 150)); return ['Shalom! Recebi sua mensagem e já já te respondo. Tamo junto, Caveira!']; }
+    if (!ok) { console.log('anthropic', JSON.stringify(d)); await passo(env, 'anthropic erro ' + status + ' ' + JSON.stringify(d.error || d).slice(0, 150)); await alertaFalhaIA(env, status, d); return ['Shalom! Recebi sua mensagem e já já te respondo. Tamo junto, Caveira!']; }
     const usos = (d.content || []).filter(c => c.type === 'tool_use');
     const textos = (d.content || []).filter(c => c.type === 'text').map(c => c.text.trim()).filter(Boolean);
     if (!usos.length) { if (d.stop_reason === 'max_tokens') await passo(env, 'resposta cortada no limite'); return agente ? dividirLongo(textos.join('\n\n')) : dividir(textos.join('\n\n')); }
@@ -942,6 +942,18 @@ async function enviarYC(para, texto, env) {
 }
 
 // Rastro de diagnóstico (sem telefone completo nem texto do cliente): lista em diag:passos, últimos 40.
+// 19/11: o crédito da API acabou às 15h09 e o agente passou 6 horas só mandando a resposta de reserva sem ninguém saber.
+// Agora avisa o Victor no WhatsApp na primeira falha e no máximo 1 vez a cada 30 min.
+async function alertaFalhaIA(env, status, d) {
+  try {
+    if (!env.ADMIN_FONE || (await env.WG.get('alerta:ia'))) return;
+    await env.WG.put('alerta:ia', '1', { expirationTtl: 1800 });
+    const msg = String((d && d.error && d.error.message) || '');
+    const motivo = /credit balance/i.test(msg) ? 'acabou o crédito da API da Anthropic (console.anthropic.com > Plans & Billing)' : 'a API da Anthropic respondeu erro ' + status;
+    await mandarVictor(env.ADMIN_FONE, '⚠️ Agente do WhatsApp sem cérebro agora: ' + motivo + '. Os clientes estão recebendo só "já já te respondo". Responda na mão até resolver.', env);
+  } catch {}
+}
+
 async function passo(env, txt) {
   try { const l = JSON.parse((await env.WG.get('diag:passos')) || '[]'); l.push(new Date().toISOString().slice(11, 19) + ' ' + txt); await env.WG.put('diag:passos', JSON.stringify(l.slice(-40)), { expirationTtl: 7 * 86400 }); } catch {}
 }

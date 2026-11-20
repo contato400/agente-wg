@@ -27,8 +27,9 @@
 - PENDENTE: 20261119-social-1, -2, -3; 20261118-social-1, -2, -3. Nenhum APROVADO esperando execução.
 
 ### memoria/passagem.md (últimas entradas)
-## 19/11 14h20 · treino do editor de vídeo
-- Pedido: usar os cursos (principalmente Mestres da IA) para treinar o agente editor de vídeo.
-- Feito: método novo `.claude/skills/edicao-video-arte-wg/criativos-trafego.md` (briefing, cinco batidas, gancho em três camadas, uma mudança por versão, legenda de anúncio, checklist de 8 itens, receitas ffmpeg e faster-whisper testadas no ambiente); SKILL.md aponta para ele; `editor-video-wg.md` com a seção "Seu treino" e "Mudanças".
-- Pendente: variações do presente (agente rodando); registrar #editor no worker se o Victor quiser falar com ele pelo WhatsApp.
-- Verificado: ffmpeg, faster-whisper e fonte Inter disponíveis.
+## 19/11 20h40 · régua dos grupos programada no DevZapp (sem o Gui)
+- Pedido: Victor tirou o Gui da régua; eu programo tudo no DevZapp até segunda 23/11 19h, com "mencionar todos", escassez crescente, link pelo contador e imagens do ChatGPT.
+- Feito: qui 20h (antigos e espera) saíram com link do contador. 14 mensagens de sexta editadas + 27 novas (sex 18h50, 18h55, 19h05, 21h30, 22h30, 23h, 23h30; sáb 9/12/15/19/21h; dom 9/12/16/20h; seg 9/12/15/17/18/18h30/18h45/18h50/18h55/19h ENCERRADA; ter 12h DPC). Total 41 "Programado", 80 grupos cada, conferido em Agendamentos.
+- Decisões: sáb 12h sem número de vagas (só número real); links com utm_term=ag-ofertas.
+- Pendente: as 19 artes do ChatGPT (Victor Augusto, "Victor. A") estão sendo geradas; falta levar ao DevZapp (precisa da pasta Downloads conectada ou outro caminho aprovado) e trocar a imagem da sex 19h abertura ("Pode sair do ar a qualquer momento"). ManyChat vira para a Black sexta 18h50.
+- Treino: skill wg-regua-grupos (método DevZapp + script), ficha ofertas-paginas-wg.
