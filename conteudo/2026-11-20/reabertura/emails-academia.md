@@ -10,6 +10,7 @@ Texto:
 Shalom, tudo bem?
 Abriu! A Black Caveira está no ar agora, e você, que já é meu aluno, entra com preço especial: 12x de R$ 35,68 ou R$ 347 à vista. É só conferir o seu e-mail na página para ver o preço de aluno.
 São os 23 treinamentos do Método Caveira, com 1 ano de acesso, certificado em cada treinamento e 7 dias de garantia.
+Você paga do jeito que fica melhor para você: Pix ou boleto à vista, ou cartão em até 12x. E se não quiser usar o limite do cartão, tem a condição facilitada: cartão ou Pix parcelado em até 6x, sem comprometer o limite. Na página é só tocar em "Parcelar sem travar o limite".
 🎁 Os 3 primeiros ganham a camisa Caveira, os 20 primeiros entram no encontro ao vivo comigo, e quem garantir até 23h59 de hoje leva os meus 6 livros digitais.
 Botão: QUERO GARANTIR COM PREÇO DE ALUNO → https://www.wesleygimenez.com.br/black-caveira-2026?utm_source=vc&utm_medium=email-academia&utm_campaign=reabertura-2011&utm_content=alunos-abriu-1905&utm_term=ag-ofertas
 Dúvida? WhatsApp do suporte: (31) 99329-4274. Tamo junto, Caveira! Mestre Wesley

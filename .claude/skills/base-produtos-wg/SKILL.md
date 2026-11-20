@@ -96,3 +96,9 @@ Kit DPC (físico, reprovado na Greenn), S.O.S Caveira, Código Caveira avulso, "
 - Faca → Combate com Lâminas
 - "Quero tudo" → a campanha de pacote vigente, se estiver aberta; senão, o curso da dor principal primeiro
 - Pouco dinheiro → E-book Vida Segura ou Desafio 7 Movimentos
+
+## Formas de pagamento da Black (regra do Victor, 20/11 14h28)
+- **Greenn (botão principal):** Pix à vista, boleto à vista (liberado em todas as ofertas avulsas em 20/11, teste) ou cartão em até 12x.
+- **Hotmart (botão "Parcelar sem travar o limite"), a condição facilitada:** cartão ou Pix parcelado em até 6x, sem comprometer o limite do cartão. No Pix parcelado a pessoa paga a 1ª parcela agora e as outras mês a mês.
+- Frase padrão: "Pix ou boleto à vista, cartão em até 12x, ou a condição facilitada: cartão ou Pix parcelado em até 6x, sem comprometer o limite do cartão."
+- Nunca dizer "Pix em até 12x". Boleto só libera o acesso depois que o banco compensa.
