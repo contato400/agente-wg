@@ -2,7 +2,7 @@
 
 Cada linha vira uma tarefa agendada. Liga-se aos poucos: a coluna "Fase" diz quando.
 
-Expediente dos agentes: **8h às 18h, segunda a sábado** (domingo só o atendimento). O único que trabalha fora desse horário é o atendimento do WhatsApp, que responde todo dia, inclusive à noite.
+Os agentes trabalham **24 horas, todo dia** (decisão do Victor, 20/11 19h). O executor roda de hora em hora, inclusive à noite e no domingo; o atendimento do WhatsApp responde a qualquer hora. Os horários abaixo são das entregas fixas, não um limite de trabalho.
 
 **Desde 18/11 roda UMA tarefa agendada só** (decisão do Victor): "Agente WG - Rotina diaria completa", 7h35 de segunda a sábado, horário de Brasília. Ela faz, em ordem: debriefing (vendas, meta, fila), tráfego (Windsor, só leitura, até 2 propostas para o Diogo), 3 pautas do Instagram na fila, um e-mail único para o Luis corinthiano e commit no repositório.
 

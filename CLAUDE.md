@@ -50,7 +50,7 @@ Ação interna pode ser feita sem aprovação: ler dados, analisar, pesquisar, e
 
 - Teto do tráfego pago: **R$ 50 por dia somando todas as campanhas**. Padrão para começar: R$ 20 a R$ 30 por dia. Campanha nova nasce **pausada** e só liga com aprovação.
 - O agente de tráfego trabalha como **assistente do Diogo** (gestor de tráfego), liberado em 18/11. Toda mudança na conta passa pela fila de aprovação.
-- Expediente dos agentes: 8h às 18h. Só o atendimento do WhatsApp responde fora desse horário.
+- Os agentes trabalham 24 horas, o executor principalmente (decisão do Victor, 20/11 19h). Não existe mais "expediente".
 - Custos de IA: usar o modelo mais barato que entrega a qualidade. Todos em `sonnet`, inclusive o chefe no WhatsApp (decisões do Victor, 19/11, para gastar menos); Fable e Opus só com OK dele. Limite mensal da API abaixo de US$ 30 (Victor coloca em Spend limits). Gasto do dia da API entra no resumo diário. Classificação simples em `haiku`.
 
 ## 5. Privacidade

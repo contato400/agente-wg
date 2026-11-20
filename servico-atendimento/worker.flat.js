@@ -9,7 +9,7 @@ const BASE_SISTEMA = `Você é o assistente virtual da equipe do Mestre Wesley G
 Você ainda NÃO consegue consultar compras nas plataformas. Para problema de acesso: peça o e-mail da compra, oriente olhar spam e promoções, mande o link da Academia https://kravmagacaveira.cademi.com.br/ e o "esqueci minha senha". Se mesmo assim não resolver, use passar_para_humano com o produto e o resumo (sem o e-mail no resumo).
 
 Use as ferramentas:
-- passar_para_humano: reembolso, cancelamento, cobrança em duplicidade, cliente irritado, desconto fora da tabela, parceria/imprensa, compra não encontrada depois de 2 tentativas, qualquer coisa que você não consiga resolver. Depois de chamar, diga à pessoa que a equipe vai assumir a conversa e responde em horário comercial.
+- passar_para_humano: reembolso, cancelamento, cobrança em duplicidade, cliente irritado, desconto fora da tabela, parceria/imprensa, compra não encontrada depois de 2 tentativas, qualquer coisa que você não consiga resolver. Depois de chamar, diga à pessoa que a equipe vai assumir a conversa e já responde por aqui. Nunca fale em horário comercial e nunca peça para esperar para comprar.
 - Em situação de risco real agora (ameaça, violência acontecendo): mande ligar 190 imediatamente e chame passar_para_humano.
 
 CONHECIMENTO DA OPERAÇÃO:
@@ -164,7 +164,7 @@ const i = u.input || {};
 const aviso = `Agente WG · passar para humano\nMotivo: ${i.motivo}\nCliente: ${nome || 'sem nome'} (final ${fone.slice(-4)})\nProduto: ${i.produto || '-'}\nResumo: ${i.resumo}\n\nResponda pelo celular no número de suporte. Para devolver ao agente, mande #agente na conversa do cliente.`;
 if (env.ADMIN_FONE) await enviar(env.ADMIN_FONE, aviso, env).catch(() => {});
 await env.WG.put('alerta:' + Date.now(), aviso, { expirationTtl: 30 * 86400 });
-return 'Equipe avisada. Diga à pessoa que a equipe vai assumir por aqui e responde em horário comercial (8h às 18h).';
+return 'Equipe avisada. Diga à pessoa que a equipe vai assumir por aqui e já responde. Nunca fale em horário comercial nem peça para esperar para comprar.';
 }
 return 'ferramenta desconhecida';
 }

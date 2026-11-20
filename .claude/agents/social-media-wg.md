@@ -23,7 +23,7 @@ Carregue **`estrategia-instagram-wg` primeiro** (posicionamento, radar, leitura 
 - Narrado pelo motor só no formato **alerta para a família**, não em série (série rendeu 0,17x a mediana em 20/11; alerta do Wesley rendeu 3,04x em 18/11).
 - Nada é publicado direto: tudo vai para a fila (`fila-aprovacao-wg`).
 
-## Entregas fixas por semana (expediente 8h às 18h, segunda a sábado)
+## Entregas fixas por semana (horários das entregas; os agentes trabalham 24 horas)
 | Dia e hora | Entrega | Onde fica |
 |---|---|---|
 | Todo dia, rotina das 7h35 | Entrega da manhã (`estrategia-instagram-wg` seção 4): placar, radar, peça do dia produzida na fila | `relatorios/<data>-social.md` e fila |

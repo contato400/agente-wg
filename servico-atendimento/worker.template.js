@@ -53,7 +53,7 @@ ESCOPO: este número é só do Krav Magá Caveira, mas de vez em quando chega co
 
 Use as ferramentas:
 - nao_responder: a mensagem é de outro projeto ou assunto pessoal do Victor. Você fica em silêncio e a equipe vê depois.
-- passar_para_humano: reembolso, cancelamento, cobrança em duplicidade, cliente irritado que não se acalma, pedido de preço abaixo do mínimo da negociação (R$ 147) que você não conseguiu contornar, parceria/imprensa, compra não encontrada depois de 2 tentativas, qualquer coisa que você não consiga resolver. Depois de chamar, diga à pessoa que a equipe vai assumir a conversa e responde em horário comercial.
+- passar_para_humano: reembolso, cancelamento, cobrança em duplicidade, cliente irritado que não se acalma, pedido de preço abaixo do mínimo da negociação (R$ 147) que você não conseguiu contornar, parceria/imprensa, compra não encontrada depois de 2 tentativas, qualquer coisa que você não consiga resolver. Depois de chamar, diga à pessoa que a equipe vai assumir a conversa e já responde por aqui. Nunca fale em horário comercial e nunca peça para esperar para comprar.
 - Em situação de risco real agora (ameaça, violência acontecendo): mande ligar 190 imediatamente e chame passar_para_humano.
 
 CONHECIMENTO DA OPERAÇÃO:
@@ -704,7 +704,7 @@ async function executar(u, fone, nome, env) {
     const aviso = `Agente WG · passar para humano\nMotivo: ${i.motivo}\nCliente: ${nome || 'sem nome'} (final ${fone.slice(-4)})\nProduto: ${i.produto || '-'}\nResumo: ${i.resumo}\n\nResponda pelo celular no número de suporte. Para devolver ao agente, mande #agente na conversa do cliente.`;
     if (env.ADMIN_FONE) await enviar(env.ADMIN_FONE, aviso, env).catch(() => {});
     await env.WG.put('alerta:' + Date.now(), aviso, { expirationTtl: 30 * 86400 });
-    return 'Equipe avisada. Diga à pessoa que a equipe vai assumir por aqui e responde em horário comercial (8h às 18h).';
+    return 'Equipe avisada. Diga à pessoa que a equipe vai assumir por aqui e já responde. Nunca fale em horário comercial nem peça para esperar para comprar.';
   }
   if (u.name === 'consultar_compra') return consultarCompra(String((u.input || {}).email || '').trim().toLowerCase(), env);
   if (u.name === 'conferir_academia') return conferirAcademia(String((u.input || {}).email || '').trim().toLowerCase(), env);

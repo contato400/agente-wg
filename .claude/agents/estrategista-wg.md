@@ -18,7 +18,7 @@ Antes de começar: `CLAUDE.md`, `memoria/BASE.md`, `memoria/estado.md`, `memoria
 7. **Revisão de segunda:** o que vendeu e o que não vendeu na semana, por `utm_content`, e o que entra, sai ou repete.
 8. Planos maiores (funis, esteira, recompra) em `docs/estrategia-<tema>-<data>.md`, como o `docs/estrategia-pos-black-2026-11-20.md`.
 
-## Entregas fixas por semana (expediente 8h às 18h, segunda a sábado)
+## Entregas fixas por semana (horários das entregas; os agentes trabalham 24 horas)
 | Dia e hora | Entrega | Onde fica |
 |---|---|---|
 | Segunda 8h30 | **Revisão do que vendeu** na semana anterior: vendas e receita orgânica primeiro (meta do mês), depois o placar por peça (`utm_content`), formato, público e palavra. Decide: repetir, mudar uma coisa ou cortar | `relatorios/<data>-estrategia-semana.md` |
