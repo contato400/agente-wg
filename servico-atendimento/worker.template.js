@@ -327,6 +327,12 @@ export default {
       return new Response(JSON.stringify({ ok: !!(id && tel) }), { headers: { 'content-type': 'application/json' } });
     }
     if (req.method === 'GET' && url.pathname === '/') return new Response('Agente WG no ar. Modo: ' + (env.MODO || 'teste'));
+    if (url.pathname === '/gasto' && req.method === 'GET') {
+      if (!env.AVISO_TOKEN || req.headers.get('authorization') !== 'Bearer ' + env.AVISO_TOKEN) return new Response('negado', { status: 403 });
+      const dias = Math.min(40, Number(url.searchParams.get('dias') || 7)), out = [];
+      for (let i = 0; i < dias; i++) { const dia = new Date(Date.now() - 3 * 3600000 - i * 86400000).toISOString().slice(0, 10); const v = await env.WG.get('gasto:' + dia); if (v) out.push(Object.assign({ dia }, JSON.parse(v))); }
+      return new Response(JSON.stringify(out), { headers: { 'content-type': 'application/json' } });
+    }
     if (url.pathname === '/voz' && req.method === 'POST') {
       if (!env.AVISO_TOKEN || req.headers.get('authorization') !== 'Bearer ' + env.AVISO_TOKEN) return new Response('negado', { status: 403 });
       const b = await req.json().catch(() => ({}));
@@ -515,6 +521,7 @@ async function resumoAtendimento(env) {
     let texto = `📋 Atendimento das últimas 2 h: ${l.keys.length} conversa(s)` + (humanos ? `, ${humanos} com a equipe (humano)` : '') + '.\n';
     texto += itens.map((a, i) => `${i + 1}. ${a.nome} (final ${a.final}) · ${a.n} msg · ${a.quando}${a.link ? ' · recebeu link' : ''}\n   Pediu: "${a.pergunta}"\n   Agente: "${a.resposta}"`).join('\n');
     texto += '\n\nQuem precisa de gente já chegou na hora como "passar para humano".';
+    try { const gg = JSON.parse((await env.WG.get('gasto:' + new Date(Date.now() - 3 * 3600000).toISOString().slice(0, 10))) || 'null'); if (gg) texto += '\n\n💰 Anthropic hoje (estimativa): US$ ' + gg.usd.toFixed(2) + ' em ' + gg.chamadas + ' chamadas.'; } catch {}
     await env.WG.put('resumo-hist:' + h.toISOString().slice(0, 13), JSON.stringify(itens), { expirationTtl: 7 * 86400 });
     await mandarVictor(env.ADMIN_FONE, texto, env);
   } catch (e) { await passo(env, 'resumo erro ' + String(e).slice(0, 100)); }
@@ -642,7 +649,23 @@ async function chamarClaude(env, corpo) {
     headers: { 'x-api-key': env.ANTHROPIC_API_KEY, 'anthropic-version': '2023-06-01', 'content-type': 'application/json' },
     body: JSON.stringify(corpo)
   });
-  return { ok: r.ok, status: r.status, d: await r.json() };
+  const d = await r.json();
+  try { if (r.ok && d.usage) await anotarGasto(env, d.usage, corpo.model); } catch {}
+  return { ok: r.ok, status: r.status, d };
+}
+
+// 20/11 18h35 (pedido do Victor): acompanha o gasto diário da API da Anthropic. Estimativa pelo uso de cada resposta
+// (preço por milhão de tokens: Sonnet 3/15, cache leitura 0,30, cache escrita 3,75; Haiku 1/5; Opus 5/25). Teto diário em TETO_DIA_USD (padrão 1,5).
+async function anotarGasto(env, u, modelo) {
+  const dia = new Date(Date.now() - 3 * 3600000).toISOString().slice(0, 10), k = 'gasto:' + dia;
+  const g = JSON.parse((await env.WG.get(k)) || '{"chamadas":0,"in":0,"out":0,"cr":0,"cw":0,"usd":0}');
+  const P = /haiku/.test(modelo || '') ? [1, 5, 0.1, 1.25] : /opus/.test(modelo || '') ? [5, 25, 0.5, 6.25] : [3, 15, 0.3, 3.75];
+  const a = u.input_tokens || 0, b = u.output_tokens || 0, c = u.cache_read_input_tokens || 0, w = u.cache_creation_input_tokens || 0;
+  g.chamadas++; g.in += a; g.out += b; g.cr += c; g.cw += w; g.usd += (a * P[0] + b * P[1] + c * P[2] + w * P[3]) / 1e6;
+  const teto = Number(env.TETO_DIA_USD || 1.5);
+  const avisar = g.usd > teto && !g.alertado; if (avisar) g.alertado = 1;
+  await env.WG.put(k, JSON.stringify(g), { expirationTtl: 40 * 86400 });
+  if (avisar && env.ADMIN_FONE) { try { await enviar(env.ADMIN_FONE, '💰 Alerta de gasto: a API da Anthropic já passou de US$ ' + teto.toFixed(2) + ' hoje (estimativa US$ ' + g.usd.toFixed(2) + ' em ' + g.chamadas + ' chamadas).', env); } catch {} }
 }
 
 async function pensar(hist, nome, fone, agente, env, rapido = false) {

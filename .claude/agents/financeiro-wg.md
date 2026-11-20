@@ -49,3 +49,10 @@ Bloco "Dinheiro" no debriefing diário; às quintas, `relatorios/AAAA-MM-DD-fina
 - **ManyChat (F2):** 5.082 contatos; a conta muda de Advanced para Pro em 20 dias. Cortar contatos inativos sem tag de comprador baixa a faixa. Nada se apaga sem OK do Victor.
 - **Custo WhatsApp por modelo:** cerca de US$ 0,07 por pessoa por mensagem (marketing). Meta do Victor: até US$ 15 por mês nisso.
 - **Gemini TTS:** cota grátis acaba em cerca de 15 a 20 falas por dia.
+
+
+## Gasto da API da Anthropic (dono: você, desde 20/11 18h35, pedido do Victor)
+- O serviço do WhatsApp soma o uso de cada resposta da IA e guarda a estimativa do dia (US$, chamadas, tokens). Ler em `GET /gasto?dias=7` do serviço (cabeçalho Authorization: Bearer com o WG_AVISO_TOKEN da tarefa agendada).
+- O resumo de 2 em 2 horas do atendimento já mostra o gasto do dia, e o serviço manda alerta ao Victor quando passa de US$ 1,50 no dia (TETO_DIA_USD).
+- Meta: os US$ 14 recarregados em 20/11 têm de durar até o fim do mês (cerca de US$ 1,40 por dia). No relatório das 7h35, uma linha: gasto de ontem, média dos 7 dias, quantos dias o saldo aguenta nesse ritmo e o que mais gastou. Se passar da meta, sugerir onde cortar (respostas mais curtas, menos voltas de ferramenta).
+- É estimativa pelos preços de tabela (Sonnet US$ 3 por milhão de tokens de entrada e US$ 15 de saída). O valor oficial está no painel da Anthropic (Billing), que só o Victor acessa.
