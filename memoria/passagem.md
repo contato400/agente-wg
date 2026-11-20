@@ -353,3 +353,7 @@ Modelo:
 - Banner 85172 "Black Reabriu 20/11" criado na Academia como RASCUNHO: clique abre página externa em nova aba (Black com utm_medium=academia-banner, utm_content=banner-reabriu, utm_term=ag-ofertas), degradê inferior desligado. Publicar às 19h (lembrete agendado 18h55).
 - E-mail "É HOJE": 13.472 de 23.144 às 13h57, 0 erros (parte 0 mais lenta).
 - Pendente: publicar banner 19h, e-mail ABRIU 19h05, restaurar modelo e remetente depois de cada disparo.
+
+### 20/11 14h25 · E-mail "É HOJE" concluído + alerta "sem cérebro" com conversas em aberto
+- E-mail "É HOJE": 23.144 de 23.144, 0 erros (a aba 1 travou; às 14h04 o resto dela foi dividido entre as abas 2 e 3, lista `kmc_d20r_all`, runner `kmc_d20r_runner`). Modelo "Boas-vindas de compra" voltou ao padrão (aviso "Atualizado") e remetente voltou a "Wesley Gimenez" (conferido após recarregar).
+- Pedido do Victor: o alerta "Agente do WhatsApp sem cérebro" agora diz o porquê (crédito, sobrecarga, limite ou erro) e lista as conversas de cliente em aberto: primeiro nome, final do número, hora, o que a pessoa mandou e se o plano B respondeu ou só o "já já". Cada conversa fica 24h em KV `aberta:<fone>` e sai quando a IA principal volta a responder a pessoa. Alerta continua no máximo 1 a cada 30 min. Deploy no worker 14h22 (PUT 200, /saude ok). Código em `servico-atendimento/worker.template.js`.

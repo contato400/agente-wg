@@ -53,3 +53,4 @@ Como fazer as pesquisas: perguntas em `docs/curso-corredor-polones-vendas-notas.
 - Roteiro de 20 testes em `servico-atendimento/roteiro-de-teste.md`, rodar quando o crédito voltar.
 - O agente vai receber do sucesso-aluno-wg a lista semanal de alunos para contato (parabéns, recuperação, primeiro acesso). Ver `docs/agente-cs-desenho.md`.
 - Mensagens que a equipe manda pelo WhatsApp Web do suporte: abrir `web.whatsapp.com/send?phone=<número>&text=<texto>`, conferir o texto na caixa e só então enviar.
+- (20/11 tarde) Alerta de IA fora do ar lista as conversas em aberto (`aberta:<fone>` no KV, 24h). Quando o Victor perguntar "quem ficou sem resposta?", ler essas chaves pela rota de diagnóstico e responder com primeiro nome + final do número.

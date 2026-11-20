@@ -624,7 +624,8 @@ async function pensar(hist, nome, fone, agente, env, rapido = false) {
       model: rapido ? (env.MODELO_VOZ || env.MODELO_AGENTES || 'claude-sonnet-5-5') : agente === 'chefe-wg' ? (env.MODELO_CHEFE || 'claude-sonnet-5-5') : (agente ? (env.MODELO_AGENTES || 'claude-sonnet-5-5') : (env.MODELO || 'claude-sonnet-5-5')),
       max_tokens: rapido ? 900 : agente ? 4000 : 1500, system: sistema, tools: agente ? FERRAMENTAS_EQUIPE : FERRAMENTAS, messages: msgs,
     });
-    if (!ok) { console.log('anthropic', JSON.stringify(d)); await passo(env, 'anthropic erro ' + status + ' ' + JSON.stringify(d.error || d).slice(0, 150)); await alertaFalhaIA(env, status, d); const res = agente ? null : await iaReserva(env, msgs); return res || ['Shalom! Recebi sua mensagem e já já te respondo. Tamo junto, Caveira!']; }
+    if (!ok) { console.log('anthropic', JSON.stringify(d)); await passo(env, 'anthropic erro ' + status + ' ' + JSON.stringify(d.error || d).slice(0, 150)); const res = agente ? null : await iaReserva(env, msgs); await alertaFalhaIA(env, status, d, agente ? null : { fone, nome, hist, planoB: !!res }); return res || ['Shalom! Recebi sua mensagem e já já te respondo. Tamo junto, Caveira!']; }
+    if (!agente && volta === 0) { try { await env.WG.delete('aberta:' + fone); } catch {} }
     const usos = (d.content || []).filter(c => c.type === 'tool_use');
     const textos = (d.content || []).filter(c => c.type === 'text').map(c => c.text.trim()).filter(Boolean);
     if (!usos.length) { if (d.stop_reason === 'max_tokens') await passo(env, 'resposta cortada no limite'); return agente ? dividirLongo(textos.join('\n\n')) : dividir(textos.join('\n\n')); }
@@ -1033,13 +1034,27 @@ async function iaReserva(env, msgs) {
   } catch (e) { await passo(env, 'reserva erro ' + String(e).slice(0, 120)); return null; }
 }
 
-async function alertaFalhaIA(env, status, d) {
+async function alertaFalhaIA(env, status, d, conversa) {
   try {
+    const msg = String((d && d.error && d.error.message) || '');
+    const motivo = /credit balance/i.test(msg) ? 'acabou o crédito da API da Anthropic (console.anthropic.com > Plans & Billing)' : /overloaded/i.test(msg) || status === 529 ? 'a Anthropic está sobrecarregada (erro ' + status + '), costuma voltar sozinha em minutos' : status === 429 ? 'passou do limite de uso da API (erro 429)' : 'a API da Anthropic respondeu erro ' + status + (msg ? ' (' + msg.slice(0, 80) + ')' : '');
+    // 20/11 (pedido do Victor): guarda cada conversa de cliente que ficou sem a IA principal, para o alerta dizer quem está em aberto.
+    if (conversa && conversa.fone) {
+      const ult = [...(conversa.hist || [])].reverse().find(h => h.role === 'user');
+      const txt = ult ? (typeof ult.content === 'string' ? ult.content : JSON.stringify(ult.content)) : '';
+      await env.WG.put('aberta:' + conversa.fone, JSON.stringify({ nome: conversa.nome || 'sem nome', final: String(conversa.fone).slice(-4), quando: agora(), pergunta: txt.replace(/\s+/g, ' ').slice(0, 110), resposta: conversa.planoB ? 'plano B respondeu (resposta simples, confira)' : 'ninguém respondeu, só o "já já te respondo"' }), { expirationTtl: 86400 });
+    }
     if (!env.ADMIN_FONE || (await env.WG.get('alerta:ia'))) return;
     await env.WG.put('alerta:ia', '1', { expirationTtl: 1800 });
-    const msg = String((d && d.error && d.error.message) || '');
-    const motivo = /credit balance/i.test(msg) ? 'acabou o crédito da API da Anthropic (console.anthropic.com > Plans & Billing)' : 'a API da Anthropic respondeu erro ' + status;
-    await mandarVictor(env.ADMIN_FONE, '⚠️ Agente do WhatsApp sem cérebro agora: ' + motivo + '. O plano B grátis (IA do Cloudflare) está respondendo no lugar, com respostas mais simples. Recarregue quando puder.', env);
+    const l = await env.WG.list({ prefix: 'aberta:' });
+    const abertas = [];
+    for (const k of l.keys.slice(0, 15)) { try { abertas.push(JSON.parse(await env.WG.get(k.name))); } catch {} }
+    let texto = '⚠️ Agente do WhatsApp sem cérebro agora.\nPor quê: ' + motivo + '.\nO plano B grátis (IA do Cloudflare) responde no lugar, mais simples.';
+    if (abertas.length) {
+      texto += '\n\nConversas em aberto (' + l.keys.length + '):\n' + abertas.map((a, n) => `${n + 1}. ${a.nome} (final ${a.final}) · ${a.quando}\n   Mandou: "${a.pergunta}"\n   Situação: ${a.resposta}`).join('\n');
+      texto += '\n\nResponda pelo celular no (31) 99329-4274 procurando pelo final do número. A conversa sai da lista quando a IA principal voltar a responder a pessoa.';
+    } else texto += '\n\nNenhuma conversa de cliente em aberto agora (o erro veio de uma mensagem sua ou de teste).';
+    await mandarVictor(env.ADMIN_FONE, texto, env);
   } catch {}
 }
 
