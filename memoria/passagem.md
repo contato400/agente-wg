@@ -368,3 +368,11 @@ Modelo:
 - 14h45: boleto concluído em 195 ofertas avulsas (todas as ativas da Greenn menos 22 assinaturas, Closer Diamond e 45 ofertas do Kit DPC, produto físico que não é oferecido). Victor confirmou deixar assinaturas e Closer Diamond de fora.
 - Arte das 17h30 (DevZapp) pedida ao ChatGPT com "Pix ou boleto à vista" e a condição facilitada. A arte das 19h não tem formas de pagamento (não precisa mudar).
 - 14h48: arte nova da régua 17h30 (ChatGPT, com "Pix ou boleto à vista" e condição facilitada) trocada no DevZapp "sex 17h30" (lixeira no anexo antigo, upload, Salvar). Conferido pela API: 1 arquivo novo, legenda com boleto, @todos mantido.
+
+### 20/11 17h · Plano pós-Black (estrategista-wg, pedido do Victor 14h57)
+- Pedido: plano pós-Black com 10 funis orgânicos, 10 de low ticket, ranking, plano de 30 dias e recompra.
+- Feito: `docs/estrategia-pos-black-2026-11-20.md` e ficha nova `.claude/agents/estrategista-wg.md`. Leitura: CLAUDE.md, BASE, estado, decisões, aprendizados, backlog, skills de produto/Black/front/lançamento/Instagram/ManyChat, notas dos cursos em docs/ (cópia do kairos/) e 8 transcrições do YouTube (títulos e canais no fim do plano).
+- Top 5: O6 régua de e-mail pós-compra, L1 e-book Vida Segura com bump e upsell, O1 Alerta de Segurança com palavra ALERTA, O7 vitrine na Academia, L9 Combo 6 livros para não compradores.
+- Decisões pendentes do Victor: 8, numeradas no fim do plano (cupom CAVEIRA30 como condição de aluno, produtos novos e preços, gravações do Wesley, código da régua no Apps Script, acesso ao YouTube, dia do Aluno, tráfego dos fronts).
+- Verificado: preços só da base de produtos; produtos novos marcados "novo, precisa criar"; potenciais marcados como estimativa. Nada externo feito.
+- Dúvida: o Projeto do claude.ai não estava acessível nesta sessão (sem ferramenta de Projects); usei as cópias locais em docs/.
