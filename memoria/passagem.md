@@ -304,3 +304,9 @@ Modelo:
 - Pendente Victor: comprar crédito e ligar recarga automática em console.anthropic.com.
 - Código: alertaFalhaIA no worker.template.js (commit 5d1f0d3), worker.js remontado. **Falta publicar no Cloudflare.**
 - Contador /grupo: script de redirecionamento tinha sumido; restaurado e testado (cai no chat.whatsapp.com em ~3,5 s).
+
+## 19/11 21h55 · artes na régua + respostas manuais
+- Feito: 19 artes do ChatGPT (Victor baixou e arrastou) anexadas no DevZapp com "Anexo com legenda": sex 19h abertura (trocada a imagem velha "pode sair do ar a qualquer momento"), sex 19h05/21h30/22h30, sáb 9/12/15/19/21h, dom 9/12/16/20h, seg 9/12/15/17/18/19h. Sem imagem (só texto): sex 18h50, 18h55, 23h, 23h30, seg 18h30/18h45/18h50/18h55, ter 12h. Agendamentos seguem 41 "Programado".
+- Respondidos na mão (WhatsApp Web do suporte, Chrome Victor Augusto): leads …5413, …1545, …6195. Até o crédito voltar, o atendimento é manual.
+- Chefe em Sonnet e alerta de falha da IA publicados no Cloudflare (API content, só o trecho mudado).
+- Pendente: Victor carregar US$ 15 + limite US$ 15/mês; B54 voz Gemini; B55 plano B grátis do agente.
