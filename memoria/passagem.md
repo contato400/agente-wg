@@ -310,3 +310,8 @@ Modelo:
 - Respondidos na mão (WhatsApp Web do suporte, Chrome Victor Augusto): leads …5413, …1545, …6195. Até o crédito voltar, o atendimento é manual.
 - Chefe em Sonnet e alerta de falha da IA publicados no Cloudflare (API content, só o trecho mudado).
 - Pendente: Victor carregar US$ 15 + limite US$ 15/mês; B54 voz Gemini; B55 plano B grátis do agente.
+
+## 19/11 22h05 · plano B grátis, auditoria e teste de voz
+- Plano B grátis no ar: se a Anthropic falhar, o cliente é respondido pelo Workers AI (llama-3.3-70b, cota grátis). Testado o modelo pela API do Cloudflare (respondeu em português). O formato da resposta é chat.completion (choices[0].message.content). Ainda sem teste com cliente real: conferir em diag:passos a linha "reserva workers-ai ok".
+- Auditoria: 67 itens travados, 28 de alta prioridade (memoria/auditoria-travados-2026-11-19.md; cópia no Projeto kairos/auditoria-travados-19-nov.md).
+- Voz: Gemini 3.8 Flash TTS (voz Koda) gerada no AI Studio da conta Luis corinthiano; comparativo com a Piper enviado ao Victor. Falta ele escolher.
