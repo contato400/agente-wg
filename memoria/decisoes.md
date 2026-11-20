@@ -107,5 +107,5 @@
 - 2026-11-20 · Victor · G3: substituto do DevZapp em dezembro é a Comunidade do WhatsApp (passo a passo em docs/comunidade-whatsapp-dezembro.md).
 - 2026-11-20 · Victor · F6 chargeback VIP: fazer os dois caminhos (contestar na Greenn e oferecer call online com o Wesley; Wesley topa). Mandar mensagem ao cliente no WhatsApp (texto com OK do Victor).
 - 2026-11-20 · Victor · Recompra quase zero: montar régua pós-compra (ManyChat/WhatsApp e e-mail) por semanas e meses, oferecendo o próximo curso.
-- 2026-11-20 12h · Victor · F6 chargeback VIP: EM ESPERA. Victor vai ver com o Samuel se ganha comissão na recuperação; sem isso, deixa o cliente seguir com o reembolso. Não mandar mensagem até ele liberar.
+- 2026-11-20 12h13 · Victor · F6 chargeback VIP: Samuel liberou comissão; mensagem enviada ao cliente 12h15. Contestar na Greenn também.
 - 2026-11-20 12h · Victor · Régua pós-compra: só e-mail (grátis), montada na Cademi e no Hotmart Send. WhatsApp pago fica fora.
