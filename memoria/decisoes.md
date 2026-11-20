@@ -109,3 +109,5 @@
 - 2026-11-20 · Victor · Recompra quase zero: montar régua pós-compra (ManyChat/WhatsApp e e-mail) por semanas e meses, oferecendo o próximo curso.
 - 2026-11-20 12h13 · Victor · F6 chargeback VIP: Samuel liberou comissão; mensagem enviada ao cliente 12h15. Contestar na Greenn também.
 - 2026-11-20 12h · Victor · Régua pós-compra: só e-mail (grátis), montada na Cademi e no Hotmart Send. WhatsApp pago fica fora.
+- 2026-11-20 12h27 · Victor · "Meu bora sempre vai ser ok": "bora" do Victor vale como aprovação do que foi proposto na mensagem anterior.
+- 2026-11-20 12h27 · Victor · E-mail pós-compra pelo Gmail/Apps Script (grátis). Victor já postou a mensagem da reabertura na Comunidade de Alunos (agente não posta às 19h05).
