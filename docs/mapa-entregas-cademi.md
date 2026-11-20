@@ -35,3 +35,6 @@ Lido em 18/11 23h na Cademi (Vendas, Entregas). 114 entregas ativas: Greenn, Hot
 | 182127 E-book Vida Segura | ~45 | não precisa | Entregue como arquivo pela Greenn (tipo arquivo). Detalhe: a "página de vendas" cadastrada no produto é o Instagram, não /ebook-vs |
 
 Resultado: nenhum produto vendido em novembro ficou sem entrega depois da correção do 204640. Hotmart não conferida (sem acesso de leitura).
+
+## Hotmart conferida (20/11, 13h)
+Vendas aprovadas na Hotmart nos últimos 180 dias (API): DPC 2.0 (785686), Comunidade Caveira (1874635), Black 1 ano (8987797), Black vitalício (8987834). Todos têm entrega na Cademi (Hotmart · 785686 com 1.104 acessos, 1874635, 8987797, 8987834; também 8987827 Black 2 anos). 36 códigos Hotmart com entrega no total. Nenhum produto Hotmart vendido ficou sem entrega.
