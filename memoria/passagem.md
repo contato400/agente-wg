@@ -329,3 +329,7 @@ Modelo:
 - Monitor: 4 páginas OK às 09h31.
 - Netlify: link do FAQ da /black-caveira-2026 agora reescrito para a Atomicat (script sem-netlify, publicado).
 - Hotmart: garantia de 7 dias nos 3 produtos da Black (1 ano, 2 anos, vitalício). Item O5 fechado.
+
+## 20/11 10h · stories da reabertura + chave Gemini
+- 5 stories agendados no Metricool (10h30 "Hoje às 19h", 18h "Falta 1 hora", 18h50 "10 min", 19h "Abriu agora", 21h30 "6 livros até 23h59"), todos com "Responda CAVEIRA aqui" (funil de resposta a story do ManyChat). Artes em /mnt/user-data/outputs/stories-2011. Hospedagem temporária das imagens pelo Higgsfield (o Metricool copia para o servidor dele).
+- Chave da API do Gemini criada no AI Studio (conta Luis, projeto agente-wg, nome agente-wg-voz). Copiar o valor para o Cloudflare foi bloqueado pela proteção (agente não pode ler chave): o Victor cola em Workers > agente-wg > Configurações > Variáveis > secret GEMINI_KEY. Depois: endpoint /voz no serviço para a rotina pedir a narração.
