@@ -197,6 +197,7 @@ ${await memoriaEquipe(env)}`;
 }
 
 export default {
+  async scheduled(ev, env, ctx) { ctx.waitUntil(monitorQueda(env)); },
   async fetch(req, env, ctx) {
     env = kvSeguro(env);
     const url = new URL(req.url);
@@ -946,6 +947,34 @@ async function enviarYC(para, texto, env) {
 // Agora avisa o Victor no WhatsApp na primeira falha e no máximo 1 vez a cada 30 min.
 // Plano B grátis (19/11, OK do Victor): se a API da Anthropic falhar (crédito, fora do ar), o cliente é respondido
 // pela IA do próprio Cloudflare (Workers AI, cota grátis diária). Sem ferramentas: responde, orienta e manda link da base.
+// Monitor de queda (19/11, OK do Victor): a cada 15 min testa as páginas que vendem e avisa no WhatsApp do Victor (1 aviso por hora por página).
+const MONITOR = [
+  { nome: 'Link do grupo (/grupo)', url: 'https://www.wesleygimenez.com.br/grupo?utm_source=monitor', tem: 'id="ir"' },
+  { nome: 'Página da Black', url: 'https://www.wesleygimenez.com.br/black-caveira-2026?utm_source=monitor', tem: 'checkout' },
+  { nome: 'Página da Black (tráfego)', url: 'https://www.wesleygimenez.com.br/black-caveira-2026-oferta?utm_source=monitor', tem: 'checkout' },
+  { nome: 'Grupo no DevZapp', url: 'https://devzapp.com.br/r/s9mRreup', semSeguir: true },
+];
+async function monitorQueda(env) {
+  const falhas = [];
+  for (const m of MONITOR) {
+    let ok = false, info = '';
+    try {
+      const r = await fetch(m.url, { redirect: m.semSeguir ? 'manual' : 'follow', headers: { 'user-agent': 'monitor-wg' }, cf: { cacheTtl: 0 } });
+      info = 'status ' + r.status;
+      if (m.semSeguir) ok = r.status < 400;
+      else { const t = r.ok ? await r.text() : ''; ok = r.ok && (!m.tem || t.toLowerCase().includes(m.tem.toLowerCase())); if (r.ok && !ok) info += ', sem "' + m.tem + '"'; }
+    } catch (e) { info = 'erro ' + String(e).slice(0, 80); }
+    if (!ok) falhas.push(m.nome + ' (' + info + ')');
+    await env.WG.put('monitor:' + m.nome, JSON.stringify({ ok, info, quando: new Date().toISOString() }), { expirationTtl: 7 * 86400 });
+  }
+  if (!falhas.length || !env.ADMIN_FONE) return;
+  const chave = 'monitor:aviso:' + falhas.join('|').slice(0, 200);
+  if (await env.WG.get(chave)) return;
+  await env.WG.put(chave, '1', { expirationTtl: 3600 });
+  await passo(env, 'monitor falha ' + falhas.join('; ').slice(0, 150));
+  try { await mandarVictor(env.ADMIN_FONE, '🚨 Monitor: fora do ar ou com problema agora: ' + falhas.join('; ') + '. Confira antes de mandar mais gente para lá.', env); } catch {}
+}
+
 async function iaReserva(env, msgs) {
   try {
     if (!env.AI) return null;
