@@ -192,3 +192,9 @@ Menções honrosas (grátis, média prioridade): DNS sem www (O4), subir narraç
 - CORREÇÃO O2: o preço 297 da página de tráfego é de propósito (Diogo). Só o resíduo de contagem de 16/11 ainda deve ser conferido.
 - Netlify (vence 25/11), varredura de 107 páginas no ar: só 2 marcas. (1) FAQ da /black-caveira-2026 manda para wesleygimenez.netlify.app/catalogo (trocar por www.wesleygimenez.com.br/catalogo, que já responde 200). (2) /pos-venda/obrigado tem form com atributo data-netlify, mas grava no Google Forms: funciona sem a Netlify.
 - Falta conferir: garantia da Hotmart (precisa do Chrome logado na Hotmart).
+
+## Placar em 20/11 10h25
+- Resolvidos (8): A2 plano B grátis, G2 contador /grupo + monitor, G4 stories da reabertura, V1 voz Gemini, O1 link da Netlify, O5 garantia Hotmart (já era 7), I3 monitor de queda, I7 Downloads (contornado: Victor arrasta para a conversa).
+- Em parte (2): A1 agente 24h (plano B no ar, crédito Anthropic pendente), O2 página de tráfego (297 é de propósito; falta conferir a contagem de 16/11).
+- Fora da lista por decisão do Victor: F3 cobrança da Comunidade (não mexer).
+- Hoje 18h50: G1 virar os funis do ManyChat.
