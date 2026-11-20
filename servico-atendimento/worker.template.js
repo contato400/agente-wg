@@ -595,7 +595,7 @@ async function pensar(hist, nome, fone, agente, env, rapido = false) {
   for (let volta = 0; volta < 4; volta++) {
     const { ok, status, d } = await chamarClaude(env, {
       // rapido (voz pelo Jarvis): todos em Sonnet e resposta curta, para responder em segundos
-      model: rapido ? (env.MODELO_VOZ || env.MODELO_AGENTES || 'claude-sonnet-5-5') : agente === 'chefe-wg' ? (env.MODELO_CHEFE || 'claude-opus-5-5') : (agente ? (env.MODELO_AGENTES || 'claude-sonnet-5-5') : (env.MODELO || 'claude-sonnet-5-5')),
+      model: rapido ? (env.MODELO_VOZ || env.MODELO_AGENTES || 'claude-sonnet-5-5') : agente === 'chefe-wg' ? (env.MODELO_CHEFE || 'claude-sonnet-5-5') : (agente ? (env.MODELO_AGENTES || 'claude-sonnet-5-5') : (env.MODELO || 'claude-sonnet-5-5')),
       max_tokens: rapido ? 900 : agente ? 4000 : 1500, system: sistema, tools: agente ? FERRAMENTAS_EQUIPE : FERRAMENTAS, messages: msgs,
     });
     if (!ok) { console.log('anthropic', JSON.stringify(d)); await passo(env, 'anthropic erro ' + status + ' ' + JSON.stringify(d.error || d).slice(0, 150)); await alertaFalhaIA(env, status, d); return ['Shalom! Recebi sua mensagem e já já te respondo. Tamo junto, Caveira!']; }
