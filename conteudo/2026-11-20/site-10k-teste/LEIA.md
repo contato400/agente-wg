@@ -11,3 +11,10 @@
 - `pagina-nova-atomicat.html` é o arquivo publicado (imagens e vídeo no CDN da Atomicat, pasta mcp/B5Cp). `index.html` é a versão com assets locais.
 - Botão "Já sou aluno" leva para a conferência de e-mail da página ativa (#bk2aluno); a nova não tem a conferência própria.
 - Conferido no ar: vídeo carrega e avança com a rolagem, 43 imagens sem quebra, sem rolagem lateral (1440 e iPhone), links Greenn 7T52i6, Hotmart H108520217H, aluno e WhatsApp com UTM utm_content=pagina-nova&utm_term=ag-ofertas.
+
+## v3 (20/11 18h) virou a página oficial /black-caveira-2026
+- Pedido do Victor às 17h36: página mais curta, foco 100% em conversão (oferta irresistível), roda das trilhas igual à antiga, botão Hotmart "sem travar o limite" com valor (6x R$ 78,19; aluno 6x R$ 68,34, conferido no checkout da Hotmart pelo Chrome do Victor), conferência do aluno dentro da página, mesmos checkouts e scripts da página antiga.
+- Estrategista cortou: "E se acontecer com você" (virou 1 linha), 3 passos (foi para a escolha de condição), comunidade + bio + depoimentos juntos (5 depoimentos), FAQ de 11 para 6.
+- Checkout Greenn: oferta 7T52i6 + ch_id 145095 + 3 order bumps (202271/8DFikc, 202274/7huZXa, 201669/FytpCL); aluno xv5IgL + ch_id 145096. Ponte do aluno igual à antiga. Pixel 4783151578430964 + GA G-XKTNRP8TCK + repasse de UTM.
+- Troca de endereço: a página antiga (builder zjl1fP3547URqxzmawHQ) foi para /black-caveira-2026-antiga; a nova (HTML gQAyC1U1qPlHC3U78mNU) está em /black-caveira-2026. Assim nenhum link de ManyChat, grupo, e-mail ou atendimento precisou mudar. Para voltar: publicar a antiga em /black-caveira-2026 de novo.
+- Cuidado na Atomicat: write_page_file apaga trechos "on<letras>=" (textContent=, onclick=, onload=, content= de meta). O app.js evita esses padrões; o index foi corrigido com edit_page_file.
