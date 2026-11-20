@@ -32,6 +32,50 @@ Objetivo: responder rápido e certo gastando poucas leituras. Primeiro o Notion 
 | 09 | Diário da operação | `41e2dbf7-e5ca-8112-aa55-f71f3f5ea71e` | "o que foi feito dia X", linha do tempo | `memoria/passagem.md`, `memoria/BASE.md` (registro diário) | não tem |
 | 10 | Auditoria completa 20/11 | `41e2dbf7-e5ca-8121-90c7-ff23e4dae624` | 67 itens (A, G, S, V, T, O, F, SA, AU, I, D), status, quem faz | `docs/auditoria-completa-2026-11-20.md`, `memoria/auditoria-travados-2026-11-19.md`, `memoria/backlog.md` | doc vivo: https://claude.ai/artifact/Pw6f311y5HSm4jwqq8gye9 |
 
+## Subpáginas (criadas em 20/11, pedido do Victor 16h13)
+Buscar direto pelo ID da subpágina quando o assunto for exato (notion-fetch com o ID).
+
+### 01 Vendas, ofertas e páginas
+- Base de produtos `41e2dbf7-e5ca-8193-a057-d498f67c3dcf`
+- Greenn (conta, regras, MCP só leitura, boleto, Closer.AI, cupons, webhooks) `41e2dbf7-e5ca-8170-9a35-e39e04eda5c0`
+- Hotmart (API, parcelado sem limite, webhook, Send, afiliados) `41e2dbf7-e5ca-817c-9a6f-d7b25c2efe5b`
+- Black Caveira 2026 e reabertura `41e2dbf7-e5ca-81a2-902e-d159b57a9626`
+
+### 03 Social, conteúdo, grupos e ManyChat
+- Plano pós-Black (estrategista) `41e2dbf7-e5ca-8197-8265-c0f8a961bfc8`
+- Régua dos grupos (DevZapp, Comunidade) `41e2dbf7-e5ca-810c-89a5-f7f60a33f879`
+- ManyChat (funis, automações, tags) `41e2dbf7-e5ca-81b9-af7e-fb286c2523a7`
+
+### 04 Academia e alunos
+- Disparos para alunos (histórico e método) `41e2dbf7-e5ca-8138-9f3f-d1b4c7865e7f`
+- Pesquisas e depoimentos `41e2dbf7-e5ca-8169-8825-cc8e505b167f`
+- Guia de 12 semanas `41e2dbf7-e5ca-8131-ae1e-fc5d0d48c81a`
+
+### 07 Tecnologia, acessos e automações
+- Agentes `41e2dbf7-e5ca-81bc-beb5-fa6f676721d7`: chefe `41e2dbf7-e5ca-811d-94c9-fff40b8eb53b`, analista `41e2dbf7-e5ca-81df-b2cf-c48544feabca`, atendimento `41e2dbf7-e5ca-81ec-8701-e06970c3a018`, auditor `41e2dbf7-e5ca-8198-abe9-f0e236c2f6fe`, editor-video `41e2dbf7-e5ca-81fa-bbcf-d8dd45cc0478`, estrategista `41e2dbf7-e5ca-81a3-afb4-d5c5bc1b0821`, financeiro `41e2dbf7-e5ca-8196-9f6d-fd43e1ed8b49`, juridico `41e2dbf7-e5ca-818a-8ae7-f05cebc69953`, ofertas-paginas `41e2dbf7-e5ca-8194-b0b0-db175d576182`, social-media `41e2dbf7-e5ca-8135-a7ca-f7945b975326`, sucesso-aluno `41e2dbf7-e5ca-81ac-8e9d-cdf4d83fb25a`, trafego `41e2dbf7-e5ca-8145-a1b1-d0ebb3455625`
+- Como os agentes trabalham juntos (rotina 7h35, executor, fila, conversas) `41e2dbf7-e5ca-813f-b562-cc7966cf9b9e`
+- Skills (tabela + uma subpágina por skill) `41e2dbf7-e5ca-81c1-ab04-f5a737b669b8`
+- Rotinas e scripts `41e2dbf7-e5ca-8193-9cf3-df75f313f6a8`
+- Serviço do WhatsApp (worker) `41e2dbf7-e5ca-813d-abc3-f34bc3654e09`
+
+### 08 Decisões, regras e aprendizados
+- Decisões (completo) `41e2dbf7-e5ca-812d-b9a4-ccd9f87e65e3`
+- Aprendizados (completo) `41e2dbf7-e5ca-8188-b179-c4a0dc14b683`
+- Voz do cliente `41e2dbf7-e5ca-8129-858c-f4fba0c3d5ea`
+
+### 09 Diário da operação
+- 17/11 `41e2dbf7-e5ca-812b-81b2-db1ef236af33` · 18/11 `41e2dbf7-e5ca-8118-bc1e-d0f54de009ff` · 19/11 `41e2dbf7-e5ca-8159-bc7b-cddae1b4c270` · 20/11 `41e2dbf7-e5ca-8153-9957-d87da13e5711`
+- Pedidos do Victor (data e status) `41e2dbf7-e5ca-8105-a7c2-f16fb887fc62`
+- Dia novo: criar subpágina "DD/MM (dia)" dentro do setor 09.
+
+### 10 Auditoria
+- Backlog (B01 a B61) `41e2dbf7-e5ca-8127-94d5-f37712f82236`
+- Auditoria dos 67 itens de 19/11 `41e2dbf7-e5ca-817e-a49f-fe498b2d0f96`
+
+### Raiz
+- Drive · ARQUIVOS WG (24 pastas de topo, listagem parcial; pasta do Drive 1ueCPBFd73y-9tQYeqFBx2NdLmA2iVJDb) `41e2dbf7-e5ca-81fe-85e0-c4be0ca24c33`
+- Documentos do Projeto (kairos) `41e2dbf7-e5ca-818e-9e29-ca641a39d022`
+
 ## Atalhos por pergunta
 - "Quanto vendeu / como está a meta?" → 01 no Notion para o contexto; número do dia pela ponte (aba Painel e Vendas). Nunca estimar sem marcar.
 - "O que o cliente perguntou / o atendente está bem?" → 02; ao vivo em KV `diag:passos` e `resumo-hist:`.
@@ -40,6 +84,8 @@ Objetivo: responder rápido e certo gastando poucas leituras. Primeiro o Notion 
 - "Já fizemos X? / está pendente?" → 09 e 10 no Notion; depois `memoria/backlog.md`.
 - "Por que decidimos X?" → 08.
 - "Onde está o acesso de X?" → 07 (nunca mostrar a chave).
+- "Tem vídeo, foto ou copy antiga do Wesley?" → Drive · ARQUIVOS WG (raiz).
+- "Como o agente X trabalha?" → 07 Agentes, subpágina do agente.
 - Item da auditoria pelo código (ex.: A7, S6) → 10; status mais novo no doc vivo.
 
 ## Manter o mapa vivo
