@@ -119,3 +119,10 @@ O Victor tem o **Google AI Pro** assinado (até 2027). Não há conector do Gemi
 - Não mandar "estilo" no pedido de voz: o Gemini às vezes lê a instrução em voz alta no começo do áudio. Mandar só o texto.
 - A cota grátis acaba depois de 10 a 15 falas no dia (erro 429). Gerar só o que vai ser usado e guardar os arquivos.
 - Conferir cada áudio com faster-whisper antes de publicar (procurar frase que não é do roteiro no começo).
+
+
+## Imagens: sempre pelo ChatGPT (regra fixa do Victor, 20/11)
+- Toda imagem (banner, story, arte, capa, criativo) é pedida ao ChatGPT na conversa 'Victor. A' (Chrome do Victor Augusto). O pedido leva: tamanho exato em px de onde vai ser usada (ex.: Academia 1920x1080 desktop e 600x1050 celular, JPG até 800 KB; story 1080x1920), textos exatos entre aspas, margem de segurança e o estilo das artes da campanha.
+- Antes de pedir, conferir o tamanho certo no lugar onde a imagem vai (abrir a tela da plataforma).
+- O ChatGPT não deixa o arquivo sair direto: o Victor arrasta para o chat; daí o agente sobe na plataforma.
+- Conferir o texto da arte (preço, datas, condições) contra a página antes de usar.

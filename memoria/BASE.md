@@ -52,6 +52,11 @@ Registro detalhado de cada sessão: `memoria/passagem.md`. Decisões com data: `
 - Agente: SA4 (respostas e autorizações; liberar o livro digital a quem mandar), O6, A6/A7/A9, V3, S1, S6 diário, O7/O8, O11 com o Victor, B56 agente CS (base desde 01/08).
 - Segunda 23/11: pesquisas A8 e S4.
 
+## 5b. Regras fixas que o Victor deu
+- Toda imagem é feita pelo ChatGPT (20/11). Ver skill edicao-video-arte-wg.
+- Ler esta BASE antes de qualquer tarefa e atualizar depois (20/11).
+- "Bora" do Victor = aprovado (20/11).
+
 ## 6. Onde está cada coisa
 - Propostas para aprovar: `aprovacao/propostas/`.
 - Fichas dos agentes (o que cada um sabe fazer): `.claude/agents/`.
