@@ -298,3 +298,9 @@ Modelo:
 - Decisões: sáb 12h sem número de vagas (só número real); links com utm_term=ag-ofertas.
 - Pendente: as 19 artes do ChatGPT (Victor Augusto, "Victor. A") estão sendo geradas; falta levar ao DevZapp (precisa da pasta Downloads conectada ou outro caminho aprovado) e trocar a imagem da sex 19h abertura ("Pode sair do ar a qualquer momento"). ManyChat vira para a Black sexta 18h50.
 - Treino: skill wg-regua-grupos (método DevZapp + script), ficha ofertas-paginas-wg.
+
+## 19/11 21h20 · agente do WhatsApp mudo + contador do grupo
+- Causa: "Your credit balance is too low" na API da Anthropic desde 15h09 (lido em KV agente-wg, chave diag:passos). Afetados: leads ...6195 (catálogo, 15h09), ...5413 (checkout DPC, 21h03), ...1545 (catálogo, 21h09). Mandei ao Victor respostas prontas para os 3.
+- Pendente Victor: comprar crédito e ligar recarga automática em console.anthropic.com.
+- Código: alertaFalhaIA no worker.template.js (commit 5d1f0d3), worker.js remontado. **Falta publicar no Cloudflare.**
+- Contador /grupo: script de redirecionamento tinha sumido; restaurado e testado (cai no chat.whatsapp.com em ~3,5 s).
