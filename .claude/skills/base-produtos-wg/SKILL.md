@@ -46,6 +46,18 @@ Fonte: inventário da Greenn (74 produtos) e páginas publicadas na Atomicat, li
 | Primeiros Socorros Kids / Preparação Física Kids | Pais | sem página própria | 59649 / 59651 | R$ 97 / R$ 97 |
 | Guia de Treino: Trilha de 12 Semanas | Quem já comprou e quer rotina | /guia/trilha-12-semanas | 201669 | R$ 97 |
 
+
+## Preço que está nas páginas (lido em 20/11, 11h50, abrindo cada página)
+Todas as páginas de curso abaixo mostram **R$ 197 à vista ou 12x** (Greenn 12x de R$ 20,25; Hotmart 12x de R$ 19,78). Esse é o preço para citar. A coluna "Oferta padrão Greenn" da tabela acima é só cadastro.
+| Página | Checkout |
+|---|---|
+| /dpc, /protocolo-vida-segura, /contra-ataque-feminino, /jiu-jitsu-x-krav-maga-rua, /armlock, /defesa-de-socos-completo, /socos-iniciantes, /preparacao-fisica-caveira, /primeiros-socorros-aph, /guia-pratico-prevencao-confrontos, /seguranca-de-comercios, /seminario-defesa-de-socos, /seminario-defesa-de-quedas | Greenn, R$ 197 |
+| /combate-sobrevivencia-laminas, /briga-de-rua, /socos-avancados, /sobrevivencia-locais-publicos-privados | Hotmart, R$ 197 |
+| /defesa-pessoal-feminina-basico e /defesa-pessoal-feminina-completo | vão para o checkout do Contra Ataque Feminino (Greenn 28504), R$ 197 |
+| /ebook-vs | E-book Vida Segura **R$ 19,90** (não 27,90) |
+| /catalogo | vários; Combo Família Segura R$ 497 (de R$ 591), VIP R$ 4.997 |
+Se uma página mudar, ler de novo antes de citar.
+
 ## Combos, e-books e outros
 | Produto | Greenn | Oferta padrão | Observação |
 |---|---|---|---|
