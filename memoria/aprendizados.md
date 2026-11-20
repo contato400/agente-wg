@@ -29,3 +29,4 @@
 - 20/11 · Gemini TTS lê o "estilo" em voz alta em parte das falas; usar só o texto. Cota grátis do dia acabou em ~19 falas (429).
 - 20/11 · Página de tráfego tinha scripts com data (contador, lote, 16/11) que viram "terminou" depois da data. Toda página com relógio precisa ser revisada antes de reabrir oferta.
 - 20/11 · Arquivo .mp3 subido na mídia da Atomicat vira .bin sem CORS; áudio para página com analisador de voz deve subir como .mp4 (AAC), que vem com CORS.
+- 20/11 · Atomicat: atomicat_update_node_fields APAGA o <script> de um nó html (fica só o comentário). Para mudar script em nó html: apagar o nó e inserir de novo com insert_nodes, e conferir o HTML publicado com grep.
