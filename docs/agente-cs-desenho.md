@@ -3,7 +3,7 @@
 Dono: `sucesso-aluno-wg`. Quem fala com o aluno: o agente do WhatsApp (worker `agente-wg`).
 
 ## O que ele faz (a cada 4 dias, de manhã)
-1. **Junta os alunos** que compraram nos últimos 5 meses e daqui para frente:
+1. **Junta os alunos** que compraram desde 01/08/2026 (decisão do Victor, 20/11) e daqui para frente:
    - Greenn (API, vendas pagas) e Hotmart (API, vendas aprovadas): quem comprou, o quê e quando.
    - Cademi (Relatórios: Alunos, Ranking e Produtos; ou API da Cademi se o Victor gerar o token): último acesso, % assistido, terminou ou não.
 2. **Classifica cada aluno** (sem gravar nome, telefone ou e-mail em memória ou relatório):
