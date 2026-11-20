@@ -83,3 +83,24 @@
 - 2026-11-20 · Victor · Comunidade Caveira: deixar como está, não mexer.
 - 2026-11-20 · Victor · Desempate dos prêmios pela hora do pagamento (Greenn) com a Hotmart conferida na mão: OK. Venda de 19/11 12h42 não entra nos prêmios (só quem comprar a partir das 19h de sexta).
 - 2026-11-20 · Victor · Rotina deve usar a voz Gemini (Koda); falta a chave da API do Gemini na variável da tarefa.
+
+## 20/11 10h43 · Victor revisou a auditoria item a item (A1 a SA5)
+- A3: Victor cria as credenciais da Hotmart; agente deixa o passo a passo pronto.
+- A4/O10: trocar só o telefone de suporte. Nome do autor/produtor na Hotmart e na Greenn continua o do Wesley.
+- A5, A6, A7, A9, O3, O7, O8, O9, O10, F4, F6 (dossiê), SA1, SA3: agente faz sozinho.
+- A8, SA2, SA4: agente prepara; envio só com OK do Victor (pesquisas na segunda).
+- SA4: pedir depoimento (vídeo ou texto) aos alunos mais ativos na Academia nos últimos 30 dias.
+- G3: agente compara Comunidade x Canal x envio assistido e recomenda.
+- G4: story final precisa de link para a página de venda.
+- S1: usar os vídeos do Wesley no Drive (inclui a live da Black do ano passado, cerca de 2h) e vídeos públicos do YouTube.
+- S2: sem acesso ao YouTube por enquanto. S5: esperando o vídeo do Wesley.
+- S6: leitura de concorrentes DIÁRIA, não semanal.
+- Tráfego (V2, T1, T2): não mexer em nada de tráfego por enquanto; pós-Black conversamos.
+- V3: quer o áudio do agente em Gemini, se não gastar.
+- V4: animar o avatar no iPhone; trocar a voz da página de venda para a do Gemini e deixar mais interativa.
+- V5: Higgsfield pode ser assinado depois (Samuel pode mandar verba).
+- O6: aprovado escolher 3 temas e pensar em mais; tudo leva ao site novo; colocar o site no Google e acelerar a indexação.
+- O11: limpeza das ofertas da Greenn aprovada para fazer junto com o Victor.
+- F2: agente conta inativos; Victor dá o OK para apagar.
+- F3: Comunidade fora. F5: Victor não entendeu, explicar.
+- F6: ideia do Victor: oferecer ao cliente do chargeback outra entrega (ex.: call online com o Wesley no lugar do VIP presencial). Só proposta, pela fila.
