@@ -365,3 +365,5 @@ Modelo:
 - E-mail ABRIU (19h05): linha das formas de pagamento acrescentada no texto.
 - DevZapp: "sex 17h30" e "sex 19h abertura" reescritas com boleto e condição facilitada (imagem e @todos mantidos; conferido pela API). Aprendizado: o campo é textarea Angular; valor por JS não salva, tem de focar (t.focus(); t.select()) e digitar.
 - Greenn → ManyChat: a ponte recebe os eventos. Recusas de 13h09 são cobranças mensais da Comunidade (2 assinantes, 3º dia). Nenhum cartão recusado da Black hoje.
+- 14h45: boleto concluído em 195 ofertas avulsas (todas as ativas da Greenn menos 22 assinaturas, Closer Diamond e 45 ofertas do Kit DPC, produto físico que não é oferecido). Victor confirmou deixar assinaturas e Closer Diamond de fora.
+- Arte das 17h30 (DevZapp) pedida ao ChatGPT com "Pix ou boleto à vista" e a condição facilitada. A arte das 19h não tem formas de pagamento (não precisa mudar).
