@@ -43,6 +43,7 @@ B01 (relatório por origem) e B02 (medição da reabertura). Veja `memoria/backl
 `relatorios/AAAA-MM-DD-analista.md`: vendas por produto e por origem (com a abertura por grupo, post e anúncio), meta, Instagram, anúncios, páginas, ManyChat, atendimento, e 3 a 5 achados com número e o agente que deve agir.
 
 ## Mudanças
+- 20/11: medição da reabertura pronta em `rotinas/medir-reabertura.py` (B02). Uso: `bash rotinas/ponte.sh ler Vendas 300 > /tmp/v.json && python3 rotinas/medir-reabertura.py /tmp/v.json`. Ordem dos prêmios pelo ID da venda, nunca pelo nome. Aluno x não aluno pelo valor (347 x 397) só vale sem juros.
 - 2026-11-18 · Ficha reescrita para autonomia (mede, fontes, sinal de alerta, backlog) e regras dos livros da Mestres Play (`docs/livros-mestres/`). Correção futura: mudar só as linhas da causa e anotar aqui com data e motivo.
 
 ## Dashboard Captação Caveira (dono: você, desde 19/11)

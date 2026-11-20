@@ -51,7 +51,7 @@ TOTAL = t + 2.2
 dur = [len(f) / SR for f in falas]
 
 # ---------- linha do tempo ----------
-TL = {'total': TOTAL, 'badge': S.get('selo', ''), 'caps': [], 'calls': [], 'bubbles': [], 'shakes': [], 'beats': [], 'rule': [], 'knocks': []}
+TL = {'total': TOTAL, 'badge': S.get('selo', ''), 'pixtela': S.get('pix_tela'), 'caps': [], 'calls': [], 'bubbles': [], 'shakes': [], 'beats': [], 'rule': [], 'knocks': []}
 phone_on = door_on = pix_on = None; bub_open = []; tense = []; caps = []
 for i, seg in enumerate(S['trechos']):
     a, d = pos[i], dur[i]; fim = a + d

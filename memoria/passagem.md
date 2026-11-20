@@ -315,3 +315,10 @@ Modelo:
 - Plano B grátis no ar: se a Anthropic falhar, o cliente é respondido pelo Workers AI (llama-3.3-70b, cota grátis). Testado o modelo pela API do Cloudflare (respondeu em português). O formato da resposta é chat.completion (choices[0].message.content). Ainda sem teste com cliente real: conferir em diag:passos a linha "reserva workers-ai ok".
 - Auditoria: 67 itens travados, 28 de alta prioridade (memoria/auditoria-travados-2026-11-19.md; cópia no Projeto kairos/auditoria-travados-19-nov.md).
 - Voz: Gemini 3.8 Flash TTS (voz Koda) gerada no AI Studio da conta Luis corinthiano; comparativo com a Piper enviado ao Victor. Falta ele escolher.
+
+## 20/11 08h · rotina diária (reabertura às 19h)
+- Pedido: rotina completa (números, financeiro, tráfego só leitura, entrega da manhã do social, agente do dia, debriefing, WhatsApp, commit).
+- Feito: Painel Financeiro com 6 vendas de 19/11 e gasto Meta 17 a 19/11 corrigido (linha de 20/11 criada); relatórios 2026-11-20 trafego, social e debrief; peça do dia `conteudo/2026-11-20/alerta-falso-sequestro.mp4` (39,5 s, capa, legenda, roteiros do Wesley), jurídico com 3 ajustes feitos, proposta 20261120-social-1 na fila (PENDENTE, 15h30, vale até 18h50); motor ganhou `pix_tela` e ícone `user`; B02: `rotinas/medir-reabertura.py`. Debriefing e peça mandados ao WhatsApp do Victor.
+- Decisões: peça narrada no formato alerta (não série), porque a série rendeu 0,17x; voz Piper (sem chave Gemini na nuvem).
+- Pendente: decisões 1 a 6 do debriefing; rodar a medição às 20h, 22h, 23h59 e sábado 9h; B35 às 18h50.
+- Verificado: Painel lido de volta sem #ERROR!; folha de conferência e quadros do MP4 olhados; pico -0,8 dB.

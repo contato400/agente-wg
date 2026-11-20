@@ -1,26 +1,27 @@
-# Estado atual (atualizado em 2026-11-19 08h pela rotina diária)
+# Estado atual (atualizado em 2026-11-20 08h pela rotina diária)
 
 ## Meta de novembro
-- 150 vendas orgânicas e R$ 30 mil líquidos. Painel em 19/11: 115 vendas e R$ 25.361,74 (77% e 85%). Faltam 35 vendas em 12 dias (2,9 por dia).
-- 18/11: 0 venda orgânica na Greenn; 4 vendas de tráfego (R$ 1.230,22 líquido). Hotmart sem conector.
-- Tráfego no mês: 68 vendas, R$ 4.676,13, gasto Meta R$ 5.646,88 (ROAS 0,83, estimativa).
-
-## Alertas abertos
-- Chargeback R$ 3.697,64 (Caveira VIP Presencial, compra de 12/02) registrado na Greenn em 18/11 16h15. Decisão do Victor.
-- 2 assinaturas da Comunidade Caveira (R$ 97) com cartão recusado em 17 e 18/11.
-- Uma venda FB com `{{ad.name}}` sem substituir (parâmetro de URL quebrado em algum anúncio do Diogo).
+- 150 vendas orgânicas e R$ 30 mil líquidos. Painel em 20/11: 120 vendas e R$ 26.376,22 (80% e 88%). Faltam 30 vendas e R$ 3.623,78 em 11 dias (2,7 por dia).
+- 19/11: 5 itens orgânicos (3 compradores), R$ 1.014,48 líquido: Black 1 ano + 2 order bumps pelo link do Victor (venda do teste do aviso: conferir se é real), Segurança de Comércios comprado de dentro da Academia, Kids + e-book (assinatura). 0 venda FB.
+- Tráfego no mês: 69 vendas, R$ 4.679,20, gasto Meta R$ 6.129,09 (retorno 0,76, estimativa). 19/11: R$ 481,53 sem venda.
 
 ## Campanha
-- Black encerrou 16/11 19h; página aberta a R$ 397. Reabertura sexta 20/11 às 19h até segunda 23/11 às 19h (decisão do Victor 19/11 12h38). A página já está no ar e o atendente vende na hora para quem quer comprar. CAVEIRA leva ao grupo de espera até sexta 19h.
-- Tráfego 100% do Diogo até a Black acabar: 3 campanhas da Black ativas + GREENN-62 nova (18/11). Gasto 18/11 R$ 555,81.
+- **Reabertura hoje sex 20/11 19h até seg 23/11 19h.** R$ 397 (aluno R$ 347). Prêmios: 3 primeiros camisa, 20 primeiros encontro ao vivo, livros até 23h59 de sexta. Régua no DevZapp (41 programadas). ManyChat vira para a página às 18h50 (B35).
+- Medição: `rotinas/medir-reabertura.py` (B02), rodar 20h, 22h, 23h59 e sábado 9h.
+- Tráfego 100% do Diogo até a Black acabar (GREENN-01, 04, 05, 62).
+
+## Alertas abertos
+- Chargeback R$ 3.697,64 (VIP Presencial): deixar correr (Victor 19/11).
+- Comunidade: 2 assinaturas recusadas pelo terceiro dia (19/11 13h09). Proposta 20261119-sucesso-1 PENDENTE.
+- Aba Atendimento vazia: o agente do WhatsApp não está gravando as conversas na planilha.
+- Crédito da API Anthropic acabou em 19/11 15h09; plano B (Workers AI) no ar desde 22h05. Confirmar se o Victor carregou.
+- Venda de R$ 3,07 sem UTM classificada como Tráfego (regra da ponte).
 
 ## Instagram
-- Metricool lendo reels e evolution. Mediana 30 dias: 14.087 visualizações por reel. Seguidores 1.854.023 (18/11), saldo diário negativo desde 14/11.
-- Formato campeão: "Envie esse alerta para sua família" (24/10 4,7 mi; 17/11 16,5% de envio).
-- Parte 1 da Dona Maria como teste: 126 views, 85% de pulo. Parte 1 nova (gancho novo) e Partes 2 a 5 na fila.
+- Mediana 30 dias: 14.331 visualizações por reel. Vencedor: "Alerta de segurança" do Wesley 18/11 20h03 (43.530, 3,04x, 40% de pulo).
+- Série Dona Maria: P1 nova 2.414 (0,17x) no Reels normal; Reels de teste com 11 a 128. P2 a P5 publicadas, números ainda não chegaram no Metricool.
+- Seguidores 1.853.834 (18/11), saldo negativo desde 14/11.
+- Metricool entrega hora em UTC (converter para Brasília).
 
-## Atendimento
-- Agente do WhatsApp no (31) 99329-4274 ativo desde a madrugada de 19/11 (YCloud). Aba Atendimento ainda vazia.
-
-## Fila de aprovação em 19/11 08h
-- PENDENTE: 20261119-social-1, -2, -3; 20261118-social-1, -2, -3. Nenhum APROVADO esperando execução.
+## Fila de aprovação em 20/11 08h
+- PENDENTE: 20261120-social-1 (alerta falso sequestro, 15h30, vale até 18h50), 20261119-sucesso-1. Nenhum APROVADO esperando execução.

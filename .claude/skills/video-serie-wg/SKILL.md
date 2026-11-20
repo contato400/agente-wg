@@ -34,7 +34,7 @@ Cada trecho tem `fala` (o que o narrador diz) e o que acontece na tela quando el
 | `lista` + `item` | Lista de regras com check, um item por trecho |
 | `final` + `mostrar_chamada` | Cartão final: selo, pergunta e botão "Comente CAVEIRA para ver a parte X" |
 | `antes`, `pausa`, `ritmo` | Ajuste fino de tempo (segundos) e velocidade da fala |
-Mais `capa: {selo, titulo, faixa, quadro}` para a capa. Limites atuais: um `voz_porta` por vídeo (o último vence); até 3 bolhas por ligação; conferir tempos específicos com `--quadros --em=t1,t2`.
+Mais `capa: {selo, titulo, faixa, quadro}` para a capa. Desde 20/11: `pix_tela: {para, valor}` no topo do JSON troca o texto da tela do Pix (antes era fixo "CONTA SEGURA da polícia"); `icone: "user"` na chamada mostra uma pessoa (número desconhecido). Peça avulsa no formato "alerta" usa `selo: "ALERTA"` e o mesmo motor (exemplo: `conteudo/2026-11-20/alerta-falso-sequestro.json`). O render inteiro leva mais de 2 min: rode em segundo plano. Sem chave da API do Gemini a rotina narra com a Piper; avise o Victor. Limites atuais: um `voz_porta` por vídeo (o último vence); até 3 bolhas por ligação; conferir tempos específicos com `--quadros --em=t1,t2`.
 
 ## 3. Produza e confira (nada vai ao Victor sem isso)
 1. `python3 gerar_serie.py parte.json --quadros` e **olhe a folha de conferência** (Read): legenda inteira, nada fora da área segura (Y 285 a 1470, X 110 a 945, medidas do Reels em `edicao-video-arte-wg`), nada sobreposto, português certo. Corrija o JSON e repita.

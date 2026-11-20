@@ -1,0 +1,89 @@
+{
+ "nome": "alerta-falso-sequestro",
+ "selo": "ALERTA",
+ "trechos": [
+  {
+   "fala": "Envie esse alerta para a sua família.",
+   "legenda": "^ENVIE esse alerta para a sua *FAMÍLIA.",
+   "telefone": "on",
+   "antes": 0
+  },
+  {
+   "fala": "O telefone toca. É um número que você não conhece.",
+   "legenda": "O telefone toca. Número *desconhecido.",
+   "chamada": {
+    "nome": "Número desconhecido",
+    "icone": "user"
+   }
+  },
+  {
+   "fala": "Mãe, me ajuda! Me pegaram!",
+   "voz": "tel",
+   "bolha": "Mãe, me ajuda! Me pegaram!",
+   "rotulo": "DO OUTRO LADO:",
+   "limpar_legenda": true,
+   "tensao": true
+  },
+  {
+   "fala": "Se desligar, a gente machuca. Faz um Pix agora.",
+   "voz": "tel",
+   "bolha": "Se desligar, a gente machuca. Faz um Pix agora.",
+   "rotulo": "DO OUTRO LADO:",
+   "pix": "on",
+   "dedo": true,
+   "tensao": true
+  },
+  {
+   "fala": "É o golpe do falso sequestro, que usa o seu medo.",
+   "legenda": "É o golpe do *FALSO SEQUESTRO."
+  },
+  {
+   "fala": "Não faça o Pix. Desligue e ligue você para o seu familiar, no número que você já tem.",
+   "legenda": "Não faça o Pix. ^Desligue e ligue você.",
+   "pix": "cancelar",
+   "regra": "Desligue e ligue você para o seu familiar."
+  },
+  {
+   "fala": "Grave as regras do Mestre.",
+   "legenda": "Grave as regras do Mestre:",
+   "lista": "on",
+   "limpar_legenda": false,
+   "pix": "off",
+   "telefone": "off"
+  },
+  {
+   "fala": "Nada de Pix antes de falar com o seu familiar.",
+   "item": "Nada de Pix antes de falar com ele."
+  },
+  {
+   "fala": "Combine uma palavra secreta com a família.",
+   "item": "Combine uma palavra secreta."
+  },
+  {
+   "fala": "Na dúvida, ligue cento e noventa.",
+   "item": "Na dúvida, ligue 190."
+  },
+  {
+   "fala": "A sua família sabe disso?",
+   "final": {
+    "selo": "ALERTA DO MESTRE",
+    "pergunta": "Sua família sabe disso?",
+    "chamada": "Comente <span class=k>CAVEIRA</span><small>e receba hoje, às 19h, a oferta da Black com os cursos do Mestre</small>"
+   }
+  },
+  {
+   "fala": "Comente caveira e receba hoje, às dezenove horas, a oferta da Black com os cursos de defesa pessoal do Mestre Wesley.",
+   "mostrar_chamada": true
+  }
+ ],
+ "capa": {
+  "selo": "ALERTA",
+  "titulo": "FALSO<br><span style='color:#ff3341'>SEQUESTRO</span>",
+  "faixa": "Manda para sua família antes que liguem",
+  "quadro": 4.5
+ },
+ "pix_tela": {
+  "para": "Para: CONTA DESCONHECIDA<br><span style=\"font-size:32px;color:#666\">\"resgate\"</span>",
+  "valor": "R$ 5.000,00"
+ }
+}
