@@ -376,3 +376,4 @@ Modelo:
 - Decisões pendentes do Victor: 8, numeradas no fim do plano (cupom CAVEIRA30 como condição de aluno, produtos novos e preços, gravações do Wesley, código da régua no Apps Script, acesso ao YouTube, dia do Aluno, tráfego dos fronts).
 - Verificado: preços só da base de produtos; produtos novos marcados "novo, precisa criar"; potenciais marcados como estimativa. Nada externo feito.
 - Dúvida: o Projeto do claude.ai não estava acessível nesta sessão (sem ferramenta de Projects); usei as cópias locais em docs/.
+- 15h40: relatório "Auditoria completa WG 20/11" publicado como doc do claude.ai (https://claude.ai/artifact/Pw6f311y5HSm4jwqq8gye9). Base: docs/auditoria-completa-2026-11-20.md (auditor) e docs/estrategia-pos-black-2026-11-20.md (estrategista). Placar dos 67: 17 resolvidos, 5 em parte, 1 fora, 44 pendentes/espera. Urgente: Closer.AI com respostas velhas.
