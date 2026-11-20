@@ -394,3 +394,8 @@ Modelo:
 - Pendente: S1 (pasta do Drive), S6 (nenhum concorrente cadastrado no Metricool), A6 (rotina copiar resumo-hist para a aba Atendimento), conferir "reserva gemini ok" no diag:passos.
 - Notion: central criada (página raiz 41e2dbf7-e5ca-81f0-97ec-c4d4224fcf61 + 9 setores). Skill de mapeamento: próximo passo, depois das correções.
 - Aprendizado: no worker, o conhecimento fica numa string JSON (aspas escapadas); inserir texto com JSON.stringify. Google Forms: botão Adicionar pergunta por aria-label e foco na "Opção 1" por JS deixam a montagem rápida.
+
+## 20/11 ~17h40 · Notion como base central (pedido do Victor 16h13 e 16h18)
+- Feito: ~80 subpáginas com texto no Notion (raiz 41e2dbf7-e5ca-81f0-97ec-c4d4224fcf61): 01 Base de produtos, Greenn, Hotmart, Black e reabertura; 03 Plano pós-Black, Régua dos grupos, ManyChat; 04 Disparos, Pesquisas e depoimentos, Guia 12 semanas; 07 Agentes (12), Como trabalham juntos, Skills (32), Rotinas, Worker; 08 Decisões, Aprendizados, Voz do cliente; 09 17/11 a 20/11 e Pedidos do Victor; 10 Backlog e Auditoria dos 67; raiz Drive · ARQUIVOS WG (24 pastas) e Documentos do Projeto (kairos). Tabela da raiz e skill mapa-wg com os IDs.
+- Pendente: Drive listado em parte (o conector pagina de 5 em 5 e recusou o token da página 4 de mídia); Projeto kairos sem ferramenta nesta sessão (só 50 nomes vistos); ui-ux-pro-max e site-de-10k (skills novas de outra sessão) sem subpágina.
+- Verificado: páginas criadas sem erro; sem chave, senha, telefone de cliente ou e-mail.
