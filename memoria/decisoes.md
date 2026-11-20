@@ -76,3 +76,6 @@
 - 2026-11-19 12h38 · Victor · Reabertura da Black vai de sexta 20/11 19h até **segunda 23/11 às 19h**, com esse prazo dito em todas as peças (urgência). Substitui "nunca dizer data de fechamento".
 - 2026-11-19 12h38 · Victor · Atendente vende na hora para quem já quer comprar, mesmo antes de sexta 19h, com o tom de "acesso antecipado". Nunca empurrar para sexta.
 - 2026-11-19 12h38 · Victor · Quer aviso no WhatsApp de cada venda aprovada (valor, order bump, origem).
+- 2026-11-19 · Victor · [FIXA] Voz de narração (vídeos e páginas): Gemini TTS (Google AI Studio, conta Luis corinthiano, Gemini pago), no lugar da Piper. Primeira voz testada: Koda.
+- 2026-11-19 · Victor · A página de tráfego /black-caveira-2026-oferta fica em R$ 297 de propósito (decisão do Diogo e do tráfego). Não "corrigir" o 297. O resíduo de contagem até 16/11 ainda deve ser conferido.
+- 2026-11-19 · Victor · OK geral para os 43 itens da auditoria que dependiam dele (memoria/auditoria-travados-2026-11-19.md). Alcance combinado: os agentes executam o que é interno, só leitura ou reversível; o que precisa de login dele, senha, pagamento, apagar coisa ou disparo em massa sai antes numa lista curta para ele ver.

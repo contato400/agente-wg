@@ -185,3 +185,10 @@ Menções honrosas (grátis, média prioridade): DNS sem www (O4), subir narraç
 - Li: todos os arquivos listados no início. Contei 67 itens a partir deles. Não li as cópias em `kairos/` do Projeto (sem ferramenta Projects nesta sessão) nem abri nenhuma plataforma ao vivo; por isso nada aqui está "conferido hoje" no ar.
 - Dúvidas (marcadas DÚVIDA no texto): se o aviso de venda já inclui a Hotmart (`docs/conexoes.md` diz que não; `passagem.md` 249 diz que sim); se o vídeo do guia e o aviso foram concluídos; se a garantia da Hotmart ainda mostra 30 dias; qual das duas linhas sobre segredos prevaleceu; se `base-produtos-wg` foi atualizada.
 - Preço e cota das ferramentas (Gemini, Workers AI, D1, Metricool, UptimeRobot, Hotmart Send, ManyChat) não foram conferidos hoje. Antes de depender de qualquer uma, abrir a página oficial e anotar a cota.
+
+## Atualização 19/11 22h20 (Victor deu OK geral)
+- FEITO: plano B grátis do agente (Workers AI) e alerta de falha da IA no ar; monitor de queda a cada 15 min (cron do Cloudflare: /grupo, Black, Black tráfego, link do DevZapp) com aviso no WhatsApp.
+- FEITO: voz Gemini escolhida (decisoes.md).
+- CORREÇÃO O2: o preço 297 da página de tráfego é de propósito (Diogo). Só o resíduo de contagem de 16/11 ainda deve ser conferido.
+- Netlify (vence 25/11), varredura de 107 páginas no ar: só 2 marcas. (1) FAQ da /black-caveira-2026 manda para wesleygimenez.netlify.app/catalogo (trocar por www.wesleygimenez.com.br/catalogo, que já responde 200). (2) /pos-venda/obrigado tem form com atributo data-netlify, mas grava no Google Forms: funciona sem a Netlify.
+- Falta conferir: garantia da Hotmart (precisa do Chrome logado na Hotmart).
