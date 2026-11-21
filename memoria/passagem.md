@@ -419,3 +419,4 @@ Modelo:
 - Erro achado: "voz erro 429 no credits" é da OpenAI (voz para o Victor), não da Anthropic.
 - Teste Haiku x Sonnet não rodou: rota temporária de teste foi barrada pela checagem de segurança; código voltou ao aprovado. Sobrou o segredo TESTE_TMP sem uso no worker (Victor apaga na lixeira).
 - Trava US$ 0,70 NÃO ligada: hoje já passou de US$ 2,35, ligar agora joga todo cliente da reabertura para o Gemini pelo resto do dia. Esperando o Victor escolher.
+- 11h35 (21/11): voz da OpenAI fica desligada (Victor não recarrega). Vendas da reabertura (Greenn, desde 20/11 19h): 5 compradores da Black + 1 IA KMC, última às 22h39 de 20/11. Proposto 2º e-mail da Academia (lembrete) para hoje 19h; rascunho na conversa, esperando OK.
