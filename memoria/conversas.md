@@ -31,3 +31,5 @@ Formato (uma linha por pedido, sem dado pessoal):
 | 2026-11-20 | social-media-wg | financeiro-wg | Quais posts de ontem trouxeram venda (utm_content)? | Nenhum: as vendas orgânicas de 19/11 vieram do link do Victor no WhatsApp, da Academia e sem UTM | RESPONDIDO |
 | 2026-11-20 | financeiro-wg | trafego-wg | Algum anúncio acima de R$ 120 por venda ontem? | Todos: R$ 481,53 sem venda comprovada (04 R$ 241,14; 05 R$ 99,63; 62 R$ 88,33; 01 R$ 52,43) | RESPONDIDO |
 | 2026-11-20 | analista-wg | social-media-wg | Pauta de hoje está ligada a qual produto e funil? | Black Caveira (reabertura), funil CAVEIRA do ManyChat (grupo até 18h50, página depois) | RESPONDIDO |
+
+- 2026-11-21 · rotina diária: recados do WhatsApp lidos, nenhum novo. `rotinas/whatsapp.sh memoria` falhou ("Argument list too long": memória grande demais para o curl); precisa enviar o corpo por arquivo. Dono: chefe-wg.

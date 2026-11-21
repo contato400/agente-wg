@@ -34,3 +34,5 @@
 - 20/11 · E-mail pós-compra: a Cademi só tem e-mails fixos (boas-vindas, novo acesso), sem sequência programada. O Hotmart Send está no plano Grátis com 5.915 contatos para um limite de 100 (acima do limite; automação de e-mail ali exige plano pago). Caminho grátis: Apps Script da ponte com MailApp do Gmail (cerca de 100 e-mails por dia na conta comum), lendo as vendas novas.
 - 20/11: disparo em 3 guias, uma aba ficou lenta (ficou atrás das outras). Quando duas terminam, parar a lenta (`window.__stop=true`), montar a lista do que faltou (parte dela menos `sent_<parte>`) e dividir entre as rápidas com um runner novo. Terminou em ~7 min.
 - 20/11: alerta sem contexto não serve. Todo alerta ao Victor diz o porquê e o que ficou pendente (quem, quando, o que pediu).
+
+- 2026-11-21 · Reels de teste (20 a 140 views) derrubam a mediana do perfil (8.127 contra 32.418 só com reels normais). O placar do social deve usar a mediana dos reels normais e mostrar os de teste à parte. Windsor: a conta de anúncios entra pelo ID 874070653089870 (não pelo número 4500).

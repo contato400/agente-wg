@@ -428,3 +428,10 @@ Modelo:
 
 ### 21/11 · Executor (rotina horária, 5)
 - Recados: nenhum. Fila: sem linha APROVADO pendente (só PENDENTE sucesso-1 e social-1 de 20/11). Nada executado, nenhuma mensagem enviada.
+
+### 21/11 · Rotina diária completa (Agente WG)
+- Pedido: debriefing, tráfego (leitura), financeiro, entrega da manhã do social, rodada do dia (sábado: jurídico + auditor), envio ao Victor.
+- Feito: relatórios `2026-11-21-debrief`, `-trafego`, `-financeiro`, `-social`, `-auditoria`. Painel Financeiro recebeu as 14 vendas de 20/11. Fila: social-1 e social-2 PENDENTE; social 20/11 e sucesso-1 VENCIDO. Peça do dia: reel narrado do falso advogado (conteudo/2026-11-21/). Estado e backlog B19 atualizados.
+- Decisões pendentes do Victor: 8, numeradas no debriefing.
+- Verificado: números da planilha WG e do Painel Financeiro conferidos; Windsor e Metricool lidos. Dúvida: gasto Meta zerado em 20/11, vendas link-victor, mediana com ou sem reels de teste.
+- Nada externo executado.

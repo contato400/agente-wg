@@ -1,0 +1,88 @@
+{
+ "nome": "alerta-falso-advogado",
+ "selo": "ALERTA",
+ "trechos": [
+  {
+   "fala": "Envie esse alerta para os mais velhos da família.",
+   "legenda": "^ENVIE esse alerta para os *MAIS VELHOS da família.",
+   "telefone": "on",
+   "antes": 0
+  },
+  {
+   "fala": "O telefone toca. Um advogado diz que você tem dinheiro de um processo.",
+   "legenda": "Telefone toca. *ADVOGADO diz que você tem ^DINHEIRO a receber.",
+   "chamada": {
+    "nome": "Número desconhecido",
+    "icone": "user"
+   }
+  },
+  {
+   "fala": "Seu processo foi ganho. Tem um valor para você receber.",
+   "voz": "tel",
+   "bolha": "Seu processo foi ganho. Tem um valor para você receber.",
+   "rotulo": "DO OUTRO LADO:",
+   "limpar_legenda": true
+  },
+  {
+   "fala": "Para liberar, pague uma taxa por Pix hoje.",
+   "voz": "tel",
+   "bolha": "Para liberar, pague uma taxa por Pix hoje.",
+   "rotulo": "DO OUTRO LADO:",
+   "pix": "on",
+   "dedo": true,
+   "tensao": true
+  },
+  {
+   "fala": "É o golpe do falso advogado. Eles usam dados de processos de verdade.",
+   "legenda": "É o golpe do *FALSO ADVOGADO."
+  },
+  {
+   "fala": "Não faça o Pix. Taxa para liberar dinheiro? É golpe.",
+   "legenda": "Não faça o Pix. ^Taxa para liberar dinheiro? *É GOLPE.",
+   "pix": "cancelar",
+   "regra": "Pediu taxa por Pix para liberar dinheiro? É golpe."
+  },
+  {
+   "fala": "As regras do Mestre.",
+   "legenda": "As regras do *MESTRE:",
+   "lista": "on",
+   "limpar_legenda": false,
+   "pix": "off",
+   "telefone": "off"
+  },
+  {
+   "fala": "Não pague taxa por Pix para quem procurou você.",
+   "item": "Não pague taxa por Pix para quem te procurou."
+  },
+  {
+   "fala": "Confirme com seu advogado ou no site oficial.",
+   "item": "Confirme com o seu advogado ou no site oficial."
+  },
+  {
+   "fala": "Na dúvida, desligue e peça ajuda.",
+   "item": "Na dúvida, desligue e peça ajuda."
+  },
+  {
+   "fala": "Sua família sabe disso?",
+   "final": {
+    "selo": "ALERTA DO MESTRE",
+    "pergunta": "Sua família sabe disso?",
+    "chamada": "Comente <span class=k>CAVEIRA</span><small>e receba o link da reabertura dos cursos do Mestre, só até segunda, 19h</small>"
+   }
+  },
+  {
+   "fala": "Comente caveira e receba o link da reabertura dos cursos do Mestre. É só até segunda, às dezenove horas.",
+   "mostrar_chamada": true
+  }
+ ],
+ "capa": {
+  "selo": "ALERTA",
+  "titulo": "FALSO<br><span style='color:#ff3341'>ADVOGADO</span>",
+  "faixa": "Manda para os mais velhos da família",
+  "quadro": 4.5
+ },
+ "pix_tela": {
+  "para": "Para: CONTA DESCONHECIDA<br><span style=\"font-size:32px;color:#666\">\"taxa do processo\"</span>",
+  "valor": "R$ 800,00"
+ }
+}

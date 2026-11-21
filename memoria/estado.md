@@ -1,6 +1,14 @@
-# Estado atual (atualizado em 2026-11-20 08h pela rotina diária)
+# Estado atual (atualizado em 2026-11-21 pela rotina diária)
 
-## Meta de novembro
+## Atualização 21/11 (rotina diária)
+- Meta de novembro: planilha WG 134 vendas e R$ 29.720,97 líquidos (89% e 99%); faltam 16 vendas e R$ 279,03. Painel Financeiro (bruto) R$ 29.969,93, faltam R$ 30,07.
+- 20/11: 14 itens, R$ 3.344,75 líquido, 100% orgânico; 11 itens (R$ 2.738,74) depois das 19h pela régua dos grupos. Fecha seg 23/11 19h.
+- Tráfego: gasto 20/11 R$ 0; 21/11 R$ 33,53 em campanhas novas LP2-PP (63, 64). Mês R$ 6.162,62. Tudo do Diogo.
+- Instagram: mediana dos reels normais 32.418 (8.127 contando os de teste, 14.331 era janela antiga). Vencedor Alerta de segurança 18/11 (65.536 views). Série Dona Maria fraca.
+- Fila: PENDENTE 20261121-social-1 (reel falso advogado, sáb 20h) e 20261121-social-2 (roteiros do Wesley). 20261120-social-1 e 20261119-sucesso-1 VENCIDO. Nenhum APROVADO esperando.
+- Auditoria 21/11: camisa e livros ainda como disponíveis nas páginas, /pp-black26 com texto vencido, convite do grupo de espera com suporte da Kairós, cartões recusados em série na oferta de aluno, chaves em texto puro nos prompts, settings.json com nomes errados.
+
+## Meta de novembro (posição de 20/11, histórico)
 - 150 vendas orgânicas e R$ 30 mil líquidos. Painel em 20/11: 120 vendas e R$ 26.376,22 (80% e 88%). Faltam 30 vendas e R$ 3.623,78 em 11 dias (2,7 por dia).
 - 19/11: 5 itens orgânicos (3 compradores), R$ 1.014,48 líquido: Black 1 ano + 2 order bumps pelo link do Victor (venda do teste do aviso: conferir se é real), Segurança de Comércios comprado de dentro da Academia, Kids + e-book (assinatura). 0 venda FB.
 - Tráfego no mês: 69 vendas, R$ 4.679,20, gasto Meta R$ 6.129,09 (retorno 0,76, estimativa). 19/11: R$ 481,53 sem venda.
