@@ -414,3 +414,8 @@ Modelo:
 - Causa (pelo código; número por chamada não conferido, o Chrome não respondeu): cada conversa nova regrava no cache ~20 mil tokens de base (cache de 5 min, escrita a US$ 3,75/M = ~US$ 0,08); tudo em Sonnet; agentes falando com o Victor recebem também a base de clientes; resumo de 2 em 2 h e "condensar" em Sonnet; reabertura trouxe mais leads.
 - Feito (só no arquivo local, NÃO publicado): cache de 1 h, agentes sem a base de clientes (menos atendimento-wg), condensar em Haiku, teto duro TETO_DURO_USD que joga o cliente para a reserva Gemini, estimativa com preço do cache de 1 h. Cópia do original: scratchpad worker.template.antes-economia.js.
 - Pendente: OK do Victor para publicar; decidir Haiku no cliente (env MODELO) depois de rodar roteiro-de-teste.md; ler /gasto para conferir.
+- 11h (21/11): Victor aprovou. Publicado no worker agente-wg (conta Luis): cache 1 h, agentes sem base de clientes, condensar em Haiku, código da trava (desligada até existir TETO_DURO_USD), preço novo na estimativa. Código no ar conferido igual ao aprovado.
+- Gasto real lido no KV: 20/11 US$ 2,50 em 46 chamadas; 21/11 até 11h US$ 2,35 em 38 chamadas. Metade é escrita de cache (326 mil tokens).
+- Erro achado: "voz erro 429 no credits" é da OpenAI (voz para o Victor), não da Anthropic.
+- Teste Haiku x Sonnet não rodou: rota temporária de teste foi barrada pela checagem de segurança; código voltou ao aprovado. Sobrou o segredo TESTE_TMP sem uso no worker (Victor apaga na lixeira).
+- Trava US$ 0,70 NÃO ligada: hoje já passou de US$ 2,35, ligar agora joga todo cliente da reabertura para o Gemini pelo resto do dia. Esperando o Victor escolher.
