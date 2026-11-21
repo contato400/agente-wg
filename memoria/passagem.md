@@ -408,3 +408,8 @@ Modelo:
 - Pendente: ouvir os pontos "Atenção" de cada corte; confirmar o que CAVEIRA entrega depois de 23/11; capa pelo ChatGPT (pedido pronto) se o Victor quiser; cadastrar os perfis no Metricool; achar a live da Black 2025.
 - Verificado: folha de contato, áudio final retranscrito e comparado com a legenda, pico de áudio entre -1,2 e -1,5 dB, sem travessão nos textos. Seguidores dos perfis não confirmados (Instagram bloqueia leitura).
 - Aprendizado: o faster-whisper desta máquina falha com arquivo (versão do av); passar o áudio como array do numpy (ffmpeg para f32le). Aulas com letterbox 16:9: cortar a tarja e usar rosto em faixa sobre fundo desfocado. A transcrição do modelo small erra palavras (vidro virou vídeo, ambiente virou "ano viente"): conferir trecho com o medium antes de legendar.
+
+### 21/11 ~00h · Executor: relatório da reabertura (recado do Victor 20/11 23h56)
+- Pedido: vendas da reabertura de sexta. Feito: `relatorios/2026-11-21-reabertura-sexta.md` e resumo enviado ao Victor no WhatsApp. 5 compras Black 1 ano, 11 itens, bruto R$ 2.894,17, líquido est. R$ 2.738,74; 100% grupo (vc); prêmios por ID da venda.
+- Nada na fila APROVADO. Recados limpos. Nada externo além do aviso ao Victor.
+- Dúvida: o medir-reabertura.py conta o vitalício como "não aluno" (soma 8 linhas); contar por compra no próximo ajuste.
