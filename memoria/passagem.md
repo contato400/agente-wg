@@ -413,3 +413,6 @@ Modelo:
 - Pedido: vendas da reabertura de sexta. Feito: `relatorios/2026-11-21-reabertura-sexta.md` e resumo enviado ao Victor no WhatsApp. 5 compras Black 1 ano, 11 itens, bruto R$ 2.894,17, líquido est. R$ 2.738,74; 100% grupo (vc); prêmios por ID da venda.
 - Nada na fila APROVADO. Recados limpos. Nada externo além do aviso ao Victor.
 - Dúvida: o medir-reabertura.py conta o vitalício como "não aluno" (soma 8 linhas); contar por compra no próximo ajuste.
+
+### 21/11 · Executor (rotina horária)
+- Recados: nenhum. Fila: sem linha APROVADO pendente (só PENDENTE sucesso-1 e social-1 de 20/11, vencida). Nada executado, nenhuma mensagem enviada.
