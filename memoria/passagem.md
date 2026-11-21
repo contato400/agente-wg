@@ -442,3 +442,9 @@ Modelo:
 - NÃO feito: (a) convite do grupo de espera (descrição no WhatsApp/DevZapp): sem ferramenta aqui, fica com o Victor ou o Gui. (b) cadastrar os 8 perfis de referência no Metricool: a conexão só lê métricas e agenda, não cadastra concorrente (a própria proposta diz isso); passo a passo na proposta 2026-11-20-perfis-referencia. (c) corrigir .claude/settings.json e settings-executor.json: o sistema bloqueou a edição de permissão; fica para o Victor ou sessão interativa. (d) troca das chaves: passo a passo em `rotinas/trocar-chaves.md`.
 - Pendente: texto "desde 12/11 19h30" e "R$ 297" na página de tráfego e a /pp-black26 (achados 2 e 3 da auditoria) não estavam no OK de hoje.
 - Placar e medir-reabertura: contagem atual 8 linhas de Black (vitalício conta como linhas separadas, ver dúvida de 21/11 00h).
+
+### 21/11 08h50 · Executor (recado do Victor: ler DevZapp)
+- Pedido: ler o status das 41 mensagens da régua da reabertura no DevZapp (só leitura) e o Log e Erros da ponte.
+- Feito: li Log e Erros da ponte (sex 18h50 a sáb 08h50): sem registro de disparo do DevZapp e sem erro de envio. Achados: 8 erros "contato já existe e não foi achado" (aviso de venda no ManyChat) e 6 cartões recusados seguidos na Black 1 ano (sex 22h36). Avisei o Victor no WhatsApp.
+- NÃO feito: ler o DevZapp (precisa do Chrome do Victor; sem navegador nesta execução). Fica para sessão com Chrome ou print do Victor.
+- Fila: sem linha APROVADO. Nada externo executado além do aviso. Recados limpos.
