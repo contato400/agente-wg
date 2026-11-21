@@ -12,7 +12,7 @@
 const GRAPH = 'https://graph.facebook.com/v23.0';
 const MC = 'https://api.manychat.com';
 const YC = 'https://api.ycloud.com/v2';
-const ESPERA_MS = 7000;             // junta mensagens seguidas antes de responder
+const ESPERA_MS = 15000;             // junta mensagens seguidas antes de responder
 const HUMANO_TTL = 2 * 3600;        // humano respondeu pelo celular: agente fica quieto 2 h
 const HIST_MAX = 24;
 
@@ -849,7 +849,12 @@ async function conferirAcademia(email, env) {
     else if (a.denial_reason) neg.push(n + ' (sem acesso: ' + a.denial_reason + ')');
   }
   await passo(env, 'academia: aluno ok, ' + lib.length + ' curso(s) liberado(s)');
-  return `Aluno encontrado na Academia (último acesso conta como ${aluno.status === 'active' ? 'ativo nos últimos 30 dias' : 'sem acesso recente'}).\nCursos liberados: ${lib.length ? lib.join('; ') : 'nenhum'}` + (neg.length ? `\nSem acesso: ${neg.slice(0, 10).join('; ')}` : '') +
+  // 20/11 22h45 (Victor): mostrar o que FALTA, para o agente listar e montar o combo
+  const tem = new Set((r.j.data || []).filter(a => a.has_access).map(a => String(a.product_id)));
+  const falta = Object.entries(nomes).filter(([id, n]) => !tem.has(String(id)) && !/black|teste|xxx|b[oô]nus|kit|grava[cç][aã]o|encontro|natal|latam|c[oó]pia|mentoria|vip|personalizad|comunidade|franquia|instrutor/i.test(n)).map(([, n]) => n);
+  const semIA = !lib.some(n => /ia kmc/i.test(n)), semGuia = !lib.some(n => /guia de treino|12 semanas/i.test(n));
+  const faltaTxt = '\nO QUE ELA NÃO TEM (liste para a pessoa, pelo nome, na mesma resposta): ' + (falta.length ? falta.slice(0, 25).join('; ') : 'nenhum curso avulso') + (semIA ? '; IA KMC' : '') + (semGuia ? '; Guia de Treino de 12 semanas' : '') + '.\nMonte o combo do que falta (regra "Aluno antigo" da base).';
+  return faltaTxt + `\nAluno encontrado na Academia (último acesso conta como ${aluno.status === 'active' ? 'ativo nos últimos 30 dias' : 'sem acesso recente'}).\nCursos liberados: ${lib.length ? lib.join('; ') : 'nenhum'}` + (neg.length ? `\nSem acesso: ${neg.slice(0, 10).join('; ')}` : '') +
     '\nSe a pessoa não lembra a senha ou não achou o e-mail, use enviar_link_senha. Link da Academia: https://kravmagacaveira.cademi.com.br/ . Se falta um curso que ela comprou (confira com consultar_compra), passe para humano dizendo qual curso.';
 }
 async function enviarLinkSenha(email, env) {
@@ -930,8 +935,7 @@ function dividir(t) {
   t = t.replace(/\s*—\s*/g, ', ').trim();
   if (!t) return [];
   const partes = t.split(/\n{2,}/).map(s => s.trim()).filter(Boolean);
-  if (partes.length <= 2) return partes;
-  return [partes[0], partes.slice(1).join('\n\n')];
+  return [partes.join('\n\n')];   // 20/11 22h45 (Victor): uma mensagem só por resposta, nada de várias bolhas seguidas
 }
 // Agentes falando com o Victor: mensagens podem ser longas; quebra em blocos de até ~3500 caracteres (limite do WhatsApp é 4096).
 function dividirLongo(t) {
