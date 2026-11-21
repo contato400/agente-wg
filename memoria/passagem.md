@@ -408,3 +408,9 @@ Modelo:
 - Pendente: ouvir os pontos "Atenção" de cada corte; confirmar o que CAVEIRA entrega depois de 23/11; capa pelo ChatGPT (pedido pronto) se o Victor quiser; cadastrar os perfis no Metricool; achar a live da Black 2025.
 - Verificado: folha de contato, áudio final retranscrito e comparado com a legenda, pico de áudio entre -1,2 e -1,5 dB, sem travessão nos textos. Seguidores dos perfis não confirmados (Instagram bloqueia leitura).
 - Aprendizado: o faster-whisper desta máquina falha com arquivo (versão do av); passar o áudio como array do numpy (ffmpeg para f32le). Aulas com letterbox 16:9: cortar a tarja e usar rosto em faixa sobre fundo desfocado. A transcrição do modelo small erra palavras (vidro virou vídeo, ambiente virou "ano viente"): conferir trecho com o medium antes de legendar.
+
+## 21/11 manhã · gasto da API (US$ 2,33 no dia)
+- Pedido: Victor assustado com US$ 2,33 hoje e crédito de ~US$ 9.
+- Causa (pelo código; número por chamada não conferido, o Chrome não respondeu): cada conversa nova regrava no cache ~20 mil tokens de base (cache de 5 min, escrita a US$ 3,75/M = ~US$ 0,08); tudo em Sonnet; agentes falando com o Victor recebem também a base de clientes; resumo de 2 em 2 h e "condensar" em Sonnet; reabertura trouxe mais leads.
+- Feito (só no arquivo local, NÃO publicado): cache de 1 h, agentes sem a base de clientes (menos atendimento-wg), condensar em Haiku, teto duro TETO_DURO_USD que joga o cliente para a reserva Gemini, estimativa com preço do cache de 1 h. Cópia do original: scratchpad worker.template.antes-economia.js.
+- Pendente: OK do Victor para publicar; decidir Haiku no cliente (env MODELO) depois de rodar roteiro-de-teste.md; ler /gasto para conferir.

@@ -128,7 +128,7 @@ function separarFala(t) {
 
 async function condensar(texto, env) {
   const { ok, d } = await chamarClaude(env, {
-    model: env.MODELO_AGENTES || 'claude-sonnet-5-5', max_tokens: 700,
+    model: env.MODELO_SIMPLES || 'claude-haiku-5-5', max_tokens: 700,
     system: 'Você transforma mensagens da equipe de agentes para o Victor ouvir. Português do Brasil, sem travessão, sem inventar nada que não esteja na mensagem.' + FORMATO_VOZ,
     messages: [{ role: 'user', content: texto.slice(0, 8000) }]
   });
@@ -660,7 +660,7 @@ async function chamarClaude(env, corpo) {
 async function anotarGasto(env, u, modelo) {
   const dia = new Date(Date.now() - 3 * 3600000).toISOString().slice(0, 10), k = 'gasto:' + dia;
   const g = JSON.parse((await env.WG.get(k)) || '{"chamadas":0,"in":0,"out":0,"cr":0,"cw":0,"usd":0}');
-  const P = /haiku/.test(modelo || '') ? [1, 5, 0.1, 1.25] : /opus/.test(modelo || '') ? [5, 25, 0.5, 6.25] : [3, 15, 0.3, 3.75];
+  const P = /haiku/.test(modelo || '') ? [1, 5, 0.1, 2] : /opus/.test(modelo || '') ? [5, 25, 0.5, 10] : [3, 15, 0.3, 6];
   const a = u.input_tokens || 0, b = u.output_tokens || 0, c = u.cache_read_input_tokens || 0, w = u.cache_creation_input_tokens || 0;
   g.chamadas++; g.in += a; g.out += b; g.cr += c; g.cw += w; g.usd += (a * P[0] + b * P[1] + c * P[2] + w * P[3]) / 1e6;
   const teto = Number(env.TETO_DIA_USD || 1.5);
@@ -671,9 +671,13 @@ async function anotarGasto(env, u, modelo) {
 
 async function pensar(hist, nome, fone, agente, env, rapido = false) {
   const hora = agora();
+  // 21/11 (economia): passou do teto do dia, cliente é respondido pela reserva (Gemini) e não gasta mais crédito da Anthropic
+  if (!agente && env.TETO_DURO_USD) { try { const gg = JSON.parse((await env.WG.get('gasto:' + new Date(Date.now() - 3 * 3600000).toISOString().slice(0, 10))) || 'null'); if (gg && gg.usd > Number(env.TETO_DURO_USD)) { const r = await iaReserva(env, juntar(hist), { fone, nome, extra: '\n\n' + hora }); if (r && r.length) return r; } } catch {} }
   const extra = agente ? `\n\n${hora}` : `\n\n${hora}\nRegra de economia: responda curto e objetivo (até 3 frases), direto ao que a pessoa perguntou, e leve para o link de compra quando fizer sentido. Não prolongue a conversa.\nPrimeiro nome no perfil do WhatsApp: ${nome || 'não informado'} (use só se parecer um nome de verdade).`;
-  const sistema = [{ type: 'text', text: SISTEMA, cache_control: { type: 'ephemeral' } }];
-  if (agente) sistema.push({ type: 'text', text: await sistemaAgente(agente, env), cache_control: { type: 'ephemeral' } });
+  // 21/11 (economia): cache de 1 hora; agente que fala com o Victor não recebe a base de clientes (só o atendimento-wg)
+  const C1H = { type: 'ephemeral', ttl: '1h' };
+  const sistema = (!agente || agente === 'atendimento-wg') ? [{ type: 'text', text: SISTEMA, cache_control: C1H }] : [];
+  if (agente) sistema.push({ type: 'text', text: await sistemaAgente(agente, env), cache_control: C1H });
   sistema.push({ type: 'text', text: extra });
   const msgs = juntar(hist);
   for (let volta = 0; volta < 4; volta++) {
