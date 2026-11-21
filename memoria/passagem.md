@@ -454,3 +454,6 @@ Modelo:
 - Feito: Metricool lido (marca 8190484, 21/11). Não há item do Instagram agendado para a manhã. Só 2 pendentes, sem erro: carrossel golpe da central falsa 12h (id 434235920) e Reels falso advogado 20h (id 436577632). Avisei o Victor no WhatsApp.
 - NÃO feito: DevZapp (sem navegador nesta execução). Pedi ao Victor conferir as mensagens dos grupos ou dizer onde o post estava. Nada reenviado.
 - Fila: sem linha APROVADO. Nada externo executado além do aviso. Recados limpos.
+
+### 21/11 · Executor (rotina horária, 6)
+- Recados: nenhum. Fila: sem linha APROVADO pendente (só PENDENTE 20261121-social-2). Nada executado, nenhuma mensagem enviada.
