@@ -448,3 +448,9 @@ Modelo:
 - Feito: li Log e Erros da ponte (sex 18h50 a sáb 08h50): sem registro de disparo do DevZapp e sem erro de envio. Achados: 8 erros "contato já existe e não foi achado" (aviso de venda no ManyChat) e 6 cartões recusados seguidos na Black 1 ano (sex 22h36). Avisei o Victor no WhatsApp.
 - NÃO feito: ler o DevZapp (precisa do Chrome do Victor; sem navegador nesta execução). Fica para sessão com Chrome ou print do Victor.
 - Fila: sem linha APROVADO. Nada externo executado além do aviso. Recados limpos.
+
+### 21/11 09h35 · Executor (recado do Victor: post da manhã não saiu)
+- Pedido: só leitura. Conferir DevZapp (9h, 12h, 15h, 19h, 21h) e Metricool de hoje de manhã.
+- Feito: Metricool lido (marca 8190484, 21/11). Não há item do Instagram agendado para a manhã. Só 2 pendentes, sem erro: carrossel golpe da central falsa 12h (id 434235920) e Reels falso advogado 20h (id 436577632). Avisei o Victor no WhatsApp.
+- NÃO feito: DevZapp (sem navegador nesta execução). Pedi ao Victor conferir as mensagens dos grupos ou dizer onde o post estava. Nada reenviado.
+- Fila: sem linha APROVADO. Nada externo executado além do aviso. Recados limpos.

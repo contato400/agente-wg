@@ -33,3 +33,4 @@ Formato (uma linha por pedido, sem dado pessoal):
 | 2026-11-20 | analista-wg | social-media-wg | Pauta de hoje está ligada a qual produto e funil? | Black Caveira (reabertura), funil CAVEIRA do ManyChat (grupo até 18h50, página depois) | RESPONDIDO |
 
 - 2026-11-21 · rotina diária: recados do WhatsApp lidos, nenhum novo. `rotinas/whatsapp.sh memoria` falhou ("Argument list too long": memória grande demais para o curl); precisa enviar o corpo por arquivo. Dono: chefe-wg.
+| 2026-11-21 | Victor (WhatsApp) | executor | Post da manhã não saiu: conferir DevZapp e Metricool, só leitura | Metricool: nada agendado para a manhã (só 12h e 20h pendentes, sem erro). DevZapp não lido (sem navegador) | RESPONDIDO, aguarda Victor |
