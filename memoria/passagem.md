@@ -435,3 +435,10 @@ Modelo:
 - Decisões pendentes do Victor: 8, numeradas no debriefing.
 - Verificado: números da planilha WG e do Painel Financeiro conferidos; Windsor e Metricool lidos. Dúvida: gasto Meta zerado em 20/11, vendas link-victor, mediana com ou sem reels de teste.
 - Nada externo executado.
+
+### 21/11 08h · Executor (recado do Victor, áudios)
+- Pedido: executar 4 aprovações do Victor. Feito: (1) reel do falso advogado programado no Metricool, Reels normal, sáb 21/11 20h, Feito com IA, id 436577632 (fila 20261121-social-1 EXECUTADO; depois de seg 23/11 19h trocar a legenda, não tirar da grade). (2) Página orgânica /black-caveira-2026: tirei camisa e livros, texto dos prêmios ajustado (só encontro ao vivo, 20 primeiros) e publiquei. (3) Página de tráfego /black-caveira-2026-oferta: escondi camisa e livros, FAQ dos prêmios trocado, telefone da Kairós trocado pelo (31) 99329-4274 no rodapé; publicada. Testada no ar: telefone certo; a captura não mostrou o bloco de prêmios (animação de rolagem), conferir no celular.
+- Decisões registradas: placar do Instagram pela mediana dos reels normais (32.418), testes à parte; parar a série da Dona Maria, só alerta avulso; 3 itens com utm link-victor entram na meta; prêmios da reabertura só para quem comprou depois das 19h de sexta.
+- NÃO feito: (a) convite do grupo de espera (descrição no WhatsApp/DevZapp): sem ferramenta aqui, fica com o Victor ou o Gui. (b) cadastrar os 8 perfis de referência no Metricool: a conexão só lê métricas e agenda, não cadastra concorrente (a própria proposta diz isso); passo a passo na proposta 2026-11-20-perfis-referencia. (c) corrigir .claude/settings.json e settings-executor.json: o sistema bloqueou a edição de permissão; fica para o Victor ou sessão interativa. (d) troca das chaves: passo a passo em `rotinas/trocar-chaves.md`.
+- Pendente: texto "desde 12/11 19h30" e "R$ 297" na página de tráfego e a /pp-black26 (achados 2 e 3 da auditoria) não estavam no OK de hoje.
+- Placar e medir-reabertura: contagem atual 8 linhas de Black (vitalício conta como linhas separadas, ver dúvida de 21/11 00h).

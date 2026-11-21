@@ -36,3 +36,5 @@
 - 20/11: alerta sem contexto não serve. Todo alerta ao Victor diz o porquê e o que ficou pendente (quem, quando, o que pediu).
 
 - 2026-11-21 · Reels de teste (20 a 140 views) derrubam a mediana do perfil (8.127 contra 32.418 só com reels normais). O placar do social deve usar a mediana dos reels normais e mostrar os de teste à parte. Windsor: a conta de anúncios entra pelo ID 874070653089870 (não pelo número 4500).
+
+- 21/11 · Executor: o /midia do serviço recusa vídeo grande (erro "tamanho"); reduzir com ffmpeg (crf 26, maxrate 3M) antes de subir e usar o link no Metricool. Edição de página de tráfego (builder Atomicat): não usar update_node_fields no bloco html (apaga o script); mexer pelo rodapé (update_page_settings) com CSS e script. A captura da Atomicat não revela blocos com animação de rolagem: conferir no celular.
